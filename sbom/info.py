@@ -1,4 +1,4 @@
 def info():
     """ Return developer id """
-    DEVELOPER = 'umphrda'
+    DEVELOPER = 'gbm0016'
     return DEVELOPER
