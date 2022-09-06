@@ -3,7 +3,7 @@ import rubik.rotate as rotate
 
 class RotateTest(TestCase):
         
-    def rotateTest_010_words(self):
+    def test_Rotate_010_BDD(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'abc'
