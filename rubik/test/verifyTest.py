@@ -28,3 +28,12 @@ class Test(unittest.TestCase):
         actualResults = verify.isValidLengthCube(cubeString)
         
         self.assertTrue(actualResults)
+
+    
+    def test_verify_020_ShouldDetectWrongLengthCube(self):
+        cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooobbbbbbyyyyyyyyy'
+        
+        actualResults = verify.isValidLengthCube(cubeString)
+        
+        self.assertFalse(actualResults)
+        
