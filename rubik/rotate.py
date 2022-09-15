@@ -30,7 +30,7 @@ def _rotate(parms):
     # rotatedCubeList[12] = cubeList[43]
     # rotatedCubeList[]15 = cubeList[44]
     #
-    # #rotate top to right
+    # #rotate right to bottom
     # rotatedCubeList[47] = cubeList[9]
     # rotatedCubeList[46] = cubeList[12]
     # rotatedCubeList[45] = cubeList[15]
@@ -48,7 +48,7 @@ def _rotate(parms):
     # rotate = "".join(rotatedCubeList)
     
     myCube = rubik.Cube(parms.get('cube'))
-    myCube.rotate(parma.get('dir'))
+    myCube.rotate(parms.get('dir'))
     result['cube'] = myCube.toString()
                 
     result['status'] = 'ok'                     

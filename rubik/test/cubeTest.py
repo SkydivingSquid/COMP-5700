@@ -13,7 +13,7 @@ import rubik.cube as cube
 #
 # Analysis:    Cube .__init__
 #    inputs:
-#        initialCube:    string; string; len=54, [brgoyw], 9 occurrences of each, unique middle, mandator, unvalidated
+#        initialCube:    string; string; len=54, [brgoyw], 9 occurrences of each, unique middle, mandatory, unvalidated
 #    outputs:
 #        side effects:    none
 #    nominal:
@@ -29,6 +29,7 @@ class Test(unittest.TestCase):
 
 
     def test_init_010_shouldInsantiateCube(self):
-        incomingCube = 'gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww'
-        myCube = cube.Cube(incomingCube)
+        incomingCube[] = ['gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww']
+        myCube = cube.Cube(incomingCube[])
         self.assertIsInstance(myCube, cube.Cube)
+
