@@ -43,7 +43,7 @@ class RotateTest(unittest.TestCase):
 
     def test_rotate_010_ShouldRotateValidNominalCube(self):
         inputDict = {}
-        input['op'] = 'rotate'
+        inputDict['op'] = 'rotate'
         input['cube'] = 'ggoybybrbwgggrrybgybwbgbyrbgoooooowwryrgyrwwbrwrowwyyo'
         input['dir'] = 'F'
         
