@@ -29,7 +29,7 @@ class Test(unittest.TestCase):
 
 
     def test_init_010_shouldInsantiateCube(self):
-        incomingCube[] = ['gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww']
-        myCube = cube.Cube(incomingCube[])
+        incomingCube = ['gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww']
+        myCube = cube.Cube(incomingCube)
         self.assertIsInstance(myCube, cube.Cube)
 
