@@ -33,14 +33,4 @@ class Test(unittest.TestCase):
         myCube = cube.Cube(incomingCube)
         self.assertIsInstance(myCube, cube.Cube)
 
-    def test_020_rotateNominalCubeF(self):
-        inputDict = {}
-        inputDict['op'] = 'rotate'
-        inputDict['cube'] = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
-        inputDict['dir'] = 'F'
-        
-        expectedResult = {}
-        expectedResult['cube'] = 'gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww'
-        
-        actualResult = cube.Cube.rotate(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    
