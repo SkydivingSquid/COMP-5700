@@ -1,14 +1,13 @@
 '''
-Created on Sep 6, 2022
+Created on Sep 15, 2022
 
 @author: Martin
 '''
 import unittest
-import rubik.verify as verify
+import rubik.rotate as rotate
 
+class RotateTest(unittest.TestCase):
 
-class Test(unittest.TestCase):
-    
     # Analysis
     #    
     #    inputs:
@@ -41,23 +40,19 @@ class Test(unittest.TestCase):
     #        test 920: valid cube with invalid rotation
     #
 
-    
-    
 
+    def test_rotate_010_ShouldRotateValidNominalCube(self):
+        inputDict = {}
+        input['op'] = 'rotate'
+        input['cube'] = 'ggoybybrbwgggrrybgybwbgbyrbgoooooowwryrgyrwwbrwrowwyyo'
+        input['dir'] = 'F'
+        
+        expectedResult = {}
+        expectedResult['cube'] = 'bygrbgbyowggwrrbbgybwbgbyrbgoroowowrryrgyrwooygwowwyyo'
+        expectedResult['status'] = 'ok'
+        
+        actualResult = rotate._rotate(inputDict)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
 
-    def test_verify_010_ShouldVerify54CharInCube(self):
-        
-        cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
-        
-        actualResults = verify.isValidLengthCube(cubeString)
-        
-        self.assertTrue(actualResults)
-
-    
-    def test_verify_020_ShouldDetectWrongLengthCube(self):
-        cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooobbbbbbyyyyyyyyy'
-        
-        actualResults = verify.isValidLengthCube(cubeString)
-        
-        self.assertFalse(actualResults)
         
