@@ -3,8 +3,8 @@ class Cube:
     Rubik's cube
     '''
 
-    def __init__(self):
-        self.cube = []
+    def __init__(self, initCube):
+        self.cube = initCube
 
     def rotate():
-        return 3
+        return 
