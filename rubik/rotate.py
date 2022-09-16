@@ -3,15 +3,21 @@ import rubik.cube as rubik
 def _rotate(parms):
     """Return rotated cube""" 
     result = {}
+    resulta = {}
     
     cube = parms.get('cube')
     dir = parms.get('dir')
     
     if dir == 'F':
         result = _rotateF(cube, dir)
+        
+        
+    resulta['cube'] = result['cube']
+    resulta['status'] = result['status']
+    return result
     
 def _rotateF(cube, dir):
-    result = {}
+    resulta = {}
     
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
