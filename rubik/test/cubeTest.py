@@ -42,7 +42,7 @@ import rubik.cube as cube
     #
     #    confidence level:    boundary level analysis
     #    
-    #    happy paths:
+    #    happy paths: (THESE DO NOT MATCH CURRENTLY)
     #        test 010: nominal valid cube with F rotation
     #        test 020: nominal valid cube with f rotation
     #        etc, etc
@@ -81,3 +81,20 @@ class Test(unittest.TestCase):
         actualResults = cube.Cube.isValidLengthCube(cubeString)
         
         self.assertFalse(actualResults)
+        
+    def test_cube_030__ShouldDetectInvalidCubeChars(self):
+        cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
+        
+        actualResults = cube.Cube.isValidCubeChar(cubeString)
+        
+        self.assertFalse(actualResults)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
