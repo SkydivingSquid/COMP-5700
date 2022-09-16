@@ -3,6 +3,8 @@ import rubik.cube as rubik
 def _rotate(parms):
     """Return rotated cube""" 
     result = {}
+    
+    rotatedCube = "".join(rotatedCubeList)
 
     if 'dir' == 'F':
         cube = parms.get('cube')
@@ -42,7 +44,6 @@ def _rotate(parms):
         rotatedCubeList[42] = cubeList[35]
     
         
-    rotatedCube = "".join(rotatedCubeList)
     
     result['cube'] = rotatedCube
     result['status'] = 'ok'
