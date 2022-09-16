@@ -17,7 +17,7 @@ def _rotate(parms):
     return result
     
 def _rotateF(cube, dir):
-    resulta = {}
+    result = {}
     
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
