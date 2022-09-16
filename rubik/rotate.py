@@ -4,7 +4,7 @@ def _rotate(parms):
     """Return rotated cube""" 
     result = {}
 
-    if 'dir' == 'F'
+    if 'dir' == 'F':
         cube = parms.get('cube')
         cubeList = list(cube)
         rotatedCubeList = cubeList[:]
