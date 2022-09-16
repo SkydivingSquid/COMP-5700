@@ -3,11 +3,7 @@ import rubik.cube as rubik
 def _rotate(parms):
     """Return rotated cube""" 
     result = {}
-    #encodedCube = parms.get('cube',None)       #STUB:  get "cube" parameter if present
-    #rotatedCube = encodedCube                  #STUB:  rotate the cube
-    
-    
- 
+
     #alt2
     cube = parms.get('cube')
     cubeList = list(cube)
