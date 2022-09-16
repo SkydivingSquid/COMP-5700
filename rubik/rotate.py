@@ -3,17 +3,17 @@ import rubik.cube as rubik
 def _rotate(parms):
     """Return rotated cube""" 
     result = {}
-    resulta = {}
+    frmMeth = {}
     
     cube = parms.get('cube')
     dir = parms.get('dir')
     
     if dir == 'F':
-        resulta = _rotateF(cube, dir)
+        frmMeth = _rotateF(cube, dir)
         
         
-    resulta['cube'] = result['cube']
-    resulta['status'] = result['status']
+    result['cube'] = frmMeth.get('cube')
+    result['status'] = frmMeth.get('status')
     return result
     
 def _rotateF(cube, dir):
