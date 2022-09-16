@@ -11,6 +11,7 @@ def _rotate(parms):
     
     #rotate front face
     
+    rotatedCubeList[2] = cubeList[0]
     rotatedCubeList[5] = cubeList[1]
     rotatedCubeList[8] = cubeList[2]
     rotatedCubeList[1] = cubeList[3]
