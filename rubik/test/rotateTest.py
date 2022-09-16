@@ -42,11 +42,11 @@ class RotateTest(unittest.TestCase):
     def test_rotate_010_ShouldRotateValidNominalCubeF(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
-        inputDict['cube'] = 'gggggggggooooooooobbbbbbbbbrrrrrrrrryyyyyyyyywwwwwwwww'
+        inputDict['cube'] = 'ggoybybrbwgggrrybgybwbgbyrbgoooooowwryrgyrwwbrwrowwyyo'
         inputDict['dir'] = 'F'
         
         expectedResult = {}
-        expectedResult['cube'] = 'gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww'
+        expectedResult['cube'] = 'bygrbgbyowggwrrbbgybwbgbyrbgoroowowrryrgyrwooygwowwyyo'
         expectedResult['status'] = 'ok'
         
         actualResult = rotate._rotate(inputDict)
