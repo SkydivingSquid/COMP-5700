@@ -7,8 +7,8 @@ def _rotate(parms):
     cube = parms.get('cube')
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
-    
-    if 'dir' == 'F':
+    dir = parms.get('dir')
+    if dir == 'F':
         
         
         #rotate front face
