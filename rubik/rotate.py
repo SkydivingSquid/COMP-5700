@@ -43,6 +43,10 @@ def _rotate(parms):
     
     rotatedCube = "".join(rotatedCubeList)
     
+    result['cube'] = rotatedCube
+    result['status'] = 'ok'
+    return result
+    
         
         
 
