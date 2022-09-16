@@ -37,8 +37,8 @@ def _rotate(parms):
     
     #rotate left to top
     rotatedCubeList[44] = cubeList[29]
-    rotatedCubeList[43] = cubeList[32]
-    rotatedCubeList[42] = cubeList[36]
+    rotatedCubeList[43] = cubeList[32] 
+    rotatedCubeList[42] = cubeList[35]
     
     
     rotatedCube = "".join(rotatedCubeList)
