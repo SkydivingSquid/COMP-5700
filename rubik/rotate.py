@@ -20,7 +20,6 @@ def _rotate(parms):
     
     #Six Single Unchanging Center Cubes
     
-    
     Front_Single = {5:cubeList[4]}
     Right_Single = {14:cubeList[13]}
     Back_Single = {23:cubeList[22]}
@@ -55,6 +54,8 @@ def _rotate(parms):
     Bottom_Front_Left = {7:cubeList[6],36:cubeList[35],46:cubeList[45]}
     Bottom_Back_Right = {25:cubeList[24],18:cubeList[17],54:cubeList[53]}
     Bottom_Back_Left = {27:cubeList[26],34:cubeList[33],52:cubeList[51]}
+    
+    
     
     #alt2
     # cube = parms.get('cube')

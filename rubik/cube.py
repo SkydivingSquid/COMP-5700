@@ -1,4 +1,5 @@
 class Cube:
+    
     '''
     Rubik's cube
     '''
@@ -6,5 +7,8 @@ class Cube:
     def __init__(self, initCube):
         self.cube = initCube
 
-    def rotate():
-        return 
+    def isValidLengthCube(cube):
+        if (len(cube) == 54):
+            return True
+        else:
+            return False
