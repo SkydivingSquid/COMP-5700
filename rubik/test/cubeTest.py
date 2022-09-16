@@ -70,7 +70,7 @@ class Test(unittest.TestCase):
         
         cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
         
-        actualResults = cube.isValidLengthCube(cubeString)
+        actualResults = cube.Cube.isValidLengthCube(cubeString)
         
         self.assertTrue(actualResults)
 
@@ -78,6 +78,6 @@ class Test(unittest.TestCase):
     def test_cube_020_ShouldDetectWrongLengthCube(self):
         cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooobbbbbbyyyyyyyyy'
         
-        actualResults = cube.isValidLengthCube(cubeString)
+        actualResults = cube.Cube.isValidLengthCube(cubeString)
         
         self.assertFalse(actualResults)
