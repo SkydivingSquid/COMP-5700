@@ -5,10 +5,18 @@ def _rotate(parms):
     result = {}
     
     cube = parms.get('cube')
+    dir = parms.get('dir')
+    
+        if dir == 'F':
+            result = _rotateF(cube, dir)
+    
+def _rotateF(cube, dir):
+    result = {}
+    
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
-    dir = parms.get('dir')
-    if dir == 'F':
+    
+    #if dir == 'F':
         
         
         #rotate front face
