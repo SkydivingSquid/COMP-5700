@@ -7,8 +7,8 @@ def _rotate(parms):
     cube = parms.get('cube')
     dir = parms.get('dir')
     
-        if dir == 'F':
-            result = _rotateF(cube, dir)
+    if dir == 'F':
+        result = _rotateF(cube, dir)
     
 def _rotateF(cube, dir):
     result = {}
