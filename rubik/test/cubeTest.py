@@ -32,5 +32,3 @@ class Test(unittest.TestCase):
         incomingCube = 'gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww'
         myCube = cube.Cube(incomingCube)
         self.assertIsInstance(myCube, cube.Cube)
-
-    

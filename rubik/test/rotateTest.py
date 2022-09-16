@@ -38,9 +38,7 @@ class RotateTest(unittest.TestCase):
     #    sad paths:
     #        test 910: missing cube with valid rotation
     #        test 920: valid cube with invalid rotation
-    #
-
-
+    
     def test_rotate_010_ShouldRotateValidNominalCubeF(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
