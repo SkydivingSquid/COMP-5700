@@ -4,12 +4,12 @@ def _rotate(parms):
     """Return rotated cube""" 
     result = {}
     
-    rotatedCube = "".join(rotatedCubeList)
-
+    cube = parms.get('cube')
+    cubeList = list(cube)
+    rotatedCubeList = cubeList[:]
+    
     if 'dir' == 'F':
-        cube = parms.get('cube')
-        cubeList = list(cube)
-        rotatedCubeList = cubeList[:]
+        
         
         #rotate front face
         
@@ -43,7 +43,7 @@ def _rotate(parms):
         rotatedCubeList[43] = cubeList[32] 
         rotatedCubeList[42] = cubeList[35]
     
-        
+    rotatedCube = "".join(rotatedCubeList)
     
     result['cube'] = rotatedCube
     result['status'] = 'ok'
