@@ -15,4 +15,4 @@ class Cube:
             return False
         
     def isValidCubeChar(cube):
-        
+        return 
