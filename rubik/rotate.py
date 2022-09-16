@@ -40,9 +40,9 @@ def _rotate(parms):
         rotatedCubeList[44] = cubeList[29]
         rotatedCubeList[43] = cubeList[32] 
         rotatedCubeList[42] = cubeList[35]
+    
         
-        
-        rotatedCube = "".join(rotatedCubeList)
+    rotatedCube = "".join(rotatedCubeList)
     
     result['cube'] = rotatedCube
     result['status'] = 'ok'
