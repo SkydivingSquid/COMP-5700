@@ -11,11 +11,16 @@ def _controller(parms):
     status = result['status']
     
 
-    #Validity Checks    
+    #Validity Checks   
+    if isValidDirChar(dir) == False:
+        result['status'] = 'Error - Invalid Dir Char'
+        status = result['status']
+         
     # if rubik.Cube.isValidLengthCube(cube) == False:
     #     result['status'] = 'Error - Invalid Cube Length'
     #     status = result['status']
     #
+
     # if rubik.Cube.isValidCubeChar(cube) == False:
     #     result['status'] = 'Error - Invalid Cube Char'
     #     status = result['status']
@@ -26,10 +31,7 @@ def _controller(parms):
     #     status = result['status']
     #
 
-    if isValidDirChar(dir) == False:
-        result['status'] = 'Error - Invalid Dir Char'
-        status = result['status']
-        
+    
     
     #If Valid, run _rorate for rotation of cube
     if status == 'ok':
