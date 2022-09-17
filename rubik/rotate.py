@@ -18,42 +18,43 @@ def _rotate(parms):
     for x in direc:
     
         if direc == 'F':
-            rotatedCubeList = _rotateF(cube, dir)
+            result = _rotateF(cube, dir)
             
         elif direc == 'f':
-            rotatedCubeList = _rotatef(cube, dir)
+            result = _rotatef(cube, dir)
             
         elif direc == 'R':
-            rotatedCubeList = _rotateR(cube, dir)
+            result = _rotateR(cube, dir)
             
         elif direc == 'r':
-            rotatedCubeList = _rotater(cube, dir)
+            result = _rotater(cube, dir)
             
         elif direc == 'B':
-            rotatedCubeList = _rotateB(cube, dir)
+            result = _rotateB(cube, dir)
             
         elif direc == 'b':
-            rotatedCubeList = _rotateb(cube, dir)
+            result = _rotateb(cube, dir)
             
         elif direc == 'L':
-            rotatedCubeList = _rotateL(cube, dir)
+            tesult = _rotateL(cube, dir)
             
         elif direc == 'l':
-            rotatedCubeList = _rotatel(cube, dir)
+            result = _rotatel(cube, dir)
             
         elif direc == 'U':
-            rotatedCubeList = _rotateU(cube, dir)
+            result = _rotateU(cube, dir)
             
         elif direc == 'u':
-            rotatedCubeList = _rotateu(cube, dir)
+            result = _rotateu(cube, dir)
     
         elif direc == 'D':
-            rotatedCubeList = _rotateD(cube, dir)
+            result = _rotateD(cube, dir)
             
         elif direc == 'd':
-            rotatedCubeList = _rotated(cube, dir)
+            result = _rotated(cube, dir)
         
-    rotatedCube = "".join(rotatedCubeList)
+    rotatedCube = "".join(result.get('cube'))
+    
     result['cube'] = rotatedCube
     result['status'] = result.get('status')
     return result
