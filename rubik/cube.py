@@ -13,6 +13,3 @@ class Cube:
             return True
         else:
             return False
-        
-    def isValidCubeChar(cube):
-        return 0
