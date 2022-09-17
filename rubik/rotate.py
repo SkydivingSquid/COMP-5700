@@ -6,7 +6,7 @@ def _rotate(parms):
     #frmMeth = {}
     
     cube = parms.get('cube')
-    dir = parms.get('dir')
+    dir = list(parms.get('dir'))
     
     for x in dir:
     
