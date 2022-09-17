@@ -9,7 +9,11 @@ def _controller(parms):
     #print(status)
     
     if rubik.Cube.isValidLengthCube(cube) == False:
-      result['status'] = 'Error'
+      result['status'] = 'Error - Invalid Cube Length'
+      status = result['status']
+      
+    if rubik.Cube.isValidCubeChar(cube) == False:
+        result['status'] = 'Error - Invalid Cube Char'
       status = result['status']
     
     if status == 'ok':

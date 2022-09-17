@@ -295,7 +295,7 @@ class RotateTest(unittest.TestCase):
         inputDict['dir'] = 'R'
     
         expectedResult = {}
-        expectedResult['status'] = 'Error'
+        expectedResult['status'] = 'Error - Invalid Cube Length'
     
         actualResult = rotate._controller(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
@@ -306,7 +306,7 @@ class RotateTest(unittest.TestCase):
         inputDict['cube'] = 'wbrbwwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
     
         expectedResult = {}
-        expectedResult['status'] = 'Error'
+        expectedResult['status'] = 'Error - Invalid Cube Char'
     
         actualResult = rotate._controller(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
