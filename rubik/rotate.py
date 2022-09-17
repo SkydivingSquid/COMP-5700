@@ -10,7 +10,7 @@ def _rotate(parms):
     
     for x in dir:
     
-        if x == 'F' or dir == None or dir == "":
+        if x == 'F' or x == None or x == "":
             result = _rotateF(cube, dir)
             
         elif x == 'f':
