@@ -7,12 +7,13 @@ def _rotate(parms):
     direc = parms.get('dir', 'F')
     result['status'] = 'ok'
     status = result['status']
+    light = "green"
         
     if direc == "" or direc == None:
     #if direc == "":
         direc = 'F'
 
-#    while status == "ok":
+
     
     for x in direc:
     
@@ -549,7 +550,6 @@ def _rotateD(cube, dir):
     result['status'] = 'ok'
 
     return result
-
 def _rotated(cube, dir):
     result = {}
 
