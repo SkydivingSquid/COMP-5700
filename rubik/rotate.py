@@ -60,7 +60,8 @@ def _rotate(parms):
             
         elif direc == 'd':
             parms = _rotated(cube, dir)
-             cube = parms.get('cube')
+            cube = parms.get('cube')
+             
       result['cube'] = cube
       
     result['status'] = 'ok'
