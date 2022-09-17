@@ -12,9 +12,6 @@ def _controller(parms):
     
 
     #Validity Checks   
-    if isValidDirChar(dir) == False:
-        result['status'] = 'Error - Invalid Dir Char'
-        status = result['status']
          
     if rubik.Cube.isValidLengthCube(cube) == False:
         result['status'] = 'Error - Invalid Cube Length'
@@ -28,6 +25,10 @@ def _controller(parms):
 
     if rubik.Cube.isValidCenterColors(cube) == False:
         result['status'] = 'Error - Duplicate Center Colors'
+        status = result['status']
+        
+    if isValidDirChar(dir) == False:
+        result['status'] = 'Error - Invalid Dir Char'
         status = result['status']
     
 
