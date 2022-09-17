@@ -211,37 +211,37 @@ def _rotateB(cube, dir):
 
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
-#
-#     #rotate front face
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#
-#     #rotate top to right
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#
-#     #rotate right to bottom
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#
-#     #rotate bottom to left
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[]
-#
-#     #rotate left to top
-#     rotatedCubeList[] = cubeList[]
-#     rotatedCubeList[] = cubeList[] 
-#     rotatedCubeList[] = cubeList[]
+
+    #rotate front face
+    rotatedCubeList[20] = cubeList[18]
+    rotatedCubeList[21] = cubeList[19]
+    rotatedCubeList[22] = cubeList[20]
+    rotatedCubeList[23] = cubeList[21]
+    rotatedCubeList[24] = cubeList[22]
+    rotatedCubeList[25] = cubeList[23]
+    rotatedCubeList[26] = cubeList[24]
+    rotatedCubeList[27] = cubeList[25]
+    rotatedCubeList[28] = cubeList[26]
+
+    #rotate top to right
+    rotatedCubeList[27] = cubeList[38]
+    rotatedCubeList[30] = cubeList[37]
+    rotatedCubeList[33] = cubeList[36]
+
+    #rotate right to bottom
+    rotatedCubeList[51] = cubeList[27]
+    rotatedCubeList[52] = cubeList[30]
+    rotatedCubeList[53] = cubeList[33]
+
+    #rotate bottom to left
+    rotatedCubeList[17] = cubeList[51]
+    rotatedCubeList[14] = cubeList[52]
+    rotatedCubeList[11] = cubeList[53]
+
+    #rotate left to top
+    rotatedCubeList[36] = cubeList[11]
+    rotatedCubeList[37] = cubeList[14] 
+    rotatedCubeList[38] = cubeList[17]
 #
     rotatedCube = "".join(rotatedCubeList)
 
