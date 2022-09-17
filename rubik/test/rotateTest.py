@@ -330,7 +330,7 @@ class RotateTest(unittest.TestCase):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'wbrbgwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
-         inputDict['dir'] = 'a'
+         inputDict['dir'] = ''
     
         expectedResult = {}
         expectedResult['status'] = 'Error - Duplicate Center Colors'
