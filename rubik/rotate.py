@@ -12,17 +12,17 @@ def _controller(parms):
     
 
     #Validity Checks    
-    if rubik.Cube.isValidLengthCube(cube) == False:
-        result['status'] = 'Error - Invalid Cube Length'
-        status = result['status']
-      
-    if rubik.Cube.isValidCubeChar(cube) == False:
-        result['status'] = 'Error - Invalid Cube Char'
-        status = result['status']
-    
-    if rubik.Cube.isValidCenterColors(cube) == False:
-        result['status'] = 'Error - Duplicate Center Colors'
-        status = result['status']
+    # if rubik.Cube.isValidLengthCube(cube) == False:
+    #     result['status'] = 'Error - Invalid Cube Length'
+    #     status = result['status']
+    #
+    # if rubik.Cube.isValidCubeChar(cube) == False:
+    #     result['status'] = 'Error - Invalid Cube Char'
+    #     status = result['status']
+    #
+    # if rubik.Cube.isValidCenterColors(cube) == False:
+    #     result['status'] = 'Error - Duplicate Center Colors'
+    #     status = result['status']
         
     if isValidDirChar(dir) == False:
         result['status'] = 'Error - Invalid Dir Char'
