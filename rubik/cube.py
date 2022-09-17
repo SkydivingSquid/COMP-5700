@@ -22,3 +22,15 @@ class Cube:
             return True
         else:
             return False
+        
+    def isValidCenterColors(cube):
+        
+        CenterList = cube[4] + cube[13] +cube[22] + cube[31] + cube[40] + cube[49]
+        
+        #Checks for duplicates, returns false is duplicate is found.
+        for colors in CenterList:
+            if CenterList.count(colors) > 1:
+                return False
+        #Returns True is no duplicates are found.
+        return True
+        
