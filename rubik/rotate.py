@@ -36,7 +36,7 @@ def _rotate(parms):
         result = _rotateU(cube, dir)
         
     elif dir == 'u':
-        result = _rotateU(cube, dir)
+        result = _rotateu(cube, dir)
         
         
         
