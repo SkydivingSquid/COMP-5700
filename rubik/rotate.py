@@ -24,9 +24,8 @@ def _controller(parms):
         status = result['status']
         
     if rubik.Cube.isValidDirChar(dir) == False:
-        result['status'] = 'Error - Duplicate Center Colors'
+        result['status'] = 'Error - Invalid Dir Char'
         status = result['status']
-        
         
     
     #If Valid, run _rorate for rotation of cube
