@@ -7,42 +7,43 @@ def _rotate(parms):
     cube = parms.get('cube')
     dir = parms.get('dir', 'F')
     
+    for x in dir:
     
-    if dir == 'F' or dir == None or dir == "":
-        result = _rotateF(cube, dir)
-        
-    elif dir == 'f':
-        result = _rotatef(cube, dir)
-        
-    elif dir == 'R':
-        result = _rotateR(cube, dir)
-        
-    elif dir == 'r':
-        result = _rotater(cube, dir)
-        
-    elif dir == 'B':
-        result = _rotateB(cube, dir)
-        
-    elif dir == 'b':
-        result = _rotateb(cube, dir)
-        
-    elif dir == 'L':
-        result = _rotateL(cube, dir)
-        
-    elif dir == 'l':
-        result = _rotatel(cube, dir)
-        
-    elif dir == 'U':
-        result = _rotateU(cube, dir)
-        
-    elif dir == 'u':
-        result = _rotateu(cube, dir)
-
-    elif dir == 'D':
-        result = _rotateD(cube, dir)
-        
-    elif dir == 'd':
-        result = _rotated(cube, dir)
+        if dir == 'F' or dir == None or dir == "":
+            result = _rotateF(cube, dir)
+            
+        elif dir == 'f':
+            result = _rotatef(cube, dir)
+            
+        elif dir == 'R':
+            result = _rotateR(cube, dir)
+            
+        elif dir == 'r':
+            result = _rotater(cube, dir)
+            
+        elif dir == 'B':
+            result = _rotateB(cube, dir)
+            
+        elif dir == 'b':
+            result = _rotateb(cube, dir)
+            
+        elif dir == 'L':
+            result = _rotateL(cube, dir)
+            
+        elif dir == 'l':
+            result = _rotatel(cube, dir)
+            
+        elif dir == 'U':
+            result = _rotateU(cube, dir)
+            
+        elif dir == 'u':
+            result = _rotateu(cube, dir)
+    
+        elif dir == 'D':
+            result = _rotateD(cube, dir)
+            
+        elif dir == 'd':
+            result = _rotated(cube, dir)
         
         
         
