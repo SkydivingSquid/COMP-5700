@@ -471,7 +471,7 @@ def _rotateu(cube, dir):
     rotatedCubeList = cubeList[:]
 
     #rotate front face
-    rotatedCubeList[36] = cubeList[48]
+    rotatedCubeList[36] = cubeList[38]
     rotatedCubeList[37] = cubeList[41]
     rotatedCubeList[38] = cubeList[44]
     rotatedCubeList[39] = cubeList[37]
