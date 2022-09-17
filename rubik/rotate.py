@@ -6,6 +6,7 @@ import rubik.cube as rubik
 def _controller(parms):
     result = {}
     cube = parms.get('cube')
+    dir = parms.get('dir')
     result['status'] = 'ok'
     status = result['status']
     
