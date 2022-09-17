@@ -266,7 +266,7 @@ def _rotateb(cube, dir):
     rotatedCubeList[21] = cubeList[19]
     rotatedCubeList[22] = cubeList[22]
     rotatedCubeList[23] = cubeList[25]
-    rotatedCubeList[14] = cubeList[18]
+    rotatedCubeList[24] = cubeList[18]
     rotatedCubeList[25] = cubeList[21]
     rotatedCubeList[26] = cubeList[24]
 
