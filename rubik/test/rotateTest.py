@@ -318,6 +318,7 @@ class RotateTest(unittest.TestCase):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'wbrbwwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
+        inputDict['dir'] = ''
     
         expectedResult = {}
         expectedResult['status'] = 'Error - Invalid Cube Char'
