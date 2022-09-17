@@ -7,8 +7,8 @@ def _rotate(parms):
     direc = parms.get('dir', 'F')
     
     
-    #if direc == "" or direc == None:
-    if direc == "":
+    if direc == "" or direc == None:
+    #if direc == "":
         direc = 'F'
     
     
