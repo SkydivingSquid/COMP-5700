@@ -272,7 +272,7 @@ class RotateTest(unittest.TestCase):
         inputDict['dir'] = "FRLU"
     
         expectedResult = {}       
-        expectedResult['cube'] = 'wwowwgywwgowrrrooygyrbywgyyybgorbogbrrybbrbwoobyggogr'
+        expectedResult['cube'] = 'wwowwgywwgowrrrooygyrbywgyyybbgorbogbrrybbrbwoobyggogr'
         expectedResult['status'] = 'ok'
     
         actualResult = rotate._rotate(inputDict)
