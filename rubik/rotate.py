@@ -5,9 +5,10 @@ def _rotate(parms):
     result = {}
     
     cube = parms.get('cube')
-    direc = parms.get('dir', 'F')
+    direc = parms.get('dir')
     
-    if direc == "" or direc == None:
+    #if direc == "" or direc == None:
+    if direc == "":
         direc = 'F'
     
     
