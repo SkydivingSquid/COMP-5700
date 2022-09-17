@@ -20,3 +20,5 @@ class Cube:
 
         if all(ch in allowed_cubeChar for ch in cube):
             return True
+        else:
+            return False
