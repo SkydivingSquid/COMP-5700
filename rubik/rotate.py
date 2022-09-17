@@ -47,8 +47,8 @@ def _rotate(parms):
     status = result['status']
     light = "green"
         
-    if direc == "" or direc == None:
-    #if direc == "":
+    #if direc == "" or direc == None:
+    if direc == "":
         direc = 'F'
 
     for x in direc:
