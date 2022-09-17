@@ -16,10 +16,11 @@ def _controller(parms):
     #     result['status'] = 'Error - Invalid Cube Length'
     #     status = result['status']
     #
-    if rubik.Cube.isValidCubeChar(cube) == False:
-        result['status'] = 'Error - Invalid Cube Char'
-        status = result['status']
-    
+    # if rubik.Cube.isValidCubeChar(cube) == False:
+    #     result['status'] = 'Error - Invalid Cube Char'
+    #     status = result['status']
+    #
+
     # if rubik.Cube.isValidCenterColors(cube) == False:
     #     result['status'] = 'Error - Duplicate Center Colors'
     #     status = result['status']
