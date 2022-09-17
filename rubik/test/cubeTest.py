@@ -29,6 +29,7 @@ import rubik.cube as cube
     #        parms:    dict, mandatory, arrived validated
     #            parms['op']:    string: 'rotate', mandatory, validated
     #            parms['cube']:    string: len=54, [brgoyw], 9 of each char, unique middle, mandatory, unvalidated
+    
     #            parms['dir']:    string: len >= 0, [FfBbUuDdLlRr], optional, default to F if missing, unvalidated
     #
     #    outputs:
@@ -74,15 +75,29 @@ class Test(unittest.TestCase):
         
         self.assertTrue(actualResults)
 
+    
+    def test_cube_020_ShouldVerifyValidCubeChars(self):
+        cubeString = 'wwwwwwwwwgggggggggrrrrzrrrrrooooooobbbbbbyyyyyyyyy'
+    
+        actualResults = cube.Cube.isValidCubeChar(cubeString)
+    
+        self.assertFalse(actualResults)
     #
-    # def test_cube_020_ShouldDetectWrongLengthCube(self):
-    #     cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooobbbbbbyyyyyyyyy'
+    # def test_cube_030__ShouldVerifyUniqueCenterColors(self):
+    #     cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
     #
-    #     actualResults = cube.Cube.isValidLengthCube(cubeString)
+    #     actualResults = cube.Cube.isValidCubeChar(cubeString)
     #
     #     self.assertFalse(actualResults)
     #
-    # def test_cube_030__ShouldDetectInvalidCubeChars(self):
+    # def test_cube_040__ShouldVerifyUniqueCenterColors(self):
+    #     cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
+    #
+    #     actualResults = cube.Cube.isValidCubeChar(cubeString)
+    #
+    #     self.assertFalse(actualResults)
+    #
+    # def test_cube_050__ShouldVerifyValidDirColors(self):
     #     cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
     #
     #     actualResults = cube.Cube.isValidCubeChar(cubeString)

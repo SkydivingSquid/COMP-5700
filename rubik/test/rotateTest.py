@@ -49,8 +49,17 @@ class RotateTest(unittest.TestCase):
     #
     #        (Multiple rotation instance)
     #        test 160: nominal valid cube with multiple rotations.
+    # 
+    #
     #
     #    sad paths:
+    #        (Cube class calls)
+    #        test 510: Validate Cube class checks for valid length
+    #        test 520: validate Cube class checks for valid cube chars
+    #        test 530: Validate Cube class checks for unique center cube colors
+    #        test 540: Validate Cube class checks for valid dir chars
+    #
+    #        (Invalid missing parms)
     #        test 910: missing cube with valid rotation
     #        test 920: valid cube with invalid rotation
     #
@@ -279,7 +288,7 @@ class RotateTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    def test_rotate_170_Controller_ValidLength(self):
+    def test_rotate_510_Controller_ValidLength(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbr'
