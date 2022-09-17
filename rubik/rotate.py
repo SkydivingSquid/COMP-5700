@@ -210,8 +210,6 @@ def _rotater(cube, dir):
     result['status'] = 'ok'
     
     return result
-
-
 def _rotateB(cube, dir):
     result = {}
 
@@ -255,7 +253,6 @@ def _rotateB(cube, dir):
     result['status'] = 'ok'
 
     return result
-
 def _rotateb(cube, dir):
     result = {}
 
@@ -299,7 +296,6 @@ def _rotateb(cube, dir):
     result['status'] = 'ok'
 
     return result
-
 def _rotateL(cube, dir):
     result = {}
 
@@ -323,7 +319,7 @@ def _rotateL(cube, dir):
     rotatedCubeList[6] = cubeList[42]
 
     #rotate right to bottom
-    rotatedCubeList[51] = cubeList[0]
+    rotatedCubeList[45] = cubeList[0]
     rotatedCubeList[48] = cubeList[3]
     rotatedCubeList[51] = cubeList[6]
 
