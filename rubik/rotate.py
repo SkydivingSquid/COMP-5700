@@ -38,8 +38,8 @@ def _rotate(parms):
     elif dir == 'u':
         result = _rotateu(cube, dir)
 
-    elif dir == 'D':
-        result = _rotateD(cube, dir)
+    elif dir == 'd':
+        result = _rotated(cube, dir)
         
         
         
