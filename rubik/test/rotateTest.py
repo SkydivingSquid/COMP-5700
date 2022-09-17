@@ -313,18 +313,18 @@ class RotateTest(unittest.TestCase):
     
         actualResult = rotate._controller(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
-    # def test_rotate_520_Controller_ValidCubeChars(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'rotate'
-    #     inputDict['cube'] = 'wbrbwwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
-    #
-    #     expectedResult = {}
-    #     expectedResult['status'] = 'Error - Invalid Cube Char'
-    #
-    #     actualResult = rotate._controller(inputDict)
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    # #
+    
+    def test_rotate_520_Controller_ValidCubeChars(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'wbrbwwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
+    
+        expectedResult = {}
+        expectedResult['status'] = 'Error - Invalid Cube Char'
+    
+        actualResult = rotate._controller(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+     
     # def test_rotate_530_Controller_ValidCubeCenterChars(self):
     #     inputDict = {}
     #     inputDict['op'] = 'rotate'
