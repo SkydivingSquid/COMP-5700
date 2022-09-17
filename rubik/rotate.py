@@ -12,6 +12,7 @@ def _controller(parms):
     
     if dir == "" or dir == None:
         dir = 'F'
+        parms['dir'] = dir
     
     #Validity Checks   
          
