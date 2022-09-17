@@ -289,16 +289,16 @@ class RotateTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
     def test_rotate_540_Controller_ValidDirChars(self):
-    inputDict = {}
-    inputDict['op'] = 'rotate'
-    inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
-    inputDict['dir'] = 'a'
-
-    expectedResult = {}
-    expectedResult['status'] = 'Error - Invalid Dir Char'
-
-    actualResult = rotate._controller(inputDict)
-    self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
+        inputDict['dir'] = 'a'
+        
+        expectedResult = {}
+        expectedResult['status'] = 'Error - Invalid Dir Char'
+        
+        actualResult = rotate._controller(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
         
     #
