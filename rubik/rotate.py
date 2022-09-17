@@ -6,8 +6,7 @@ def _rotate(parms):
     
     cube = parms.get('cube')
     direc = parms.get('dir', 'F')
-    
-    rotatedCubeList = result.get('cube')
+    ]
     
     #if direc == "" or direc == None:
     if direc == "":
@@ -35,7 +34,7 @@ def _rotate(parms):
             result = _rotateb(cube, dir)
             
         elif direc == 'L':
-            tesult = _rotateL(cube, dir)
+            result = _rotateL(cube, dir)
             
         elif direc == 'l':
             result = _rotatel(cube, dir)
@@ -51,10 +50,9 @@ def _rotate(parms):
             
         elif direc == 'd':
             result = _rotated(cube, dir)
-            
-    rotatedCube = "".join(rotatedCubeList)
+        
     
-    result['cube'] = rotatedCube
+    result['cube'] = result.get('cube')
     result['status'] = result.get('status')
     return result
     
