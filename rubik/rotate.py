@@ -14,7 +14,7 @@ def _rotate(parms):
     elif dir == 'f':
         result = _rotatef(cube, dir)
         
-    elif dir == 'R'
+    elif dir == 'R':
         result = _rotateR(cube, dir)
         
         
