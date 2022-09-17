@@ -62,7 +62,7 @@ def _rotate(parms):
             parms = _rotated(cube, dir)
             cube = parms.get('cube')
              
-      result['cube'] = cube
+        result['cube'] = cube
       
     result['status'] = 'ok'
     
