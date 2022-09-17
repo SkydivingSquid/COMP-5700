@@ -3,10 +3,9 @@ import rubik.cube as rubik
 def _rotate(parms):
     """Return rotated cube""" 
     result = {}
-    
     cube = parms.get('cube')
     direc = parms.get('dir', 'F')
-    ]
+    
     
     #if direc == "" or direc == None:
     if direc == "":
@@ -16,45 +15,59 @@ def _rotate(parms):
     for x in direc:
     
         if direc == 'F':
-            result = _rotateF(cube, dir)
+            parms = _rotateF(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'f':
-            result = _rotatef(cube, dir)
+            parms = _rotatef(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'R':
-            result = _rotateR(cube, dir)
+            parms = _rotateR(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'r':
-            result = _rotater(cube, dir)
+            parms = _rotater(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'B':
-            result = _rotateB(cube, dir)
+            parms = _rotateB(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'b':
-            result = _rotateb(cube, dir)
+            parms = _rotateb(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'L':
-            result = _rotateL(cube, dir)
+            parms = _rotateL(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'l':
-            result = _rotatel(cube, dir)
+            parms = _rotatel(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'U':
-            result = _rotateU(cube, dir)
+            parms = _rotateU(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'u':
-            result = _rotateu(cube, dir)
+            parms = _rotateu(cube, dir)
+            cube = parms.get('cube')
     
         elif direc == 'D':
-            result = _rotateD(cube, dir)
+            parms = _rotateD(cube, dir)
+            cube = parms.get('cube')
             
         elif direc == 'd':
-            result = _rotated(cube, dir)
-        
+            parms = _rotated(cube, dir)
+             cube = parms.get('cube')
+      result['cube'] = cube
+      
+    result['status'] = 'ok'
     
-    result['cube'] = result.get('cube')
-    result['status'] = result.get('status')
     return result
+            
+    
     
 #Rotate front face clockwise (F)
 def _rotateF(cube, dir):
