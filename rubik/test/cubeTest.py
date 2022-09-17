@@ -91,11 +91,11 @@ class Test(unittest.TestCase):
         self.assertFalse(actualResults)
     
     def test_cube_020_ShouldVerifyValidDirChars(self):
-        dirString = 'FLBRDUudrblfa'
+        dirString = 'F'
     
         actualResults = cube.Cube.isValidDirChar(dirString)
     
-        self.assertFalse(actualResults)
+        self.assertTrue(actualResults)
     
 
         
