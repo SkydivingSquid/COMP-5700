@@ -34,11 +34,11 @@ class Cube:
         #Returns True is no duplicates are found.
         return True
         
-    def isValidDirChar(dir):
+    def isValidDirChar(cube):
         
         allowed_dirChar = "FfRrBbLlUuDd"
 
-        if all(ch in allowed_dirChar for ch in dir):
+        if all(ch in allowed_dirChar for ch in cube):
             return True
         
         else:
