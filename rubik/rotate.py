@@ -7,7 +7,7 @@ def _rotate(parms):
     cube = parms.get('cube')
     direc = parms.get('dir', 'F')
     
-    if direc == "":
+    if direc == "" or direct == None:
         direc = 'F'
     
     
