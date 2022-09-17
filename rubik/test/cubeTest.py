@@ -77,7 +77,7 @@ class Test(unittest.TestCase):
 
     
     def test_cube_020_ShouldVerifyValidCubeChars(self):
-        cubeString = 'wwwwwwwwwggggggggGrrrrrzrrrrooooooobbbbbbyyyyyyyyy'
+        cubeString = 'wwwwwwwwwgggggggggrrrrrzrrrrooooooobbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isValidCubeChar(cubeString)
     
@@ -91,7 +91,7 @@ class Test(unittest.TestCase):
         self.assertFalse(actualResults)
     
     def test_cube_020_ShouldVerifyValidDirChars(self):
-        dirString = 'FfRrBbLlUuDd'
+        dirString = 'FLBRDUudrblf'
     
         actualResults = cube.Cube.isValidDirChar(dirString)
     
