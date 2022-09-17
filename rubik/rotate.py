@@ -258,6 +258,50 @@ def _rotateb(cube, dir):
 
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
+
+    #rotate front face
+    rotatedCubeList[18] = cubeList[20]
+    rotatedCubeList[19] = cubeList[23]
+    rotatedCubeList[20] = cubeList[26]
+    rotatedCubeList[21] = cubeList[19]
+    rotatedCubeList[22] = cubeList[22]
+    rotatedCubeList[23] = cubeList[25]
+    rotatedCubeList[14] = cubeList[18]
+    rotatedCubeList[25] = cubeList[21]
+    rotatedCubeList[26] = cubeList[24]
+
+    #rotate top to right
+    rotatedCubeList[38] = cubeList[27]
+    rotatedCubeList[37] = cubeList[30]
+    rotatedCubeList[36] = cubeList[33]
+
+    #rotate right to bottom
+    rotatedCubeList[27] = cubeList[51]
+    rotatedCubeList[30] = cubeList[52]
+    rotatedCubeList[33] = cubeList[53]
+
+    #rotate bottom to left
+    rotatedCubeList[51] = cubeList[17]
+    rotatedCubeList[52] = cubeList[14]
+    rotatedCubeList[53] = cubeList[11]
+
+    #rotate left to top
+    rotatedCubeList[11] = cubeList[36]
+    rotatedCubeList[14] = cubeList[37] 
+    rotatedCubeList[17] = cubeList[38]
+#
+    rotatedCube = "".join(rotatedCubeList)
+
+    result['cube'] = rotatedCube
+    result['status'] = 'ok'
+
+    return result
+
+# def _rotateL(cube, dir):
+#     result = {}
+#
+#     cubeList = list(cube)
+#     rotatedCubeList = cubeList[:]
 #
 #         #rotate front face
 #     rotatedCubeList[] = cubeList[]
@@ -290,12 +334,12 @@ def _rotateb(cube, dir):
 #     rotatedCubeList[] = cubeList[] 
 #     rotatedCubeList[] = cubeList[]
 #
-    rotatedCube = "".join(rotatedCubeList)
-
-    result['cube'] = rotatedCube
-    result['status'] = 'ok'
-
-    return result
+#     rotatedCube = "".join(rotatedCubeList)
+#
+#     result['cube'] = rotatedCube
+#     result['status'] = 'ok'
+#
+#     return result
 #
 # def _rotateU(cube, dir):
 #     result = {}
