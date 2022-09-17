@@ -129,14 +129,14 @@ def _rotateR(cube, dir):
     rotatedCubeList[15] = cubeList[17]
     
     #rotate top to right
-    rotatedCubeList[19] = cubeList[44]
+    rotatedCubeList[18] = cubeList[44]
     rotatedCubeList[21] = cubeList[41]
     rotatedCubeList[24] = cubeList[38]
     
     #rotate right to bottom
     rotatedCubeList[53] = cubeList[18]
     rotatedCubeList[50] = cubeList[21]
-    rotatedCubeList[47] = cubeList[25]
+    rotatedCubeList[47] = cubeList[24]
     
     #rotate bottom to left
     rotatedCubeList[2] = cubeList[47]
