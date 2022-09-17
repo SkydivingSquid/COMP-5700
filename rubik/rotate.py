@@ -15,67 +15,63 @@ def _rotate(parms):
         #if direc == "":
             direc = 'F'
             
-        if rubik.Cube.isValidLengthCube(cube) == False:
-            
-        
-            
-            
-            
+       
             
             
         
-        
+            
+            
         for x in direc:
-        
-            if x == 'F':
-                parms = _rotateF(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'f':
-                parms = _rotatef(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'R':
-                parms = _rotateR(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'r':
-                parms = _rotater(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'B':
-                parms = _rotateB(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'b':
-                parms = _rotateb(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'L':
-                parms = _rotateL(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'l':
-                parms = _rotatel(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'U':
-                parms = _rotateU(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'u':
-                parms = _rotateu(cube, dir)
-                cube = parms.get('cube')
-        
-            elif x == 'D':
-                parms = _rotateD(cube, dir)
-                cube = parms.get('cube')
-                
-            elif x == 'd':
-                parms = _rotated(cube, dir)
-                cube = parms.get('cube')
-                 
-            result['cube'] = cube
+    
+        if x == 'F':
+            parms = _rotateF(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'f':
+            parms = _rotatef(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'R':
+            parms = _rotateR(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'r':
+            parms = _rotater(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'B':
+            parms = _rotateB(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'b':
+            parms = _rotateb(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'L':
+            parms = _rotateL(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'l':
+            parms = _rotatel(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'U':
+            parms = _rotateU(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'u':
+            parms = _rotateu(cube, dir)
+            cube = parms.get('cube')
+    
+        elif x == 'D':
+            parms = _rotateD(cube, dir)
+            cube = parms.get('cube')
+            
+        elif x == 'd':
+            parms = _rotated(cube, dir)
+            cube = parms.get('cube')
+             
+        result['cube'] = cube
       
     
     return result
