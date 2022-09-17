@@ -31,7 +31,7 @@ def _controller(parms):
     
     #If Valid, run _rorate for rotation of cube
     if status == 'ok':
-      result = _rotate(parms)
+        result = _rotate(parms)
     
     return result
     
