@@ -253,7 +253,7 @@ def _rotateB(cube, dir):
 
     return result
 
-def _rotateL(cube, dir):
+def _rotateb(cube, dir):
     result = {}
 
     cubeList = list(cube)
