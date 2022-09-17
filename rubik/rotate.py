@@ -214,14 +214,14 @@ def _rotateB(cube, dir):
 
     #rotate front face
     rotatedCubeList[20] = cubeList[18]
-    rotatedCubeList[21] = cubeList[19]
-    rotatedCubeList[22] = cubeList[20]
-    rotatedCubeList[23] = cubeList[21]
-    rotatedCubeList[24] = cubeList[22]
+    rotatedCubeList[23] = cubeList[19]
+    rotatedCubeList[26] = cubeList[20]
+    rotatedCubeList[19] = cubeList[21]
+    rotatedCubeList[22] = cubeList[22]
     rotatedCubeList[25] = cubeList[23]
-    rotatedCubeList[26] = cubeList[24]
-    rotatedCubeList[27] = cubeList[25]
-    rotatedCubeList[28] = cubeList[26]
+    rotatedCubeList[18] = cubeList[24]
+    rotatedCubeList[21] = cubeList[25]
+    rotatedCubeList[24] = cubeList[26]
 
     #rotate top to right
     rotatedCubeList[27] = cubeList[38]
