@@ -10,7 +10,9 @@ def _controller(parms):
     result['status'] = 'ok'
     status = result['status']
     
-
+    if dir == "" or dir == None:
+        dir = 'F'
+    
     #Validity Checks   
          
     if rubik.Cube.isValidLengthCube(cube) == False:
@@ -50,9 +52,9 @@ def _rotate(parms):
     status = result['status']
     light = "green"
         
-    if dir == "" or dir == None:
+    #if dir == "" or dir == None:
     #if direc == "":
-        dir = 'F'
+        #dir = 'F'
 
     for x in dir:
     
