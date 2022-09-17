@@ -1,13 +1,16 @@
 import rubik.cube as rubik
 
+
+    #Cube and Dir Validity Checks
+    #If inputs are valid, run _rotate with valid parms.
 def _controller(parms):
     result = {}
     cube = parms.get('cube')
     result['status'] = 'ok'
     status = result['status']
     
-    #print(status)
-    
+
+    #Validity Checks    
     if rubik.Cube.isValidLengthCube(cube) == False:
         result['status'] = 'Error - Invalid Cube Length'
         status = result['status']
@@ -16,6 +19,13 @@ def _controller(parms):
         result['status'] = 'Error - Invalid Cube Char'
         status = result['status']
     
+    if rubik.Cube.isValidCenterColors(cube) == False:
+        result['status'] = 'Error - Duplicate Center Colors'
+        status = result['status']
+        
+        
+    
+    #If Valid, run _rorate for rotation of cube
     if status == 'ok':
       result = _rotate(parms)
     
