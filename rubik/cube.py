@@ -14,4 +14,9 @@ class Cube:
         else:
             return False
         
-    
+    def isValidCubeChar(cube):
+        
+        allowed_cubeChar = "wryobg"
+
+        if all(ch in allowed_char for ch in cubeChar):
+            return True
