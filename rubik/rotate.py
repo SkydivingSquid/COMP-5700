@@ -8,7 +8,7 @@ def _rotate(parms):
     cube = parms.get('cube')
     dir = parms.get('dir')
     
-    if dir == 'F' or dir == None:
+    if dir == 'F' or dir == None or dir == "":
         result = _rotateF(cube, dir)
         
     elif dir == 'f':
