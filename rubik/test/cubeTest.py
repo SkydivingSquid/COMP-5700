@@ -88,7 +88,7 @@ class Test(unittest.TestCase):
     
         actualResults = cube.Cube.isValidCenterColors(cubeString)
     
-        self.assertTrue(actualResults)
+        self.assertFalse(actualResults)
     
     # def test_cube_040__ShouldVerifyUniqueCenterColors(self):
     #     cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
