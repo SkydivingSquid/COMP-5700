@@ -38,8 +38,8 @@ def _rotate(parms):
     elif dir == 'u':
         result = _rotateu(cube, dir)
 
-    elif dir == 'd':
-        result = _rotated(cube, dir)
+    elif dir == 'D':
+        result = _rotateD(cube, dir)
         
         
         
@@ -485,22 +485,22 @@ def _rotateu(cube, dir):
     return result
 
 
-def _rotated(cube, dir):
+def _rotateD(cube, dir):
     result = {}
 
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
     #rotate front face
-    rotatedCubeList[47] = cubeList[45]
-    rotatedCubeList[50] = cubeList[46]
-    rotatedCubeList[53] = cubeList[47]
-    rotatedCubeList[46] = cubeList[48]
+    rotatedCubeList[51] = cubeList[45]
+    rotatedCubeList[48] = cubeList[46]
+    rotatedCubeList[45] = cubeList[47]
+    rotatedCubeList[52] = cubeList[48]
     rotatedCubeList[49] = cubeList[49]
-    rotatedCubeList[52] = cubeList[50]
-    rotatedCubeList[45] = cubeList[51]
-    rotatedCubeList[47] = cubeList[52]
-    rotatedCubeList[51] = cubeList[53]
+    rotatedCubeList[46] = cubeList[50]
+    rotatedCubeList[53] = cubeList[51]
+    rotatedCubeList[50] = cubeList[52]
+    rotatedCubeList[47] = cubeList[53]
     
     #rotate top to left
     rotatedCubeList[33] = cubeList[6]
