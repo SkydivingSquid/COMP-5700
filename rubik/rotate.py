@@ -209,7 +209,7 @@ def _rotater(cube, dir):
 #     cubeList = list(cube)
 #     rotatedCubeList = cubeList[:]
 #
-#         #rotate front face
+#     #rotate front face
 #     rotatedCubeList[] = cubeList[]
 #     rotatedCubeList[] = cubeList[]
 #     rotatedCubeList[] = cubeList[]
