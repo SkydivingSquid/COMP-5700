@@ -35,6 +35,7 @@ class Cube:
         return True
         
     def isValidDirChar(dir):
+        
         allowed_dirChar = "FRBLUD"
 
         if all(ch in allowed_dirChar for ch in dir):
