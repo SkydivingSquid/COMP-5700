@@ -53,7 +53,7 @@ def _rotate(parms):
         elif direc == 'd':
             result = _rotated(cube, dir)
         
-    rotatedCube = "".join(result.get('cube'))
+        rotatedCube = "".join(result.get('cube'))
     
     result['cube'] = rotatedCube
     result['status'] = result.get('status')
