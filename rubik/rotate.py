@@ -5,10 +5,8 @@ def _rotate(parms):
     result = {}
     cube = parms.get('cube')
     direc = parms.get('dir', 'F')
-    #direction = parms.get('dir', 'F')
-    #direc = list(direction)
-    
-    
+    result['status'] = 'ok'
+        
     if direc == "" or direc == None:
     #if direc == "":
         direc = 'F'
@@ -66,7 +64,6 @@ def _rotate(parms):
              
         result['cube'] = cube
       
-    result['status'] = 'ok'
     
     return result
             
