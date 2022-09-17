@@ -18,5 +18,5 @@ class Cube:
         
         allowed_cubeChar = "wryobg"
 
-        if all(ch in allowed_char for ch in cubeChar):
+        if all(ch in allowed_cubeChar for ch in cube):
             return True
