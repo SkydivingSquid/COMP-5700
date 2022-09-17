@@ -325,6 +325,7 @@ class RotateTest(unittest.TestCase):
     def test_rotate_540_Controller_ValidDirChars(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
         inputDict['dir'] = 'FBrludDULRfba'
     
         expectedResult = {}
