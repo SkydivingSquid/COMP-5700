@@ -1,8 +1,11 @@
 import rubik.cube as rubik
 
+# This file performs rotations on a rubiks cube
+# using cube and rotational (dir) input from a microservice.
 
-    #Cube and Dir Validity Checks
-    #If inputs are valid, run _rotate with valid parms.
+
+#Cube and Dir Validity Checks
+#If inputs are valid, run _rotate with valid parms.
 def _controller(parms):
     result = {}
     cube = parms.get('cube')
@@ -16,13 +19,18 @@ def _controller(parms):
         #Sets dir in parms
         parms['dir'] = dir
     
-    #Validity Checks   
+    #Validity Checks as dictated by Cube Class.
+    #These could have been in this file, but I wanted
+    #To move them to a class to see if I could. 
+    #It's a bit more code than necessary, but.. it works..
+    #And it made me feel more confident in my knowledge
+    #Of Python.. 
+    
          
     if rubik.Cube.isValidLengthCube(cube) == False:
         result['status'] = 'Error - Invalid Cube Length'
         status = result['status']
     
-
     if rubik.Cube.isValidCubeChar(cube) == False:
         result['status'] = 'Error - Invalid Cube Char'
         status = result['status']
@@ -36,29 +44,26 @@ def _controller(parms):
         result['status'] = 'Error - Invalid Dir Char'
         status = result['status']
     
-
-    
-    
     #If Valid, run _rorate for rotation of cube
+    #This is where the magic call happens.
     if status == 'ok':
+        #Pass in validated parms
         result = _rotate(parms)
     
+    #Result that goes to microservice. 
     return result
     
 
+
+#This method rotates the cube clockwise or counter-clockwise by dictated face. 
 def _rotate(parms):
     """Return rotated cube""" 
     result = {}
     cube = parms.get('cube')
     dir = parms.get('dir', 'F')
     result['status'] = 'ok'
-    status = result['status']
-    light = "green"
+    #status = result['status']
         
-    #if dir == "" or dir == None:
-    #if direc == "":
-        #dir = 'F'
-
     for x in dir:
     
         if x == 'F':
@@ -637,12 +642,5 @@ def _rotated(cube, dir):
     result['status'] = 'ok'
 
     return result
-#
-#
-# def isValidDirChar(dir):
-#     allowed_dirChar = "FfRrBbLlUuDd"
-#     if all(ch in allowed_dirChar for ch in dir):
-#         return True 
-#     else:
-#         return False
-    
+
+#END OF ROTATE
