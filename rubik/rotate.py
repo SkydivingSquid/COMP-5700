@@ -1,5 +1,25 @@
 import rubik.cube as rubik
 
+def _controller(parms):
+    result = {}
+    cube = parms.get('cube')
+    result['status'] = 'ok'
+    status = result['status']
+    
+    #print(status)
+    
+    if rubik.Cube.isValidLengthCube(cube) == False:
+      result['status'] = 'Error'
+      status = result['status']
+    
+    if status == 'ok':
+      result = _rotate(parms)
+    
+    return result
+    
+    
+    
+
 def _rotate(parms):
     """Return rotated cube""" 
     result = {}
@@ -13,8 +33,6 @@ def _rotate(parms):
     #if direc == "":
         direc = 'F'
 
-
-    
     for x in direc:
     
         if x == 'F':
@@ -506,7 +524,6 @@ def _rotateu(cube, dir):
     result['status'] = 'ok'
 
     return result
-
 def _rotateD(cube, dir):
     result = {}
 
