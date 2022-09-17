@@ -32,7 +32,7 @@ def _controller(parms):
         result['status'] = 'Error - Duplicate Center Colors'
         status = result['status']
         
-    if rubik.Cube.isValidDirChar(dir) == False)
+    if rubik.Cube.isValidDirChar(dir) == False:
         result['status'] = 'Error - Invalid Dir Char'
         status = result['status']
     
