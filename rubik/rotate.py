@@ -66,7 +66,7 @@ def _rotate(parms):
                  
             result['cube'] = cube
         
-        result['status'] = status
+    result['status'] = status
     
     return result
             
