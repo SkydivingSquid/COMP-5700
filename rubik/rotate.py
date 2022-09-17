@@ -7,6 +7,9 @@ def _rotate(parms):
     cube = parms.get('cube')
     direc = parms.get('dir', 'F')
     
+    cubeList = list(cube)
+    rotatedCubeList = cubeList[:]
+    
     #if direc == "" or direc == None:
     if direc == "":
         direc = 'F'
@@ -15,43 +18,43 @@ def _rotate(parms):
     for x in direc:
     
         if direc == 'F':
-            result = _rotateF(cube, dir)
+            rotatedCubeList = _rotateF(cube, dir)
             
         elif direc == 'f':
-            result = _rotatef(cube, dir)
+            rotatedCubeList = _rotatef(cube, dir)
             
         elif direc == 'R':
-            result = _rotateR(cube, dir)
+            rotatedCubeList = _rotateR(cube, dir)
             
         elif direc == 'r':
-            result = _rotater(cube, dir)
+            rotatedCubeList = _rotater(cube, dir)
             
         elif direc == 'B':
-            result = _rotateB(cube, dir)
+            rotatedCubeList = _rotateB(cube, dir)
             
         elif direc == 'b':
-            result = _rotateb(cube, dir)
+            rotatedCubeList = _rotateb(cube, dir)
             
         elif direc == 'L':
-            result = _rotateL(cube, dir)
+            rotatedCubeList = _rotateL(cube, dir)
             
         elif direc == 'l':
-            result = _rotatel(cube, dir)
+            rotatedCubeList = _rotatel(cube, dir)
             
         elif direc == 'U':
-            result = _rotateU(cube, dir)
+            rotatedCubeList = _rotateU(cube, dir)
             
         elif direc == 'u':
-            result = _rotateu(cube, dir)
+            rotatedCubeList = _rotateu(cube, dir)
     
         elif direc == 'D':
-            result = _rotateD(cube, dir)
+            rotatedCubeList = _rotateD(cube, dir)
             
         elif direc == 'd':
-            result = _rotated(cube, dir)
+            rotatedCubeList = _rotated(cube, dir)
         
-        
-    result['cube'] = result.get('cube')
+    rotatedCube = "".join(rotatedCubeList)
+    result['cube'] = rotatedCube
     result['status'] = result.get('status')
     return result
     
@@ -533,7 +536,6 @@ def _rotateD(cube, dir):
     result['status'] = 'ok'
 
     return result
-
 def _rotated(cube, dir):
     result = {}
 
