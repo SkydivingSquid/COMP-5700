@@ -61,7 +61,7 @@ def _rotate(parms):
     result = {}
     cube = parms.get('cube')
     dir = parms.get('dir', 'F')
-    #result['status'] = 'ok'
+    result['status'] = 'ok'
     #status = result['status']
         
     for x in dir:
