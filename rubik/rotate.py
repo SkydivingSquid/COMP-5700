@@ -51,8 +51,7 @@ def _rotate(parms):
             
         elif direc == 'd':
             result = _rotated(cube, dir)
-        
-    
+            
     rotatedCube = "".join(rotatedCubeList)
     
     result['cube'] = rotatedCube
