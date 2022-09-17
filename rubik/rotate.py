@@ -312,7 +312,7 @@ def _rotateL(cube, dir):
     rotatedCubeList[35] = cubeList[29]
     rotatedCubeList[28] = cubeList[30]
     rotatedCubeList[31] = cubeList[31]
-    rotatedCubeList[34] = cubeList[32]
+    rotatedCubeList[32] = cubeList[32]
     rotatedCubeList[27] = cubeList[33]
     rotatedCubeList[30] = cubeList[34]
     rotatedCubeList[33] = cubeList[35]
@@ -323,7 +323,7 @@ def _rotateL(cube, dir):
     rotatedCubeList[6] = cubeList[42]
 
     #rotate right to bottom
-    rotatedCubeList[45] = cubeList[0]
+    rotatedCubeList[51] = cubeList[0]
     rotatedCubeList[48] = cubeList[3]
     rotatedCubeList[51] = cubeList[6]
 
