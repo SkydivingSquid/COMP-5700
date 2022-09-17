@@ -60,7 +60,7 @@ import rubik.cube as cube
 class Test(unittest.TestCase):
 
 
-    def test_init_010_shouldInsantiateCube(self):
+    def test_init_000_shouldInsantiateCube(self):
         incomingCube = 'gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww'
         myCube = cube.Cube(incomingCube)
         self.assertIsInstance(myCube, cube.Cube)
@@ -90,20 +90,13 @@ class Test(unittest.TestCase):
     
         self.assertFalse(actualResults)
     
-    # def test_cube_040__ShouldVerifyUniqueCenterColors(self):
-    #     cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
-    #
-    #     actualResults = cube.Cube.isValidCubeChar(cubeString)
-    #
-    #     self.assertFalse(actualResults)
-    #
-    # def test_cube_050__ShouldVerifyValidDirColors(self):
-    #     cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
-    #
-    #     actualResults = cube.Cube.isValidCubeChar(cubeString)
-    #
-    #     self.assertFalse(actualResults)
-    #
+    def test_cube_040__ShouldVerifyValidDirChars(self):
+        dirString = 'FfRrBbLlUuDd'
+    
+        actualResults = cube.Cube.isValidDirChar(dirString)
+    
+        self.assertTrue(actualResults)
+    
 
         
         
