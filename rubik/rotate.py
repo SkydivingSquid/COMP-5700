@@ -26,10 +26,10 @@ def _controller(parms):
         status = result['status']
     
 
-    # if rubik.Cube.isValidCenterColors(cube) == False:
-    #     result['status'] = 'Error - Duplicate Center Colors'
-    #     status = result['status']
-    #
+    if rubik.Cube.isValidCenterColors(cube) == False:
+        result['status'] = 'Error - Duplicate Center Colors'
+        status = result['status']
+    
 
     
     

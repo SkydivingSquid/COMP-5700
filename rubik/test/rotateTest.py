@@ -326,16 +326,17 @@ class RotateTest(unittest.TestCase):
         actualResult = rotate._controller(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
      
-    # def test_rotate_530_Controller_ValidCubeCenterChars(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'rotate'
-    #     inputDict['cube'] = 'wbrbgwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
-    #
-    #     expectedResult = {}
-    #     expectedResult['status'] = 'Error - Duplicate Center Colors'
-    #
-    #     actualResult = rotate._controller(inputDict)
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    def test_rotate_530_Controller_ValidCubeCenterChars(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'wbrbgwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
+         inputDict['dir'] = 'a'
+    
+        expectedResult = {}
+        expectedResult['status'] = 'Error - Duplicate Center Colors'
+    
+        actualResult = rotate._controller(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
 
         
