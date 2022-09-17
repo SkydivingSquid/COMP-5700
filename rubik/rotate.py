@@ -6,9 +6,11 @@ def _rotate(parms):
     #frmMeth = {}
     
     cube = parms.get('cube')
-    dir = list(parms.get('dir'))
+    dir = parms.get('dir')
     
-    for x in dir:
+    fun = list(dir)
+    
+    for x in fun:
     
         if x == 'F' or x == None or x == "":
             result = _rotateF(cube, dir)
