@@ -301,18 +301,18 @@ class RotateTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
         
-    #
-    # def test_rotate_510_Controller_ValidCubeLength(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'rotate'
-    #     inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbr'
-    #     inputDict['dir'] = 'R'
-    #
-    #     expectedResult = {}
-    #     expectedResult['status'] = 'Error - Invalid Cube Length'
-    #
-    #     actualResult = rotate._controller(inputDict)
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    def test_rotate_510_Controller_ValidCubeLength(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbr'
+        inputDict['dir'] = 'R'
+    
+        expectedResult = {}
+        expectedResult['status'] = 'Error - Invalid Cube Length'
+    
+        actualResult = rotate._controller(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     #
     # def test_rotate_520_Controller_ValidCubeChars(self):
     #     inputDict = {}
