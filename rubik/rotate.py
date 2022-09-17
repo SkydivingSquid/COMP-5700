@@ -7,21 +7,11 @@ def _rotate(parms):
     direc = parms.get('dir', 'F')
     #direction = parms.get('dir', 'F')
     #direc = list(direction)
-    result['status'] = 'ok'
-
+    
     
     if direc == "" or direc == None:
     #if direc == "":
         direc = 'F'
-        
-    if rubik.Cube.isValidLengthCube(cube) == False:
-        
-    
-        
-        
-        
-        
-        
     
     
     for x in direc:
@@ -76,6 +66,7 @@ def _rotate(parms):
              
         result['cube'] = cube
       
+    result['status'] = 'ok'
     
     return result
             
