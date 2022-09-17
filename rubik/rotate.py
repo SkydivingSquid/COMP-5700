@@ -324,12 +324,12 @@ def _rotateL(cube, dir):
 
     #rotate right to bottom
     rotatedCubeList[51] = cubeList[0]
-    rotatedCubeList[47] = cubeList[3]
+    rotatedCubeList[48] = cubeList[3]
     rotatedCubeList[45] = cubeList[6]
 
     #rotate bottom to left
     rotatedCubeList[26] = cubeList[45]
-    rotatedCubeList[23] = cubeList[47]
+    rotatedCubeList[23] = cubeList[48]
     rotatedCubeList[20] = cubeList[51]
 
     #rotate left to top
