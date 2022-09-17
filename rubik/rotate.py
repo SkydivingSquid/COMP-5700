@@ -371,9 +371,9 @@ def _rotatel(cube, dir):
     rotatedCubeList[6] = cubeList[51]
     
     #rotate bottom to left
-    rotatedCubeList[45] = cubeList[20]
+    rotatedCubeList[51] = cubeList[20]
     rotatedCubeList[48] = cubeList[23]
-    rotatedCubeList[51] = cubeList[26]
+    rotatedCubeList[45] = cubeList[26]
     
     #rotate left to top
     rotatedCubeList[20] = cubeList[42]
