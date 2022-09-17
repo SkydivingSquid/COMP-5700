@@ -42,16 +42,16 @@ def _rotate(parms):
     """Return rotated cube""" 
     result = {}
     cube = parms.get('cube')
-    direc = parms.get('dir', 'F')
+    dir = parms.get('dir', 'F')
     result['status'] = 'ok'
     status = result['status']
     light = "green"
         
-    #if direc == "" or direc == None:
-    if direc == "":
-        direc = 'F'
+    if dir == "" or dir == None:
+    #if direc == "":
+        dir = 'F'
 
-    for x in direc:
+    for x in dir:
     
         if x == 'F':
             parms = _rotateF(cube, dir)
