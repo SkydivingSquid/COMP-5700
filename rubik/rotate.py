@@ -26,6 +26,9 @@ def _rotate(parms):
     elif dir == 'b':
         result = _rotateb(cube, dir)
         
+    elif dir == 'L':
+        result = _rotateL(cube, dir)
+        
     result['cube'] = result.get('cube')
     result['status'] = result.get('status')
     return result
@@ -297,12 +300,12 @@ def _rotateb(cube, dir):
 
     return result
 
-# def _rotateL(cube, dir):
-#     result = {}
-#
-#     cubeList = list(cube)
-#     rotatedCubeList = cubeList[:]
-#
+def _rotateL(cube, dir):
+    result = {}
+
+    cubeList = list(cube)
+    rotatedCubeList = cubeList[:]
+
 #         #rotate front face
 #     rotatedCubeList[] = cubeList[]
 #     rotatedCubeList[] = cubeList[]
@@ -334,12 +337,12 @@ def _rotateb(cube, dir):
 #     rotatedCubeList[] = cubeList[] 
 #     rotatedCubeList[] = cubeList[]
 #
-#     rotatedCube = "".join(rotatedCubeList)
-#
-#     result['cube'] = rotatedCube
-#     result['status'] = 'ok'
-#
-#     return result
+    rotatedCube = "".join(rotatedCubeList)
+
+    result['cube'] = rotatedCube
+    result['status'] = 'ok'
+
+    return result
 #
 # def _rotateU(cube, dir):
 #     result = {}
