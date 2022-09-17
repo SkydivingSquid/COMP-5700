@@ -12,6 +12,8 @@ def _controller(parms):
     
     if dir == "" or dir == None:
         dir = 'F'
+        
+        #Sets dir in parms
         parms['dir'] = dir
     
     #Validity Checks   
@@ -30,7 +32,7 @@ def _controller(parms):
         result['status'] = 'Error - Duplicate Center Colors'
         status = result['status']
         
-    if isValidDirChar(dir) == False:
+    if rubik.Cube.isValidDirChar(dir) == False)
         result['status'] = 'Error - Invalid Dir Char'
         status = result['status']
     
@@ -635,12 +637,12 @@ def _rotated(cube, dir):
     result['status'] = 'ok'
 
     return result
-    
-        
-def isValidDirChar(dir):
-    allowed_dirChar = "FfRrBbLlUuDd"
-    if all(ch in allowed_dirChar for ch in dir):
-        return True 
-    else:
-        return False
+#
+#
+# def isValidDirChar(dir):
+#     allowed_dirChar = "FfRrBbLlUuDd"
+#     if all(ch in allowed_dirChar for ch in dir):
+#         return True 
+#     else:
+#         return False
     
