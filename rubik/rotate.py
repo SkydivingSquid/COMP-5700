@@ -17,8 +17,8 @@ def _rotate(parms):
     elif dir == 'R':
         result = _rotateR(cube, dir)
         
-    elif dir == 'r'
-        result = _rotate(cube, dir):    
+    elif dir == 'r':
+        result = _rotate(cube, dir)
         
     result['cube'] = result.get('cube')
     result['status'] = result.get('status')
