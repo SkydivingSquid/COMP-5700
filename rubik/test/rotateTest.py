@@ -268,11 +268,11 @@ class RotateTest(unittest.TestCase):
     def test_rotate_160_ShouldRotate_MultiCharDir_OnValidnominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
-        inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
-        inputDict['dir'] = "F"
+        inputDict['cube'] = 'wwwwwwwwwrrrrrrrrryyyyyyyyyooooooooobbbbbbbbbggggggggg'
+        inputDict['dir'] = "UU"
     
         expectedResult = {}       
-        expectedResult['cube'] = 'gorwrgrobybgrbrorgoywbowrwrygobyybyboryyggbgwgbwowwwoy'
+        expectedResult['cube'] = 'yyywwwwwwooorrrrrrwwwyyyyyyrrroooooobbbbbbbbbggggggggg'
         expectedResult['status'] = 'ok'
     
         actualResult = rotate._rotate(inputDict)
