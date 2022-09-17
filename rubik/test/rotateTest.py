@@ -28,7 +28,7 @@ class RotateTest(unittest.TestCase):
     #    confidence level:    boundary level analysis
     #    
     #    happy paths:
-    #        (General rotation instances)
+    #        (General single rotation instances)
     #        test 010: nominal valid cube with F rotation
     #        test 020: nominal valid cube with f rotation
     #        test 030: nominal valid cube with R rotation
@@ -41,14 +41,14 @@ class RotateTest(unittest.TestCase):
     #        test 100: nominal valid cube with u rotation
     #        test 110: nominal valid cube with D rotation
     #        test 120: nominal valid cube with d rotation
-    #        test 130: nominal valid cube with multiple rotations.
     #
     #        (Unique rotation instances)
-    #        test 140: nominal valid cube with missing rotation
-    #        test 150: nominal valid cube with "" rotation
-    #        test 160: nominal valid cube with missing 'dir' key
+    #        test 130: nominal valid cube with missing rotation
+    #        test 140: nominal valid cube with "" rotation
+    #        test 150: nominal valid cube with missing 'dir' key
     #
-    #        test 199: nominal valid cube with multiple rotations.
+    #        (Multiple rotation instance)
+    #        test 160: nominal valid cube with multiple rotations.
     #
     #    sad paths:
     #        test 910: missing cube with valid rotation
@@ -218,6 +218,20 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'rrryroybwgrryoyyrobbbrwgygbogbwgwgwgwwgbbbooywoooygwyr'
         expectedResult['status'] = 'ok'
     
+        actualResult = rotate._rotate(inputDict)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+
+    def test_rotate_130_ShouldRotate_F_WithMissingRotation_OnValidNominalCube(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
+        inputDict['dir'] = None
+
+        expectedResult = {}       
+        expectedResult['cube'] = 'gorwrgrobybgrbrorgoywbowrwrygobyybyboryyggbgwgbwowwwoy'
+        expectedResult['status'] = 'ok'
+        
         actualResult = rotate._rotate(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
