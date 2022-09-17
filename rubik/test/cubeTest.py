@@ -77,7 +77,7 @@ class Test(unittest.TestCase):
 
     
     def test_cube_020_ShouldVerifyValidCubeChars(self):
-        cubeString = 'Wwwwwwwwwgggggggggrrrrrzrrrrooooooobbbbbbyyyyyyyyy'
+        cubeString = 'wwwwwwwwwgggggggggrrrrrzrrrrooooooobbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isValidCubeChar(cubeString)
     
