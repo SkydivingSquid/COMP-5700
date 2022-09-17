@@ -5,6 +5,8 @@ def _rotate(parms):
     result = {}
     cube = parms.get('cube')
     direc = parms.get('dir', 'F')
+    #direction = parms.get('dir', 'F')
+    #direc = list(direction)
     
     
     if direc == "" or direc == None:
@@ -14,51 +16,54 @@ def _rotate(parms):
     
     for x in direc:
     
-        if direc == 'F':
+        if x == 'F':
             parms = _rotateF(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'f':
+        elif x == 'f':
             parms = _rotatef(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'R':
+        elif x == 'FF':
+            continue
+            
+        elif x == 'R':
             parms = _rotateR(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'r':
+        elif x == 'r':
             parms = _rotater(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'B':
+        elif x == 'B':
             parms = _rotateB(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'b':
+        elif x == 'b':
             parms = _rotateb(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'L':
+        elif x == 'L':
             parms = _rotateL(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'l':
+        elif x == 'l':
             parms = _rotatel(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'U':
+        elif x == 'U':
             parms = _rotateU(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'u':
+        elif x == 'u':
             parms = _rotateu(cube, dir)
             cube = parms.get('cube')
     
-        elif direc == 'D':
+        elif x == 'D':
             parms = _rotateD(cube, dir)
             cube = parms.get('cube')
             
-        elif direc == 'd':
+        elif x == 'd':
             parms = _rotated(cube, dir)
             cube = parms.get('cube')
              
