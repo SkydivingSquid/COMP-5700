@@ -5,51 +5,49 @@ def _rotate(parms):
     result = {}
     
     cube = parms.get('cube')
-    dir = parms.get('dir', 'F')
+    direc = parms.get('dir', 'F')
     
-    if dir == "":
-        dir = 'F'
+    if direc == "":
+        direc = 'F'
     
     
-    for x in dir:
+    for x in direc:
     
-        if dir == 'F':
+        if direc == 'F':
             result = _rotateF(cube, dir)
             
-        elif dir == 'f':
+        elif direc == 'f':
             result = _rotatef(cube, dir)
             
-        elif dir == 'R':
+        elif direc == 'R':
             result = _rotateR(cube, dir)
             
-        elif dir == 'r':
+        elif direc == 'r':
             result = _rotater(cube, dir)
             
-        elif dir == 'B':
+        elif direc == 'B':
             result = _rotateB(cube, dir)
             
-        elif dir == 'b':
+        elif direc == 'b':
             result = _rotateb(cube, dir)
             
-        elif dir == 'L':
+        elif direc == 'L':
             result = _rotateL(cube, dir)
             
-        elif dir == 'l':
+        elif direc == 'l':
             result = _rotatel(cube, dir)
             
-        elif dir == 'U':
+        elif direc == 'U':
             result = _rotateU(cube, dir)
             
-        elif dir == 'u':
+        elif direc == 'u':
             result = _rotateu(cube, dir)
     
-        elif dir == 'D':
+        elif direc == 'D':
             result = _rotateD(cube, dir)
             
-        elif dir == 'd':
+        elif direc == 'd':
             result = _rotated(cube, dir)
-        
-        
         
         
     result['cube'] = result.get('cube')
