@@ -6,7 +6,7 @@ import rubik.cube as rubik
 
 #Cube and Dir Validity Checks
 #If inputs are valid, run _rotate with valid parms.
-def _rotate(parms):
+def _controller(parms):
     result = {}
     cube = parms.get('cube')
     dir = parms.get('dir')
@@ -65,7 +65,7 @@ def _rotate(parms):
 #This method iterates through the given input directions and rotates
 #the cube as appropriate. This will return the finished cube which is
 #expected as a result in the _conroller method to send to the microservice. 
-def _rotationMethod(parms):
+def _rotate(parms):
     """Return rotated cube""" 
     result = {}
     cube = parms.get('cube')
