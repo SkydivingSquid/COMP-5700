@@ -50,14 +50,17 @@ import rubik.cube as cube
     #        test 041: nominal cube with valid dir chars
     #
     #    sad paths:
+    #        test 900: missing cube
     #        test 910: abnormal cube with less than 54 char
-    #        test 911: abnormal cube with greater than 54 char <-
+    #        test 911: abnormal cube with greater than 54 char 
     #        test 920: abnormal cube with invalid letters
     #        test 930: abnormal cube with duplicate center colors 
     #        test 940: abnormal cube with invalid dir char
-    #        test 950: abnormal cube with more than 9 of each char <-
+    #        test 950: abnormal cube with less than 9 of each char 
+    #        test 951: abnormal cube with greater than 9 of each char
     #        
-
+    #    note:
+    #        tests for default parms['dir'] are in rotateTest.
 
 
 class Test(unittest.TestCase):
@@ -76,6 +79,12 @@ class Test(unittest.TestCase):
         
         self.assertTrue(actualResults)
         
+    def test_cube_900_ShouldVerifyMissingCube(self):
+        cubeString = None
+        
+        actualResults = cube.Cube.doesCubeExist(cubeString)
+        
+        self.assertFalse(actualResults)
 
     def test_cube_910_ShouldVerifyLT54CharInCube(self):
         
@@ -93,7 +102,7 @@ class Test(unittest.TestCase):
         
         self.assertFalse(actualResults)
         
-    def test_cube_020_ShouldVerifyValidCubeChars(self):
+    def test_cube_920_ShouldVerifyValidCubeChars(self):
         cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrrooooooobbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isValidCubeChar(cubeString)
@@ -158,7 +167,6 @@ class Test(unittest.TestCase):
     
         self.assertFalse(actualResults)
     
-
         
         
         

@@ -8,7 +8,12 @@ class Cube:
 
     def __init__(self, initCube):
         self.cube = initCube
-
+        
+    # def doesCubeExist(cube):
+    #     if cube = None:
+    #         return False
+    #     else:
+    #         return True
 
     def isValidLengthCube(cube):
         if (len(cube) == 54):
