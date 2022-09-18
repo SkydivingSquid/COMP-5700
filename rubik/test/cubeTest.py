@@ -100,7 +100,7 @@ class Test(unittest.TestCase):
         self.assertFalse(actualResults)
         
     def test_cube_050_ShouldVerifyValidNineofEachChar(self):
-        cubeString = 'wwwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+        cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isNineOfEachChar(cubeString)
     

@@ -51,6 +51,7 @@ class Cube:
         for x in Counter(cube).values():
             if x != 9:
                 return False
-        return True
+            else:
+                return True
         
         
