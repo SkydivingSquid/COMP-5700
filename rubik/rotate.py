@@ -52,10 +52,10 @@ def _rotate(parms):
         status = result['status']
         return result
     
-    # if rubik.Cube.isNineOfEachChar(cube) == False:
-    #     result['status'] = 'Error - There May Only Be 9 Of Each Color'
-    #     status = result['status']
-    #     return result
+    if rubik.Cube.isNineOfEachChar(cube) == False:
+        result['status'] = 'Error - There May Only Be 9 Of Each Color'
+        status = result['status']
+        return result
     
     #If Valid, run _rorate for rotation of cube
     #This is where the magic call happens.
