@@ -31,10 +31,6 @@ def _controller(parms):
     #And it made me feel more confident in my knowledge
     #Of Python.. 
     
-    if rubik.Cube.doesCubeExist(cube) == False:
-        result['status'] = 'Error - Missing Cube'
-        status = result['status']
-    
     if rubik.Cube.isValidLengthCube(cube) == False:
         result['status'] = 'Error - Invalid Cube Length'
         status = result['status']
