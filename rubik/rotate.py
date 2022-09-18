@@ -56,7 +56,7 @@ def _controller(parms):
     #This is where the magic call happens.
     if status == 'ok':
         #Pass in validated parms
-        result = _rotate(parms)
+        result = _rotate3(parms)
     
     #Result that goes to microservice. 
     return result
@@ -65,7 +65,7 @@ def _controller(parms):
 #This method iterates through the given input directions and rotates
 #the cube as appropriate. This will return the finished cube which is
 #expected as a result in the _conroller method to send to the microservice. 
-def _rotate(parms):
+def _rotate3(parms):
     """Return rotated cube""" 
     result = {}
     cube = parms.get('cube')
