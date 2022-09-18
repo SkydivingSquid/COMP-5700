@@ -54,15 +54,15 @@ def _controller(parms):
     return result
     
 
-
-#This method rotates the cube clockwise or counter-clockwise by dictated face. 
+#This method iterates through the given input directions and rotates
+#the cube as appropriate. This will return the finished cube which is
+#expected as a result in the _conroller method to send to the microservice. 
 def _rotate(parms):
     """Return rotated cube""" 
     result = {}
     cube = parms.get('cube')
     dir = parms.get('dir', 'F')
     result['status'] = 'ok'
-    #status = result['status']
         
     for x in dir:
     
@@ -119,6 +119,8 @@ def _rotate(parms):
     return result
             
     
+#The following methods all rotate the rubiks cube
+#These are hard-coded. It's ugly, but it works.
     
 #Rotate front face clockwise (F)
 def _rotateF(cube, dir):
@@ -253,7 +255,7 @@ def _rotateR(cube, dir):
     
     return result
 
-#Rotate right face clockwise (R)
+#Rotate right face counter-clockwise (r)
 def _rotater(cube, dir):
     result = {}
     
@@ -297,6 +299,8 @@ def _rotater(cube, dir):
     result['status'] = 'ok'
     
     return result
+
+#Rotate Back face clockwise (B)
 def _rotateB(cube, dir):
     result = {}
 
@@ -340,6 +344,8 @@ def _rotateB(cube, dir):
     result['status'] = 'ok'
 
     return result
+
+#Rotate Back face counter-clockwise (b)
 def _rotateb(cube, dir):
     result = {}
 
@@ -383,6 +389,8 @@ def _rotateb(cube, dir):
     result['status'] = 'ok'
 
     return result
+
+#Rotate Left face clockwise (L)
 def _rotateL(cube, dir):
     result = {}
 
@@ -426,6 +434,8 @@ def _rotateL(cube, dir):
     result['status'] = 'ok'
 
     return result
+
+#Rotate Left face clockwise (l)
 def _rotatel(cube, dir):
     result = {}
 
@@ -469,6 +479,8 @@ def _rotatel(cube, dir):
     result['status'] = 'ok'
 
     return result
+
+#Rotate top (Upper) face clockwise (U)
 def _rotateU(cube, dir):
     result = {}
 
@@ -512,6 +524,8 @@ def _rotateU(cube, dir):
     result['status'] = 'ok'
 
     return result
+
+#Rotate top (Upper) face counter-clockwise (u)
 def _rotateu(cube, dir):
     result = {}
 
@@ -555,6 +569,8 @@ def _rotateu(cube, dir):
     result['status'] = 'ok'
 
     return result
+
+#Rotate bottom (Downward) face clockwise (D)
 def _rotateD(cube, dir):
     result = {}
 
@@ -598,6 +614,8 @@ def _rotateD(cube, dir):
     result['status'] = 'ok'
 
     return result
+
+#Rotate bottom (Downward) face counter-clockwise (d)
 def _rotated(cube, dir):
 
     result = {}

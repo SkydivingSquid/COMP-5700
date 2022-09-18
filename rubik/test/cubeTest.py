@@ -22,11 +22,10 @@ import rubik.cube as cube
     #        exception
     #
     #
-
     # Analysis
     #    
     #    inputs:
-    #        parms:    dict, mandatory, arrived validated
+    #            parms:    dict, mandatory, arrived validated
     #            parms['op']:    string: 'rotate', mandatory, validated
     #            parms['cube']:    string: len=54, [brgoyw], 9 of each char, unique middle, mandatory, unvalidated
     
@@ -43,18 +42,22 @@ import rubik.cube as cube
     #
     #    confidence level:    boundary level analysis
     #    
-    #    happy paths: (THESE DO NOT MATCH CURRENTLY)
-    #        test 010: nominal valid cube with F rotation
-    #        test 020: nominal valid cube with f rotation
-    #        etc, etc
-    #        test 030: nominal valid cube with missing rotation
-    #        test 040: valid cube with empty "" rotation
-    #        test 050: nominal valid cube with missing 'dir' key
+    #    happy paths:
+    #        test 000: instantiation of cube. 
+    #        test 012: nominal cube with 54 char
+    #        test 021: nominal cube with valid letters
+    #        test 031: nominal cube with valid center colors
+    #        test 041: nominal cube with valid dir chars
     #
     #    sad paths:
-    #        test 910: missing cube with valid rotation
-    #        test 920: valid cube with invalid rotation
-    #
+    #        test 010: abnormal cube with less than 54 char
+    #        test 011: abnormal cube with greater than 54 char <-
+    #        test 020: abnormal cube with invalid letters
+    #        test 030: abnormal cube with duplicate center colors 
+    #        test 040: abnormal cube with invalid dir char
+    #        test 050: abnormal cube with more than 9 of each char <-
+    #        
+
 
 
 class Test(unittest.TestCase):
@@ -64,7 +67,6 @@ class Test(unittest.TestCase):
         incomingCube = 'gggggggggyooyooyoobbbbbbbbbrrwrrwrrwyyyyyyrrrooowwwwww'
         myCube = cube.Cube(incomingCube)
         self.assertIsInstance(myCube, cube.Cube)
-        
         
 
     def test_cube_010_ShouldVerify54CharInCube(self):
@@ -90,12 +92,19 @@ class Test(unittest.TestCase):
     
         self.assertFalse(actualResults)
     
-    def test_cube_020_ShouldVerifyValidDirChars(self):
+    def test_cube_040_ShouldVerifyValidDirChars(self):
         dirString = 'FLBRDUudrblfa'
     
         actualResults = cube.Cube.isValidDirChar(dirString)
     
         self.assertFalse(actualResults)
+        
+    def test_cube_050_ShouldVerifyValidNineofEachChar(self):
+        dirString = 'wwwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+    
+        actualResults = cube.Cube.isValidDirChar(dirString)
+    
+        self.assertTrue(actualResults)
     
 
         
