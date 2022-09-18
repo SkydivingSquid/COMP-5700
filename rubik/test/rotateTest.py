@@ -52,11 +52,12 @@ class RotateTest(unittest.TestCase):
     # 
     #    sad paths:
     #        (Cube class calls)
-    #        test 610: Validate Cube class checks for valid length
-    #        test 620: validate Cube class checks for valid cube chars
-    #        test 630: Validate Cube class checks for unique center cube colors
-    #        test 640: Validate Cube class checks for valid dir chars
-    #        test 650: Cube Missing
+    #        test 610: Validate Cube class has been imported - checks for valid cube length
+    #        test 620: validate Cube class has been imported - checks for valid cube chars
+    #        test 630: Validate Cube class has been imported - checks for unique center cube colors
+    #        test 640: Validate Cube class has been imported - checks for valid dir chars
+    #        test 650: Abnormal Cube - Missing Cube Parameter
+    #        test 660: Abnormal Cube class - checks for 9 of each color.
     #
     #    notes:
     #        The test for a valid cube with invalid rotation is tested in cubeTest. 
