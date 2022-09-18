@@ -352,7 +352,7 @@ class RotateTest(unittest.TestCase):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['dir'] = 'F'
-        inputDict['cube'] = 'wwwwwwwwwggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+        inputDict['cube'] = 'wwwwwwwwwwggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
     
         expectedResult = {}
         expectedResult['status'] = 'Error - There May Only Be 9 Of Each Color'
