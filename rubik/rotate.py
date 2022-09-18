@@ -6,7 +6,7 @@ import rubik.cube as rubik
 
 #Cube and Dir Validity Checks
 #If inputs are valid, run _rotate with valid parms.
-def _controller(parms):
+def _rotate(parms):
     result = {}
     cube = parms.get('cube')
     dir = parms.get('dir')
