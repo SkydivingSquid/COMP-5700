@@ -44,18 +44,18 @@ import rubik.cube as cube
     #    
     #    happy paths:
     #        test 000: instantiation of cube. 
-    #        test 012: nominal cube with 54 char
+    #        test 010: nominal cube with 54 char
     #        test 021: nominal cube with valid letters
     #        test 031: nominal cube with valid center colors
     #        test 041: nominal cube with valid dir chars
     #
     #    sad paths:
-    #        test 010: abnormal cube with less than 54 char
-    #        test 011: abnormal cube with greater than 54 char <-
-    #        test 020: abnormal cube with invalid letters
-    #        test 030: abnormal cube with duplicate center colors 
-    #        test 040: abnormal cube with invalid dir char
-    #        test 050: abnormal cube with more than 9 of each char <-
+    #        test 910: abnormal cube with less than 54 char
+    #        test 911: abnormal cube with greater than 54 char <-
+    #        test 920: abnormal cube with invalid letters
+    #        test 930: abnormal cube with duplicate center colors 
+    #        test 940: abnormal cube with invalid dir char
+    #        test 950: abnormal cube with more than 9 of each char <-
     #        
 
 
@@ -69,37 +69,45 @@ class Test(unittest.TestCase):
         self.assertIsInstance(myCube, cube.Cube)
         
 
-    def test_cube_010_ShouldVerify54CharInCube(self):
+    def test_cube_910_ShouldVerify54CharInCube(self):
         
         cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
         
         actualResults = cube.Cube.isValidLengthCube(cubeString)
         
         self.assertTrue(actualResults)
+        
+    def test_cube_911_ShouldVerify54CharInCube(self):
+        
+        cubeString = 'wwwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+        
+        actualResults = cube.Cube.isValidLengthCube(cubeString)
+        
+        self.assertTrue(actualResults)
 
     
-    def test_cube_020_ShouldVerifyValidCubeChars(self):
+    def test_cube_920_ShouldVerifyValidCubeChars(self):
         cubeString = 'wwwwwwwwwgggggggggrrrrrzrrrrooooooobbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isValidCubeChar(cubeString)
     
         self.assertFalse(actualResults)
     
-    def test_cube_030__ShouldVerifyUniqueCenterColors(self):
+    def test_cube_930__ShouldVerifyUniqueCenterColors(self):
         cubeString = 'wwwwgwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isValidCenterColors(cubeString)
     
         self.assertFalse(actualResults)
     
-    def test_cube_040_ShouldVerifyValidDirChars(self):
+    def test_cube_940_ShouldVerifyValidDirChars(self):
         dirString = 'FLBRDUudrblfa'
     
         actualResults = cube.Cube.isValidDirChar(dirString)
     
         self.assertFalse(actualResults)
         
-    def test_cube_050_ShouldVerifyValidNineofEachChar(self):
+    def test_cube_950_ShouldVerifyValidNineofEachChar(self):
         cubeString = 'wwwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isNineOfEachChar(cubeString)
