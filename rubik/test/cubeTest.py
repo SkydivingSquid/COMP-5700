@@ -108,7 +108,7 @@ class Test(unittest.TestCase):
     
         self.assertFalse(actualResults)
     
-    def test_cube_930__ShouldVerifyUniqueCenterColors(self):
+    def test_cube_030__ShouldVerifyUniqueCenterColors(self):
         cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isValidCenterColors(cubeString)
@@ -121,15 +121,37 @@ class Test(unittest.TestCase):
         actualResults = cube.Cube.isValidCenterColors(cubeString)
     
         self.assertFalse(actualResults)
+        
+     def test_cube_040_ShouldVerifyValidDirChars(self):
+        dirString = 'FLBRDUudrblf'
     
-    def test_cube_940_ShouldVerifyValidDirChars(self):
+        actualResults = cube.Cube.isValidDirChar(dirString)
+    
+        self.assertTrue(actualResults)
+    
+    def test_cube_940_ShouldVerifyInvalidDirChars(self):
         dirString = 'FLBRDUudrblfa'
     
         actualResults = cube.Cube.isValidDirChar(dirString)
     
         self.assertFalse(actualResults)
         
-    def test_cube_950_ShouldVerifyValidNineofEachChar(self):
+    def test_cube_050_ShouldVerifyValidNineofEachChar(self):
+        cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+    
+        actualResults = cube.Cube.isNineOfEachChar(cubeString)
+    
+        self.assertTrye(actualResults)
+        
+        
+    def test_cube_950_ShouldVerifyValidLTNineofEachChar(self):
+        cubeString = 'wwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+    
+        actualResults = cube.Cube.isNineOfEachChar(cubeString)
+    
+        self.assertFalse(actualResults)
+        
+    def test_cube_951_ShouldVerifyValidGTNineofEachChar(self):
         cubeString = 'wwwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isNineOfEachChar(cubeString)
