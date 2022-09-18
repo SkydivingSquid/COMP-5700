@@ -68,8 +68,16 @@ class Test(unittest.TestCase):
         myCube = cube.Cube(incomingCube)
         self.assertIsInstance(myCube, cube.Cube)
         
+    def test_cube_010_ShouldVerify54CharInCube(self):
+        
+        cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+        
+        actualResults = cube.Cube.isValidLengthCube(cubeString)
+        
+        self.assertTrue(actualResults)
+        
 
-    def test_cube_910_ShouldVerify54CharInCube(self):
+    def test_cube_910_ShouldVerifyLT54CharInCube(self):
         
         cubeString = 'wwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
         
@@ -77,7 +85,7 @@ class Test(unittest.TestCase):
         
         self.assertFalse(actualResults)
         
-    def test_cube_911_ShouldVerify54CharInCube(self):
+    def test_cube_911_ShouldVerifyGT54CharInCube(self):
         
         cubeString = 'wwwwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
         
