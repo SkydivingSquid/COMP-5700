@@ -10,7 +10,7 @@ class Cube:
         self.cube = initCube
         
     def doesCubeExist(cube):
-        if cube = None:
+        if cube == None:
             return False
         else:
             return True
