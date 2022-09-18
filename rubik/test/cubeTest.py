@@ -92,9 +92,16 @@ class Test(unittest.TestCase):
         actualResults = cube.Cube.isValidLengthCube(cubeString)
         
         self.assertFalse(actualResults)
+        
+    def test_cube_020_ShouldVerifyValidCubeChars(self):
+        cubeString = 'wwwwwwwwwgggggggggrrrrrrrrrrooooooobbbbbbyyyyyyyyy'
+    
+        actualResults = cube.Cube.isValidCubeChar(cubeString)
+    
+        self.assertTrue(actualResults)
 
     
-    def test_cube_920_ShouldVerifyValidCubeChars(self):
+    def test_cube_920_ShouldVerifyInvalidCubeChars(self):
         cubeString = 'wwwwwwwwwgggggggggrrrrrzrrrrooooooobbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isValidCubeChar(cubeString)
