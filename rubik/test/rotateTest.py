@@ -244,33 +244,33 @@ class RotateTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotationController_140_ShouldRotate_F_WithEmptyDir_OnValidNominalCube(self):
-        inputDict = {}
-        inputDict['op'] = 'rotate'
-        inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
-        inputDict['dir'] = ""
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'gorwrgrobybgrbrorgoywbowrwrygobyybyboryyggbgwgbwowwwoy'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = rotate._rotate(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_rotationController_150_ShouldRotate_F_MissingDir_OnValidNominalCube(self):
-    
-        inputDict = {}
-        inputDict['op'] = 'rotate'
-        inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'gorwrgrobybgrbrorgoywbowrwrygobyybyboryyggbgwgbwowwwoy'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = rotate._rotate(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    # def test_rotationController_140_ShouldRotate_F_WithEmptyDir_OnValidNominalCube(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'rotate'
+    #     inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
+    #     inputDict['dir'] = ""
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'gorwrgrobybgrbrorgoywbowrwrygobyybyboryyggbgwgbwowwwoy'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = rotate._rotate(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_rotationController_150_ShouldRotate_F_MissingDir_OnValidNominalCube(self):
+    #
+    #     inputDict = {}
+    #     inputDict['op'] = 'rotate'
+    #     inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'gorwrgrobybgrbrorgoywbowrwrygobyybyboryyggbgwgbwowwwoy'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = rotate._rotate(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
     
     def test_rotationController_160_ShouldRotate_MultiCharDir_OnValidnominalCube(self):
