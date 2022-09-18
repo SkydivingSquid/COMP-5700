@@ -61,6 +61,7 @@ import rubik.cube as cube
     #        
     #    note:
     #        tests for default parms['dir'] are in rotateTest.
+    #        this includes missing dir, dir = "", and 
 
 
 class Test(unittest.TestCase):

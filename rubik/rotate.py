@@ -26,6 +26,7 @@ def _controller(parms):
     #And it made me feel more confident in my knowledge
     #Of Python.. 
     
+    
          
     if rubik.Cube.isValidLengthCube(cube) == False:
         result['status'] = 'Error - Invalid Cube Length'
