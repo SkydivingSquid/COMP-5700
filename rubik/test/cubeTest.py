@@ -141,7 +141,7 @@ class Test(unittest.TestCase):
     
         actualResults = cube.Cube.isNineOfEachChar(cubeString)
     
-        self.assertTrye(actualResults)
+        self.assertTrue(actualResults)
         
         
     def test_cube_950_ShouldVerifyValidLTNineofEachChar(self):
