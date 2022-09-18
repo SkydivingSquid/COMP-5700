@@ -314,7 +314,7 @@ class RotateTest(unittest.TestCase):
     def test_rotate_630_Controller_ValidCubeCenterChars(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
-        inputDict['cube'] = 'wbrbgwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
+        inputDict['cube'] = 'wgbowogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
         inputDict['dir'] = ''
     
         expectedResult = {}
