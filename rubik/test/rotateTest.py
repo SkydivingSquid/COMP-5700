@@ -348,7 +348,7 @@ class RotateTest(unittest.TestCase):
         actualResult = rotate._rotate(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    def test_rotateController_650_rotate_CubeIsMissing(self):
+    def test_rotateController_660_rotate_CubeHasTooManyOfAColor(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['dir'] = 'F'
