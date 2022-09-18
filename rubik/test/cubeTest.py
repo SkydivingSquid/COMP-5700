@@ -50,7 +50,6 @@ import rubik.cube as cube
     #        test 041: nominal cube with valid dir chars
     #
     #    sad paths:
-    #        test 900: missing cube
     #        test 910: abnormal cube with less than 54 char
     #        test 911: abnormal cube with greater than 54 char 
     #        test 920: abnormal cube with invalid letters
@@ -80,12 +79,6 @@ class Test(unittest.TestCase):
         
         self.assertTrue(actualResults)
         
-    def test_cube_900_ShouldVerifyMissingCube(self):
-        cubeString = None
-        
-        actualResults = cube.Cube.doesCubeExist(cubeString)
-        
-        self.assertFalse(actualResults)
 
     def test_cube_910_ShouldVerifyLT54CharInCube(self):
         

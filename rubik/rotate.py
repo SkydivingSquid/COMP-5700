@@ -13,11 +13,16 @@ def _controller(parms):
     result['status'] = 'ok'
     status = result['status']
     
+    if cube == None:
+        result['status'] = 'Error - Missing Cube Argument'
+        status = result['status']
+    
     if dir == "" or dir == None:
         dir = 'F'
         
         #Sets dir in parms
         parms['dir'] = dir
+        
     
     #Validity Checks as dictated by Cube Class.
     #These could have been in this file, but I wanted
