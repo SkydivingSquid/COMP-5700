@@ -45,7 +45,7 @@ def _rotate(parms):
     if rubik.Cube.isValidCenterColors(cube) == False:
         result['status'] = 'Error - Duplicate Center Colors'
         status = result['status']
-        #return result
+        return result
         
     if rubik.Cube.isValidDirChar(dir) == False:
         result['status'] = 'Error - Invalid Dir Char'
