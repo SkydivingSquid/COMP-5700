@@ -62,7 +62,7 @@ class RotateTest(unittest.TestCase):
     #        The test for a valid cube with invalid rotation is tested in cubeTest. 
     #
     
-    def test_rotate3_010_ShouldRotate_F_OnValidNominalCube(self):
+    def test_rotateController_010_ShouldRotate_F_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
@@ -72,11 +72,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'gorwrgrobybgrbrorgoywbowrwrygobyybyboryyggbgwgbwowwwoy'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_020_ShouldRotate_f_OnValidNominalCube(self):
+    def test_rotateController_020_ShouldRotate_f_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'gorwrgrobybgrbrorgoywbowrwrygobyybyboryyggbgwgbwowwwoy'
@@ -86,11 +86,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_030_ShouldRotate_R_OnValidNominalCube(self):
+    def test_rotateController_030_ShouldRotate_R_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbrg'
@@ -100,11 +100,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'bbgwygwygwgbwgbwroybrgwyyyygooooborryogwbrwybogrorwbrr'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_040_ShouldRotate_r_OnValidNominalCube(self):
+    def test_rotateController_040_ShouldRotate_r_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'bbgwygwygwgbwgbwroybrgwyyyygooooborryogwbrwybogrorwbrr'
@@ -114,11 +114,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbrg'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_050_ShouldRotate_B_OnValidNominalCube(self):
+    def test_rotateController_050_ShouldRotate_B_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'ogrwgrbwwobyoryybbrgwgorrroyryywobywgbgbbwrwbgyooyowgg'
@@ -128,11 +128,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'ogrwgrbwwobgorgybwrgrrogorwgrybwogywyybbbwrwbgyooyoyyb'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_060_ShouldRotate_b_OnValidNominalCube(self):
+    def test_rotateController_060_ShouldRotate_b_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'ogrwgrbwwobgorgybwrgrrogorwgrybwogywyybbbwrwbgyooyoyyb'
@@ -142,11 +142,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'ogrwgrbwwobyoryybbrgwgorrroyryywobywgbgbbwrwbgyooyowgg'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_070_ShouldRotate_L_OnValidNominalCube(self):
+    def test_rotateController_070_ShouldRotate_L_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'oogrbbrywbowwowgrrorooywybgwbrggobyybyyrwybbwowygrgrgg'
@@ -156,11 +156,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'bogrbbbywbowwowgrrorroygybobgwygbyorgyywwyobwowyrrgrgg'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_080_ShouldRotate_l_OnValidNominalCube(self):
+    def test_rotateController_080_ShouldRotate_l_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'bogrbbbywbowwowgrrorroygybobgwygbyorgyywwyobwowyrrgrgg'
@@ -170,11 +170,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'oogrbbrywbowwowgrrorooywybgwbrggobyybyyrwybbwowygrgrgg'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_090_ShouldRotate_U_OnValidNominalCube(self):
+    def test_rotateController_090_ShouldRotate_U_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'yobgwywbgwoywrrorgoorwgryobbrgyobwyrgbwbyyrgoywbgbgrwo'
@@ -184,11 +184,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'woygwywbgoorwrrorgbrgwgryobyobyobwyrrbggyboywywbgbgrwo'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_100_ShouldRotate_u_OnValidNominalCube(self):
+    def test_rotateController_100_ShouldRotate_u_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'woygwywbgoorwrrorgbrgwgryobyobyobwyrrbggyboywywbgbgrwo'
@@ -198,11 +198,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'yobgwywbgwoywrrorgoorwgryobbrgyobwyrgbwbyyrgoywbgbgrwo'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_110_ShouldRotate_d_OnValidNominalCube(self):
+    def test_rotateController_110_ShouldRotate_d_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'rrryroybwgrryoyyrobbbrwgygbogbwgwgwgwwgbbbooywoooygwyr'
@@ -212,11 +212,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'rrryroyrogrryoyygbbbbrwggwgogbwgwybwwwgbbbooyogroyywow'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_120_ShouldRotate_D_OnValidNominalCube(self):
+    def test_rotateController_120_ShouldRotate_D_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'rrryroyrogrryoyygbbbbrwggwgogbwgwybwwwgbbbooyogroyywow'
@@ -226,11 +226,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'rrryroybwgrryoyyrobbbrwgygbogbwgwgwgwwgbbbooywoooygwyr'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_130_ShouldRotate_F_WithMissingDir_OnValidNominalCube(self):
+    def test_rotateController_130_ShouldRotate_F_WithMissingDir_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
@@ -244,7 +244,7 @@ class RotateTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_140_ShouldRotate_F_WithEmptyDir_OnValidNominalCube(self):
+    def test_rotateController_140_ShouldRotate_F_WithEmptyDir_OnValidNominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
@@ -258,7 +258,7 @@ class RotateTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_150_ShouldRotate_F_MissingDir_OnValidNominalCube(self):
+    def test_rotateController_150_ShouldRotate_F_MissingDir_OnValidNominalCube(self):
     
         inputDict = {}
         inputDict['op'] = 'rotate'
@@ -273,7 +273,7 @@ class RotateTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
     
-    def test_rotate3_160_ShouldRotate_MultiCharDir_OnValidnominalCube(self):
+    def test_rotateController_160_ShouldRotate_MultiCharDir_OnValidnominalCube(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'wbrbwwoyobryoroyrorobgyrbyrrrgyoyggyybgwbbowwgobwggwgw'
@@ -283,11 +283,11 @@ class RotateTest(unittest.TestCase):
         expectedResult['cube'] = 'wbrbwwoyobryoroyrorobgyrbyrrrgyoyggyybgwbbowwgobwggwgw'
         expectedResult['status'] = 'ok'
     
-        actualResult = rotate._rotate3(inputDict)
+        actualResult = rotate._rotateController(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    def test_rotate3_610_Controller_ValidCubeLength(self):
+    def test_rotateController_610_Controller_ValidCubeLength(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbr'
@@ -299,7 +299,7 @@ class RotateTest(unittest.TestCase):
         actualResult = rotate._controller(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_rotate3_620_Controller_ValidCubeChars(self):
+    def test_rotateController_620_Controller_ValidCubeChars(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'wbrbwwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
@@ -311,7 +311,7 @@ class RotateTest(unittest.TestCase):
         actualResult = rotate._controller(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
      
-    def test_rotate3_630_Controller_ValidCubeCenterChars(self):
+    def test_rotateController_630_Controller_ValidCubeCenterChars(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'wgbowogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
@@ -323,7 +323,7 @@ class RotateTest(unittest.TestCase):
         actualResult = rotate._controller(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    def test_rotate3_640_Controller_ValidDirChars(self):
+    def test_rotateController_640_Controller_ValidDirChars(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'rgborogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
@@ -336,7 +336,7 @@ class RotateTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
         
-    def test_rotate3_650_Controller_CubeIsMissing(self):
+    def test_rotateController_650_Controller_CubeIsMissing(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['dir'] = 'F'
