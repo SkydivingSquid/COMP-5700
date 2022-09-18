@@ -109,6 +109,13 @@ class Test(unittest.TestCase):
         self.assertFalse(actualResults)
     
     def test_cube_930__ShouldVerifyUniqueCenterColors(self):
+        cubeString = 'wwwwwwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
+    
+        actualResults = cube.Cube.isValidCenterColors(cubeString)
+    
+        self.assertTrue(actualResults)
+    
+    def test_cube_930__ShouldVerifyDuplicateCenterColors(self):
         cubeString = 'wwwwgwwwwgggggggggzzzzzzzzzooooooooobbbbbbbbbyyyyyyyyy'
     
         actualResults = cube.Cube.isValidCenterColors(cubeString)
