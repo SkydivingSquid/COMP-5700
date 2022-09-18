@@ -1,3 +1,5 @@
+from collections import Counter
+
 class Cube:
     
     '''
@@ -43,5 +45,12 @@ class Cube:
     
         else:
             return False
+        
+    def isNineOfEachChar(cube):
+        
+        for x in Counter(cube).values():
+            if x != 9:
+                return False
+        return True
         
         
