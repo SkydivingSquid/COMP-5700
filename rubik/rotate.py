@@ -16,6 +16,7 @@ def _controller(parms):
     if cube == None:
         result['status'] = 'Error - Missing Cube Argument'
         status = result['status']
+        return
     
     if dir == "" or dir == None:
         dir = 'F'
