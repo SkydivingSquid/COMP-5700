@@ -347,6 +347,18 @@ class RotateTest(unittest.TestCase):
         actualResult = rotate._controller(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
+    def test_rotate_660_Controller_CubeIsEmpty(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['dir'] = 'F'
+        inputDict['dir'] = None
+    
+        expectedResult = {}
+        expectedResult['status'] = 'Error - Missing Cube Argument'
+    
+        actualResult = rotate._controller(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
         
         
         
