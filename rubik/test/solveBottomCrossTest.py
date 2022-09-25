@@ -41,7 +41,7 @@ class solveBottomCrossTest(unittest.TestCase):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'wybobrobywrrgryorygogggbrowwboyoyrgbogyoybbrrywgwwwgwb'
-        
+    
         expectedResult = {}       
         expectedResult['cube'] = 'oowbbyyrbbrrrryrrygogggbrowwbyyowrggogyoybbyoogwwwwgwb'
         #expectedResult['solution'] = ''

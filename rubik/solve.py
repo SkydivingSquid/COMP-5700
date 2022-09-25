@@ -1,4 +1,5 @@
 import rubik.cube as rubik
+from codecs import EncodedFile
 
 def _solve(parms):
     """Return rotates needed to solve input cube"""
@@ -60,5 +61,67 @@ def _solveBottomCross(encodedCube):
                 
                 return result
             
+            else: 
+                F_result = _rotateF(encodedCube)
+                result['solution'] = F_result.get('letter')
+                result['cube'] = F_result.get('cube')
+                
+                return result 
+                
+                
+
+
+############ Rotate Methods. . . ############
+
+
+def _rotateF(cube):
+    result = {}
     
+    cubeList = list(cube)
+    rotatedCubeList = cubeList[:]
+    
+        #rotate front face
+    rotatedCubeList[2] = cubeList[0]
+    rotatedCubeList[5] = cubeList[1]
+    rotatedCubeList[8] = cubeList[2]
+    rotatedCubeList[1] = cubeList[3]
+    rotatedCubeList[4] = cubeList[4]
+    rotatedCubeList[7] = cubeList[5]
+    rotatedCubeList[0] = cubeList[6]
+    rotatedCubeList[3] = cubeList[7]
+    rotatedCubeList[6] = cubeList[8]
+    
+    #rotate top to right
+    rotatedCubeList[9] = cubeList[42]
+    rotatedCubeList[12] = cubeList[43]
+    rotatedCubeList[15] = cubeList[44]
+    
+    #rotate right to bottom
+    rotatedCubeList[47] = cubeList[9]
+    rotatedCubeList[46] = cubeList[12]
+    rotatedCubeList[45] = cubeList[15]
+    
+    #rotate bottom to left
+    rotatedCubeList[29] = cubeList[45]
+    rotatedCubeList[32] = cubeList[46]
+    rotatedCubeList[35] = cubeList[47]
+    
+    #rotate left to top
+    rotatedCubeList[44] = cubeList[29]
+    rotatedCubeList[43] = cubeList[32] 
+    rotatedCubeList[42] = cubeList[35]
+    
+    rotatedCube = "".join(rotatedCubeList)
+    
+    result['cube'] = rotatedCube
+    result['letter'] = 'F'
+    return result
+
+
+
+
+
+
+
+
     
