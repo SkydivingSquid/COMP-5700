@@ -16,8 +16,6 @@ class solveBottomCrossTest(unittest.TestCase):
     
     
     
-        
-    
     
     
     #Passing in no cube
