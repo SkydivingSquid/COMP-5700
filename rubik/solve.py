@@ -120,7 +120,7 @@ def _rotateF(cube):
     rotatedCubeList[43] = cubeList[32] 
     rotatedCubeList[42] = cubeList[35]
     
-    rotatedCubeList
+    #rotatedCube = "".join(rotatedCubeList)
     
     result['cube'] = rotatedCubeList
     result['letter'] = 'F'
