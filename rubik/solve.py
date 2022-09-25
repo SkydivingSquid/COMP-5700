@@ -44,9 +44,10 @@ def _solveBottomCross(encodedCube):
     result['status'] = 'ok'
     
     #Check for bottom cross
-    for matchingColors in (rotatedCubeList[46], rotatedCubeList[48], 
+    for bottomSideColors in (rotatedCubeList[46], rotatedCubeList[48], 
                            rotatedCubeList[50], rotatedCubeList[52]):
-        if matchingColors == rotatedCubeList[49]:
+        
+        if bottomSideColors == rotatedCubeList[49]:
             
             #Check for bottom cross alignment
             if (rotatedCubeList[4] == rotatedCubeList[7] and
@@ -63,6 +64,7 @@ def _solveBottomCross(encodedCube):
                 
                 return result
             
+            #Rotate unaligned bottom cross into top daisy
             else: 
                 F_result = _rotateF(encodedCube)
                 result['solution'] += F_result.get('letter')
@@ -98,12 +100,26 @@ def _solveBottomCross(encodedCube):
                 
                 result['cube'] = "".join(encodedCube)
                 result['status'] = 'ok'
+                
+                
+                
                 return result 
-                
+            
                 
 
 
-############ Rotate Methods. . . ############
+
+
+
+
+
+
+
+
+
+
+
+############ Rotate Methods For Solving Cube ###########
 
 
 def _rotateF(cube):
