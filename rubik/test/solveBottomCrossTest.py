@@ -68,15 +68,15 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
         def test_solve_999_PlayGroundTest(self):
-        inputDict = {}
-        inputDict['cube'] = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'
-        expectedResult['daisySolution'] = 'FFRRBBLLUUFF'
-
-        actualResult = solve._daisySolution(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('daisySolution'), actualResult.get('daisySolution'))
+            inputDict = {}
+            inputDict['cube'] = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
+        
+            expectedResult = {}       
+            expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'
+            expectedResult['daisySolution'] = 'FFRRBBLLUUFF'
+        
+            actualResult = solve._daisySolution(inputDict)
+            self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+            self.assertEqual(expectedResult.get('daisySolution'), actualResult.get('daisySolution'))
    
         
