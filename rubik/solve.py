@@ -113,6 +113,7 @@ def _solveBottomCross(encodedCube):
     
 def _daisySolution(cube):
     result = {}
+    cube = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
     result['daisySolution'] = ""
