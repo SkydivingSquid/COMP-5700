@@ -27,12 +27,28 @@ class solveBottomCrossTest(unittest.TestCase):
         inputDict['cube'] = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
         
         expectedResult = {}       
-        #expectedResult['cube'] = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+        expectedResult['cube'] = 'wwwwwwwwwgggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
         expectedResult['solution'] = ''
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
 
+    
+    def test_solve_020_ShouldRotateToDaisyFromUnalignedBottomCross(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'wybobrobywrrgryorygogggbrowwboyoyrgbogyoybbrrywgwwwgwb'
+        
+        expectedResult = {}       
+        expectedResult['cube'] = 'oowbbyyrbbrrrryrrygogggbrowwbyyowrggogyoybbyoogwwwwgwb'
+        #expectedResult['solution'] = ''
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        #self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        

@@ -4,8 +4,9 @@ def _solve(parms):
     """Return rotates needed to solve input cube"""
     result = {}
     encodedCube = parms.get('cube',None)       #STUB:  get "cube" parameter if present
-    result['solution'] = ''        #STUB:  example rotations
+    result['solution'] = " "        #STUB:  example rotations
     result['status'] = 'ok'
+    result['cube'] = encodedCube
     status = result['status']     
     
 
@@ -39,17 +40,25 @@ def _solveBottomCross(encodedCube):
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     
+    #Check for bottom cross
     for matchingColors in (rotatedCubeList[46], rotatedCubeList[48], 
                            rotatedCubeList[50], rotatedCubeList[52]):
         if matchingColors == rotatedCubeList[49]:
             
+            #Check for bottom cross alignment
             if (rotatedCubeList[4] == rotatedCubeList[7] and
                 rotatedCubeList[13] == rotatedCubeList[16] and
                 rotatedCubeList[22] == rotatedCubeList[25] and
                 rotatedCubeList[31] == rotatedCubeList[34]):
                 
+                #Return solution for solved cube
                 result['solution'] = ''
                 result['status'] = 'ok'
+                #These two are irrelevant, but here for future use
+                rotatedCube = "".join(rotatedCubeList)
+                result['cube'] = rotatedCube
+                
                 return result
+            
     
     
