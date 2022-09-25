@@ -38,6 +38,7 @@ def _solve(parms):
 
 def _solveBottomCross(encodedCube):
     result = {}
+    encodedCube = encodedCube
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
