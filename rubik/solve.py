@@ -73,28 +73,28 @@ def _solveBottomCross(encodedCube):
                 encodedCube = F_result.get('cube')
                 
                 R_result = _rotateR(encodedCube)
-                result['solution'] += F_result.get('letter')
-                encodedCube = F_result.get('cube')
+                result['solution'] += R_result.get('letter')
+                encodedCube = R_result.get('cube')
                 
                 R_result = _rotateR(encodedCube)
-                result['solution'] += F_result.get('letter')
-                encodedCube = F_result.get('cube')
+                result['solution'] += R_result.get('letter')
+                encodedCube = R_result.get('cube')
                 
                 B_result = _rotateB(encodedCube)
-                result['solution'] += F_result.get('letter')
-                encodedCube = F_result.get('cube')
+                result['solution'] += B_result.get('letter')
+                encodedCube = B_result.get('cube')
                 
                 B_result = _rotateB(encodedCube)
-                result['solution'] += F_result.get('letter')
-                encodedCube = F_result.get('cube')
+                result['solution'] += B_result.get('letter')
+                encodedCube = B_result.get('cube')
                 
                 L_result = _rotateL(encodedCube)
-                result['solution'] += F_result.get('letter')
-                encodedCube = F_result.get('cube')
+                result['solution'] += L_result.get('letter')
+                encodedCube = L_result.get('cube')
                 
                 L_result = _rotateL(encodedCube)
-                result['solution'] += F_result.get('letter')
-                encodedCube = F_result.get('cube')
+                result['solution'] += L_result.get('letter')
+                encodedCube = L_result.get('cube')
                 
                 result['cube'] = "".join(encodedCube)
                 result['status'] = 'ok'
