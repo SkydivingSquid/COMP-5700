@@ -58,7 +58,7 @@ class solveBottomCrossTest(unittest.TestCase):
         inputDict['cube'] = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
     
         expectedResult = {}       
-        expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'}'
+        expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'
         expectedResult['solution'] = 'FFRRBBLLUUFF'
         expectedResult['status'] = 'ok'
     
