@@ -5,7 +5,7 @@ def _solve(parms):
     """Return rotates needed to solve input cube"""
     result = {}
     encodedCube = parms.get('cube',None)       #STUB:  get "cube" parameter if present
-    result['solution'] = " "        #STUB:  example rotations
+    result['solution'] = ""        #STUB:  example rotations
     result['status'] = 'ok'
     result['cube'] = encodedCube
     status = result['status']     
@@ -40,7 +40,7 @@ def _solveBottomCross(encodedCube):
     result = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
-    result['solution'] = " "
+    result['solution'] = ""
     result['status'] = 'ok'
     
     #Check for bottom cross
@@ -65,7 +65,7 @@ def _solveBottomCross(encodedCube):
             
             else: 
                 F_result = _rotateF(encodedCube)
-                result['solution'] = F_result.get('letter')
+                result['solution'] += F_result.get('letter')
                 result['cube'] = F_result.get('cube')
                 
                 
