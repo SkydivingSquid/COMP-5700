@@ -130,7 +130,6 @@ def _daisySolution(encodedCube):
         return result
         
     else:
-        rotatedCubeList[4] == rotatedCubeList[1]:
         U_result = _rotateU(encodedCube)
         result['solution'] += U_result.get('letter')
         encodedCube = U_result.get('cube')
