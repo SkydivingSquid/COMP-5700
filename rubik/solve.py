@@ -111,29 +111,27 @@ def _solveBottomCross(encodedCube):
                 result['status'] = 'ok'
                 return result 
     
-def _daisySolution(encodedCube):
+def _daisySolution(cube):
     result = {}
-    cubeList = list(encodedCube)
+    cubeList = list(cube)
     rotatedCubeList = cubeList[:]
     result['daisySolution'] = ""
     #result['status'] = 'ok'
     
     #Front Face Alignment
     if rotatedCubeList[4] == rotatedCubeList[1]:
-        F_result = _rotateF(encodedCube)
+        F_result = _rotateF(cube)
         result['daisySolution'] += F_result.get('letter')
-        encodedCube = F_result.get('cube')
+        cube = F_result.get('cube')
         
-        F_result = _rotateF(encodedCube)
+        F_result = _rotateF(cube)
         result['daisySolution'] += F_result.get('letter')
-        encodedCube = F_result.get('cube')
-        
-        result['cube'] = "".join(encodedCube)
+        cube = F_result.get('cube')
     
         return result
         
     else:
-        U_result = _rotateU(encodedCube)
+        U_result = _rotateU(cube)
         result['daisySolution'] += U_result.get('letter')
         encodedCube = U_result.get('cube')
         _daisySolution(encodedCube)
