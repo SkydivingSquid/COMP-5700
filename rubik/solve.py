@@ -38,7 +38,6 @@ def _solve(parms):
 
 def _solveBottomCross(encodedCube):
     result = {}
-    encodedCube = encodedCube
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
@@ -73,6 +72,7 @@ def _solveBottomCross(encodedCube):
                 result['solution'] += F_result.get('letter')
                 encodedCube = F_result.get('cube')
                 
+                result['cube'] = "".join(encodedCube)
                 
                 result['status'] = 'ok'
                 return result 
@@ -120,9 +120,9 @@ def _rotateF(cube):
     rotatedCubeList[43] = cubeList[32] 
     rotatedCubeList[42] = cubeList[35]
     
-    rotatedCube = "".join(rotatedCubeList)
+    #rotatedCube = "".join(rotatedCubeList)
     
-    result['cube'] = rotatedCube
+    result['cube'] = rotatedCubeList
     result['letter'] = 'F'
     return result
 
