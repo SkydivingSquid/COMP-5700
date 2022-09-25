@@ -73,7 +73,6 @@ def _solveBottomCross(encodedCube):
                 encodedCube = F_result.get('cube')
                 
                 
-                
                 result['status'] = 'ok'
                 return result 
                 
