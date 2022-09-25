@@ -103,11 +103,11 @@ def _solveBottomCross(encodedCube):
                 
                 if rotatedCubeList[4] == rotatedCubeList[1]:
                     F_result = _rotateF(encodedCube)
-                    result['daisySolution'] += F_result.get('letter')
+                    result['solution'] += F_result.get('letter')
                     encodedCube = F_result.get('cube')
             
                     F_result = _rotateF(encodedCube)
-                    result['daisySolution'] += F_result.get('letter')
+                    result['solution'] += F_result.get('letter')
                     encodedCube = F_result.get('cube')
             
                     return result
@@ -115,7 +115,7 @@ def _solveBottomCross(encodedCube):
                 else:
                     while rotatedCubeList[4] != rotatedCubeList[1]:
                         U_result = _rotateU(encodedCube)
-                        result['daisySolution'] += U_result.get('letter')
+                        result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
           
                 result['status'] = 'ok'
