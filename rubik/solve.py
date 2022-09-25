@@ -98,8 +98,8 @@ def _solveBottomCross(encodedCube):
                 result['solution'] += L_result.get('letter')
                 encodedCube = L_result.get('cube')
                 
-                result['cube'] = "".join(encodedCube)
-                result['status'] = 'ok'
+                #result['cube'] = "".join(encodedCube)
+                #result['status'] = 'ok'
                 
                 #Align Daisy and Rotate Into Bottom Cross
                 daisySolution = _daisySolution(encodedCube)
@@ -108,6 +108,7 @@ def _solveBottomCross(encodedCube):
                 result['solution'] += "UUFF"
                 result['cube'] = daisySolution.get('cube')
                 
+                result['status'] = 'ok'
                 return result 
     
 def _daisySolution(encodedCube):
