@@ -101,42 +101,53 @@ def _solveBottomCross(encodedCube):
                 #result['cube'] = "".join(encodedCube)
                 #result['status'] = 'ok'
                 
-                #Align Daisy and Rotate Into Bottom Cross
-                daisyResult = _daisySolution(encodedCube)
-                
-                #result['solution'] += daisySolution.get('daisySolution')
-                result['solution'] += daisyResult.get('daisySolution')
-                result['cube'] = ""
-                
+                if rotatedCubeList[4] == rotatedCubeList[1]:
+                    F_result = _rotateF(cube)
+                    result['daisySolution'] += F_result.get('letter')
+                    cube = F_result.get('cube')
+            
+                    F_result = _rotateF(cube)
+                    result['daisySolution'] += F_result.get('letter')
+                    cube = F_result.get('cube')
+            
+                    return result
+            
+                else:
+                    while rotatedCubeList[4] != rotatedCubeList[1]:
+                        U_result = _rotateU(cube)
+                        result['daisySolution'] += U_result.get('letter')
+                        encodedCube = U_result.get('cube')
+          
                 result['status'] = 'ok'
                 return result 
     
-def _daisySolution(cube):
-    result = {}
-    cubeList = list(cube)
-    rotatedCubeList = cubeList[:]
-    result['daisySolution'] = ""
-    #result['status'] = 'ok'
-    
-    #Front Face Alignment
-    if rotatedCubeList[4] == rotatedCubeList[1]:
-        F_result = _rotateF(cube)
-        result['daisySolution'] += F_result.get('letter')
-        cube = F_result.get('cube')
-        
-        F_result = _rotateF(cube)
-        result['daisySolution'] += F_result.get('letter')
-        cube = F_result.get('cube')
-    
-        return result
-        
-    else:
-        while rotatedCubeList[4] != rotatedCubeList[1]:
-            U_result = _rotateU(cube)
-            result['daisySolution'] += U_result.get('letter')
-            encodedCube = U_result.get('cube')
-            _daisySolution(encodedCube)
-        
+# def _daisySolution(cube):
+#     result = {}
+#     cubeList = list(cube)
+#     rotatedCubeList = cubeList[:]
+#     result['daisySolution'] = ""
+#     #result['status'] = 'ok'
+#
+#     #Front Face Alignment
+#     if rotatedCubeList[4] == rotatedCubeList[1]:
+#         F_result = _rotateF(cube)
+#         result['daisySolution'] += F_result.get('letter')
+#         cube = F_result.get('cube')
+#
+#         F_result = _rotateF(cube)
+#         result['daisySolution'] += F_result.get('letter')
+#         cube = F_result.get('cube')
+#
+#         return result
+#
+#     else:
+#         while rotatedCubeList[4] != rotatedCubeList[1]:
+#             U_result = _rotateU(cube)
+#             result['daisySolution'] += U_result.get('letter')
+#             encodedCube = U_result.get('cube')
+#             _daisySolution(encodedCube)
+#
+
         
         
                 

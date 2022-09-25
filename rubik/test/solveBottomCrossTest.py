@@ -52,31 +52,31 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    # def test_solve_021_ShouldAlignDaisyAndSolveForBottomCross(self):
+    def test_solve_021_ShouldAlignDaisyAndSolveForBottomCross(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
+    
+        expectedResult = {}       
+        expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'
+        expectedResult['solution'] = 'FFRRBBLLUUFF'
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    # def test_solve_900_PlayGround(self):
     #     inputDict = {}
-    #     inputDict['op'] = 'solve'
     #     inputDict['cube'] = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
     #
     #     expectedResult = {}       
     #     expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'
-    #     expectedResult['solution'] = 'FFRRBBLLUUFF'
-    #     expectedResult['status'] = 'ok'
+    #     expectedResult['daisySolution'] = 'FFRRBBLLUUFF'
     #
-    #     actualResult = solve._solve(inputDict)
+    #     actualResult = solve._daisySolution(inputDict)
     #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_solve_900_PlayGround(self):
-        inputDict = {}
-        inputDict['cube'] = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
-     
-        expectedResult = {}       
-        expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'
-        expectedResult['daisySolution'] = 'FFRRBBLLUUFF'
-     
-        actualResult = solve._daisySolution(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('daisySolution'), actualResult.get('daisySolution'))
+    #     self.assertEqual(expectedResult.get('daisySolution'), actualResult.get('daisySolution'))
 
         
