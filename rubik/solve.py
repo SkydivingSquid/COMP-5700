@@ -40,6 +40,8 @@ def _solveBottomCross(encodedCube):
     result = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
+    result['solution'] = " "
+    result['status'] = 'ok'
     
     #Check for bottom cross
     for matchingColors in (rotatedCubeList[46], rotatedCubeList[48], 
@@ -65,8 +67,9 @@ def _solveBottomCross(encodedCube):
                 F_result = _rotateF(encodedCube)
                 result['solution'] = F_result.get('letter')
                 result['cube'] = F_result.get('cube')
-                result['status'] = 'ok'
                 
+                
+                result['status'] = 'ok'
                 return result 
                 
                 
