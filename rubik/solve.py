@@ -66,7 +66,12 @@ def _solveBottomCross(encodedCube):
             else: 
                 F_result = _rotateF(encodedCube)
                 result['solution'] += F_result.get('letter')
-                result['cube'] = F_result.get('cube')
+                encodedCube = F_result.get('cube')
+                
+                F_result = _rotateF(encodedCube)
+                result['solution'] += F_result.get('letter')
+                encodedCube = F_result.get('cube')
+                
                 
                 
                 result['status'] = 'ok'
