@@ -112,7 +112,7 @@ def _daisySolution(encodedCube):
     result = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
-    result['solution'] = ""
+    result['solution'] = "X"
     #result['status'] = 'ok'
     
     #Front Face Alignment
