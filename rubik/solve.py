@@ -104,8 +104,7 @@ def _solveBottomCross(encodedCube):
                 #Align Daisy and Rotate Into Bottom Cross
                 daisySolution = _daisySolution(encodedCube)
                 
-                #result['solution'] += daisySolution.get('solution')
-                result['solution'] += "UUFF"
+                result['solution'] += daisySolution.get('solution')
                 result['cube'] = daisySolution.get('cube')
                 
                 return result 
