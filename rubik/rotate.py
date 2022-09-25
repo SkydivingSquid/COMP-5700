@@ -14,7 +14,7 @@ def _rotate(parms):
     status = result['status']
     
     if cube == None:
-        result['status'] = 'Error - Missing Cube Argument'
+        result['status'] = 'error: Missing Cube Argument'
         status = result['status']
         return result
     
@@ -33,27 +33,27 @@ def _rotate(parms):
     #Of Python.. 
     
     if rubik.Cube.isValidLengthCube(cube) == False:
-        result['status'] = 'Error - Invalid Cube Length'
+        result['status'] = 'error: Invalid Cube Length'
         status = result['status']
         return result
     
     if rubik.Cube.isValidCubeChar(cube) == False:
-        result['status'] = 'Error - Invalid Cube Char'
+        result['status'] = 'error: Invalid Cube Char'
         status = result['status']
         return result
     
     if rubik.Cube.isValidCenterColors(cube) == False:
-        result['status'] = 'Error - Duplicate Center Colors'
+        result['status'] = 'error: Duplicate Center Colors'
         status = result['status']
         return result
         
     if rubik.Cube.isValidDirChar(dir) == False:
-        result['status'] = 'Error - Invalid Dir Char'
+        result['status'] = 'error: Invalid Dir Char'
         status = result['status']
         return result
     
     if rubik.Cube.isNineOfEachChar(cube) == False:
-        result['status'] = 'Error - There May Only Be 9 Of Each Color'
+        result['status'] = 'error: There May Only Be 9 Of Each Color'
         status = result['status']
         return result
     
