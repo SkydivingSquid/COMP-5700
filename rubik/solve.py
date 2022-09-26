@@ -367,6 +367,10 @@ def _solveBottomCross(encodedCube):
                         numberOfPetalsFound += 1
             
             print('ABOVE HORIZONTAL BACK')
+            print(rotatedCubeList[49])
+            print(rotatedCubeList[21])
+            print(rotatedCubeList[41])
+            
             #Check Back Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
                 print('ENTERING THE HORIZONTAL BACK')
