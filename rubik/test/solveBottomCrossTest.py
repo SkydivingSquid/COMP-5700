@@ -64,9 +64,7 @@ class solveBottomCrossTest(unittest.TestCase):
     #        The test for a valid cube with invalid rotation is tested in cubeTest. 
     #
     
-    
-    
-    
+
     
     def test_solve_001_ValidCubeLength(self):
         inputDict = {}
@@ -110,7 +108,6 @@ class solveBottomCrossTest(unittest.TestCase):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['dir'] = 'F'
-        #Works the same if inputDict['dir'] = None
     
         expectedResult = {}
         expectedResult['status'] = 'error: Missing Cube Argument'
@@ -129,8 +126,6 @@ class solveBottomCrossTest(unittest.TestCase):
     
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    
 
     def test_solve_010_ShouldReturnEmptyStringOnSolvedCube(self):
         inputDict = {}

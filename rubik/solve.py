@@ -1,13 +1,10 @@
 import rubik.cube as rubik
-from rubik.sandbox import encodedCube, rotatedCubeList
-from lib2to3.fixer_util import Number
-from setuptools.command.rotate import rotate
 
 
 def _solve(parms):
     """Return rotates needed to solve input cube"""
     result = {}
-    encodedCube = parms.get('cube',None)       #STUB:  get "cube" parameter if present
+    encodedCube = parms.get('cube',None)
     result['solution'] = ""                 
     result['status'] = 'ok'
     result['cube'] = encodedCube
@@ -224,8 +221,6 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
-                        # rotatedCubeList[50] = encodedCube[50]
-                        # rotatedCubeList[41] = encodedCube[41]
                         rotatedCubeList = encodedCube
                     
                     if rotatedCubeList[50] != rotatedCubeList[41]:
