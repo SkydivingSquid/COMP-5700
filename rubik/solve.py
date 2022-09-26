@@ -878,6 +878,11 @@ def _daisySolution(encodedCube):
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
+    print('SHOULD ALL BE EQUAL TO COLOR IN ' + str(rotatedCubeList[49]))
+    print[rotatedCubeList[37]]
+    print[rotatedCubeList[39]]
+    print[rotatedCubeList[41]]
+    print[rotatedCubeList[43]]
    
     
     
