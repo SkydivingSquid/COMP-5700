@@ -1,4 +1,5 @@
 import rubik.cube as rubik
+from rubik.sandbox import encodedCube
 
 
 def _solve(parms):
@@ -844,7 +845,7 @@ def _solveBottomCross(encodedCube):
                         
                 print('####### CYCLE STATUS #######')
                 print(numberOfPetalsFound)
-                print(result['cube'] = "".join(encodedCube))
+                print(encodedCube)
                 print(result['solution'])
                 print('####### CYCLE STATUS #######')
         
