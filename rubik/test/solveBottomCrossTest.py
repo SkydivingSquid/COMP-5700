@@ -317,37 +317,163 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_solve_998_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    def test_solve_990_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ygoywyywrrgowbogrbwroggbgywyrgrobbwwgwyoyybbwbboorgror'
+        inputDict['cube'] = 'wbgyoowrgyorbgbyyowrrgrybrobwywwgwwygbbrbgrwrogooyobyg'
     
         expectedResult = {}       
-        expectedResult['cube'] = 'rwgywogwbbwgwbgybyogwogbwgyobwgooborryyyyybbrorgrrrwro'
-        expectedResult['solution'] = 'bRRfrFDRRblBDLLUUUrUFFURRUUBBULL'
+        expectedResult['cube'] = ''
+        expectedResult['solution'] = ''
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    # def test_solve_991_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'bobwbwggworrbrrbrgywoyyybroyowgoyygygowbwgrygroobgwwbr'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = ''
+    #     expectedResult['solution'] = ''
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_992_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'wooyggyorrwobryggobrywoobgrooyrybwbgwgrbbrgywbwbrwwgyy'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = ''
+    #     expectedResult['solution'] = ''
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    #
+    # def test_solve_993_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'oggyobbygybywwoybbrywyrwgwwrbbogryggbwwgbowooogrryrorr'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = ''
+    #     expectedResult['solution'] = ''
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_994_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'bbyywwoobwrwrooyggywowgbygrggoyywogwbbrrbywobrrgorbgyr'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = ''
+    #     expectedResult['solution'] = ''
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_995_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'ygoywyywrrgowbogrbwroggbgywyrgrobbwwgwyoyybbwbboorgror'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'rwgywogwbbwgwbgybyogwogbwgyobwgooborryyyyybbrorgrrrwro'
+    #     expectedResult['solution'] = 'bRRfrFDRRblBDLLUUUrUFFURRUUBBULL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_996_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'wbwbroybygroyywroryorgbrgrbwrgwggowwybbyoorybbwoywgggo'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = ''
+    #     expectedResult['solution'] = ''
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_997_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'yogrwbbwowwoyrorbwryobboyrybbwggwbwrggbgogrroyywoyrgyg'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'ywoowbrwgrorgrobrgyrobbwwbrgrbggrygowwbboggobwyoyyywyy'
+    #     expectedResult['solution'] = 'FFBBUFBBrbRDBBUUUFFURRUUBBULL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_998_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'yrrwrwyggoybybrorygbbyggwwyogbwwogybroobobgowrowgybwrr'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = ''
+    #     expectedResult['solution'] = ''
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    #
+    # def test_solve_999_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'obrrooggobwryybboogworgbybgbwwyrwwgbrywgborogyyyrwrygw'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = ''
+    #     expectedResult['solution'] = ''
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+
     
-    def test_solve_999_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'yogrwbbwowwoyrorbwryobboyrybbwggwbwrggbgogrroyywoyrgyg'
     
-        expectedResult = {}       
-        expectedResult['cube'] = 'ywoowbrwgrorgrobrgyrobbwwbrgrbggrygowwbboggobwyoyyywyy'
-        expectedResult['solution'] = 'FFBBUFBBrbRDBBUUUFFURRUUBBULL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    
+
+
 
 
 
