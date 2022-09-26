@@ -115,20 +115,20 @@ def _solveBottomCross(encodedCube):
     
     
     #Check Top for Daisy  
-    # if (rotatedCubeList[37] == rotatedCubeList[49] and
-    #     rotatedCubeList[39] == rotatedCubeList[49] and
-    #     rotatedCubeList[41] == rotatedCubeList[49] and
-    #     rotatedCubeList[43] == rotatedCubeList[49]):
-    #
-    #     daisySolution = _daisySolution(encodedCube)
-    #
-    #     encodedCube = daisySolution.get('cube')
-    #
-    #     result['cube'] = "".join(encodedCube)
-    #     result['solution'] += daisySolution.get('solution')
-    #     result['status'] = 'ok'
-    #
-    #     return result
+    if (rotatedCubeList[37] == rotatedCubeList[49] and
+        rotatedCubeList[39] == rotatedCubeList[49] and
+        rotatedCubeList[41] == rotatedCubeList[49] and
+        rotatedCubeList[43] == rotatedCubeList[49]):
+    
+        daisySolution = _daisySolution(encodedCube)
+    
+        encodedCube = daisySolution.get('cube')
+    
+        result['cube'] = "".join(encodedCube)
+        result['solution'] += daisySolution.get('solution')
+        result['status'] = 'ok'
+    
+        return result
         
     
 def _daisySolution(encodedCube):
