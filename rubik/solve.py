@@ -138,19 +138,6 @@ def _solveBottomCross(encodedCube):
         while(numberOfPetalsFound <= 3):
             print(numberOfPetalsFound)
         
-            #Check Top Petals First
-            if rotatedCubeList[37] == rotatedCubeList[49]:
-                numberOfPetalsFound += 1
-                
-            if rotatedCubeList[39] == rotatedCubeList[49]:
-                numberOfPetalsFound += 1
-                
-            if rotatedCubeList[41] == rotatedCubeList[49]:
-                numberOfPetalsFound += 1
-                
-            if rotatedCubeList[43] == rotatedCubeList[49]:
-                numberOfPetalsFound += 1    
-            
             #Check for in place Bottom Pieces 
             
             #Checking Top of Bottom Face
@@ -758,6 +745,19 @@ def _solveBottomCross(encodedCube):
                     result['cube'] = encodedCube
                     numberOfPetalsFound += 1
                     
+            #Check Top Petals Last
+            if rotatedCubeList[37] == rotatedCubeList[49]:
+                numberOfPetalsFound += 1
+                
+            if rotatedCubeList[39] == rotatedCubeList[49]:
+                numberOfPetalsFound += 1
+                
+            if rotatedCubeList[41] == rotatedCubeList[49]:
+                numberOfPetalsFound += 1
+                
+            if rotatedCubeList[43] == rotatedCubeList[49]:
+                numberOfPetalsFound += 1    
+
             print('ended')
             print(numberOfPetalsFound)
             print(encodedCube)
