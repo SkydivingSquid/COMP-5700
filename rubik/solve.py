@@ -38,6 +38,7 @@ def _solve(parms):
     
     if status == 'ok':
         result = _solveBottomCross(encodedCube)
+        result['rotations'] = result.get('solution')
                  
     return result
 

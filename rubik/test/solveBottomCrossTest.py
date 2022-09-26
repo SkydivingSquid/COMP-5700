@@ -10,16 +10,63 @@ import rubik.solve as solve
 class solveBottomCrossTest(unittest.TestCase):
     
     
-    #Passing in a solved cube and returning an empty string
-    #Passing in a cube with same color sides on bottom, unaligned and checking initial to top rotation
-    #Passing in a cube  same color sides and checking the count variable
+    # Analysis
+    #    
+    #    inputs:
+    #        parms:    dict, mandatory, arrived validated
+    #            parms['op']:    string: 'solve', mandatory, validated
+    #            parms['cube']:    string: len=54, [brgoyw], 9 of each char, unique middle, mandatory, *Validated by Cube Class
+    #
+    #    outputs:
+    #        side-effects:    non-state changes; no external effects (should not print anything)
+    #        returns:    dict
+    #        normal:
+    #            dict['cube']:    string, valid cube
+    #            dict['status']:    string: 'ok'
+    #        abnormal:
+    #            dict['status']: 'error: xxx', where xxx is a non-empty developer-selected diagnostic
+    #
+    #    confidence level:    boundary level analysis
+    #    
+    #    happy paths:
+    #        (General single rotation instances)
+    #        test 010: nominal valid cube with F rotation
+    #        test 020: nominal valid cube with f rotation
+    #        test 030: nominal valid cube with R rotation
+    #        test 040: nominal valid cube with r rotation
+    #        test 050: nominal valid cube with B rotation
+    #        test 060: nominal valid cube with b rotation
+    #        test 070: nominal valid cube with L rotation
+    #        test 080: nominal valid cube with l rotation
+    #        test 090: nominal valid cube with U rotation
+    #        test 100: nominal valid cube with u rotation
+    #        test 110: nominal valid cube with D rotation
+    #        test 120: nominal valid cube with d rotation
+    #
+    #        (Unique rotation instances)
+    #        test 130: nominal valid cube with missing rotation
+    #        test 140: nominal valid cube with "" rotation
+    #        test 150: nominal valid cube with missing 'dir' key
+    #
+    #        (Multiple rotation instance)
+    #        test 160: nominal valid cube with multiple rotations.
+    # 
+    #    sad paths:
+    #        (Cube class calls)
+    #        test 610: Validate Cube class has been imported - checks for valid cube length
+    #        test 620: validate Cube class has been imported - checks for valid cube chars
+    #        test 630: Validate Cube class has been imported - checks for unique center cube colors
+    #        test 640: Validate Cube class has been imported - checks for valid dir chars
+    #        test 650: Abnormal Cube - Missing Cube Parameter
+    #        test 660: Abnormal Cube class - checks for 9 of each color.
+    #
+    #    notes:
+    #        The test for a valid cube with invalid rotation is tested in cubeTest. 
+    #
     
     
     
     
-    
-    #Passing in no cube
-    #Passing in an invalid cube
     
     def test_solve_001_ValidCubeLength(self):
         inputDict = {}
@@ -82,6 +129,8 @@ class solveBottomCrossTest(unittest.TestCase):
     
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    
     
     
 
