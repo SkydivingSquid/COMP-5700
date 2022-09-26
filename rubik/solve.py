@@ -684,8 +684,8 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                        rotatedCubeList[19] = encodedCube[19]
-                        rotatedCubeList[37] = encodedCube[37]
+                        # rotatedCubeList[19] = encodedCube[19]
+                        # rotatedCubeList[37] = encodedCube[37]
                         rotatedCubeList = encodedCube
             
                 #Move r,b,R,D,B,B
@@ -727,8 +727,8 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                        rotatedCubeList[25] = encodedCube[25]
-                        rotatedCubeList[37] = encodedCube[37]
+                        # rotatedCubeList[25] = encodedCube[25]
+                        # rotatedCubeList[37] = encodedCube[37]
                         rotatedCubeList = encodedCube
             
                 #Move B,B,r,b,R,D,B,B
@@ -780,8 +780,8 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                        rotatedCubeList[28] = encodedCube[28]
-                        rotatedCubeList[39] = encodedCube[39]
+                        # rotatedCubeList[28] = encodedCube[28]
+                        # rotatedCubeList[39] = encodedCube[39]
                         rotatedCubeList = encodedCube
             
                 #Move b,l,B,D,L,L
@@ -822,8 +822,8 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                        rotatedCubeList[34] = encodedCube[34]
-                        rotatedCubeList[39] = encodedCube[39]
+                        # rotatedCubeList[34] = encodedCube[34]
+                        # rotatedCubeList[39] = encodedCube[39]
                         rotatedCubeList = encodedCube
             
                 #Move L,L,b,l,B,D,L,L
@@ -927,6 +927,7 @@ def _daisySolution(encodedCube):
             result['solution'] += F_result.get('letter')
             encodedCube = F_result.get('cube')
             
+            rotatedCubeList = encodedCube
             result['cube'] = encodedCube
             
 
@@ -950,7 +951,8 @@ def _daisySolution(encodedCube):
             R_result = _rotateR(encodedCube)
             result['solution'] += R_result.get('letter')
             encodedCube = R_result.get('cube')
-    
+            
+            rotatedCubeList = encodedCube
             result['cube'] = encodedCube
     
     
@@ -975,6 +977,7 @@ def _daisySolution(encodedCube):
             result['solution'] += B_result.get('letter')
             encodedCube = B_result.get('cube')
 
+            rotatedCubeList = encodedCube
             result['cube'] = encodedCube
 
     
@@ -1000,8 +1003,9 @@ def _daisySolution(encodedCube):
             result['solution'] += L_result.get('letter')
             encodedCube = L_result.get('cube')
     
+            rotatedCubeList = encodedCube
             result['cube'] = encodedCube
-            result['status'] = 'ok'
+            #result['status'] = 'ok'
             
     return result
 
