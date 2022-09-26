@@ -37,6 +37,7 @@ def _solve(parms):
     print(result)
     return result
 
+
 def _solveBottomCross(encodedCube):
     result = {}
     cubeList = list(encodedCube)
@@ -100,18 +101,35 @@ def _solveBottomCross(encodedCube):
             result['solution'] += L_result.get('letter')
             encodedCube = L_result.get('cube')
             
+            #DAISY HAS BEEN CREATAED
+            
             daisySolution = _daisySolution(encodedCube)
             
             encodedCube = daisySolution.get('cube')
             
-            
             result['cube'] = "".join(encodedCube)
-            #result['cube'] = encodedCube
             result['solution'] += daisySolution.get('solution')
             result['status'] = 'ok'
             
             return result
     
+    
+    #Check Top for Daisy  
+    # if (rotatedCubeList[37] == rotatedCubeList[49] and
+    #     rotatedCubeList[39] == rotatedCubeList[49] and
+    #     rotatedCubeList[41] == rotatedCubeList[49] and
+    #     rotatedCubeList[43] == rotatedCubeList[49]):
+    #
+    #     daisySolution = _daisySolution(encodedCube)
+    #
+    #     encodedCube = daisySolution.get('cube')
+    #
+    #     result['cube'] = "".join(encodedCube)
+    #     result['solution'] += daisySolution.get('solution')
+    #     result['status'] = 'ok'
+    #
+    #     return result
+        
     
 def _daisySolution(encodedCube):
     result = {}

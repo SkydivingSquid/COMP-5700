@@ -36,23 +36,8 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
 
-    
-    # def test_solve_020_ShouldRotateToDaisyFromUnalignedBottomCross(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'wybobrobywrrgryorygogggbrowwboyoyrgbogyoybbrrywgwwwgwb'
-    #
-    #     expectedResult = {}       
-    #     expectedResult['cube'] = 'wbrobgoygyrryryrrwwobbgrgoywgogoyobbrwgwywbwbyryowbggo'
-    #     expectedResult['solution'] = 'FFRRBBLL'
-    #     expectedResult['status'] = 'ok'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    def test_solve_021_ShouldAlignDaisyAndSolveForBottomCross(self):
+    def test_solve_021_ShouldAlignDaisyAndSolveForBottomCross_OnInputCubeWithUnaignedBottomCross(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'yyogbbrbwbrryryrrwgogogrbowwbogoyogyogyoybgrybwgwwwbwr'
@@ -66,6 +51,23 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    def test_solve_030_ShouldAlignDaisyAndSolveForBottomCross_OnInputCubeWithDaisy
+    inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'ybbgborygwroyrgrrwwoorgbgowbgoyoyrbyywbwywgwrbryowbggo'
+    
+        expectedResult = {}       
+        expectedResult['cube'] = 'borgbrobwyyggryorgwrbbgorgwwboyoyroyrbooyrygbgwbwwwgwy'
+        expectedResult['solution'] = 'FFRRUBBUULL'
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    
     
 
         
