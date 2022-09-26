@@ -766,11 +766,12 @@ def _solveBottomCross(encodedCube):
         result['solution'] += daisySolution.get('solution')
         result['status'] = 'ok'
         
+        print(result['cube'])
+        print(result['solution'])
+        
         return result
     
     
-        
-        
         
         
         
