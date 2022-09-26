@@ -853,11 +853,11 @@ def _solveBottomCross(encodedCube):
         # result['solution'] += daisySolution.get('solution')
         # result['status'] = 'ok'
         #
-        # # TEMPORARY BELOW
-        # result['cube'] = "".join(encodedCube)
-        # result['status'] = 'ok'
-        # print(result['solution'])
-        #TEMPORARY ABOVE
+         # TEMPORARY BELOW
+        result['cube'] = "".join(encodedCube)
+        result['status'] = 'ok'
+         print(result['solution'])
+         # TEMPORARY ABOVE
         
         return result
     
