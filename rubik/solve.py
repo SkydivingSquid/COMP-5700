@@ -470,40 +470,37 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
             
                 #Move l,f,L,D,F,F
-                    if(numberOfPetalsFound <= 3):
-                        if rotatedCubeList[1] != rotatedCubeList[43]:
-                            l_result = _rotatel(encodedCube)
-                            result['solution'] += l_result.get('letter')
-                            encodedCube = l_result.get('cube')
-                            
-                            f_result = _rotatef(encodedCube)
-                            result['solution'] += f_result.get('letter')
-                            encodedCube = f_result.get('cube')
-                            
-                            L_result = _rotateL(encodedCube)
-                            result['solution'] += L_result.get('letter')
-                            encodedCube = L_result.get('cube')
-                            
-                            D_result = _rotateD(encodedCube)
-                            result['solution'] += D_result.get('letter')
-                            encodedCube = D_result.get('cube')
-                            
-                            F_result = _rotateF(encodedCube)
-                            result['solution'] += F_result.get('letter')
-                            encodedCube = F_result.get('cube')
-                            
-                            F_result = _rotateF(encodedCube)
-                            result['solution'] += F_result.get('letter')
-                            encodedCube = F_result.get('cube')
+                    if rotatedCubeList[1] != rotatedCubeList[43]:
+                        l_result = _rotatel(encodedCube)
+                        result['solution'] += l_result.get('letter')
+                        encodedCube = l_result.get('cube')
+                        
+                        f_result = _rotatef(encodedCube)
+                        result['solution'] += f_result.get('letter')
+                        encodedCube = f_result.get('cube')
+                        
+                        L_result = _rotateL(encodedCube)
+                        result['solution'] += L_result.get('letter')
+                        encodedCube = L_result.get('cube')
+                        
+                        D_result = _rotateD(encodedCube)
+                        result['solution'] += D_result.get('letter')
+                        encodedCube = D_result.get('cube')
+                        
+                        F_result = _rotateF(encodedCube)
+                        result['solution'] += F_result.get('letter')
+                        encodedCube = F_result.get('cube')
+                        
+                        F_result = _rotateF(encodedCube)
+                        result['solution'] += F_result.get('letter')
+                        encodedCube = F_result.get('cube')
+                
+                        result['cube'] = encodedCube
+                        rotatedCubeList = encodedCube
+                        numberOfPetalsFound += 1
+
+                        
                     
-                            result['cube'] = encodedCube
-                            rotatedCubeList = encodedCube
-                            numberOfPetalsFound += 1
-                            print('OH NO')
-                        
-                        
-                        else:
-                            print('THIS IS A GOOD STATEMENT')
             
             #Front Face Vertical Bottom
             if(numberOfPetalsFound <= 3):
@@ -518,7 +515,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
             
                 #Move F,F,l,f,L,D,F,F
-                if(numberOfPetalsFound <= 3):
                     if rotatedCubeList[1] != rotatedCubeList[43]:
                         
                         F_result = _rotateF(encodedCube)
@@ -571,7 +567,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
             
                 #Move f,r,F,D,R,R
-                if(numberOfPetalsFound <= 3):
                     if rotatedCubeList[10] != rotatedCubeList[41]:
                 
                         f_result = _rotatef(encodedCube)
@@ -615,7 +610,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
             
                 #Move R,R,f,r,F,D,R,R
-                if(numberOfPetalsFound <= 3):
                     if rotatedCubeList[16] != rotatedCubeList[41]:
                         
                         R_result = _rotateR(encodedCube)
@@ -667,7 +661,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
             
                 #Move r,b,R,D,B,B
-                if(numberOfPetalsFound <= 3):
                     if rotatedCubeList[19] != rotatedCubeList[37]:
                 
                         r_result = _rotater(encodedCube)
@@ -711,7 +704,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
 
                 #Move B,B,r,b,R,D,B,B
-                if(numberOfPetalsFound <= 3):
                     if rotatedCubeList[25] != rotatedCubeList[37]:
                         
                         B_result = _rotateB(encodedCube)
@@ -764,9 +756,7 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
             
                 #Move b,l,B,D,L,L
-                if(numberOfPetalsFound <= 3):
                     if rotatedCubeList[28] != rotatedCubeList[39]:
-                
                 
                         b_result = _rotateb(encodedCube)
                         result['solution'] += b_result.get('letter')
@@ -797,7 +787,6 @@ def _solveBottomCross(encodedCube):
                         numberOfPetalsFound += 1
                     
             #Left Face Vertical Bottom
-            if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[34] == rotatedCubeList[49]:
                     while rotatedCubeList[34] == rotatedCubeList[39]:
                         U_result = _rotateU(encodedCube) 
@@ -809,7 +798,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
             
                 #Move L,L,b,l,B,D,L,L
-                if(numberOfPetalsFound <= 3):
                     if rotatedCubeList[34] != rotatedCubeList[39]:
                         
                         L_result = _rotateL(encodedCube)
