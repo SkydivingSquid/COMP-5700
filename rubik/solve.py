@@ -901,7 +901,7 @@ def _daisySolutionFrontFaceAlignment(encodedCube, topCenterIndex: int, unchangin
         result['solution'] += F_result.get('letter')
         encodedCube = F_result.get('cube')
         
-        rotatedCubeList = encodedCube
+        #rotatedCubeList = encodedCube
         #result['cube'] = encodedCube
         
     return encodedCube
