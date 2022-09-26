@@ -258,7 +258,7 @@ class solveBottomCrossTest(unittest.TestCase):
     def test_solve_900_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'yrrwrwyggoybybrorygbbyggwwyogbwwogybroobobgowrowgybwrr'
+        inputDict['cube'] = 'obrrooggobwryybboogworgbybgbwwyrwwgbrywgborogyyyrwrygw'
     
         expectedResult = {}       
         expectedResult['cube'] = ' '
