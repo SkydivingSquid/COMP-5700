@@ -153,8 +153,9 @@ def _solveBottomCross(encodedCube):
             numberOfPetalsFound += 1 
             
         
-        while(numberOfPetalsFound <= 3):
-        
+        #while(numberOfPetalsFound <= 3):
+        if True: # <- TEMPORARY ^- Restore Above
+            
             ###############################################################
             ################## CHECK BOTTOM FACE PIECES ###################
             ###############################################################
