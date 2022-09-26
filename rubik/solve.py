@@ -916,7 +916,9 @@ def _daisySolution(encodedCube):
     print(rotatedCubeList[49])
     print(rotatedCubeList[46])
     #Front Face Alignment
-    if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
+    
+    #if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
+    if rotatedCubeList[49] != rotatedCubeList[46]
         print('Inside Front Face Alignment')
         print('check 4 and 1')
         print(rotatedCubeList[4])
