@@ -20,6 +20,18 @@ class solveBottomCrossTest(unittest.TestCase):
     
     #Passing in no cube
     #Passing in an invalid cube
+    
+    def test_rotateController_001_rotate_ValidCubeLength(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbr'
+        inputDict['dir'] = 'R'
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: Invalid Cube Length'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
 
     def test_solve_010_ShouldReturnEmptyStringOnSolvedCube(self):
         inputDict = {}
