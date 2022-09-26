@@ -9,9 +9,13 @@ def _solve(parms):
     result['solution'] = ""                 
     result['status'] = 'ok'
     result['cube'] = encodedCube
-    status = result['status']     
+    status = result['status']    
     
-
+    if encodedCube == None:
+        result['status'] = 'error: Missing Cube Argument'
+        status = result['status']
+        return result 
+    
     if rubik.Cube.isValidLengthCube(encodedCube) == False:
         result['status'] = 'error: Invalid Cube Length'
         status = result['status']
