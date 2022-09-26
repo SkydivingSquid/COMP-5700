@@ -167,10 +167,10 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
-                        rotatedCubeList = encodedCube
+                        #rotatedCubeList = encodedCube
                         # ^ Replaced with this.
-                        # rotatedCubeList[46] = encodedCube[46]
-                        # rotatedCubeList[43] = encodedCube[43]
+                        rotatedCubeList[46] = encodedCube[46]
+                        rotatedCubeList[43] = encodedCube[43]
                     
                     if rotatedCubeList[46] != rotatedCubeList[43]:
                         F_result = _rotateF(encodedCube)
@@ -195,9 +195,9 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
-                        # rotatedCubeList[48] = encodedCube[48]
-                        # rotatedCubeList[39] = encodedCube[39]
-                        rotatedCubeList = encodedCube
+                        rotatedCubeList[48] = encodedCube[48]
+                        rotatedCubeList[39] = encodedCube[39]
+                        # rotatedCubeList = encodedCube
                     
                     if rotatedCubeList[48] != rotatedCubeList[39]:
                         L_result = _rotateL(encodedCube)
@@ -221,9 +221,9 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
-                        # rotatedCubeList[50] = encodedCube[50]
-                        # rotatedCubeList[41] = encodedCube[41]
-                        rotatedCubeList = encodedCube
+                        rotatedCubeList[50] = encodedCube[50]
+                        rotatedCubeList[41] = encodedCube[41]
+                        # rotatedCubeList = encodedCube
                     
                     if rotatedCubeList[50] != rotatedCubeList[41]:
                         
@@ -250,9 +250,9 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
-                        # rotatedCubeList[52] = encodedCube[52]
-                        # rotatedCubeList[37] = encodedCube[37]
-                        rotatedCubeList = encodedCube
+                        rotatedCubeList[52] = encodedCube[52]
+                        rotatedCubeList[37] = encodedCube[37]
+                        # rotatedCubeList = encodedCube
                     
                     if rotatedCubeList[52] != rotatedCubeList[37]:
                         B_result = _rotateB(encodedCube)
