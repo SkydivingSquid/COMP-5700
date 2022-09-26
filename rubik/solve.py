@@ -153,8 +153,8 @@ def _solveBottomCross(encodedCube):
             numberOfPetalsFound += 1 
             
         
-        #while(numberOfPetalsFound <= 3):
-        if True: # <- TEMPORARY ^- Restore Above
+        while(numberOfPetalsFound <= 3):
+        #if True: # <- TEMPORARY ^- Restore Above
             
             ###############################################################
             ################## CHECK BOTTOM FACE PIECES ###################
@@ -839,17 +839,17 @@ def _solveBottomCross(encodedCube):
                         result['cube'] = encodedCube
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
-        #
-        #
-        #
-        #
-        # #TIME FOR DAISY SOLUTION HERE
-        # daisySolution = _daisySolution(encodedCube)
-        # encodedCube = daisySolution.get('cube')
-        #
-        # result['cube'] = "".join(encodedCube)
-        # result['solution'] += daisySolution.get('solution')
-        # result['status'] = 'ok'
+        
+        
+        
+        
+        #TIME FOR DAISY SOLUTION HERE
+        daisySolution = _daisySolution(encodedCube)
+        encodedCube = daisySolution.get('cube')
+        
+        result['cube'] = "".join(encodedCube)
+        result['solution'] += daisySolution.get('solution')
+        result['status'] = 'ok'
             
         # TEMPORARY BELOW
         result['cube'] = "".join(encodedCube)
