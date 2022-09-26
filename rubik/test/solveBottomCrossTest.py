@@ -240,7 +240,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    def test_solve_044_ShouldSolveForBottomCrossGivenScrambledRubik(self):
+    def test_solve_044_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'gbbgbbgbbrrorrorrobggbggbggroorooroowwywywwwyyywywyyyw'

@@ -1,6 +1,4 @@
 import rubik.cube as rubik
-from codecs import EncodedFile
-from lib2to3.fixer_util import Number
 
 def _solve(parms):
     """Return rotates needed to solve input cube"""
