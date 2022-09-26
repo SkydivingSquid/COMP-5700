@@ -149,7 +149,7 @@ def _solveBottomCross(encodedCube):
         if rotatedCubeList[43] == rotatedCubeList[49]:
             numberOfPetalsFound += 1 
             
-        print('Initial Petals'+str(numberOfPetalsFound))
+        print('Initial Petals: '+str(numberOfPetalsFound))
         
         while(numberOfPetalsFound <= 3):
             print(numberOfPetalsFound)
@@ -766,8 +766,9 @@ def _solveBottomCross(encodedCube):
                     numberOfPetalsFound += 1
                        
 
-            print('ended')
+            
             print(numberOfPetalsFound)
+            print('end first iteration')
             print(encodedCube)
                     
         #TIME FOR DAISY SOLUTION HERE
