@@ -103,13 +103,13 @@ def _solveBottomCross(encodedCube):
             daisySolution = _daisySolution(encodedCube)
             
             encodedCube = daisySolution.get('cube')
+            print(encodedCube)
             
             result['cube'] = "".join(encodedCube)
             #result['cube'] = encodedCube
             result['solution'] += daisySolution.get('solution')
             result['status'] = 'ok'
 
-    
     
     
 def _daisySolution(encodedCube):
@@ -510,7 +510,7 @@ def _rotateL(cube):
     rotatedCubeList[42] = cubeList[20]
     rotatedCubeList[39] = cubeList[23] 
     rotatedCubeList[36] = cubeList[26]
-#
+
     result['cube'] = rotatedCubeList
     result['letter'] = 'L'
     return result
