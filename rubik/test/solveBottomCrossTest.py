@@ -305,10 +305,10 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_solve_044_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    def test_solve_999_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'obrrooggobwryybboogworgbybgbwwyrwwgbrywgborogyyyrwrygw'
+        inputDict['cube'] = 'ygoywyywrrgowbogrbwroggbgywyrgrobbwwgwyoyybbwbboorgror'
     
         expectedResult = {}       
         expectedResult['cube'] = ''
