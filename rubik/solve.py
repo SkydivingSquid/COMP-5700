@@ -35,7 +35,6 @@ def _solve(parms):
     if status == 'ok':
         result = _solveBottomCross(encodedCube)
                  
-    #print(result)
     return result
 
 
@@ -149,10 +148,8 @@ def _solveBottomCross(encodedCube):
         if rotatedCubeList[43] == rotatedCubeList[49]:
             numberOfPetalsFound += 1 
             
-        print('Initial Petals: '+str(numberOfPetalsFound))
         
         while(numberOfPetalsFound <= 3):
-            print('Top of Cycle: Starting With '+str(numberOfPetalsFound) + ' petals')
         
             ###############################################################
             ################## CHECK BOTTOM FACE PIECES ###################
@@ -837,8 +834,7 @@ def _solveBottomCross(encodedCube):
                         numberOfPetalsFound += 1
                        
 
-            print(numberOfPetalsFound)
-            print('end first iteration')
+ 
                     
         #TIME FOR DAISY SOLUTION HERE
         daisySolution = _daisySolution(encodedCube)
@@ -861,7 +857,6 @@ def _daisySolution(encodedCube):
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
-    print('IM WORKING THE DAISY METHOD')
     
     #Front Face Alignment
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
