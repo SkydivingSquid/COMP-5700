@@ -55,11 +55,11 @@ class solveBottomCrossTest(unittest.TestCase):
     def test_solve_021_ShouldAlignDaisyAndSolveForBottomCross(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
+        inputDict['cube'] = 'yyogbbrbwbrryryrrwgogogrbowwbogoyogyogyoybgrybwgwwwbwr'
     
         expectedResult = {}       
-        expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'
-        expectedResult['solution'] = 'FFRRBBLLUUFF'
+        expectedResult['cube'] = 'borgbrobwyyggryorgwrbbgorgwwboyoyroyrbooyrygbgwbwwwgwy'
+        expectedResult['solution'] = 'FFRRBBLLFFRRUBBUULL'
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
@@ -67,16 +67,5 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    # def test_solve_900_PlayGround(self):
-    #     inputDict = {}
-    #     inputDict['cube'] = 'wybgbbrowwrryryrgbgogogrobywbogoyoryogyoybbrrbwgwwwgwy'
-    #
-    #     expectedResult = {}       
-    #     expectedResult['cube'] = 'gyrobgbbyyroyrgorwwoorgbgowbgryoyrbwywbwywyrbrwgowbggo'
-    #     expectedResult['daisySolution'] = 'FFRRBBLLUUFF'
-    #
-    #     actualResult = solve._daisySolution(inputDict)
-    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-    #     self.assertEqual(expectedResult.get('daisySolution'), actualResult.get('daisySolution'))
 
         
