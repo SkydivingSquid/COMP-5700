@@ -1,5 +1,6 @@
 import rubik.cube as rubik
 
+
 def _solve(parms):
     """Return rotates needed to solve input cube"""
     result = {}
@@ -35,8 +36,8 @@ def _solve(parms):
         return result    
     
     if status == 'ok':
-        bottomCrossresult = _solveBottomCross(encodedCube)
-        result['rotations'] = bottomCrossresult.get('solution')
+        result = _solveBottomCross(encodedCube)
+        result['rotations'] = result.get('solution')
                  
     return result
 
