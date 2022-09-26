@@ -34,6 +34,7 @@ def _solve(parms):
     if status == 'ok':
         result = _solveBottomCross(encodedCube)
                  
+    print(result)
     return result
 
 def _solveBottomCross(encodedCube):
@@ -103,11 +104,10 @@ def _solveBottomCross(encodedCube):
             
             encodedCube = daisySolution.get('cube')
             
-            #result['cube'] = "".join(encodedCube)
-            result['cube'] = encodedCube
+            result['cube'] = "".join(encodedCube)
+            #result['cube'] = encodedCube
             result['solution'] += daisySolution.get('solution')
             result['status'] = 'ok'
-            print(result) 
 
     
     
@@ -128,7 +128,6 @@ def _daisySolution(encodedCube):
             
             rotatedCubeList[4] = encodedCube[4]
             rotatedCubeList[1] = encodedCube[1]
-            
         
         if rotatedCubeList[4] == rotatedCubeList[1]:
             F_result = _rotateF(encodedCube)
@@ -184,8 +183,7 @@ def _daisySolution(encodedCube):
             B_result = _rotateB(encodedCube)
             result['solution'] += B_result.get('letter')
             encodedCube = B_result.get('cube')
-    
-            #result['solution'] = result['solution']
+
             result['cube'] = encodedCube
 
     
@@ -210,7 +208,6 @@ def _daisySolution(encodedCube):
             result['solution'] += L_result.get('letter')
             encodedCube = L_result.get('cube')
     
-            #result['solution'] = result['solution']
             result['cube'] = encodedCube
             result['status'] = 'ok'
             
