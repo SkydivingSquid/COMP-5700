@@ -297,6 +297,10 @@ def _solveBottomCross(encodedCube):
                         result['cube'] = encodedCube
                         numberOfPetalsFound += 1
             
+            print('CHECKING 12 and 43')
+            print(rotatedCubeList[12])
+            print(rotatedCubeList[43])
+            print('DONE CHECK')
             
             #Check Right Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
@@ -314,7 +318,6 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += f_result.get('letter')
                         encodedCube = f_result.get('cube')
             
-                        print('THE RIGHT FACE CUBE IS MOVING')
                         result['cube'] = encodedCube
                         numberOfPetalsFound += 1
                     
