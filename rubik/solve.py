@@ -887,7 +887,11 @@ def _daisySolution(encodedCube):
         
         while rotatedCubeList[4]!= rotatedCubeList[1]:
             print('ENTERING WHILE LOOP')
-            print(rotatedCubeList)
+            print(rotatedCubeList[1])
+            print(rotatedCubeList[4])
+            print(rotatedCubeList[7])
+            print(rotatedCubeList[43])
+            print(rotatedCubeList[46])
             U_result = _rotateU(encodedCube) 
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
@@ -912,6 +916,9 @@ def _daisySolution(encodedCube):
             
             rotatedCubeList = encodedCube
             result['cube'] = encodedCube
+            
+            print(rotatedCubeList[46])
+            
             
             print(rotatedCubeList)
             
