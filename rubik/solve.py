@@ -747,7 +747,7 @@ def _solveBottomCross(encodedCube):
             
             # CHECKPOINT TEST 042
             
-            Left Face Vertical Top
+            #Left Face Vertical Top
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[28] == rotatedCubeList[49]:
                     while rotatedCubeList[28] == rotatedCubeList[39]:
@@ -755,11 +755,11 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                         rotatedCubeList[28] = encodedCube[28]
-                         rotatedCubeList[39] = encodedCube[39]
+                        rotatedCubeList[28] = encodedCube[28]
+                        rotatedCubeList[39] = encodedCube[39]
                         rotatedCubeList = encodedCube
             
-                Move b,l,B,D,L,L
+                #Move b,l,B,D,L,L
                     if rotatedCubeList[28] != rotatedCubeList[39]:
             
                         b_result = _rotateb(encodedCube)
@@ -790,18 +790,18 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
             
-            Left Face Vertical Bottom
+            #Left Face Vertical Bottom
                 if rotatedCubeList[34] == rotatedCubeList[49]:
                     while rotatedCubeList[34] == rotatedCubeList[39]:
                         U_result = _rotateU(encodedCube) 
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                         rotatedCubeList[34] = encodedCube[34]
-                         rotatedCubeList[39] = encodedCube[39]
+                        rotatedCubeList[34] = encodedCube[34]
+                        rotatedCubeList[39] = encodedCube[39]
                         rotatedCubeList = encodedCube
             
-                Move L,L,b,l,B,D,L,L
+                #Move L,L,b,l,B,D,L,L
                     if rotatedCubeList[34] != rotatedCubeList[39]:
             
                         L_result = _rotateL(encodedCube)
