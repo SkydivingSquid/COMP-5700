@@ -946,14 +946,18 @@ def _daisySolution(encodedCube):
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
         
         print('alignment of 13 and 10')
-        print(rotatedCubeList[13])
+        print(rotatedCubeList[41])
         print(rotatedCubeList[10])
+        print(rotatedCubeList[13])
+        print(rotatedCubeList[16])
         
         while (rotatedCubeList[13]!= rotatedCubeList[10] or rotatedCubeList[41] != rotatedCubeList[49]):
             
             print('alignment of 13 and 10 inside WHILE')
-            print(rotatedCubeList[13])
+            print(rotatedCubeList[41])
             print(rotatedCubeList[10])
+            print(rotatedCubeList[13])
+            print(rotatedCubeList[16])
             
             print('TOP ANALYSIS INSIDE WHILE')        
             print(rotatedCubeList[37])
@@ -969,6 +973,12 @@ def _daisySolution(encodedCube):
             # rotatedCubeList[10] = encodedCube[10]
             rotatedCubeList = encodedCube
             
+            print('alignment of 13 and 10 after WHILE')
+            print(rotatedCubeList[41])
+            print(rotatedCubeList[10])
+            print(rotatedCubeList[13])
+            print(rotatedCubeList[16])
+            
             print('TOP ANALYSIS AFTER WHILE')        
             print(rotatedCubeList[37])
             print(rotatedCubeList[39])
@@ -979,6 +989,7 @@ def _daisySolution(encodedCube):
         if rotatedCubeList[13] == rotatedCubeList[10]:
             
             print('alignment of 13 and 10 inside IF')
+            print(rotatedCubeList[41])
             print(rotatedCubeList[13])
             print(rotatedCubeList[10])
             
@@ -998,6 +1009,12 @@ def _daisySolution(encodedCube):
             
             rotatedCubeList = encodedCube
             result['cube'] = encodedCube
+    
+    print('alignment of 13 and 10 inside WHILE')
+    print(rotatedCubeList[41])
+    print(rotatedCubeList[10])
+    print(rotatedCubeList[13])
+    print(rotatedCubeList[16])
     
     
     print('TOP ANALYSIS AFTER RR')        
