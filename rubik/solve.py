@@ -906,8 +906,21 @@ def _daisySolution(encodedCube):
     result['solution'] = ""
     
     
+    print('ENTERING DAISY')
+    print(encodedCube)
+    print(rotatedCubeList)
+    
+    print('checking indexes of rotated cube')
+    print(rotatedCubeList[4])
+    print(rotatedCubeList[7])
+    print(rotatedCubeList[49])
+    print(rotatedCubeList[46])
     #Front Face Alignment
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
+        print('Inside Front Face Alignment')
+        print('check 4 and 1')
+        print(rotatedCubeList[4])
+        print(rotatedCubeList[1])
         
         while rotatedCubeList[4]!= rotatedCubeList[1]:
             U_result = _rotateU(encodedCube) 
