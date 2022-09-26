@@ -16,27 +16,27 @@ def _solve(parms):
         status = result['status']
         return result 
     
-    if rubik.Cube.isValidLengthCube(encodedCube) == False:
+    elif rubik.Cube.isValidLengthCube(encodedCube) == False:
         result['status'] = 'error: Invalid Cube Length'
         status = result['status']
         return result
     
-    if rubik.Cube.isValidCubeChar(encodedCube) == False:
+    elif rubik.Cube.isValidCubeChar(encodedCube) == False:
         result['status'] = 'error: Invalid Cube Char'
         status = result['status']
         return result
     
-    if rubik.Cube.isValidCenterColors(encodedCube) == False:
+    elif rubik.Cube.isValidCenterColors(encodedCube) == False:
         result['status'] = 'error: Duplicate Center Colors'
         status = result['status']
         return result
         
-    if rubik.Cube.isNineOfEachChar(encodedCube) == False:
+    elif rubik.Cube.isNineOfEachChar(encodedCube) == False:
         result['status'] = 'error: There May Only Be 9 Of Each Color'
         status = result['status']
         return result    
     
-    if status == 'ok':
+    elif status == 'ok':
         solvedBottomCrossResult = _solveBottomCross(encodedCube)
         result['rotations'] = solvedBottomCrossResult.get('solution')
                  
