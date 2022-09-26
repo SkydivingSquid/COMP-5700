@@ -1025,12 +1025,15 @@ def _daisySolution(encodedCube):
     print(rotatedCubeList[43])
     
 
+
+
+
     
     # #Back Face Alignment
     if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
         
    
-        while rotatedCubeList[22]!= rotatedCubeList[19]:
+        while rotatedCubeList[22]!= rotatedCubeList[19] or rotatedCubeList[41] != rotatedCubeList[49]):
           
             U_result = _rotateU(encodedCube) 
             result['solution'] += U_result.get('letter')
