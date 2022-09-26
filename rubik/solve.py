@@ -959,6 +959,13 @@ def _daisySolution(encodedCube):
             
 
         if rotatedCubeList[13] == rotatedCubeList[10]:
+            
+            print('TOP ANALYSIS BEFORE IF')        
+            print(rotatedCubeList[37])
+            print(rotatedCubeList[39])
+            print(rotatedCubeList[41])
+            print(rotatedCubeList[43])
+            
             R_result = _rotateR(encodedCube)
             result['solution'] += R_result.get('letter')
             encodedCube = R_result.get('cube')
@@ -971,7 +978,7 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
     
     
-    print('TOP ANALYSIS AFTER R')        
+    print('TOP ANALYSIS AFTER RR')        
     print(rotatedCubeList[37])
     print(rotatedCubeList[39])
     print(rotatedCubeList[41])
