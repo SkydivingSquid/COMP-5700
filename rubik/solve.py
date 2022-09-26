@@ -936,7 +936,7 @@ def _daisySolution(encodedCube):
     #Right Face Alignment
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
         
-        while (rotatedCubeList[13]!= rotatedCubeList[10] and rotatedCubeList[41] != rotatedCubeList[50]):
+        while (rotatedCubeList[13]!= rotatedCubeList[10] and rotatedCubeList[41] != rotatedCubeList[49]):
             print('TOP ANALYSIS INSIDE WHILE')        
             print(rotatedCubeList[37])
             print(rotatedCubeList[39])
