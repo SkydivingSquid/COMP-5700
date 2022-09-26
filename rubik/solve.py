@@ -898,7 +898,7 @@ def _daisySolution(encodedCube):
     
     
         
-        while rotatedCubeList[4]!= rotatedCubeList[1]:
+        while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
      
             U_result = _rotateU(encodedCube) 
             result['solution'] += U_result.get('letter')
