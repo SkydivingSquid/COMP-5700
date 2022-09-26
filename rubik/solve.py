@@ -366,9 +366,10 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
             
-            
+            print('ABOVE HORIZONTAL BACK')
             #Check Back Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
+                print('ENTERING THE HORIZONTAL BACK')
                 if rotatedCubeList[21] == rotatedCubeList[49]:
                     while rotatedCubeList[21] == rotatedCubeList[41]:
                         U_result = _rotateU(encodedCube) 
@@ -387,7 +388,6 @@ def _solveBottomCross(encodedCube):
                         result['cube'] = encodedCube
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
-            
             
             
             #Check Back Face (Right Side Piece)
@@ -410,12 +410,11 @@ def _solveBottomCross(encodedCube):
                         result['cube'] = encodedCube
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
-            
-            print('ABOVE HORIZONTAL BACK')
+        
             
             #Check Right Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
-                print('ENTERING THE HORIZONTAL BACK')
+                
                 if rotatedCubeList[30] == rotatedCubeList[49]:
                     while rotatedCubeList[30] == rotatedCubeList[37]:
                         U_result = _rotateU(encodedCube) 
@@ -850,6 +849,7 @@ def _solveBottomCross(encodedCube):
                 print('####### CYCLE STATUS #######')
                 print(numberOfPetalsFound)
                 print(encodedCube)
+                print(rotatedCubeList)
                 print(result['solution'])
                 print('####### CYCLE STATUS #######')
         
