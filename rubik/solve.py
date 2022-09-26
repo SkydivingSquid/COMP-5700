@@ -787,6 +787,8 @@ def _daisySolution(encodedCube):
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
+    print('IM WORKING THE DAISY METHOD')
+    
     #Front Face Alignment
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
         
