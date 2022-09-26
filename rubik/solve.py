@@ -55,6 +55,8 @@ def _verifyInput(encodedCube):
         status = result['status']
         return result    
             
+    print('INSIDE VERIFY INPUT METHOD')
+    print(result)
     return result
 
 
