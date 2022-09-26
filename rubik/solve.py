@@ -304,13 +304,84 @@ def _solveBottomCross(encodedCube):
 
                 result['cube'] = encodedCube
                 numberOfPetalsFound + 1
+        
+        
+        #Check Back Face (Left Side Piece)
+        if rotatedCubeList[21] == rotatedCubeList[49]:
+            while rotatedCubeList[21] == rotatedCubeList[41]:
+                U_result = _rotateU(encodedCube) 
+                result['solution'] += U_result.get('letter')
+                encodedCube = U_result.get('cube')
+                
+                rotatedCubeList[21] = encodedCube[21]
+                rotatedCubeList[41] = encodedCube[41]
+            
+            if rotatedCubeList[21] != rotatedCubeList[41]:
+                r_result = _rotater(encodedCube)
+                result['solution'] += r_result.get('letter')
+                encodedCube = r_result.get('cube')
+
+                result['cube'] = encodedCube
+                numberOfPetalsFound + 1
+                
+        #Check Back Face (Right Side Piece)
+        if rotatedCubeList[23] == rotatedCubeList[49]:
+            while rotatedCubeList[23] == rotatedCubeList[39]:
+                U_result = _rotateU(encodedCube) 
+                result['solution'] += U_result.get('letter')
+                encodedCube = U_result.get('cube')
+                
+                rotatedCubeList[23] = encodedCube[23]
+                rotatedCubeList[39] = encodedCube[39]
+            
+            if rotatedCubeList[23] != rotatedCubeList[39]:
+                L_result = _rotateL(encodedCube)
+                result['solution'] += L_result.get('letter')
+                encodedCube = L_result.get('cube')
+
+                result['cube'] = encodedCube
+                numberOfPetalsFound + 1
+                
+                
+        #Check Right Face (Left Side Piece)
+        if rotatedCubeList[30] == rotatedCubeList[49]:
+            while rotatedCubeList[30] == rotatedCubeList[37]:
+                U_result = _rotateU(encodedCube) 
+                result['solution'] += U_result.get('letter')
+                encodedCube = U_result.get('cube')
+                
+                rotatedCubeList[30] = encodedCube[30]
+                rotatedCubeList[37] = encodedCube[37]
+            
+            if rotatedCubeList[30] != rotatedCubeList[37]:
+                b_result = _rotateb(encodedCube)
+                result['solution'] += b_result.get('letter')
+                encodedCube = b_result.get('cube')
+
+                result['cube'] = encodedCube
+                numberOfPetalsFound + 1
+                
+        #Check Right Face (Right Side Piece)
+        if rotatedCubeList[32] == rotatedCubeList[49]:
+            while rotatedCubeList[32] == rotatedCubeList[42]:
+                U_result = _rotateU(encodedCube) 
+                result['solution'] += U_result.get('letter')
+                encodedCube = U_result.get('cube')
+                
+                rotatedCubeList[32] = encodedCube[32]
+                rotatedCubeList[42] = encodedCube[42]
+            
+            if rotatedCubeList[32] != rotatedCubeList[42]:
+                F_result = _rotateF(encodedCube)
+                result['solution'] += F_result.get('letter')
+                encodedCube = F_result.get('cube')
+
+                result['cube'] = encodedCube
+                numberOfPetalsFound + 1
+        
                 
         result['cube'] = "".join(encodedCube)
         result['status'] = 'ok'
-        print(result['solution'])
-        
-        
-        
         
         return result
         
