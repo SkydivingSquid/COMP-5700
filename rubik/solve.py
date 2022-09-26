@@ -946,7 +946,7 @@ def _daisySolution(encodedCube):
         DaisyFrontFaceSolution = _daisySolutionFrontFaceAlignment(encodedCube)
         rotatedCubeList = DaisyFrontFaceSolution.get('encodedCube')
         result['cube'] = rotatedCubeList
-        result['solution'] = DaisyFrontFaceSolution('solution')
+        result['solution'] = DaisyFrontFaceSolution.get('solution')
 
 
         
