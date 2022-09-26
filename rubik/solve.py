@@ -651,7 +651,7 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
         
-            Back Face Vertical Top
+            # Back Face Vertical Top
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[19] == rotatedCubeList[49]:
                     while rotatedCubeList[19] == rotatedCubeList[37]:
@@ -693,7 +693,7 @@ def _solveBottomCross(encodedCube):
                         result['cube'] = encodedCube
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
-            #
+            
             # Back Face Vertical Bottom
             # if(numberOfPetalsFound <= 3):
             #     if rotatedCubeList[15] == rotatedCubeList[49]:
