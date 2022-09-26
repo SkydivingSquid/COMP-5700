@@ -136,6 +136,7 @@ def _solveBottomCross(encodedCube):
     else:
         numberOfPetalsFound = 0
         while(numberOfPetalsFound != 4):
+            print(numberOfPetalsFound)
         
             #Check Top Petals First
             if rotatedCubeList[37] == rotatedCubeList[49]:
