@@ -227,6 +227,7 @@ def _solveBottomCross(encodedCube):
                 
         
         result['cube'] = "".join(encodedCube)
+        print(result['solution'])
         result['status'] = 'ok'
         
         return result
