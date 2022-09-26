@@ -919,7 +919,10 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
             
             
-            
+    print(rotatedCubeList[37])
+    print(rotatedCubeList[39])
+    print(rotatedCubeList[41])
+    print(rotatedCubeList[43])
             
 
             
