@@ -34,7 +34,6 @@ def _solve(parms):
     if status == 'ok':
         result = _solveBottomCross(encodedCube)
                  
-    print(result)
     return result
 
 
