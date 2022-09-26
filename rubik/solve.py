@@ -853,6 +853,7 @@ def _solveBottomCross(encodedCube):
         # TEMPORARY BELOW
         result['cube'] = "".join(encodedCube)
         result['status'] = 'ok'
+        print(result['solution'])
         #TEMPORARY ABOVE
         
         return result
