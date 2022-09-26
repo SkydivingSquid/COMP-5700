@@ -249,8 +249,6 @@ def _solveBottomCross(encodedCube):
                 result['cube'] = encodedCube
                 numberOfPetalsFound + 1
                 
-        result['cube'] = "".join(encodedCube)
-        result['status'] = 'ok'
         
         #Check Front Face (Right Side Piece)
         if rotatedCubeList[5] == rotatedCubeList[49]:
@@ -269,10 +267,6 @@ def _solveBottomCross(encodedCube):
 
                 result['cube'] = encodedCube
                 numberOfPetalsFound + 1
-                
-        result['cube'] = "".join(encodedCube)
-        result['status'] = 'ok'
-        
         
         
         #Check Right Face (Left Side Piece)
@@ -286,16 +280,13 @@ def _solveBottomCross(encodedCube):
                 rotatedCubeList[43] = encodedCube[43]
             
             if rotatedCubeList[12] != rotatedCubeList[43]:
-                l_result = _rotatel(encodedCube)
-                result['solution'] += l_result.get('letter')
-                encodedCube = l_result.get('cube')
+                f_result = _rotatef(encodedCube)
+                result['solution'] += f_result.get('letter')
+                encodedCube = f_result.get('cube')
 
                 result['cube'] = encodedCube
                 numberOfPetalsFound + 1
                 
-        result['cube'] = "".join(encodedCube)
-        result['status'] = 'ok'
-        
         #Check Right Face (Right Side Piece)
         if rotatedCubeList[14] == rotatedCubeList[49]:
             while rotatedCubeList[14] == rotatedCubeList[37]:
@@ -307,9 +298,9 @@ def _solveBottomCross(encodedCube):
                 rotatedCubeList[37] = encodedCube[37]
             
             if rotatedCubeList[14] != rotatedCubeList[37]:
-                R_result = _rotateR(encodedCube)
-                result['solution'] += R_result.get('letter')
-                encodedCube = R_result.get('cube')
+                B_result = _rotateB(encodedCube)
+                result['solution'] += B_result.get('letter')
+                encodedCube = B_result.get('cube')
 
                 result['cube'] = encodedCube
                 numberOfPetalsFound + 1
