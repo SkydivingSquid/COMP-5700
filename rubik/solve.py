@@ -1,5 +1,5 @@
 import rubik.cube as rubik
-from rubik.sandbox import encodedCube
+from rubik.sandbox import encodedCube, rotatedCubeList
 from lib2to3.fixer_util import Number
 
 
@@ -887,6 +887,7 @@ def _daisySolution(encodedCube):
         
         while rotatedCubeList[4]!= rotatedCubeList[1]:
             print('ENTERING WHILE LOOP')
+            print(rotatedCubeList)
             U_result = _rotateU(encodedCube) 
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
@@ -894,9 +895,13 @@ def _daisySolution(encodedCube):
             # rotatedCubeList[4] = encodedCube[4]
             # rotatedCubeList[1] = encodedCube[1]
             rotatedCubeList = encodedCube
+            print('WHILE: Rotated Cube List: ')
+            print(rotatedCubeList)
         
         if rotatedCubeList[4] == rotatedCubeList[1]:
             print('ENTERING IF STATEMENT')
+            print(rotatedCubeList)
+            
             F_result = _rotateF(encodedCube)
             result['solution'] += F_result.get('letter')
             encodedCube = F_result.get('cube')
@@ -907,6 +912,8 @@ def _daisySolution(encodedCube):
             
             rotatedCubeList = encodedCube
             result['cube'] = encodedCube
+            
+            print(rotatedCubeList)
             
 
     #Right Face Alignment
