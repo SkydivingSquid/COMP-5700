@@ -152,7 +152,7 @@ def _solveBottomCross(encodedCube):
         print('Initial Petals: '+str(numberOfPetalsFound))
         
         while(numberOfPetalsFound <= 3):
-            print(numberOfPetalsFound)
+            print('Top of Cycle: Starting With '+str(numberOfPetalsFound) + ' petals')
         
             #Check for in place Bottom Pieces 
             
