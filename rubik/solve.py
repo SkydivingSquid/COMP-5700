@@ -845,7 +845,7 @@ def _solveBottomCross(encodedCube):
                 print('####### CYCLE STATUS #######')
                 print(numberOfPetalsFound)
                 print(result['cube'] = "".join(encodedCube))
-                print(result[])
+                print(result['solution'])
                 print('####### CYCLE STATUS #######')
         
         #TIME FOR DAISY SOLUTION HERE
