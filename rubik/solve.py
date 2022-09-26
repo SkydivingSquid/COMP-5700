@@ -214,13 +214,13 @@ def _solveBottomCross(encodedCube):
                 rotatedCubeList[37] = encodedCube[37]
             
             if rotatedCubeList[52] != rotatedCubeList[37]:
-                R_result = _rotateR(encodedCube)
-                result['solution'] += R_result.get('letter')
-                encodedCube = R_result.get('cube')
+                B_result = _rotateB(encodedCube)
+                result['solution'] += B_result.get('letter')
+                encodedCube = B_result.get('cube')
             
-                R_result = _rotateR(encodedCube)
-                result['solution'] += R_result.get('letter')
-                encodedCube = R_result.get('cube')
+                B_result = _rotateB(encodedCube)
+                result['solution'] += B_result.get('letter')
+                encodedCube = B_result.get('cube')
                 
                 result['cube'] = encodedCube
                 numberOfPetalsFound + 1
