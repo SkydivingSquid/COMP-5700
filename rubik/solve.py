@@ -872,7 +872,8 @@ def _solveBottomCross(encodedCube):
                 print(rotatedCubeList)
                 print(result['solution'])
                 print('####### CYCLE STATUS #######')
-        
+                
+        print('ABOVE DAISY')
         #TIME FOR DAISY SOLUTION HERE
         daisySolution = _daisySolution(encodedCube)
         encodedCube = daisySolution.get('cube')
