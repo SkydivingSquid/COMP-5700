@@ -937,6 +937,12 @@ def _daisySolution(encodedCube):
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
         
         while rotatedCubeList[13]!= rotatedCubeList[10]:
+            print('TOP ANALYSIS INSIDE WHILE')        
+            print(rotatedCubeList[37])
+            print(rotatedCubeList[39])
+            print(rotatedCubeList[41])
+            print(rotatedCubeList[43])
+            
             U_result = _rotateU(encodedCube) 
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
@@ -944,6 +950,13 @@ def _daisySolution(encodedCube):
             # rotatedCubeList[13] = encodedCube[13]
             # rotatedCubeList[10] = encodedCube[10]
             rotatedCubeList = encodedCube
+            
+            print('TOP ANALYSIS AFTER WHILE')        
+            print(rotatedCubeList[37])
+            print(rotatedCubeList[39])
+            print(rotatedCubeList[41])
+            print(rotatedCubeList[43])
+            
 
         if rotatedCubeList[13] == rotatedCubeList[10]:
             R_result = _rotateR(encodedCube)
