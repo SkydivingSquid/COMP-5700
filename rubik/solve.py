@@ -1065,7 +1065,15 @@ def _daisySolution(encodedCube):
     print(rotatedCubeList[37])
     print(rotatedCubeList[39])
     print(rotatedCubeList[41])
-    print(rotatedCubeList[43])       
+    print(rotatedCubeList[43])  
+    
+    print('BOTTOM ANALYSIS AFTER B')        
+    print(rotatedCubeList[46])
+    print(rotatedCubeList[48])
+    print(rotatedCubeList[50])
+    print(rotatedCubeList[52])         
+    
+    
     
     # #Left Face Alignment
     if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
