@@ -17,6 +17,7 @@ def _solve(parms):
     print(result['status'])
     
     if result['status'] == 'ok':
+        print('hit TRUE IF Statement')
         solvedBottomCrossResult = _solveBottomCross(encodedCube)
         result['rotations'] = solvedBottomCrossResult.get('solution')
              
