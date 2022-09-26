@@ -156,8 +156,6 @@ def _solveBottomCross(encodedCube):
             
         
         while(numberOfPetalsFound <= 3):
-        #if True: # <- TEMPORARY ^- Restore Above
-            print('BEGINNING OF WHILE LOOP')
             
             ###############################################################
             ################## CHECK BOTTOM FACE PIECES ###################
@@ -367,22 +365,15 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
             
-            print('ABOVE HORIZONTAL BACK')
-            print('rotated cube list outside')
-            print(rotatedCubeList[49])
-            print(rotatedCubeList[21])
-            print(rotatedCubeList[41])
+
             
             #Check Back Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
-                print('ENTERING THE HORIZONTAL BACK')
-                print('encoded cube')
-                print(encodedCube[21])
-                print(encodedCube[41])
+
                 
                 if rotatedCubeList[21] == rotatedCubeList[49]:
                     while rotatedCubeList[21] == rotatedCubeList[41]:
-                        print('INSIDE WHILE')
+                 
                         U_result = _rotateU(encodedCube) 
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
@@ -391,12 +382,9 @@ def _solveBottomCross(encodedCube):
                         # rotatedCubeList[41] = encodedCube[41]
                         
                         rotatedCubeList = encodedCube
-                        print('rotated cube list')
-                        print(rotatedCubeList[21])
-                        print(rotatedCubeList[41])
-            
+           
                     if rotatedCubeList[21] != rotatedCubeList[41]:
-                        print('INSIDE IF')
+                   
                         r_result = _rotater(encodedCube)
                         result['solution'] += r_result.get('letter')
                         encodedCube = r_result.get('cube')
@@ -404,11 +392,7 @@ def _solveBottomCross(encodedCube):
                         result['cube'] = encodedCube
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
-                        print('number of petals:')
-                        print(numberOfPetalsFound)
-                        print('rotated cube list')
-                        print(rotatedCubeList)
-            
+         
             
             #Check Back Face (Right Side Piece)
             if(numberOfPetalsFound <= 3):
@@ -866,18 +850,11 @@ def _solveBottomCross(encodedCube):
                         numberOfPetalsFound += 1
         
                         
-                print('####### CYCLE STATUS #######')
-                print(numberOfPetalsFound)
-                print(encodedCube)
-                print(rotatedCubeList)
-                print(result['solution'])
-                print('####### CYCLE STATUS #######')
+    
         
-        result['cube'] = "".join(encodedCube)
-        print(result['cube'])
-        result['cube'] = encodedCube
+
         
-        print('ABOVE DAISY')
+      
         #TIME FOR DAISY SOLUTION HERE
         daisySolution = _daisySolution(encodedCube)
         encodedCube = daisySolution.get('cube')
@@ -885,12 +862,7 @@ def _solveBottomCross(encodedCube):
         result['cube'] = "".join(encodedCube)
         result['solution'] += daisySolution.get('solution')
         result['status'] = 'ok'
-        #
-         # TEMPORARY BELOW
-        # result['cube'] = "".join(encodedCube)
-        # result['status'] = 'ok'
-        print(result['solution'])
-         # TEMPORARY ABOVE
+        
         
         return result
     
@@ -906,23 +878,11 @@ def _daisySolution(encodedCube):
     result['solution'] = ""
     
     
-    print('ENTERING DAISY')
-    print(encodedCube)
-    print(rotatedCubeList)
-    
-    print('checking indexes of rotated cube')
-    print(rotatedCubeList[4])
-    print(rotatedCubeList[7])
-    print(rotatedCubeList[49])
-    print(rotatedCubeList[46])
     #Front Face Alignment
     
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
     #if rotatedCubeList[49] != rotatedCubeList[46]
-        print('Inside Front Face Alignment')
-        print('check 4 and 1')
-        print(rotatedCubeList[4])
-        print(rotatedCubeList[1])
+
         
         while rotatedCubeList[4]!= rotatedCubeList[1]:
             U_result = _rotateU(encodedCube) 
