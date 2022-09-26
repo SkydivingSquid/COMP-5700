@@ -966,6 +966,7 @@ def _daisySolution(encodedCube):
 
         if rotatedCubeList[22] == rotatedCubeList[19]:
             print('ENTERING IF STATEMENT')
+            print(rotatedCubeList[22])
             print(rotatedCubeList[19])
             print(rotatedCubeList[37])
             print(rotatedCubeList[52])
