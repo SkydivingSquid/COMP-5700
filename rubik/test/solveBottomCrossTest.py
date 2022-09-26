@@ -195,35 +195,35 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_solve_041_ShouldMoveSidePiecesToTopDaisy(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ooyybgbyrrgowrggyygbbrgyrbwywgrobowworwryoybgrgwowobwb'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'ygrobyoybwgogrrryywbrygrbbgywggobowybwbryorwggbwowowro'
-        expectedResult['solution'] = 'BBf'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    # def test_solve_042_ShouldVerticalSidePiecesToTopDaisy(self):
+    # def test_solve_041_ShouldMoveSidePiecesToTopDaisy(self):
     #     inputDict = {}
     #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'grwbbbyowrryorwrgwgwoogyowybyooorggbyrobygwybrggywwrbb'
+    #     inputDict['cube'] = 'ooyybgbyrrgowrggyygbbrgyrbwywgrobowworwryoybgrgwowobwb'
     #
     #     expectedResult = {}       
-    #     expectedResult['cube'] = 'yrwrbbygbbbryrbrgggogrgboywogbooyrgbywywywoworywrwogow'
-    #     expectedResult['solution'] = 'RRfrbRDBBUUr'
+    #     expectedResult['cube'] = 'ygrobyoybwgogrrryywbrygrbbgywggobowybwbryorwggbwowowro'
+    #     expectedResult['solution'] = 'BBf'
     #     expectedResult['status'] = 'ok'
     #
     #     actualResult = solve._solve(inputDict)
     #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    def test_solve_042_ShouldVerticalSidePiecesToTopDaisy(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'grwbbbyowrryorwrgwgwoogyowybyooorggbyrobygwybrggywwrbb'
+    
+        expectedResult = {}       
+        expectedResult['cube'] = 'yrwrbbygbbbryrbrgggogrgboywogbooyrgbywywywoworywrwogow'
+        expectedResult['solution'] = 'RRfrbRDBBUUr'
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
     # def test_solve_043_ShouldSolveForBottomCrossGivenScrambledRubik(self):
     #     inputDict = {}
@@ -273,13 +273,29 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     #
 
-    def test_solve_901_ClassTestCaseValidatingHorizontalCheckWorks(self):
+    # def test_solve_901_ClassTestCaseValidatingHorizontalCheckWorks(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'obrrooggobwryybboogworgbybgbwwyrwwgbrywgborogyyyrwrygw'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'grogoboorrwroybgoogworgbybgbwyyrywgyrywgbobwwbybrwrygw'
+    #     expectedResult['solution'] = 'F'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+
+    def test_solve_902_ClassTestCaseValidatingHVerticalCheckWorks(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'obrrooggobwryybboogworgbybgbwwyrwwgbrywgborogyyyrwrygw'
     
         expectedResult = {}       
-        expectedResult['cube'] = 'grogoboorrwroybgoogworgbybgbwyyrywgyrywgbobwwbybrwrygw'
+        expectedResult['cube'] = ''
         expectedResult['solution'] = 'F'
         expectedResult['status'] = 'ok'
     
@@ -288,6 +304,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
+
 
         
         
