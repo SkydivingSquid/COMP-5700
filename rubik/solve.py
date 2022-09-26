@@ -885,11 +885,17 @@ def _daisySolution(encodedCube):
     print(rotatedCubeList[41])
     print(rotatedCubeList[43])
     
+   
     
     #Front Face Alignment
     
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
     #if rotatedCubeList[49] != rotatedCubeList[46]
+    
+        print('alignment of 4 and 1')
+        print(rotatedCubeList[4])
+        print(rotatedCubeList[1])
+    
     
         
         while rotatedCubeList[4]!= rotatedCubeList[1]:
@@ -905,6 +911,10 @@ def _daisySolution(encodedCube):
         
         if rotatedCubeList[4] == rotatedCubeList[1]:
             
+            print('alignment of 4 and 1')
+            print(rotatedCubeList[4])
+            print(rotatedCubeList[1])
+    
     
             
             F_result = _rotateF(encodedCube)
@@ -936,6 +946,10 @@ def _daisySolution(encodedCube):
     #Right Face Alignment
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
         
+        print('alignment of 13 and 10')
+        print(rotatedCubeList[13])
+        print(rotatedCubeList[10])
+        
         while (rotatedCubeList[13]!= rotatedCubeList[10] or rotatedCubeList[41] != rotatedCubeList[49]):
             print('TOP ANALYSIS INSIDE WHILE')        
             print(rotatedCubeList[37])
@@ -959,6 +973,10 @@ def _daisySolution(encodedCube):
             
 
         if rotatedCubeList[13] == rotatedCubeList[10]:
+            
+            print('alignment of 13 and 10')
+            print(rotatedCubeList[13])
+            print(rotatedCubeList[10])
             
             print('TOP ANALYSIS BEFORE IF')        
             print(rotatedCubeList[37])
