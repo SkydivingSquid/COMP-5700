@@ -696,7 +696,7 @@ def _solveBottomCross(encodedCube):
             
             # Back Face Vertical Bottom
             if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[15] == rotatedCubeList[49]:
+                if rotatedCubeList[25] == rotatedCubeList[49]:
                     while rotatedCubeList[25] == rotatedCubeList[37]:
                         U_result = _rotateU(encodedCube) 
                         result['solution'] += U_result.get('letter')
