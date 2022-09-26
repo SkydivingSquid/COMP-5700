@@ -760,12 +760,12 @@ def _solveBottomCross(encodedCube):
                     
             print('ended')
             print(numberOfPetalsFound)
+            print(encodedCube)
                     
         #TIME FOR DAISY SOLUTION HERE
         daisySolution = _daisySolution(encodedCube)    
         encodedCube = daisySolution.get('cube')
         print(encodedCube)
-                    
             
         result['cube'] = "".join(encodedCube)
         result['solution'] += daisySolution.get('solution')
