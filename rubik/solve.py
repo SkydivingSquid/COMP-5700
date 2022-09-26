@@ -224,6 +224,11 @@ def _solveBottomCross(encodedCube):
                         R_result = _rotateR(encodedCube)
                         result['solution'] += R_result.get('letter')
                         encodedCube = R_result.get('cube')
+                        
+                        print('#############')
+                        print('ENCODED CUBE 2.0')
+                        print(encodedCube)
+                        print('#############')
                     
                         R_result = _rotateR(encodedCube)
                         result['solution'] += R_result.get('letter')
@@ -232,7 +237,7 @@ def _solveBottomCross(encodedCube):
                         result['cube'] = encodedCube
                         numberOfPetalsFound += 1
                         print('#############')
-                        print('ENCODED CUBE 2.0')
+                        print('ENCODED CUBE 3.0')
                         print(encodedCube)
                         print('#############')
                         
