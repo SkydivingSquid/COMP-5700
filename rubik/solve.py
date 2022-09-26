@@ -102,7 +102,7 @@ def _solveBottomCross(encodedCube):
             result['solution'] += L_result.get('letter')
             encodedCube = L_result.get('cube')
             
-            #DAISY HAS BEEN CREATAED
+            #DAISY HAS BEEN CREATED
             
             daisySolution = _daisySolution(encodedCube)
             
@@ -757,11 +757,13 @@ def _solveBottomCross(encodedCube):
                     result['cube'] = encodedCube
                     numberOfPetalsFound += 1
                     
-                    #TIME FOR DAISY SOLUTION HERE
-            
-        
+        #TIME FOR DAISY SOLUTION HERE
+        daisySolution = _daisySolution(encodedCube)    
+        encodedCube = daisySolution.get('cube')    
+                    
             
         result['cube'] = "".join(encodedCube)
+        result['solution'] += daisySolution.get('solution')
         result['status'] = 'ok'
         
         return result
