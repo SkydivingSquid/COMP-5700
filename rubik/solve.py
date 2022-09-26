@@ -763,7 +763,8 @@ def _solveBottomCross(encodedCube):
                     
         #TIME FOR DAISY SOLUTION HERE
         daisySolution = _daisySolution(encodedCube)    
-        encodedCube = daisySolution.get('cube')    
+        encodedCube = daisySolution.get('cube')
+        print(encodedCube)
                     
             
         result['cube'] = "".join(encodedCube)
