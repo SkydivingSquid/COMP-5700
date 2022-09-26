@@ -1,5 +1,6 @@
 import rubik.cube as rubik
 from rubik.sandbox import encodedCube
+from lib2to3.fixer_util import Number
 
 
 def _solve(parms):
@@ -403,6 +404,8 @@ def _solveBottomCross(encodedCube):
                         result['cube'] = encodedCube
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
+                        print('number of petals:')
+                        print(numberOfPetalsFound)
             
             
             #Check Back Face (Right Side Piece)
