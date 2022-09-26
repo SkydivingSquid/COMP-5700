@@ -212,17 +212,15 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
-                        print('#############')
-                        print('ENCODED CUBE')
-                        print(encodedCube)
-                        print('ROTATEDCUBELIST')
-                        print(rotatedCubeList)
-                        print('#############')
-                        
                         rotatedCubeList[50] = encodedCube[50]
                         rotatedCubeList[41] = encodedCube[41]
                     
                     if rotatedCubeList[50] != rotatedCubeList[41]:
+                        
+                        print('#############')
+                        print('ENCODED CUBE 1.0')
+                        print(encodedCube)
+                      
                         R_result = _rotateR(encodedCube)
                         result['solution'] += R_result.get('letter')
                         encodedCube = R_result.get('cube')
@@ -233,6 +231,11 @@ def _solveBottomCross(encodedCube):
                         
                         result['cube'] = encodedCube
                         numberOfPetalsFound += 1
+                        print('#############')
+                        print('ENCODED CUBE 2.0')
+                        print(encodedCube)
+                        print('#############')
+                        
                     
             #Checking Bottom of Bottom Face
             if(numberOfPetalsFound <= 3):
