@@ -11,6 +11,20 @@ def _solve(parms):
     #result['cube'] = encodedCube
     status = result['status']    
     
+    
+    result['status'] = _verifyInput(encodedCube)
+    
+    solvedBottomCrossResult = _solveBottomCross(encodedCube)
+    result['rotations'] = solvedBottomCrossResult.get('solution')
+                 
+    return result
+
+
+def _verifyInput(encodedCube):
+    result = {}
+    result['status'] = 'ok'
+    status = result['status']
+    
     if encodedCube == None:
         result['status'] = 'error: Missing Cube Argument'
         status = result['status']
@@ -35,12 +49,11 @@ def _solve(parms):
         result['status'] = 'error: There May Only Be 9 Of Each Color'
         status = result['status']
         return result    
-    
-    elif status == 'ok':
-        solvedBottomCrossResult = _solveBottomCross(encodedCube)
-        result['rotations'] = solvedBottomCrossResult.get('solution')
-                 
+            
     return result
+
+
+
 
 
 def _solveBottomCross(encodedCube):
