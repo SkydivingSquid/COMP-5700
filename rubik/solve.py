@@ -766,7 +766,7 @@ def _solveBottomCross(encodedCube):
         daisySolution = _daisySolution(encodedCube)
         #encodedCube = daisySolution.get('cube')
         
-        #result['cube'] = "".join(encodedCube)
+        result['cube'] = "".join(encodedCube)
         #result['solution'] += daisySolution.get('solution')
         #result['status'] = 'ok'
         
