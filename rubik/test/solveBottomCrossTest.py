@@ -277,7 +277,7 @@ class solveBottomCrossTest(unittest.TestCase):
     
         expectedResult = {}       
         expectedResult['cube'] = 'wywboyoobgbyoyrgyrogbbgrggyrygoroorrorwgbgrbywwywwwbwb'
-        expectedResult['solution'] = ''
+        expectedResult['solution'] = 'FfrFDRRrbRDBBblBDLLUFFRRBBLL'
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
@@ -293,7 +293,7 @@ class solveBottomCrossTest(unittest.TestCase):
     
         expectedResult = {}       
         expectedResult['cube'] = 'wywboyoobgbyoyrgyrogbbgrggyrygoroorrorwgbgrbywwywwwbwb'
-        expectedResult['solution'] = 'F'
+        expectedResult['solution'] = 'FfrFDRRrbRDBBblBDLLUFFRRBBLL'
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
@@ -309,7 +309,7 @@ class solveBottomCrossTest(unittest.TestCase):
     
         expectedResult = {}       
         expectedResult['cube'] = 'wywboyoobgbyoyrgyrogbbgrggyrygoroorrorwgbgrbywwywwwbwb'
-        expectedResult['solution'] = 'FfrFDRRrbRDBBblBDLLUFFUUURRUBBUUUULL'
+        expectedResult['solution'] = 'FfrFDRRrbRDBBblBDLLUFFRRBBLL'
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
