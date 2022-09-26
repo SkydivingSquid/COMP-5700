@@ -1,4 +1,5 @@
 import rubik.cube as rubik
+from rubik.sandbox import rotatedCubeList
 
 def _solve(parms):
     """Return rotates needed to solve input cube"""
@@ -877,42 +878,26 @@ def _solveBottomCross(encodedCube):
     
     
 
-def _daisySolutionFrontFaceAlignment(encodedCube):
+def _def _daisyURotations(encodedCube, solution, rotatedCubeList):
     result = {}
+    
+    
+    
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
-    result['encodedCube'] = encodedCube
     
-    while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
-        
-            U_result = _rotateU(encodedCube) 
-            result['solution'] += U_result.get('letter')
-            encodedCube = U_result.get('cube')
-        
-            rotatedCubeList = encodedCube
-        
-    if rotatedCubeList[4] == rotatedCubeList[1]:
-    
-        F_result = _rotateF(encodedCube)
-        result['solution'] += F_result.get('letter')
-        encodedCube = F_result.get('cube')
-    
-        F_result = _rotateF(encodedCube)
-        result['solution'] += F_result.get('letter')
-        encodedCube = F_result.get('cube')
-
-        #rotatedCubeList = encodedCube
-        #result['cube'] = encodedCube
-        
-    return result
-        
         
         
     
 def _daisySolution(encodedCube):
     result = {}
-    DaisyFrontFaceSolution = {}
+    
+    DaisyFrontReturnParms = {}
+    DaisyFrontReturnParms('solution') = ''
+    DaisyFrontReturnParms('encodedCube') = encodedCube
+    DaisyFrontReturnParms('rotatedCubeList') = rotatedCubeList
+    
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
@@ -921,6 +906,7 @@ def _daisySolution(encodedCube):
     
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
 
+###PROTECTED
         while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
         
             U_result = _rotateU(encodedCube) 
@@ -929,6 +915,9 @@ def _daisySolution(encodedCube):
         
             rotatedCubeList = encodedCube
         
+###PROTECTED
+        
+###PROTECTED
         if rotatedCubeList[4] == rotatedCubeList[1]:
         
             F_result = _rotateF(encodedCube)
@@ -941,6 +930,10 @@ def _daisySolution(encodedCube):
         
             rotatedCubeList = encodedCube
             result['cube'] = encodedCube
+###PROTECTED
+
+
+        
         
 
         
