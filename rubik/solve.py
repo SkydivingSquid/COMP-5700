@@ -33,31 +33,27 @@ def _verifyInput(encodedCube):
     if encodedCube == None:
         result['status'] = 'error: Missing Cube Argument'
         status = result['status']
-        return result 
+        return status 
     
     elif rubik.Cube.isValidLengthCube(encodedCube) == False:
         result['status'] = 'error: Invalid Cube Length'
         status = result['status']
-        return result
+        return status
     
     elif rubik.Cube.isValidCubeChar(encodedCube) == False:
         result['status'] = 'error: Invalid Cube Char'
         status = result['status']
-        return result
+        return status
     
     elif rubik.Cube.isValidCenterColors(encodedCube) == False:
         result['status'] = 'error: Duplicate Center Colors'
         status = result['status']
-        return result
+        return status
         
     elif rubik.Cube.isNineOfEachChar(encodedCube) == False:
         result['status'] = 'error: There May Only Be 9 Of Each Color'
         status = result['status']
-        return result    
-            
-    print('INSIDE VERIFY INPUT METHOD')
-    print(result)
-    print(status)
+        return status    
     
     return status
 
