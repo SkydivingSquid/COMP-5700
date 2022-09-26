@@ -1078,7 +1078,7 @@ def _daisySolution(encodedCube):
     # #Left Face Alignment
     if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
         
-        while rotatedCubeList[31]!= rotatedCubeList[28]:
+        while (rotatedCubeList[31]!= rotatedCubeList[28] or rotatedCubeList[39] != rotatedCubeList[49]):
             U_result = _rotateU(encodedCube) 
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
@@ -1107,6 +1107,12 @@ def _daisySolution(encodedCube):
     print(rotatedCubeList[39])
     print(rotatedCubeList[41])
     print(rotatedCubeList[43])
+    
+    print('BOTTOM ANALYSIS AFTER B')        
+    print(rotatedCubeList[46])
+    print(rotatedCubeList[48])
+    print(rotatedCubeList[50])
+    print(rotatedCubeList[52]) 
     
     return result
 
