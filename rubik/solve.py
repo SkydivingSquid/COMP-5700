@@ -406,6 +406,8 @@ def _solveBottomCross(encodedCube):
                         numberOfPetalsFound += 1
                         print('number of petals:')
                         print(numberOfPetalsFound)
+                        print('rotated cube list')
+                        print(encodedCubeList)
             
             
             #Check Back Face (Right Side Piece)
