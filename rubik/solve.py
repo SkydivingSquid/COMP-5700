@@ -5,6 +5,7 @@ from rubik.test.solveBottomCrossTest import solveBottomCrossTest
 def _solve(parms):
     """Return rotates needed to solve input cube"""
     result = {}
+    solvedBottomCrossResult = {}
     encodedCube = parms.get('cube',None)
     #result['solution'] = ""                 
     result['status'] = 'ok'
@@ -37,8 +38,8 @@ def _solve(parms):
         return result    
     
     if status == 'ok':
-        result = _solveBottomCross(encodedCube)
-        result['rotations'] = result.get('solution')
+        solvedBottomCrossResult = _solveBottomCross(encodedCube)
+        result['rotations'] = solvedBottomCrossResult.get('solution')
                  
     return result
 
