@@ -629,10 +629,6 @@ def _daisySolution(encodedCube):
     return result
         
 
-    
-
-    
-    
 
 
 #THIS IS AN UNBOUND METHOD THAT JUST RUNS THE CODE
