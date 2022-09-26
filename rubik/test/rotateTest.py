@@ -295,7 +295,7 @@ class RotateTest(unittest.TestCase):
         inputDict['dir'] = 'R'
     
         expectedResult = {}
-        expectedResult['status'] = 'Error - Invalid Cube Length'
+        expectedResult['status'] = 'error: Invalid Cube Length'
     
         actualResult = rotate._rotate(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
@@ -307,7 +307,7 @@ class RotateTest(unittest.TestCase):
         inputDict['dir'] = ''
     
         expectedResult = {}
-        expectedResult['status'] = 'Error - Invalid Cube Char'
+        expectedResult['status'] = 'error: Invalid Cube Char'
     
         actualResult = rotate._rotate(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
@@ -319,7 +319,7 @@ class RotateTest(unittest.TestCase):
         inputDict['dir'] = ''
     
         expectedResult = {}
-        expectedResult['status'] = 'Error - Duplicate Center Colors'
+        expectedResult['status'] = 'error: Duplicate Center Colors'
     
         actualResult = rotate._rotate(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
@@ -331,7 +331,7 @@ class RotateTest(unittest.TestCase):
         inputDict['dir'] = 'a'
         
         expectedResult = {}
-        expectedResult['status'] = 'Error - Invalid Dir Char'
+        expectedResult['status'] = 'error: Invalid Dir Char'
         
         actualResult = rotate._rotate(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
@@ -344,7 +344,7 @@ class RotateTest(unittest.TestCase):
         #Works the same if inputDict['dir'] = None
     
         expectedResult = {}
-        expectedResult['status'] = 'Error - Missing Cube Argument'
+        expectedResult['status'] = 'error: Missing Cube Argument'
     
         actualResult = rotate._rotate(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
@@ -356,7 +356,7 @@ class RotateTest(unittest.TestCase):
         inputDict['cube'] = 'wwwwwwwwwwggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
     
         expectedResult = {}
-        expectedResult['status'] = 'Error - There May Only Be 9 Of Each Color'
+        expectedResult['status'] = 'error: There May Only Be 9 Of Each Color'
     
         actualResult = rotate._rotate(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))

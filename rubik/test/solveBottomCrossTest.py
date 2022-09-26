@@ -21,7 +21,7 @@ class solveBottomCrossTest(unittest.TestCase):
     #Passing in no cube
     #Passing in an invalid cube
     
-    def test_rotateController_001_rotate_ValidCubeLength(self):
+    def test_solve_001_ValidCubeLength(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
         inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbr'
@@ -32,6 +32,58 @@ class solveBottomCrossTest(unittest.TestCase):
     
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    
+    def test_rotateController_002_ValidCubeChars(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'wbrbwwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
+        inputDict['dir'] = ''
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: Invalid Cube Char'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+     
+    def test_rotateController_003_ValidCubeCenterChars(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'wgbowogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
+        inputDict['dir'] = ''
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: Duplicate Center Colors'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+        
+    def test_rotateController_004_CubeIsMissing(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['dir'] = 'F'
+        #Works the same if inputDict['dir'] = None
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: Missing Cube Argument'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    def test_rotateController_005_rotate_CubeHasTooManyOfAColor(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['dir'] = 'F'
+        inputDict['cube'] = 'wwwwwwwwwwggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: There May Only Be 9 Of Each Color'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    
 
     def test_solve_010_ShouldReturnEmptyStringOnSolvedCube(self):
         inputDict = {}
