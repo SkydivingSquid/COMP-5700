@@ -395,6 +395,7 @@ def _solveBottomCross(encodedCube):
                         print(rotatedCubeList[41])
             
                     if rotatedCubeList[21] != rotatedCubeList[41]:
+                        print('INSIDE IF')
                         r_result = _rotater(encodedCube)
                         result['solution'] += r_result.get('letter')
                         encodedCube = r_result.get('cube')
