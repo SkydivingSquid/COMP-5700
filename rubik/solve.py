@@ -34,6 +34,7 @@ def _solve(parms):
     if status == 'ok':
         result = _solveBottomCross(encodedCube)
                  
+    #print(result)
     return result
 
 
@@ -128,6 +129,9 @@ def _solveBottomCross(encodedCube):
         result['status'] = 'ok'
     
         return result
+    
+    
+    #If Not a Daisy
         
     
 def _daisySolution(encodedCube):
