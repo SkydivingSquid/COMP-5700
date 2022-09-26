@@ -882,6 +882,7 @@ def _daisySolutionFrontFaceAlignment(encodedCube):
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
+    result['encodedCube'] = encodedCube
     
     while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
         
@@ -900,20 +901,19 @@ def _daisySolutionFrontFaceAlignment(encodedCube):
         F_result = _rotateF(encodedCube)
         result['solution'] += F_result.get('letter')
         encodedCube = F_result.get('cube')
-    
-        rotatedCubeList = encodedCube
-        result['cube'] = encodedCube
+
         
         #rotatedCubeList = encodedCube
         #result['cube'] = encodedCube
         
-    return encodedCube
+    return result
         
         
         
     
 def _daisySolution(encodedCube):
     result = {}
+    DaisyFrontFaceSolution = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
@@ -943,8 +943,10 @@ def _daisySolution(encodedCube):
         #     rotatedCubeList = encodedCube
         #     result['cube'] = encodedCube
         
-        rotatedCubeList = _daisySolutionFrontFaceAlignment(encodedCube)
-        result['cube'] = rotatedCubeList
+        DaisyFrontFaceSolution = _daisySolutionFrontFaceAlignment(encodedCube)
+        rotatedCubeList = DaisyFrontFaceSolution.get('encodedCube')
+        result[cube] = rotatedCubeList
+        result['solution'] = DaisyFrontFaceSolution('solution')
 
 
         
