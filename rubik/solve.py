@@ -103,13 +103,14 @@ def _solveBottomCross(encodedCube):
             daisySolution = _daisySolution(encodedCube)
             
             encodedCube = daisySolution.get('cube')
-            print(encodedCube)
+            
             
             result['cube'] = "".join(encodedCube)
             #result['cube'] = encodedCube
             result['solution'] += daisySolution.get('solution')
             result['status'] = 'ok'
-
+            
+            return result
     
     
 def _daisySolution(encodedCube):
