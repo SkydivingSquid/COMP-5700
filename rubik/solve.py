@@ -155,7 +155,7 @@ def _solveBottomCross(encodedCube):
         
         while(numberOfPetalsFound <= 3):
         #if True: # <- TEMPORARY ^- Restore Above
-        Print('BEGINNING OF WHILE LOOP')
+            print('BEGINNING OF WHILE LOOP')
             
             ###############################################################
             ################## CHECK BOTTOM FACE PIECES ###################
