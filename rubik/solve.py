@@ -659,8 +659,8 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                         rotatedCubeList[19] = encodedCube[19]
-                         rotatedCubeList[37] = encodedCube[37]
+                        rotatedCubeList[19] = encodedCube[19]
+                        rotatedCubeList[37] = encodedCube[37]
                         rotatedCubeList = encodedCube
             
                 Move r,b,R,D,B,B
