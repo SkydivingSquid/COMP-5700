@@ -988,10 +988,11 @@ def _daisySolution(encodedCube):
 
         if rotatedCubeList[13] == rotatedCubeList[10]:
             
-            print('alignment of 13 and 10 inside IF')
+            print('alignment of 13 and 10 before IF')
             print(rotatedCubeList[41])
             print(rotatedCubeList[13])
             print(rotatedCubeList[10])
+            print(rotatedCubeList[16])
             
             print('TOP ANALYSIS BEFORE IF')        
             print(rotatedCubeList[37])
@@ -1010,7 +1011,7 @@ def _daisySolution(encodedCube):
             rotatedCubeList = encodedCube
             result['cube'] = encodedCube
     
-    print('alignment of 13 and 10 inside WHILE')
+    print('alignment of 13 and 10 after IF')
     print(rotatedCubeList[41])
     print(rotatedCubeList[10])
     print(rotatedCubeList[13])
