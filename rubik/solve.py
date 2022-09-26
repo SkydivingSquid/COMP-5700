@@ -663,7 +663,7 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList[37] = encodedCube[37]
                         rotatedCubeList = encodedCube
             
-                Move r,b,R,D,B,B
+                #Move r,b,R,D,B,B
                     if rotatedCubeList[19] != rotatedCubeList[37]:
             
                         r_result = _rotater(encodedCube)
