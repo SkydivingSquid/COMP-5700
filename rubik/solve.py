@@ -212,6 +212,13 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
+                        print('#############')
+                        print('ENCODED CUBE')
+                        print(encodedCube)
+                        print('ROTATEDCUBELIST')
+                        print(rotatedCubeList)
+                        print('#############')
+                        
                         rotatedCubeList[50] = encodedCube[50]
                         rotatedCubeList[41] = encodedCube[41]
                     
