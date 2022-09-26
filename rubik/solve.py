@@ -1,4 +1,5 @@
 import rubik.cube as rubik
+from rubik.test.solveBottomCrossTest import solveBottomCrossTest
 
 
 def _solve(parms):
@@ -36,10 +37,10 @@ def _solve(parms):
         return result    
     
     if status == 'ok':
-        solvedBottomCross = _solveBottomCross(encodedCube)
-        result['rotations'] = solvedBottomCross.get('solution')
+        result = _solveBottomCross(encodedCube)
+        result['rotations'] = result.get('solution')
                  
-    return result
+    return solveBottomCrossResults
 
 
 def _solveBottomCross(encodedCube):
