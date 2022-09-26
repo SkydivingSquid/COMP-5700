@@ -388,6 +388,8 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
             
+            print('ABOVE HORIZONTAL BACK')
+            
             #Check Back Face (Right Side Piece)
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[23] == rotatedCubeList[49]:
