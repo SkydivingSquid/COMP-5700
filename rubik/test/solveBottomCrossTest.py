@@ -377,21 +377,21 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
-    # def test_solve_994_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'bbyywwoobwrwrooyggywowgbygrggoyywogwbbrrbywobrrgorbgyr'
-    #
-    #     expectedResult = {}       
-    #     expectedResult['cube'] = ''
-    #     expectedResult['solution'] = ''
-    #     expectedResult['status'] = 'ok'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    def test_solve_994_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'bbyywwoobwrwrooyggywowgbygrggoyywogwbbrrbywobrrgorbgyr'
+    
+        expectedResult = {}       
+        expectedResult['cube'] = ''
+        expectedResult['solution'] = ''
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     #
     # def test_solve_995_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
     #     inputDict = {}
