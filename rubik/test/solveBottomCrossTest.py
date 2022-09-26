@@ -100,7 +100,7 @@ class solveBottomCrossTest(unittest.TestCase):
     def test_solve_042_ShouldVerticalSidePiecesToTopDaisy(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'grwbbbyowrryorwrgwgwoogyowybyooorggbyrobygwybrggywwrbby'
+        inputDict['cube'] = 'grwbbbyowrryorwrgwgwoogyowybyooorggbyrobygwybrggywwrbb'
     
         expectedResult = {}       
         expectedResult['cube'] = ''
