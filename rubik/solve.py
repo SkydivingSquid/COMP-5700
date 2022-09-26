@@ -940,7 +940,8 @@ def _daisySolution(encodedCube):
         #     rotatedCubeList = encodedCube
         #     result['cube'] = encodedCube
         
-        result['cube'] = _daisySolutionFrontFaceAlignment(encodedCube, 1, 4, 43)
+        rotatedCubeList = _daisySolutionFrontFaceAlignment(encodedCube, 1, 4, 43)
+        result['cube'] = rotatedCubeList
 
 
         
