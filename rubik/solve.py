@@ -8,7 +8,7 @@ def _solve(parms):
     encodedCube = parms.get('cube',None)
     #result['solution'] = ""                 
     result['status'] = 'ok'
-    result['cube'] = encodedCube
+    #result['cube'] = encodedCube
     status = result['status']    
     
     if encodedCube == None:
