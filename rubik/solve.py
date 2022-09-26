@@ -879,12 +879,7 @@ def _daisySolution(encodedCube):
     result['solution'] = ""
     
      
-    print('SHOULD ALL BE EQUAL TO COLOR IN ' + str(rotatedCubeList[49]))
-    print(rotatedCubeList[37])
-    print(rotatedCubeList[39])
-    print(rotatedCubeList[41])
-    print(rotatedCubeList[43])
-    
+
    
     
     #Front Face Alignment
@@ -892,10 +887,7 @@ def _daisySolution(encodedCube):
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
     #if rotatedCubeList[49] != rotatedCubeList[46]
     
-        print('alignment of 4 and 1')
-        print(rotatedCubeList[4])
-        print(rotatedCubeList[1])
-    
+
     
         
         while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
@@ -911,11 +903,7 @@ def _daisySolution(encodedCube):
         
         if rotatedCubeList[4] == rotatedCubeList[1]:
             
-            print('alignment of 4 and 1')
-            print(rotatedCubeList[4])
-            print(rotatedCubeList[1])
-    
-    
+     
             
             F_result = _rotateF(encodedCube)
             result['solution'] += F_result.get('letter')
@@ -927,44 +915,18 @@ def _daisySolution(encodedCube):
             
             rotatedCubeList = encodedCube
             result['cube'] = encodedCube
-            
-    print('TOP ANALYSIS AFTER F')        
-    print(rotatedCubeList[37])
-    print(rotatedCubeList[39])
-    print(rotatedCubeList[41])
-    print(rotatedCubeList[43])
-    
-    print('BOTTOM ANALYSIS AFTER F')        
-    print(rotatedCubeList[46])
-    print(rotatedCubeList[48])
-    print(rotatedCubeList[50])
-    print(rotatedCubeList[52])
+
             
 
 
     #Right Face Alignment
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
         
-        print('alignment of 13 and 10')
-        print(rotatedCubeList[41])
-        print(rotatedCubeList[10])
-        print(rotatedCubeList[13])
-        print(rotatedCubeList[16])
+
         
         while (rotatedCubeList[13]!= rotatedCubeList[10] or rotatedCubeList[41] != rotatedCubeList[49]):
             
-            print('alignment of 13 and 10 inside WHILE')
-            print(rotatedCubeList[41])
-            print(rotatedCubeList[10])
-            print(rotatedCubeList[13])
-            print(rotatedCubeList[16])
-            
-            print('TOP ANALYSIS INSIDE WHILE')        
-            print(rotatedCubeList[37])
-            print(rotatedCubeList[39])
-            print(rotatedCubeList[41])
-            print(rotatedCubeList[43])
-            
+
             U_result = _rotateU(encodedCube) 
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
@@ -972,33 +934,11 @@ def _daisySolution(encodedCube):
             # rotatedCubeList[13] = encodedCube[13]
             # rotatedCubeList[10] = encodedCube[10]
             rotatedCubeList = encodedCube
-            
-            print('alignment of 13 and 10 after WHILE')
-            print(rotatedCubeList[41])
-            print(rotatedCubeList[10])
-            print(rotatedCubeList[13])
-            print(rotatedCubeList[16])
-            
-            print('TOP ANALYSIS AFTER WHILE')        
-            print(rotatedCubeList[37])
-            print(rotatedCubeList[39])
-            print(rotatedCubeList[41])
-            print(rotatedCubeList[43])
+
             
 
         if rotatedCubeList[13] == rotatedCubeList[10]:
-            
-            print('alignment of 13 and 10 before IF')
-            print(rotatedCubeList[41])
-            print(rotatedCubeList[13])
-            print(rotatedCubeList[10])
-            print(rotatedCubeList[16])
-            
-            print('TOP ANALYSIS BEFORE IF')        
-            print(rotatedCubeList[37])
-            print(rotatedCubeList[39])
-            print(rotatedCubeList[41])
-            print(rotatedCubeList[43])
+
             
             R_result = _rotateR(encodedCube)
             result['solution'] += R_result.get('letter')
@@ -1011,18 +951,7 @@ def _daisySolution(encodedCube):
             rotatedCubeList = encodedCube
             result['cube'] = encodedCube
     
-    print('alignment of 13 and 10 after IF')
-    print(rotatedCubeList[41])
-    print(rotatedCubeList[10])
-    print(rotatedCubeList[13])
-    print(rotatedCubeList[16])
-    
-    
-    print('TOP ANALYSIS AFTER RR')        
-    print(rotatedCubeList[37])
-    print(rotatedCubeList[39])
-    print(rotatedCubeList[41])
-    print(rotatedCubeList[43])
+
     
 
 
@@ -1059,19 +988,7 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
       
             
-            
-            
-    print('TOP ANALYSIS AFTER B')        
-    print(rotatedCubeList[37])
-    print(rotatedCubeList[39])
-    print(rotatedCubeList[41])
-    print(rotatedCubeList[43])  
-    
-    print('BOTTOM ANALYSIS AFTER B')        
-    print(rotatedCubeList[46])
-    print(rotatedCubeList[48])
-    print(rotatedCubeList[50])
-    print(rotatedCubeList[52])         
+       
     
     
     
@@ -1101,18 +1018,7 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
             #result['status'] = 'ok'
             
-            
-    print('TOP ANALYSIS AFTER L')        
-    print(rotatedCubeList[37])
-    print(rotatedCubeList[39])
-    print(rotatedCubeList[41])
-    print(rotatedCubeList[43])
-    
-    print('BOTTOM ANALYSIS AFTER B')        
-    print(rotatedCubeList[46])
-    print(rotatedCubeList[48])
-    print(rotatedCubeList[50])
-    print(rotatedCubeList[52]) 
+        
     
     return result
 
