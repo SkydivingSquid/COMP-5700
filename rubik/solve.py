@@ -921,33 +921,27 @@ def _daisySolution(encodedCube):
     
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
 
-        # while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
-        #
-        #     U_result = _rotateU(encodedCube) 
-        #     result['solution'] += U_result.get('letter')
-        #     encodedCube = U_result.get('cube')
-        #
-        #     rotatedCubeList = encodedCube
-        #
-        # if rotatedCubeList[4] == rotatedCubeList[1]:
-        #
-        #     F_result = _rotateF(encodedCube)
-        #     result['solution'] += F_result.get('letter')
-        #     encodedCube = F_result.get('cube')
-        #
-        #     F_result = _rotateF(encodedCube)
-        #     result['solution'] += F_result.get('letter')
-        #     encodedCube = F_result.get('cube')
-        #
-        #     rotatedCubeList = encodedCube
-        #     result['cube'] = encodedCube
+        while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
         
-        DaisyFrontFaceSolution = _daisySolutionFrontFaceAlignment(encodedCube)
-        encodedCube = DaisyFrontFaceSolution.get('encodedCube')
-        rotatedCubeList = encodedCube
-        result['cube'] = rotatedCubeList
-        result['solution'] = DaisyFrontFaceSolution.get('solution')
-
+            U_result = _rotateU(encodedCube) 
+            result['solution'] += U_result.get('letter')
+            encodedCube = U_result.get('cube')
+        
+            rotatedCubeList = encodedCube
+        
+        if rotatedCubeList[4] == rotatedCubeList[1]:
+        
+            F_result = _rotateF(encodedCube)
+            result['solution'] += F_result.get('letter')
+            encodedCube = F_result.get('cube')
+        
+            F_result = _rotateF(encodedCube)
+            result['solution'] += F_result.get('letter')
+            encodedCube = F_result.get('cube')
+        
+            rotatedCubeList = encodedCube
+            result['cube'] = encodedCube
+        
 
         
     #Right Face Alignment
