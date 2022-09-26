@@ -40,7 +40,7 @@ def _solve(parms):
         result = _solveBottomCross(encodedCube)
         result['rotations'] = result.get('solution')
                  
-    return solveBottomCrossResults
+    return result
 
 
 def _solveBottomCross(encodedCube):
