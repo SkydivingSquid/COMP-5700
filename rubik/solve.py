@@ -4,7 +4,7 @@ def _solve(parms):
     """Return rotates needed to solve input cube"""
     result = {}
     encodedCube = parms.get('cube',None)       #STUB:  get "cube" parameter if present
-    result['rotations'] = ""                 
+    result['solution'] = ""                 
     result['status'] = 'ok'
     result['cube'] = encodedCube
     status = result['status']    
