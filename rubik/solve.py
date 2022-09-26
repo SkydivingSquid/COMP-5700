@@ -154,7 +154,9 @@ def _solveBottomCross(encodedCube):
         while(numberOfPetalsFound <= 3):
             print('Top of Cycle: Starting With '+str(numberOfPetalsFound) + ' petals')
         
-            #Check for in place Bottom Pieces 
+            ###############################################################
+            ################## CHECK BOTTOM FACE PIECES ###################
+            ###############################################################
             
             #Checking Top of Bottom Face
             if(numberOfPetalsFound <= 3):
@@ -249,10 +251,12 @@ def _solveBottomCross(encodedCube):
                         numberOfPetalsFound += 1
                     
             
-            result['cube'] = "".join(encodedCube)
-            result['status'] = 'ok'
+            # result['cube'] = "".join(encodedCube)
+            # result['status'] = 'ok'
             
-            #Check Horizontal Side Face Pieces
+            ###################################################################
+            ################## CHECK HORIZONTAL SIDE PIECES ###################
+            ###################################################################
             
             #Check Front Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
@@ -415,7 +419,9 @@ def _solveBottomCross(encodedCube):
             
             
             
-            #Check Vertical Cube Faces
+            #################################################################
+            ################## CHECK VERTICAL SIDE PIECES ###################
+            #################################################################
             
             #Front Face Vertical Top
             if(numberOfPetalsFound <= 3):
