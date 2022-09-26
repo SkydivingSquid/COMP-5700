@@ -918,7 +918,7 @@ def _daisySolution(encodedCube):
             rotatedCubeList = encodedCube
             result['cube'] = encodedCube
             
-            
+    print('TOP ANALYSIS AFTER F')        
     print(rotatedCubeList[37])
     print(rotatedCubeList[39])
     print(rotatedCubeList[41])
@@ -952,6 +952,11 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
     
     
+    print('TOP ANALYSIS AFTER R')        
+    print(rotatedCubeList[37])
+    print(rotatedCubeList[39])
+    print(rotatedCubeList[41])
+    print(rotatedCubeList[43])
     
     #PROBLEM HERE
     
@@ -996,6 +1001,14 @@ def _daisySolution(encodedCube):
             print(rotatedCubeList[19])
             print(rotatedCubeList[37])
             print(rotatedCubeList[52])
+            
+            
+            
+    print('TOP ANALYSIS AFTER B')        
+    print(rotatedCubeList[37])
+    print(rotatedCubeList[39])
+    print(rotatedCubeList[41])
+    print(rotatedCubeList[43])       
     
     # #Left Face Alignment
     if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
@@ -1023,6 +1036,13 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
             #result['status'] = 'ok'
             
+            
+    print('TOP ANALYSIS AFTER L')        
+    print(rotatedCubeList[37])
+    print(rotatedCubeList[39])
+    print(rotatedCubeList[41])
+    print(rotatedCubeList[43])
+    
     return result
 
         
