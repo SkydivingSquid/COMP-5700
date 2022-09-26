@@ -225,6 +225,10 @@ def _solveBottomCross(encodedCube):
                 result['cube'] = encodedCube
                 numberOfPetalsFound + 1
                 
+        
+        result['cube'] = "".join(encodedCube)
+        result['status'] = 'ok'
+        
         return result
         
         
