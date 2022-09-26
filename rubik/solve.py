@@ -314,6 +314,7 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += f_result.get('letter')
                         encodedCube = f_result.get('cube')
             
+                        print('THE RIGHT FACE CUBE IS MOVING')
                         result['cube'] = encodedCube
                         numberOfPetalsFound += 1
                     
