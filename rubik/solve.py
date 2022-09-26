@@ -845,18 +845,18 @@ def _solveBottomCross(encodedCube):
                 print(numberOfPetalsFound)
                 print('####### CYCLE STATUS #######')
         
-        # #TIME FOR DAISY SOLUTION HERE
-        # daisySolution = _daisySolution(encodedCube)
-        # encodedCube = daisySolution.get('cube')
-        #
-        # result['cube'] = "".join(encodedCube)
-        # result['solution'] += daisySolution.get('solution')
-        # result['status'] = 'ok'
+        #TIME FOR DAISY SOLUTION HERE
+        daisySolution = _daisySolution(encodedCube)
+        encodedCube = daisySolution.get('cube')
+        
+        result['cube'] = "".join(encodedCube)
+        result['solution'] += daisySolution.get('solution')
+        result['status'] = 'ok'
         #
          # TEMPORARY BELOW
-        result['cube'] = "".join(encodedCube)
-        result['status'] = 'ok'
-        print(result['solution'])
+        # result['cube'] = "".join(encodedCube)
+        # result['status'] = 'ok'
+        # print(result['solution'])
          # TEMPORARY ABOVE
         
         return result

@@ -210,20 +210,20 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_solve_042_ShouldVerticalSidePiecesToTopDaisy(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'rbogbgwwywrbyrbowrwgyogrbrgorybowoygboryywgybrbgowowgy'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'growbooyrwoygrbwyrorrogrbyowgrbobgrggybwywywbwobgwbygy'
-        expectedResult['solution'] = 'FURRfrFDRR'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    # def test_solve_042_ShouldVerticalSidePiecesToTopDaisy(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'rbogbgwwywrbyrbowrwgyogrbrgorybowoygboryywgybrbgowowgy'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'growbooyrwoygrbwyrorrogrbyowgrbobgrggybwywywbwobgwbygy'
+    #     expectedResult['solution'] = 'FURRfrFDRR'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
     # def test_solve_043_ShouldSolveForBottomCrossGivenScrambledRubik(self):
     #     inputDict = {}
@@ -296,7 +296,7 @@ class solveBottomCrossTest(unittest.TestCase):
     
         expectedResult = {}       
         expectedResult['cube'] = 'rrgboroyywoboyoobgrygygbwgobggrroyyrywowbwbwrwbbgwgwry'
-        expectedResult['solution'] = 'FfrFDRRrbRDBBblBDLL'
+        expectedResult['solution'] = 'FfrFDRRrbRDBBblBDLLFFRRBBLL'
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
