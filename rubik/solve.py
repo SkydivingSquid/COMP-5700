@@ -891,12 +891,7 @@ def _solveBottomCross(encodedCube):
     
 def _daisySolution(encodedCube):
     result = {}
-    
-    DaisyFrontReturnParms = {}
-    DaisyFrontReturnParms('solution') = ''
-    DaisyFrontReturnParms('encodedCube') = encodedCube
-    DaisyFrontReturnParms('rotatedCubeList') = rotatedCubeList
-    
+        
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
