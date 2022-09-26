@@ -914,8 +914,9 @@ def _daisySolution(encodedCube):
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
             
-            rotatedCubeList[4] = encodedCube[4]
-            rotatedCubeList[1] = encodedCube[1]
+            # rotatedCubeList[4] = encodedCube[4]
+            # rotatedCubeList[1] = encodedCube[1]
+            rotatedCubeList = encodedCube
         
         if rotatedCubeList[4] == rotatedCubeList[1]:
             F_result = _rotateF(encodedCube)
@@ -937,8 +938,9 @@ def _daisySolution(encodedCube):
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
             
-            rotatedCubeList[13] = encodedCube[13]
-            rotatedCubeList[10] = encodedCube[10]
+            # rotatedCubeList[13] = encodedCube[13]
+            # rotatedCubeList[10] = encodedCube[10]
+            rotatedCubeList = encodedCube
 
         if rotatedCubeList[13] == rotatedCubeList[10]:
             R_result = _rotateR(encodedCube)
@@ -960,9 +962,10 @@ def _daisySolution(encodedCube):
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
             
-            rotatedCubeList[22] = encodedCube[22]
-            rotatedCubeList[19] = encodedCube[19]
-        
+            # rotatedCubeList[22] = encodedCube[22]
+            # rotatedCubeList[19] = encodedCube[19]
+            rotatedCubeList = encodedCube
+
         if rotatedCubeList[22] == rotatedCubeList[19]:
             B_result = _rotateB(encodedCube)
             result['solution'] += B_result.get('letter')
@@ -983,8 +986,9 @@ def _daisySolution(encodedCube):
             result['solution'] += U_result.get('letter')
             encodedCube = U_result.get('cube')
             
-            rotatedCubeList[31] = encodedCube[31]
-            rotatedCubeList[28] = encodedCube[28]
+            # rotatedCubeList[31] = encodedCube[31]
+            # rotatedCubeList[28] = encodedCube[28]
+            rotatedCubeList = encodedCube
     
     
         if rotatedCubeList[31] == rotatedCubeList[28]:
