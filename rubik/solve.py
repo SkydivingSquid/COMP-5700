@@ -135,7 +135,7 @@ def _solveBottomCross(encodedCube):
     #If Not a Daisy
     else:
         numberOfPetalsFound = 0
-        while(numberOfPetalsFound != 4):
+        while(numberOfPetalsFound <= 3):
             print(numberOfPetalsFound)
         
             #Check Top Petals First
