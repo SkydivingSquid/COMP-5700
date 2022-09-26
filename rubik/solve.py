@@ -4,9 +4,9 @@ def _solve(parms):
     """Return rotates needed to solve input cube"""
     result = {}
     encodedCube = parms.get('cube',None)       #STUB:  get "cube" parameter if present
-    result['solution'] = ""                 
+    result['rotations'] = ""                 
     result['status'] = 'ok'
-    result['cube'] = encodedCube
+    #result['cube'] = encodedCube
     status = result['status']    
     
     if encodedCube == None:
@@ -35,8 +35,8 @@ def _solve(parms):
         return result    
     
     if status == 'ok':
-        result = _solveBottomCross(encodedCube)
-        result['rotations'] = result.get('solution')
+        bottomCrossresult = _solveBottomCross(encodedCube)
+        result['rotations'] = bottomCrossresult.get('solution')
                  
     return result
 
