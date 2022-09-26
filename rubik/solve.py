@@ -7,15 +7,16 @@ def _solve(parms):
     encodedCube = parms.get('cube',None)
     result['rotations'] = ""
     #result['solution'] = ""                 
-    result['status'] = 'ok'
+    #result['status'] = 'ok'
     #result['cube'] = encodedCube
-    status = result['status']    
+    #status = result['status']    
     
     
     result['status'] = _verifyInput(encodedCube)
     
-    solvedBottomCrossResult = _solveBottomCross(encodedCube)
-    result['rotations'] = solvedBottomCrossResult.get('solution')
+    if result['status'] == 'ok':
+        solvedBottomCrossResult = _solveBottomCross(encodedCube)
+        result['rotations'] = solvedBottomCrossResult.get('solution')
                  
     return result
 
@@ -51,8 +52,6 @@ def _verifyInput(encodedCube):
         return result    
             
     return result
-
-
 
 
 
