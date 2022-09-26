@@ -264,6 +264,15 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
+    
+    
+    
+    
+    
+    
+    
+    
+    #### CLASS TEST METHODS ####
 
     def test_solve_900_ClassTestCaseValidatingBottomCheckWorks(self):
         inputDict = {}

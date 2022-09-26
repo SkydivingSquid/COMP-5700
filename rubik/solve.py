@@ -1,12 +1,11 @@
 import rubik.cube as rubik
-from rubik.test.solveBottomCrossTest import solveBottomCrossTest
-
 
 def _solve(parms):
     """Return rotates needed to solve input cube"""
     result = {}
     solvedBottomCrossResult = {}
     encodedCube = parms.get('cube',None)
+    result['rotations'] = ""
     #result['solution'] = ""                 
     result['status'] = 'ok'
     #result['cube'] = encodedCube
