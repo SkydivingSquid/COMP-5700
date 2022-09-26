@@ -900,11 +900,11 @@ def _daisySolution(encodedCube):
             # rotatedCubeList[1] = encodedCube[1]
             rotatedCubeList = encodedCube
             print('WHILE: Rotated Cube List: ')
-            print(rotatedCubeList)
+
         
         if rotatedCubeList[4] == rotatedCubeList[1]:
             print('ENTERING IF STATEMENT')
-            print(rotatedCubeList)
+
             
             F_result = _rotateF(encodedCube)
             result['solution'] += F_result.get('letter')
@@ -920,7 +920,7 @@ def _daisySolution(encodedCube):
             print(rotatedCubeList[46])
             
             
-            print(rotatedCubeList)
+
             
 
     #Right Face Alignment
