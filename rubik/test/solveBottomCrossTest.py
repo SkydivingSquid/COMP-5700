@@ -396,7 +396,7 @@ class solveBottomCrossTest(unittest.TestCase):
     
         expectedResult = {}       
         expectedResult['cube'] = 'ogybwbbwrbobwoygooyyybgbbgrrgrgyooywwwwobwwygoryrrrgrg'
-        expectedResult['solution'] = 'FFUFRFFUURRUUBBULL'
+        expectedResult['solution'] = 'FFUFRFFUURRUUBBUULL'
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
