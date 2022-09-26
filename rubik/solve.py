@@ -878,17 +878,7 @@ def _daisySolution(encodedCube):
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
-    #DoesThisWork?
-    rotatedCubeList = encodedCube
-    
-    print('SHOULD ALL BE EQUAL TO COLOR IN ' + str(rotatedCubeList[49]))
-    print[rotatedCubeList[37]]
-    print[rotatedCubeList[39]]
-    print[rotatedCubeList[41]]
-    print[rotatedCubeList[43]]
-   
-    
-    
+        
     #Front Face Alignment
     
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
@@ -908,6 +898,12 @@ def _daisySolution(encodedCube):
         
         if rotatedCubeList[4] == rotatedCubeList[1]:
             
+            #WTF
+            print('SHOULD ALL BE EQUAL TO COLOR IN ' + str(rotatedCubeList[49]))
+            print[rotatedCubeList[37]]
+            print[rotatedCubeList[39]]
+            print[rotatedCubeList[41]]
+            print[rotatedCubeList[43]]
 
             
             F_result = _rotateF(encodedCube)
