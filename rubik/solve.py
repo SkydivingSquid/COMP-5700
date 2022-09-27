@@ -147,10 +147,6 @@ def _solveBottomCross(encodedCube):
         result['solution'] += daisySolution.get('solution')
         return result
         
-        #
-        # result['solution'] = _bottomCrossFromDaisy(encodedCube, result['solution'])
-        # return result
-    
     
     #If Not a Daisy
     else:
@@ -176,8 +172,14 @@ def _solveBottomCross(encodedCube):
             ################## CHECK BOTTOM FACE PIECES ###################
             ###############################################################
             
+            
             #Checking Top of Bottom Face
             if(numberOfPetalsFound <= 3):
+                
+                print('CHECKING ENCODEDCUBE vs ROTATEDCUBELIST')
+                print(encodedCube)
+                print(rotatedCubeList)
+                
                 if rotatedCubeList[46] == rotatedCubeList[49]:
                     while rotatedCubeList[46] == rotatedCubeList[43]:
                         U_result = _rotateU(encodedCube) 
@@ -185,10 +187,7 @@ def _solveBottomCross(encodedCube):
                         encodedCube = U_result.get('cube')
                         
                         rotatedCubeList = encodedCube
-                        # ^ Replaced with this.
-                        # rotatedCubeList[46] = encodedCube[46]
-                        # rotatedCubeList[43] = encodedCube[43]
-                    
+     
                     if rotatedCubeList[46] != rotatedCubeList[43]:
                         F_result = _rotateF(encodedCube)
                         result['solution'] += F_result.get('letter')
