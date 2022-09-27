@@ -564,9 +564,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         
         #Move l,f,L,D,F,F
         if verticalPetalIndex == 1:
-            l_result = _rotatel(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += l_result.get('letter')
-            rotatedCubeList = l_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
         
             f_result = _rotatef(rotatedCubeList)
             veritcalToDaisyResult['solution'] += f_result.get('letter')
