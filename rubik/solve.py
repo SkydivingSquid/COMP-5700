@@ -927,6 +927,15 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
             F_result = _rotateF(encodedCube)
             daisyRotResult['solution'] += F_result.get('letter')
             encodedCube = F_result.get('cube')
+            
+        if uniqueCenter = 13:
+             R_result = _rotateR(encodedCube)
+            result['solution'] += R_result.get('letter')
+            encodedCube = R_result.get('cube')
+        
+            R_result = _rotateR(encodedCube)
+            result['solution'] += R_result.get('letter')
+            encodedCube = R_result.get('cube')
         
         rotatedCubeList = encodedCube
         
@@ -1025,37 +1034,37 @@ def _daisySolution(encodedCube):
     #Right Face Alignment
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
         
-        # daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
+        daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
+        
+        result['solution'] = daisyResult.get('solution')
+        encodedCube = daisyResult.get('daisyCubeList')
+        rotatedCubeList = encodedCube
+        
+        
+        
+        
+        # while (rotatedCubeList[13]!= rotatedCubeList[10] or rotatedCubeList[41] != rotatedCubeList[49]):
         #
-        # result['solution'] = daisyResult.get('solution')
-        # encodedCube = daisyResult.get('daisyCubeList')
-        # rotatedCubeList = encodedCube
-        
-        
-        
-        
-        while (rotatedCubeList[13]!= rotatedCubeList[10] or rotatedCubeList[41] != rotatedCubeList[49]):
-        
-        
-            U_result = _rotateU(encodedCube) 
-            result['solution'] += U_result.get('letter')
-            encodedCube = U_result.get('cube')
-        
-            rotatedCubeList = encodedCube
-        
-        if rotatedCubeList[13] == rotatedCubeList[10]:
-        
-        
-            R_result = _rotateR(encodedCube)
-            result['solution'] += R_result.get('letter')
-            encodedCube = R_result.get('cube')
-        
-            R_result = _rotateR(encodedCube)
-            result['solution'] += R_result.get('letter')
-            encodedCube = R_result.get('cube')
-        
-            rotatedCubeList = encodedCube
-            #result['cube'] = encodedCube
+        #
+        #     U_result = _rotateU(encodedCube) 
+        #     result['solution'] += U_result.get('letter')
+        #     encodedCube = U_result.get('cube')
+        #
+        #     rotatedCubeList = encodedCube
+        #
+        # if rotatedCubeList[13] == rotatedCubeList[10]:
+        #
+        #
+        #     R_result = _rotateR(encodedCube)
+        #     result['solution'] += R_result.get('letter')
+        #     encodedCube = R_result.get('cube')
+        #
+        #     R_result = _rotateR(encodedCube)
+        #     result['solution'] += R_result.get('letter')
+        #     encodedCube = R_result.get('cube')
+        #
+        #     rotatedCubeList = encodedCube
+        #     #result['cube'] = encodedCube
     
 
     # #Back Face Alignment
