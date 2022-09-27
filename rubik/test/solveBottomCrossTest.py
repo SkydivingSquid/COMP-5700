@@ -491,7 +491,7 @@ class solveBottomCrossTest(unittest.TestCase):
                           'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
                           'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
         
-        actualResult = solve.__daisyURotations(inputList)
+        actualResult = solve._daisyURotations(inputList)
         
         self.assertEqual(expectedResult, actualResult.get('rotatedCubeList'))
 
