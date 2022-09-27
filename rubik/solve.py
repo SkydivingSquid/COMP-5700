@@ -1022,7 +1022,7 @@ def _daisySolution(encodedCube):
     print('THIS IS RESULT')
     print(result)
     
-    result['cube'] = encodedCube
+    #result['cube'] = encodedCube
     return result
 
 
