@@ -256,7 +256,7 @@ def _solveBottomCross(encodedCube):
                     result['solution'] = bottomToDaisyResult.get('solution')
                     rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
-                    rotatedCubeList = encodedCube
+                    encodedCube = rotatedCubeList
                     numberOfPetalsFound += 1
                     
             #Checking Right of Bottom Face
@@ -267,7 +267,7 @@ def _solveBottomCross(encodedCube):
                     result['solution'] = bottomToDaisyResult.get('solution')
                     rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
-                    rotatedCubeList = encodedCube
+                    encodedCube = rotatedCubeList
                     numberOfPetalsFound += 1
 
                     
