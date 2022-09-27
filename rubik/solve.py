@@ -587,6 +587,7 @@ def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     
+    veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return rotatedCubeList, veritcalToDaisyResult['solution']
 
 
