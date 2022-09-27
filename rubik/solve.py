@@ -108,7 +108,7 @@ def _bottomCrossToDaisy(encodedCube, result):
 
 def _unalignedBottomToDaisy(solution, rotatedCubeList):
     bottomToDaisyResult = {}
-    bottomToDaisy['solution'] = solution
+    bottomToDaisyResult['solution'] = solution
     
     while rotatedCubeList[46] == rotatedCubeList[43]:
         U_result = _rotateU(rotatedCubeList)
