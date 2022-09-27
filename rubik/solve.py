@@ -894,13 +894,8 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     
         rotatedCubeList = encodedCube
         
-    daisyRotationResult = _daisy_Rotations(uniqueCenter, topMiddle, encodedCube, daisyResult('solution'))
-    
-    daisyResult['daisyCubeList'] = daisyRotationResult['daisyCubeList']
-    daisyResult['solution'] = daisyRotationResult['solution']
-
         
-    #daisyResult['daisyCubeList'] = encodedCube
+    daisyResult['daisyCubeList'] = encodedCube
     return daisyResult
     
     
