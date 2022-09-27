@@ -292,10 +292,189 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
             F_result = _rotateF(rotatedCubeList)
             veritcalToDaisyResult['solution'] += F_result.get('letter')
             rotatedCubeList = F_result.get('cube')
+            
+            
+        if verticalPetalIndex == 10:
+            
+            f_result = _rotatef(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += f_result.get('letter')
+            rotatedCubeList = f_result.get('cube')
+    
+            r_result = _rotater(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += r_result.get('letter')
+            rotatedCubeList = r_result.get('cube')
+    
+            F_result = _rotateF(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += F_result.get('letter')
+            rotatedCubeList = F_result.get('cube')
+    
+            D_result = _rotateD(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += D_result.get('letter')
+            rotatedCubeList = D_result.get('cube')
+    
+            R_result = _rotateR(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+    
+            R_result = _rotateR(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
     
     
+        if verticalPetalIndex == 16:
+            
+            R_result = _rotateR(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
     
+            R_result = _rotateR(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+    
+            f_result = _rotatef(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += f_result.get('letter')
+            rotatedCubeList = f_result.get('cube')
+    
+            r_result = _rotater(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += r_result.get('letter')
+            rotatedCubeList = r_result.get('cube')
+    
+            F_result = _rotateF(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += F_result.get('letter')
+            rotatedCubeList = F_result.get('cube')
+    
+            D_result = _rotateD(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += D_result.get('letter')
+            rotatedCubeList = D_result.get('cube')
+    
+            R_result = _rotateR(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+    
+            R_result = _rotateR(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+            
 
+        if verticalPetalIndex == 19:
+            r_result = _rotater(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += r_result.get('letter')
+            rotatedCubeList = r_result.get('cube')
+
+            b_result = _rotateb(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += b_result.get('letter')
+            rotatedCubeList = b_result.get('cube')
+
+            R_result = _rotateR(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+
+            D_result = _rotateD(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += D_result.get('letter')
+            rotatedCubeList = D_result.get('cube')
+
+            B_result = _rotateB(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+
+            B_result = _rotateB(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+           
+        
+        if verticalPetalIndex == 25:
+            B_result = _rotateB(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+
+            B_result = _rotateB(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+
+            r_result = _rotater(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += r_result.get('letter')
+            rotatedCubeList = r_result.get('cube')
+
+            b_result = _rotateb(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += b_result.get('letter')
+            rotatedCubeList = b_result.get('cube')
+
+            R_result = _rotateR(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+
+            D_result = _rotateD(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += D_result.get('letter')
+            rotatedCubeList = D_result.get('cube')
+
+            B_result = _rotateB(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+
+            B_result = _rotateB(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+            
+        if verticalPetalIndex == 28:
+            
+            b_result = _rotateb(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += b_result.get('letter')
+            rotatedCubeList = b_result.get('cube')
+    
+            l_result = _rotatel(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += l_result.get('letter')
+            rotatedCubeList = l_result.get('cube')
+    
+            B_result = _rotateB(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+    
+            D_result = _rotateD(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += D_result.get('letter')
+            rotatedCubeList = D_result.get('cube')
+    
+            L_result = _rotateL(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += L_result.get('letter')
+            rotatedCubeList = L_result.get('cube')
+    
+            L_result = _rotateL(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += L_result.get('letter')
+            rotatedCubeList = L_result.get('cube')
+            
+        if verticalPetalIndex == 34:
+            L_result = _rotateL(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += L_result.get('letter')
+            rotatedCubeList = L_result.get('cube')
+
+            L_result = _rotateL(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += L_result.get('letter')
+            rotatedCubeList = L_result.get('cube')
+
+            b_result = _rotateb(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += b_result.get('letter')
+            rotatedCubeList = b_result.get('cube')
+
+            l_result = _rotatel(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += l_result.get('letter')
+            rotatedCubeList = l_result.get('cube')
+
+            B_result = _rotateB(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+
+            D_result = _rotateD(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += D_result.get('letter')
+            rotatedCubeList = D_result.get('cube')
+
+            L_result = _rotateL(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += L_result.get('letter')
+            rotatedCubeList = L_result.get('cube')
+
+            L_result = _rotateL(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += L_result.get('letter')
+            rotatedCubeList = L_result.get('cube')
+            
+        
         veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     return veritcalToDaisyResult
@@ -547,290 +726,72 @@ def _solveBottomCross(encodedCube):
             #Right Face Vertical Top
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[10] == rotatedCubeList[49]:
-                    while rotatedCubeList[10] == rotatedCubeList[41]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-        
-                        # rotatedCubeList[10] = encodedCube[10]
-                        # rotatedCubeList[41] = encodedCube[41]
-                        rotatedCubeList = encodedCube
-        
-                #Move f,r,F,D,R,R
-                    if rotatedCubeList[10] != rotatedCubeList[41]:
-        
-                        f_result = _rotatef(encodedCube)
-                        result['solution'] += f_result.get('letter')
-                        encodedCube = f_result.get('cube')
-        
-                        r_result = _rotater(encodedCube)
-                        result['solution'] += r_result.get('letter')
-                        encodedCube = r_result.get('cube')
-        
-                        F_result = _rotateF(encodedCube)
-                        result['solution'] += F_result.get('letter')
-                        encodedCube = F_result.get('cube')
-        
-                        D_result = _rotateD(encodedCube)
-                        result['solution'] += D_result.get('letter')
-                        encodedCube = D_result.get('cube')
-        
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-        
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-        
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                   
+                    verticalToDaisyResult = _verticalCubesToDaisy(10, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
         
             #Right Face Vertical Bottom
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[16] == rotatedCubeList[49]:
-                    while rotatedCubeList[16] == rotatedCubeList[41]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-        
-                        # rotatedCubeList[16] = encodedCube[16]
-                        # rotatedCubeList[41] = encodedCube[41]
-                        rotatedCubeList = encodedCube
-        
-                #Move R,R,f,r,F,D,R,R
-                    if rotatedCubeList[16] != rotatedCubeList[41]:
-        
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-        
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-        
-                        f_result = _rotatef(encodedCube)
-                        result['solution'] += f_result.get('letter')
-                        encodedCube = f_result.get('cube')
-        
-                        r_result = _rotater(encodedCube)
-                        result['solution'] += r_result.get('letter')
-                        encodedCube = r_result.get('cube')
-        
-                        F_result = _rotateF(encodedCube)
-                        result['solution'] += F_result.get('letter')
-                        encodedCube = F_result.get('cube')
-        
-                        D_result = _rotateD(encodedCube)
-                        result['solution'] += D_result.get('letter')
-                        encodedCube = D_result.get('cube')
-        
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-        
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-        
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                    
+                    verticalToDaisyResult = _verticalCubesToDaisy(16, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
         
             # Back Face Vertical Top
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[19] == rotatedCubeList[49]:
-                    while rotatedCubeList[19] == rotatedCubeList[37]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-            
-                        # rotatedCubeList[19] = encodedCube[19]
-                        # rotatedCubeList[37] = encodedCube[37]
-                        rotatedCubeList = encodedCube
-            
-                #Move r,b,R,D,B,B
-                    if rotatedCubeList[19] != rotatedCubeList[37]:
-            
-                        r_result = _rotater(encodedCube)
-                        result['solution'] += r_result.get('letter')
-                        encodedCube = r_result.get('cube')
-            
-                        b_result = _rotateb(encodedCube)
-                        result['solution'] += b_result.get('letter')
-                        encodedCube = b_result.get('cube')
-            
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-            
-                        D_result = _rotateD(encodedCube)
-                        result['solution'] += D_result.get('letter')
-                        encodedCube = D_result.get('cube')
-            
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-            
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-            
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                    
+                    verticalToDaisyResult = _verticalCubesToDaisy(19, 37, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
             
             # Back Face Vertical Bottom
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[25] == rotatedCubeList[49]:
-                    while rotatedCubeList[25] == rotatedCubeList[37]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-            
-                        # rotatedCubeList[25] = encodedCube[25]
-                        # rotatedCubeList[37] = encodedCube[37]
-                        rotatedCubeList = encodedCube
-            
-                #Move B,B,r,b,R,D,B,B
-                    if rotatedCubeList[25] != rotatedCubeList[37]:
-            
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-            
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-            
-                        r_result = _rotater(encodedCube)
-                        result['solution'] += r_result.get('letter')
-                        encodedCube = r_result.get('cube')
-            
-                        b_result = _rotateb(encodedCube)
-                        result['solution'] += b_result.get('letter')
-                        encodedCube = b_result.get('cube')
-            
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-            
-                        D_result = _rotateD(encodedCube)
-                        result['solution'] += D_result.get('letter')
-                        encodedCube = D_result.get('cube')
-            
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-            
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-            
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                   
+                    verticalToDaisyResult = _verticalCubesToDaisy(25, 37, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
             
             # CHECKPOINT TEST 042
             
             #Left Face Vertical Top
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[28] == rotatedCubeList[49]:
-                    while rotatedCubeList[28] == rotatedCubeList[39]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-            
-                        # rotatedCubeList[28] = encodedCube[28]
-                        # rotatedCubeList[39] = encodedCube[39]
-                        rotatedCubeList = encodedCube
-            
-                #Move b,l,B,D,L,L
-                    if rotatedCubeList[28] != rotatedCubeList[39]:
-            
-                        b_result = _rotateb(encodedCube)
-                        result['solution'] += b_result.get('letter')
-                        encodedCube = b_result.get('cube')
-            
-                        l_result = _rotatel(encodedCube)
-                        result['solution'] += l_result.get('letter')
-                        encodedCube = l_result.get('cube')
-            
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-            
-                        D_result = _rotateD(encodedCube)
-                        result['solution'] += D_result.get('letter')
-                        encodedCube = D_result.get('cube')
-            
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
-            
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
-            
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                   
+                    verticalToDaisyResult = _verticalCubesToDaisy(28, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
             
             #Left Face Vertical Bottom
+            if (numberOfPetalsFound <= 3):
                 if rotatedCubeList[34] == rotatedCubeList[49]:
-                    while rotatedCubeList[34] == rotatedCubeList[39]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-            
-                        # rotatedCubeList[34] = encodedCube[34]
-                        # rotatedCubeList[39] = encodedCube[39]
-                        rotatedCubeList = encodedCube
-            
-                #Move L,L,b,l,B,D,L,L
-                    if rotatedCubeList[34] != rotatedCubeList[39]:
-            
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
-            
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
-            
-                        b_result = _rotateb(encodedCube)
-                        result['solution'] += b_result.get('letter')
-                        encodedCube = b_result.get('cube')
-            
-                        l_result = _rotatel(encodedCube)
-                        result['solution'] += l_result.get('letter')
-                        encodedCube = l_result.get('cube')
-            
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-            
-                        D_result = _rotateD(encodedCube)
-                        result['solution'] += D_result.get('letter')
-                        encodedCube = D_result.get('cube')
-            
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
-            
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
-            
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                       
+                    verticalToDaisyResult = _verticalCubesToDaisy(34, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
         
                         
-    
-        
-
         
       
     #TIME FOR DAISY SOLUTION HERE
