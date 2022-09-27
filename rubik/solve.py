@@ -910,6 +910,8 @@ def _daisySolution(encodedCube):
     #Front Face Alignment
     
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
+        
+        #rotatedCubeList = _daisyURotations(encodedCube)
 
 ###PROTECTED
         while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
@@ -919,9 +921,12 @@ def _daisySolution(encodedCube):
             encodedCube = U_result.get('cube')
         
             rotatedCubeList = encodedCube
-            
+        
             print('encoded cube post U Rotation')
             print(encodedCube)
+            
+            print('solution')
+            print(result['soltution'])
            
 ###PROTECTED
         

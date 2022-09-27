@@ -484,6 +484,8 @@ class solveBottomCrossTest(unittest.TestCase):
                      'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
                      'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
         
+        solution = ""
+        
         expectedResult = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
                           'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
                           'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
