@@ -895,10 +895,10 @@ def _solveBottomCross(encodedCube):
 #############################################################        
 ############## Daisy Methods For Solving Cube ###############
 #############################################################
-"""
-    
-#Sub-method of Integrated Daisy Method. Rotates the block U when not aligned. 
+""" 
+
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
+""" Sub-method of Integrated Daisy Method. Rotates the block U when not aligned. """    
     daisyResult = {}
     daisyRotationResult = {}
     cubeList = list(encodedCube)
@@ -921,8 +921,8 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 
     return daisyResult
     
-#Sub-method for Integrated Daisy Method. Roates the block a specific direction depending on its uniqueCenter.
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
+""" Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
     daisyRotResult = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
@@ -974,8 +974,8 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     
     return daisyRotResult
 
-#Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. 
 def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
+""" Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. """
     integratedResult = {}
     innerMethodResult = {}
     
@@ -990,8 +990,8 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 
     return integratedResult
     
-#When a daisy is made, align colors and rotate into Bottom Cross solution. 
 def _daisySolution(encodedCube):
+""" When a daisy is made, align colors and rotate into Bottom Cross solution. """
     result = {}
     daisyResult = {}
     cubeList = list(encodedCube)
