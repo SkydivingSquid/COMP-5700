@@ -68,15 +68,15 @@ def _verifyInput(encodedCube):
 """
 
     ###############################################################
-    ############### METHODS OF BOTTOM CROSS DAISY #################
+    ############### METHODS FOR BOTTOM CROSS DAISY ################
     ###############################################################
 
-def _functionF_BCD(rotatedCubeList, result):
-    F_result = _rotateF(rotatedCubeList)
+def _functionF_BCD(encodedCube, result):
+    F_result = _rotateF(encodedCube)
     result['solution'] += F_result.get('letter')
-    rotatedCubeList = F_result.get('cube')
+    encodedCube = F_result.get('cube')
     
-    return result['solution'], rotatedCubeList
+    return result['solution'], encodedCube
 
 def _functionR_BCD(encodedCube, result):
     R_result = _rotateR(encodedCube)
@@ -100,10 +100,16 @@ def _functionL_BCD(encodedCube, result):
     return result['solution'], encodedCube
 
 
-    ###############################################################
-    ############### METHODS OF SOLVE BOTTOM CROSS #################
-    ###############################################################
+    ####################################################################
+    ############### METHODS FOR UNALIGNED BOTTOM DAISY #################
+    ####################################################################
     
+def _functionF_UBD(rotatedCubeList, bottomToDaisyResult):
+    F_result = _rotateF(rotatedCubeList)
+    bottomToDaisyResult['solution'] += F_result.get('letter')
+    rotatedCubeList = F_result.get('cube')
+    
+    return bottomToDaisyResult['solution'], rotatedCubeList
     
 
 
@@ -458,9 +464,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
     if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         
         if bottomPetalIndex == 46:
-            F_result = _rotateF(rotatedCubeList)
-            bottomToDaisyResult['solution'] += F_result.get('letter')
-            rotatedCubeList = F_result.get('cube')
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
             
             F_result = _rotateF(rotatedCubeList)
             bottomToDaisyResult['solution'] += F_result.get('letter')
