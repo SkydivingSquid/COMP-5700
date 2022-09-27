@@ -66,12 +66,12 @@ def _verifyInput(encodedCube):
 ########### INNER SOLUTION FUNCTIONS FOR CUBE ROTATION AND STATUS UPDATE ###########
 #################################################################################### 
 """
-def _functionF(roatedCubeList, result):
-    F_result = _rotateF(roatedCubeList)
+def _functionF(encodedCube, result):
+    F_result = _rotateF(encodedCube)
     result['solution'] += F_result.get('letter')
-    roatedCubeList = F_result.get('cube')
+    encodedCube = F_result.get('cube')
     
-    return result['solution'], roatedCubeList
+    return result['solution'], encodedCube
 
 def _functionR(encodedCube, result):
     R_result = _rotateR(encodedCube)
@@ -416,7 +416,6 @@ def _bottomCrossToDaisy(encodedCube, result):
     #Double Front Rotation
     result['solution'], encodedCube = _functionF(encodedCube, result)
     result['solution'], encodedCube = _functionF(encodedCube, result)
-    
     
     #Double Right Rotation
     result['solution'], encodedCube = _functionR(encodedCube, result)
