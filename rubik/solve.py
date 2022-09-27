@@ -606,11 +606,11 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         
         #Move l,f,L,D,F,F
         if verticalPetalIndex == 1:
-            veritcalToDaisyResult['solution'], rotatedCubeList = _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
+            veritcalToDaisyResult['solution'], rotatedCubeList = _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult['solution'])
         
         
         if verticalPetalIndex == 7:
-            veritcalToDaisyResult['solution'], rotatedCubeList = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
+            veritcalToDaisyResult['solution'], rotatedCubeList = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult['solution'])
 
             
             
