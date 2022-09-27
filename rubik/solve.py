@@ -34,6 +34,9 @@ def _solve(parms):
 #Verifies Cube Input as Valid (does not current check if 'possible', just valid). 
 
 def _emptyCube(encodedCube, result):
+    result = {}
+    result['status'] = 'ok'
+    status = result['status']
     if encodedCube == None:
         result['status'] = 'error: Missing Cube Argument'
         status = result['status']
@@ -42,7 +45,7 @@ def _emptyCube(encodedCube, result):
 def _verifyInput(encodedCube):
     result = {}
     result['status'] = 'ok'
-    #status = result['status']
+    status = result['status']
     
     status = _emptyCube(encodedCube, result)
     #return status 
