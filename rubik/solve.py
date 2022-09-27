@@ -878,12 +878,21 @@ def _solveBottomCross(encodedCube):
     
     
 
-# def _daisyURotations(encodedCube):
-#     daisyResult = {}
-#     cubeList = list(encodedCube)
-#     rotatedCubeList = cubeList[:]
-#     daisyResult['cube']
-#     daisyResult['solution'] = ""
+def _daisyURotations(encodedCube):
+    daisyResult = {}
+    cubeList = list(encodedCube)
+    rotatedCubeList = cubeList[:]
+    daisyResult['solution'] = ""
+    
+    while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
+        
+        U_result = _rotateU(encodedCube) 
+        daisyResult['solution'] += U_result.get('letter')
+        encodedCube = U_result.get('cube')
+    
+        rotatedCubeList = encodedCube
+    
+    return rotatedCubeList
 
 
         
@@ -1022,7 +1031,7 @@ def _daisySolution(encodedCube):
     print('THIS IS RESULT')
     print(result)
     
-    #result['cube'] = encodedCube
+    result['cube'] = encodedCube
     return result
 
 
