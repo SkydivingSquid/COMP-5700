@@ -878,7 +878,7 @@ def _solveBottomCross(encodedCube):
     
     
 
-def _daisyURotations(encodedCube):
+def _daisyURotations(encodedCube, solution):
     daisyResult = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
