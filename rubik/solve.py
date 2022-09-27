@@ -231,6 +231,9 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         rotatedCubeList = U_result.get('cube')
 
     if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
+        
+        #Move l,f,L,D,F,F
+        if verticalPetalIndex == 1:
         l_result = _rotatel(rotatedCubeList)
         veritcalToDaisyResult['solution'] += l_result.get('letter')
         rotatedCubeList = l_result.get('cube')
@@ -255,8 +258,26 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         veritcalToDaisyResult['solution'] += F_result.get('letter')
         rotatedCubeList = F_result.get('cube')
 
+
+
         veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+        
+        
+    # if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
+    
+    ########################
+    #### OTHER VERTICALS ####
+    ########################
+    
+    
+    
+    
+    
+    
     return veritcalToDaisyResult
+    
+        
+
 
 
 
@@ -494,9 +515,7 @@ def _solveBottomCross(encodedCube):
                         U_result = _rotateU(encodedCube) 
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
-        
-                        # rotatedCubeList[7] = encodedCube[7]
-                        # rotatedCubeList[43] = encodedCube[43]
+
                         rotatedCubeList = encodedCube
         
                 #Move F,F,l,f,L,D,F,F
