@@ -99,6 +99,12 @@ def _functionL_BCD(encodedCube, result):
     
     return result['solution'], encodedCube
 
+def _functionU_BCD(encodedCube, result):
+    U_result = _rotateU(encodedCube)
+    result['solution'] += U_result.get('letter')
+    encodedCube = U_result.get('cube')
+    
+    return result['solution'], encodedCube
 
     ####################################################################
     ############### METHODS FOR UNALIGNED BOTTOM DAISY #################
@@ -444,6 +450,12 @@ def _bottomCrossToDaisy(encodedCube, result):
     
     return encodedCube
 
+
+
+
+
+
+
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
     bottomToDaisyResult = {}
@@ -451,9 +463,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
     bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     while rotatedCubeList[bottomPetalIndex] == rotatedCubeList[topPetalIndex]:
-        U_result = _rotateU(rotatedCubeList)
-        bottomToDaisyResult['solution'] += U_result.get('letter')
-        rotatedCubeList = U_result.get('cube')
+        bottomToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, bottomToDaisyResult)
 
     if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         
