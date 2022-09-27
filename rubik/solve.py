@@ -66,12 +66,17 @@ def _verifyInput(encodedCube):
 ########### INNER SOLUTION FUNCTIONS FOR CUBE ROTATION AND STATUS UPDATE ###########
 #################################################################################### 
 """
-def _functionF_BCD(encodedCube, result):
-    F_result = _rotateF(encodedCube)
+
+    ###############################################################
+    ############### METHODS OF BOTTOM CROSS DAISY #################
+    ###############################################################
+
+def _functionF_BCD(rotatedCubeList, result):
+    F_result = _rotateF(rotatedCubeList)
     result['solution'] += F_result.get('letter')
-    encodedCube = F_result.get('cube')
+    rotatedCubeList = F_result.get('cube')
     
-    return result['solution'], encodedCube
+    return result['solution'], rotatedCubeList
 
 def _functionR_BCD(encodedCube, result):
     R_result = _rotateR(encodedCube)
@@ -93,6 +98,14 @@ def _functionL_BCD(encodedCube, result):
     encodedCube = L_result.get('cube')
     
     return result['solution'], encodedCube
+
+
+    ###############################################################
+    ############### METHODS OF SOLVE BOTTOM CROSS #################
+    ###############################################################
+    
+    
+
 
 """
 #############################################################        
