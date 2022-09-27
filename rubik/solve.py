@@ -70,6 +70,40 @@ def _verifyInput(encodedCube):
 ##############################################################
 """
 
+
+def bottomCrossToDaisy(encodedCube, result):
+
+    F_result = _rotateF(encodedCube)
+    result['solution'] += F_result.get('letter')
+    encodedCube = F_result.get('cube')
+    F_result = _rotateF(encodedCube)
+    result['solution'] += F_result.get('letter')
+    encodedCube = F_result.get('cube')
+    
+    R_result = _rotateR(encodedCube)
+    result['solution'] += R_result.get('letter')
+    encodedCube = R_result.get('cube')
+    R_result = _rotateR(encodedCube)
+    result['solution'] += R_result.get('letter')
+    encodedCube = R_result.get('cube')
+   
+    B_result = _rotateB(encodedCube)
+    result['solution'] += B_result.get('letter')
+    encodedCube = B_result.get('cube')
+    B_result = _rotateB(encodedCube)
+    result['solution'] += B_result.get('letter')
+    encodedCube = B_result.get('cube')
+   
+    L_result = _rotateL(encodedCube)
+    result['solution'] += L_result.get('letter')
+    encodedCube = L_result.get('cube')
+    L_result = _rotateL(encodedCube)
+    result['solution'] += L_result.get('letter')
+    encodedCube = L_result.get('cube')
+    
+    return encodedCube
+
+
 def _solveBottomCross(encodedCube):
     result = {}
     cubeList = list(encodedCube)
@@ -101,37 +135,8 @@ def _solveBottomCross(encodedCube):
         
         #Rotate unaligned bottom cross into top daisy
         else: 
-            F_result = _rotateF(encodedCube)
-            result['solution'] += F_result.get('letter')
-            encodedCube = F_result.get('cube')
+            encodedCube = bottomCrossToDaisy(encodedCube, result)
             
-            F_result = _rotateF(encodedCube)
-            result['solution'] += F_result.get('letter')
-            encodedCube = F_result.get('cube')
-            
-            R_result = _rotateR(encodedCube)
-            result['solution'] += R_result.get('letter')
-            encodedCube = R_result.get('cube')
-            
-            R_result = _rotateR(encodedCube)
-            result['solution'] += R_result.get('letter')
-            encodedCube = R_result.get('cube')
-            
-            B_result = _rotateB(encodedCube)
-            result['solution'] += B_result.get('letter')
-            encodedCube = B_result.get('cube')
-            
-            B_result = _rotateB(encodedCube)
-            result['solution'] += B_result.get('letter')
-            encodedCube = B_result.get('cube')
-            
-            L_result = _rotateL(encodedCube)
-            result['solution'] += L_result.get('letter')
-            encodedCube = L_result.get('cube')
-            
-            L_result = _rotateL(encodedCube)
-            result['solution'] += L_result.get('letter')
-            encodedCube = L_result.get('cube')
             
             #DAISY HAS BEEN CREATED
             
