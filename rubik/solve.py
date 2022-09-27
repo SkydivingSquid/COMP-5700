@@ -924,10 +924,21 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     return daisyRotResult
 
 
-
-
-        
+def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
+    integratedResult = {}
+    innerMethodResult = {}
     
+    innerMethodResult = _daisyURotations(uniqueCenter, topMiddle, adjacentDaisy, encodedCube, solution)
+    
+    innerMethodResult = _daisy_Rotations(uniqueCenter, topMiddle, innerMethodResult.get('daisyCubeList'), innerMethodResult.get('solution'))
+    
+    integratedResult['daisyCubeList'] = innerMethodResult.get('daisyCubeList')
+    integratedResult['solution'] = innerMethodResult.get('solution')
+    
+    return integratedResult
+    
+
+
 def _daisySolution(encodedCube):
     print('STARTING STARTING STARTING STARTING')
     result = {}
