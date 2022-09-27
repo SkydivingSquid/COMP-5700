@@ -137,6 +137,16 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             L_result = _rotateL(rotatedCubeList)
             bottomToDaisyResult['solution'] += L_result.get('letter')
             rotatedCubeList = L_result.get('cube')
+            
+        elif bottomPetalIndex == 50:
+            R_result = _rotateR(rotatedCubeList)
+            bottomToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+            
+            R_result = _rotateR(rotatedCubeList)
+            bottomToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+        
         
         bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
         
@@ -235,28 +245,13 @@ def _solveBottomCross(encodedCube):
             #Checking Right of Bottom Face
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[50] == rotatedCubeList[49]:
-                    while rotatedCubeList[50] == rotatedCubeList[41]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-                        
-                        rotatedCubeList = encodedCube
                     
-                    if rotatedCubeList[50] != rotatedCubeList[41]:
+                    bottomToDaisyResult = _unalignedBottomToDaisy(50, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = bottomToDaisyResult.get('solution')
+                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-                    
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-                        
-                        result['cube'] = encodedCube
-
-                        rotatedCubeList = encodedCube
-                        
-                        numberOfPetalsFound += 1
+                    rotatedCubeList = encodedCube
+                    numberOfPetalsFound += 1
 
                     
             #Checking Bottom of Bottom Face
