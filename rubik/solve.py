@@ -900,7 +900,6 @@ def _solveBottomCross(encodedCube):
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
     daisyResult = {}
-    #daisyRotationResult = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     daisyResult['solution'] = solution
@@ -977,7 +976,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
 def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     """ Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. """
     integratedResult = {}
-    innerMethodResult = {}
+    #innerMethodResult = {}
     
     #Rotate U if applicable
     innerMethodResult = _daisyURotations(uniqueCenter, topMiddle, adjacentDaisy, encodedCube, solution)
