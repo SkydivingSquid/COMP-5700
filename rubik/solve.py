@@ -172,7 +172,7 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
 
     if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
         horizontalPetalIndex
-        if horizontalPetalIndex == 46:
+        if horizontalPetalIndex == 3:
             l_result = _rotatel(rotatedCubeList)
             horizontalToDaisyResult['solution'] += l_result.get('letter')
             rotatedCubeList = l_result.get('cube')
