@@ -487,7 +487,7 @@ class solveBottomCrossTest(unittest.TestCase):
         solution = ""
         
         expectedResult = {}
-        expectedResult['list' = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
+        expectedResult['list'] = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
                                  'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
                                  'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
                                  'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
