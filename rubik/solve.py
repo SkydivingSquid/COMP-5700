@@ -104,12 +104,6 @@ def _functionL_BCD(encodedCube, result):
     ############### METHODS FOR UNALIGNED BOTTOM DAISY #################
     ####################################################################
     
-def _functionF_UBD(rotatedCubeList, bottomToDaisyResult):
-    F_result = _rotateF(rotatedCubeList)
-    bottomToDaisyResult['solution'] += F_result.get('letter')
-    rotatedCubeList = F_result.get('cube')
-    
-    return bottomToDaisyResult['solution'], rotatedCubeList
     
 
 
@@ -468,13 +462,8 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
 
         elif bottomPetalIndex == 48:
-            L_result = _rotateL(rotatedCubeList)
-            bottomToDaisyResult['solution'] += L_result.get('letter')
-            rotatedCubeList = L_result.get('cube')
-            
-            L_result = _rotateL(rotatedCubeList)
-            bottomToDaisyResult['solution'] += L_result.get('letter')
-            rotatedCubeList = L_result.get('cube')
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
             
         elif bottomPetalIndex == 50:
             R_result = _rotateR(rotatedCubeList)
