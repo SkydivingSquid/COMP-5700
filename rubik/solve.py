@@ -177,6 +177,15 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
             l_result = _rotatel(rotatedCubeList)
             horizontalToDaisyResult['solution'] += l_result.get('letter')
             rotatedCubeList = l_result.get('cube')
+            
+        if horizontalPetalIndex == 5:
+            R_result = _rotateR(rotatedCubeList)
+            horizontalToDaisyResult['solution'] += R_result.get('letter')
+            rotatedCubeList = R_result.get('cube')
+            
+        
+
+
 
 
 
@@ -323,21 +332,13 @@ def _solveBottomCross(encodedCube):
             #Check Front Face (Right Side Piece)
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[5] == rotatedCubeList[49]:
-                    while rotatedCubeList[5] == rotatedCubeList[41]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-            
-                        rotatedCubeList = encodedCube
-            
-                    if rotatedCubeList[5] != rotatedCubeList[41]:
-                        R_result = _rotateR(encodedCube)
-                        result['solution'] += R_result.get('letter')
-                        encodedCube = R_result.get('cube')
-            
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                    
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(5, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
             
             #Check Right Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
