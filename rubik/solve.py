@@ -182,7 +182,7 @@ def _solveBottomCross(encodedCube):
                 
                 if rotatedCubeList[46] == rotatedCubeList[49]:
                     while rotatedCubeList[46] == rotatedCubeList[43]:
-                        U_result = _rotateU(encodedCube) 
+                        U_result = _rotateU(rotatedCubeList) 
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
