@@ -212,8 +212,8 @@ def _solveBottomCross(encodedCube):
                     rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
                         #This May Become Irrelevant
-                        encodedCube = rotatedCubeList
-                        numberOfPetalsFound += 1
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
             
             #Checking Left of Bottom Face
             if(numberOfPetalsFound <= 3):
