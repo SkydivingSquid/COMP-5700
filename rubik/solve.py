@@ -66,28 +66,28 @@ def _verifyInput(encodedCube):
 ########### INNER SOLUTION FUNCTIONS FOR CUBE ROTATION AND STATUS UPDATE ###########
 #################################################################################### 
 """
-def _functionF(encodedCube, result):
+def _functionF_BCD(encodedCube, result):
     F_result = _rotateF(encodedCube)
     result['solution'] += F_result.get('letter')
     encodedCube = F_result.get('cube')
     
     return result['solution'], encodedCube
 
-def _functionR(encodedCube, result):
+def _functionR_BCD(encodedCube, result):
     R_result = _rotateR(encodedCube)
     result['solution'] += R_result.get('letter')
     encodedCube = R_result.get('cube')
     
     return result['solution'], encodedCube
 
-def _functionB(encodedCube, result):
+def _functionB_BCD(encodedCube, result):
     B_result = _rotateB(encodedCube)
     result['solution'] += B_result.get('letter')
     encodedCube = B_result.get('cube')
     
     return result['solution'], encodedCube
 
-def _functionL(encodedCube, result):
+def _functionL_BCD(encodedCube, result):
     L_result = _rotateL(encodedCube)
     result['solution'] += L_result.get('letter')
     encodedCube = L_result.get('cube')
@@ -414,20 +414,20 @@ def _bottomCrossToDaisy(encodedCube, result):
     """ Rotate an unaligned Bottom-Cross into a Daisy """
     
     #Double Front Rotation
-    result['solution'], encodedCube = _functionF(encodedCube, result)
-    result['solution'], encodedCube = _functionF(encodedCube, result)
+    result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
+    result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
     
     #Double Right Rotation
-    result['solution'], encodedCube = _functionR(encodedCube, result)
-    result['solution'], encodedCube = _functionR(encodedCube, result)
+    result['solution'], encodedCube = _functionR_BCD(encodedCube, result)
+    result['solution'], encodedCube = _functionR_BCD(encodedCube, result)
     
     #Double Back Rotation
-    result['solution'], encodedCube = _functionB(encodedCube, result)
-    result['solution'], encodedCube = _functionB(encodedCube, result)
+    result['solution'], encodedCube = _functionB_BCD(encodedCube, result)
+    result['solution'], encodedCube = _functionB_BCD(encodedCube, result)
    
     #Double Left Rotation
-    result['solution'], encodedCube = _functionL(encodedCube, result)
-    result['solution'], encodedCube = _functionL(encodedCube, result)
+    result['solution'], encodedCube = _functionL_BCD(encodedCube, result)
+    result['solution'], encodedCube = _functionL_BCD(encodedCube, result)
     
     return encodedCube
 
