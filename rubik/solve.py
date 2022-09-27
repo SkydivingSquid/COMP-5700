@@ -234,29 +234,29 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         
         #Move l,f,L,D,F,F
         if verticalPetalIndex == 1:
-            l_result = _rotatel(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += l_result.get('letter')
-            rotatedCubeList = l_result.get('cube')
+            result = _rotatel(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += result.get('letter')
+            rotatedCubeList = result.get('cube')
         
-            f_result = _rotatef(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += f_result.get('letter')
-            rotatedCubeList = f_result.get('cube')
+            result = _rotatef(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += result.get('letter')
+            rotatedCubeList = result.get('cube')
         
-            L_result = _rotateL(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += L_result.get('letter')
-            rotatedCubeList = L_result.get('cube')
+            result = _rotateL(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += result.get('letter')
+            rotatedCubeList = result.get('cube')
         
-            D_result = _rotateD(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += D_result.get('letter')
-            rotatedCubeList = D_result.get('cube')
+            result = _rotateD(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += result.get('letter')
+            rotatedCubeList = result.get('cube')
         
-            F_result = _rotateF(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += F_result.get('letter')
-            rotatedCubeList = F_result.get('cube')
+            result = _rotateF(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += result.get('letter')
+            rotatedCubeList = result.get('cube')
         
-            F_result = _rotateF(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += F_result.get('letter')
-            rotatedCubeList = F_result.get('cube')
+            result = _rotateF(rotatedCubeList)
+            veritcalToDaisyResult['solution'] += result.get('letter')
+            rotatedCubeList = result.get('cube')
 
 
 
