@@ -519,9 +519,7 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
             rotatedCubeList = r_result.get('cube')
             
         if horizontalPetalIndex == 23:
-            L_result = _rotateL(rotatedCubeList)
-            horizontalToDaisyResult['solution'] += L_result.get('letter')
-            rotatedCubeList = L_result.get('cube')
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, horizontalToDaisyResult)
 
         if horizontalPetalIndex == 30:
             b_result = _rotateb(rotatedCubeList)
