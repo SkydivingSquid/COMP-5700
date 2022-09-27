@@ -1020,7 +1020,8 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
             
             
-    
+    print('THIS IS RESULT')
+    print(result)
     return result
 
 
