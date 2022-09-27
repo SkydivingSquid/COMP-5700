@@ -503,35 +503,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         
         
-        
-    def test_solve_1001_RefactoredDaisyU_Integrated(self):
-        inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
-                     'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
-                     'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                     'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-                     'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
-                     'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
-        
-        solution = ""
-        
-        expectedResult = {}
-        expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
-                                  'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
-                                  'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                                  'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
-                                  'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
-                                  'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
-                                 
-        expectedResult['solution'] = 'UFF'
-        
-        
-        actualResult = solve._daisyURotations(4, 1, 43, inputList, solution)
-        
-        self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-
-        
-    def test_solve_1002_RefactoredDaisyRot(self):
+    def test_solve_1001_RefactoredDaisyRot(self):
         inputList = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
                      'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
                      'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
@@ -556,6 +528,34 @@ class solveBottomCrossTest(unittest.TestCase):
         
         self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        
+        
+    def test_solve_1001_RefactoredDaisyU_Integrated(self):
+        inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
+                     'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
+                     'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+                     'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
+                     'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
+                     'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+        
+        solution = ""
+        
+        expectedResult = {}
+        expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
+                                  'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
+                                  'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+                                  'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
+                                  'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
+                                  'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
+                                 
+        expectedResult['solution'] = 'UFF'
+        
+        
+        actualResult = solve._daisyIntegrated(4, 1, 43, inputList, solution)
+        
+        self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+
 
 
 
