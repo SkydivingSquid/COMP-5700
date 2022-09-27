@@ -111,18 +111,11 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
     bottomToDaisyResult['solution'] = solution
     bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
-    print('TOP OF METHOD: INITIAL SOLUTION and cubeLIst')
-    print(bottomToDaisyResult['solution'])
-    print(rotatedCubeList)
-    
     while rotatedCubeList[bottomPetalIndex] == rotatedCubeList[topPetalIndex]:
         U_result = _rotateU(rotatedCubeList)
         bottomToDaisyResult['solution'] += U_result.get('letter')
         rotatedCubeList = U_result.get('cube')
-        
-        print('INSIDE WHILE: POST U solution and cubeList')
-        print(bottomToDaisyResult['solution'])
-        print(rotatedCubeList)
+
     
     if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         
@@ -134,11 +127,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             F_result = _rotateF(rotatedCubeList)
             bottomToDaisyResult['solution'] += F_result.get('letter')
             rotatedCubeList = F_result.get('cube')
-            
-            print('INSIDE IF: POST F solution and cubeList')
-            print(bottomToDaisyResult['solution'])
-            print(rotatedCubeList)
-        
+
         elif bottomPetalIndex == 48:
             L_result = _rotateL(rotatedCubeList)
             bottomToDaisyResult['solution'] += L_result.get('letter')
@@ -147,10 +136,6 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             L_result = _rotateL(rotatedCubeList)
             bottomToDaisyResult['solution'] += L_result.get('letter')
             rotatedCubeList = L_result.get('cube')
-            
-            print('INSIDE IF: POST L solution and cubeList')
-            print(bottomToDaisyResult['solution'])
-            print(rotatedCubeList)
             
         elif bottomPetalIndex == 50:
             R_result = _rotateR(rotatedCubeList)
@@ -161,9 +146,20 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             bottomToDaisyResult['solution'] += R_result.get('letter')
             rotatedCubeList = R_result.get('cube')
             
-            print('INSIDE IF: POST R solution and cubeList')
-            print(bottomToDaisyResult['solution'])
-            print(rotatedCubeList)
+        elif bottomPetalIndex == 52:
+            B_result = _rotateB(rotatedCubeList)
+            bottomToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+            
+            B_result = _rotateB(rotatedCubeList)
+            bottomToDaisyResult['solution'] += B_result.get('letter')
+            rotatedCubeList = B_result.get('cube')
+            
+       
+            
+            
+            
+            
         
         bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
         
@@ -274,26 +270,13 @@ def _solveBottomCross(encodedCube):
             #Checking Bottom of Bottom Face
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[52] == rotatedCubeList[49]:
-                    while rotatedCubeList[52] == rotatedCubeList[37]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-                        
-                        rotatedCubeList = encodedCube
                     
-                    if rotatedCubeList[52] != rotatedCubeList[37]:
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
-                    
-                        B_result = _rotateB(encodedCube)
-                        result['solution'] += B_result.get('letter')
-                        encodedCube = B_result.get('cube')
+                    bottomToDaisyResult = _unalignedBottomToDaisy(52, 37, result['solution'], rotatedCubeList)
+                    result['solution'] = bottomToDaisyResult.get('solution')
+                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
-                        result['cube'] = encodedCube
-                        
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
                     
             
             # result['cube'] = "".join(encodedCube)
