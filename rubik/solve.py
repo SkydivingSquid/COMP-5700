@@ -105,7 +105,6 @@ def _bottomCrossToDaisy(encodedCube, result):
     return encodedCube
 
 
-
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     bottomToDaisyResult = {}
     bottomToDaisyResult['solution'] = solution
@@ -206,42 +205,27 @@ def _solveBottomCross(encodedCube):
                 print(rotatedCubeList)
                 
                 if rotatedCubeList[46] == rotatedCubeList[49]:
-                    """ WORKING HERE """
                     
                     bottomToDaisyResult = _unalignedBottomToDaisy(46, 43, result['solution'], rotatedCubeList)
                     result['solution'] = bottomToDaisyResult.get('solution')
                     rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
-                        #This May Become Irrelevant
-                    encodedCube = rotatedCubeList
+                    
+                    encodedCube = rotatedCubeList  # <- This May Become Irrelevant
+                    
                     numberOfPetalsFound += 1
             
             #Checking Left of Bottom Face
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[48] == rotatedCubeList[49]:
-                    while rotatedCubeList[48] == rotatedCubeList[39]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-                        
-                        # rotatedCubeList[48] = encodedCube[48]
-                        # rotatedCubeList[39] = encodedCube[39]
-                        rotatedCubeList = encodedCube
                     
-                    if rotatedCubeList[48] != rotatedCubeList[39]:
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
-                    
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
+                    bottomToDaisyResult = _unalignedBottomToDaisy(48, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = bottomToDaisyResult.get('solution')
+                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
-                        result['cube'] = encodedCube
-                        
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
-                    
+                    rotatedCubeList = encodedCube
+                    numberOfPetalsFound += 1
+                
             #Checking Right of Bottom Face
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[50] == rotatedCubeList[49]:
