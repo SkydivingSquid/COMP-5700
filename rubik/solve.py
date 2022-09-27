@@ -883,7 +883,7 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     daisyRotationResult = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
-    daisyResult['solution'] = ""
+    daisyResult['solution'] = solution
     daisyResult['daisyCubeList'] = encodedCube
     
     while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
@@ -905,7 +905,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     daisyRotResult = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
-    daisyRotResult['solution'] = ""
+    daisyRotResult['solution'] = solution
     daisyRotResult['daisyCubeList'] = encodedCube
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
