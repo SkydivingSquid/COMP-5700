@@ -1,13 +1,19 @@
 import rubik.cube as rubik
-from rubik.sandbox import rotatedCubeList
 
+"""
+#############################################################        
+############### Main Method For Solving Cube ################
+#############################################################
+"""
+#Returns the solutions needed to solve a cube and the status of input.
 def _solve(parms):
-    """Return rotates needed to solve input cube"""
     result = {}
     solvedBottomCrossResult = {}
     encodedCube = parms.get('cube',None)
     result['rotations'] = ""           
     result['status'] = ''
+    
+    ##Removed below since we are not returning an encoded cube as a result.
     #result['cube'] = encodedCube
     
     #Verify If Input Is Valid and Return Status
@@ -20,7 +26,11 @@ def _solve(parms):
              
     return result
 
-
+"""
+#############################################################        
+############## Verify Method For Solving Cube ###############
+#############################################################
+"""
 #Verifies Cube Input as Valid (does not current check if 'possible', just valid). 
 def _verifyInput(encodedCube):
     result = {}
@@ -54,7 +64,11 @@ def _verifyInput(encodedCube):
     
     return status
 
-
+"""
+#############################################################        
+########### Bottom-Cross Methods For Solving Cube ###########
+##############################################################
+"""
 
 def _solveBottomCross(encodedCube):
     result = {}
@@ -879,7 +893,7 @@ def _solveBottomCross(encodedCube):
 
 """  
 #############################################################        
-############## Daisy Methods For Solving Cube ##############
+############## Daisy Methods For Solving Cube ###############
 #############################################################
 """
     
@@ -1024,11 +1038,11 @@ def _daisySolution(encodedCube):
     result['cube'] = encodedCube
     return result
 
-
+"""
 #############################################################        
 ############## Rotate Methods For Solving Cube ##############
 #############################################################
-
+"""
 def _rotateF(cube):
     result = {}
     
