@@ -880,16 +880,16 @@ def _solveBottomCross(encodedCube):
 
         
       
-        #TIME FOR DAISY SOLUTION HERE
-        daisySolution = _daisySolution(encodedCube)
-        encodedCube = daisySolution.get('cube')
-        
-        result['cube'] = "".join(encodedCube)
-        result['solution'] += daisySolution.get('solution')
-        result['status'] = 'ok'
-        
-        
-        return result
+    #TIME FOR DAISY SOLUTION HERE
+    daisySolution = _daisySolution(encodedCube)
+    encodedCube = daisySolution.get('cube')
+    
+    result['cube'] = "".join(encodedCube)
+    result['solution'] += daisySolution.get('solution')
+    result['status'] = 'ok'
+    
+    
+    return result
     
 
 """  
