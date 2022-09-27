@@ -164,7 +164,6 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             print(bottomToDaisyResult['solution'])
             print(rotatedCubeList)
         
-        
         bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
         
     return bottomToDaisyResult
