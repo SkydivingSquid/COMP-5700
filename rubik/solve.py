@@ -6,7 +6,7 @@ import rubik.cube as rubik
 #############################################################
 """
 #Returns the solutions needed to solve a cube and the status of input.
-from rubik.sandbox import rotatedCube
+
 def _solve(parms):
     result = {}
     solvedBottomCrossResult = {}
