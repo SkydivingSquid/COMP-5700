@@ -105,6 +105,30 @@ def _bottomCrossToDaisy(encodedCube, result):
     return encodedCube
 
 
+
+def _unalignedBottomToDaisy(result, rotatedCubeList):
+    bottomToDaisyResult = {}
+    
+    while rotatedCubeList[46] == rotatedCubeList[43]:
+        U_result = _rotateU(rotatedCubeList)
+        bottomToDaisyResult['solution'] += U_result.get('letter')
+        rotatedCubeList = U_result.get('cube')
+    
+    #rotatedCubeList = encodedCube
+    if rotatedCubeList[46] != rotatedCubeList[43]:
+        F_result = _rotateF(rotatedCubeList)
+        bottomToDaisyResult['solution'] += F_result.get('letter')
+        rotatedCubeList = F_result.get('cube')
+        
+        F_result = _rotateF(rotatedCubeList)
+        bottomToDaisyResult['solution'] += F_result.get('letter')
+        rotatedCubeList = F_result.get('cube')
+        #result['cube'] = rotatedCubeList  ##irrelevant 
+        
+        bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
+        
+    return bottomToDaisyResult
+
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
@@ -181,23 +205,11 @@ def _solveBottomCross(encodedCube):
                 print(rotatedCubeList)
                 
                 if rotatedCubeList[46] == rotatedCubeList[49]:
-                    while rotatedCubeList[46] == rotatedCubeList[43]:
-                        U_result = _rotateU(rotatedCubeList) 
-                        result['solution'] += U_result.get('letter')
-                        rotatedCubeList = U_result.get('cube')
-                        
-                        #rotatedCubeList = encodedCube
-     
-                    if rotatedCubeList[46] != rotatedCubeList[43]:
-                        F_result = _rotateF(rotatedCubeList)
-                        result['solution'] += F_result.get('letter')
-                        rotatedCubeList = F_result.get('cube')
+                    """ WORKING HERE """
                     
-                        F_result = _rotateF(rotatedCubeList)
-                        result['solution'] += F_result.get('letter')
-                        rotatedCubeList = F_result.get('cube')
-                        
-                        result['cube'] = rotatedCubeList
+                    bottomToDaisyResult = _unalignedBottomToDaisy(result['solution'], rotatedCubeList)
+                    result['solution'] = bottomToDaisyResult.get('solution')
+                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
                         #This May Become Irrelevant
                         encodedCube = rotatedCubeList
