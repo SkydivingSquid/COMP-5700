@@ -32,17 +32,22 @@ def _solve(parms):
 #############################################################
 """
 #Verifies Cube Input as Valid (does not current check if 'possible', just valid). 
+
+def _emptyCube(encodedCube, result):
+    if encodedCube == None:
+        result['status'] = 'error: Missing Cube Argument'
+        status = result['status']
+    return status
+
 def _verifyInput(encodedCube):
     result = {}
     result['status'] = 'ok'
     status = result['status']
     
-    if encodedCube == None:
-        result['status'] = 'error: Missing Cube Argument'
-        status = result['status']
-        return status 
+    status = _emptyCube(encodedCube, result)
+    #return status 
     
-    elif rubik.Cube.isValidLengthCube(encodedCube) == False:
+    if rubik.Cube.isValidLengthCube(encodedCube) == False:
         result['status'] = 'error: Invalid Cube Length'
         status = result['status']
         return status
