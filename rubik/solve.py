@@ -969,8 +969,6 @@ def _daisySolution(encodedCube):
     daisyResult = {}
     
     cubeList = list(encodedCube)
-    print('initial encoded cube')
-    print(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
@@ -1007,17 +1005,17 @@ def _daisySolution(encodedCube):
 ###PROTECTED
         
 ###PROTECTED
-        if rotatedCubeList[4] == rotatedCubeList[1]:
+        # if rotatedCubeList[4] == rotatedCubeList[1]:
+        #
+        #     F_result = _rotateF(encodedCube)
+        #     result['solution'] += F_result.get('letter')
+        #     encodedCube = F_result.get('cube')
+        #
+        #     F_result = _rotateF(encodedCube)
+        #     result['solution'] += F_result.get('letter')
+        #     encodedCube = F_result.get('cube')
         
-            F_result = _rotateF(encodedCube)
-            result['solution'] += F_result.get('letter')
-            encodedCube = F_result.get('cube')
-        
-            F_result = _rotateF(encodedCube)
-            result['solution'] += F_result.get('letter')
-            encodedCube = F_result.get('cube')
-        
-            rotatedCubeList = encodedCube
+            # rotatedCubeList = encodedCube
             #result['cube'] = encodedCube
 ###PROTECTED
 
