@@ -73,6 +73,13 @@ def _functionF(encodedCube, result):
     
     return result['solution'], encodedCube
 
+def _functionR(encodedCube, result):
+    R_result = _rotateR(encodedCube)
+    result['solution'] += R_result.get('letter')
+    encodedCube = R_result.get('cube')
+    
+    return result['solution'], encodedCube
+
 
 """
 #############################################################        
@@ -398,17 +405,15 @@ def _solveBottomCross(encodedCube):
 
 def _bottomCrossToDaisy(encodedCube, result):
     """ Rotate an unaligned Bottom-Cross into a Daisy """
-
+    
+    #Double Front Rotation
     result['solution'], encodedCube = _functionF(encodedCube, result)
     result['solution'], encodedCube = _functionF(encodedCube, result)
     
-    R_result = _rotateR(encodedCube)
-    result['solution'] += R_result.get('letter')
-    encodedCube = R_result.get('cube')
-    R_result = _rotateR(encodedCube)
-    result['solution'] += R_result.get('letter')
-    encodedCube = R_result.get('cube')
-   
+    #Double Right Rotation
+    result['solution'], encodedCube = _functionR(encodedCube, result)
+    result['solution'], encodedCube = _functionR(encodedCube, result)
+    
     B_result = _rotateB(encodedCube)
     result['solution'] += B_result.get('letter')
     encodedCube = B_result.get('cube')
