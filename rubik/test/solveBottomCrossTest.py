@@ -477,7 +477,23 @@ class solveBottomCrossTest(unittest.TestCase):
     
     
     def test_solve_1000_RefactoredDaisyU(self):
-        pass
+        inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
+                     'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
+                     'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+                     'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
+                     'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
+                     'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+        
+        expectedResult = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
+                          'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
+                          'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+                          'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
+                          'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
+                          'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
+        
+        actualResult = solve.__daisyURotations(inputList)
+        
+        self.assertEqual(expectedResult, actualResult.get('rotatedCubeList'))
 
 
 
