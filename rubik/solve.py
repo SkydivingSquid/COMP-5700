@@ -402,10 +402,6 @@ def _bottomCrossToDaisy(encodedCube, result):
     result['solution'], encodedCube = _functionF(encodedCube, result)
     result['solution'], encodedCube = _functionF(encodedCube, result)
     
-    F_result = _rotateF(encodedCube)
-    result['solution'] += F_result.get('letter')
-    encodedCube = F_result.get('cube')
-    
     R_result = _rotateR(encodedCube)
     result['solution'] += R_result.get('letter')
     encodedCube = R_result.get('cube')
