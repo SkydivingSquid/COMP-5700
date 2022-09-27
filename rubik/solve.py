@@ -886,8 +886,6 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     daisyResult['solution'] = solution
     daisyResult['daisyCubeList'] = encodedCube
     
-    print('STARTING U ROTATIONS WITH INITUAL SOLUTION')
-    print(solution)
     
     while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
         
@@ -900,14 +898,10 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
         
     daisyResult['daisyCubeList'] = encodedCube
     
-    print('ENDING U ROTATIONS WITH SOLUTION')
-    print(solution)
-    
+
     return daisyResult
     
     
-
-
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     daisyRotResult = {}
     cubeList = list(encodedCube)
@@ -915,8 +909,6 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     daisyRotResult['solution'] = solution
     daisyRotResult['daisyCubeList'] = encodedCube
     
-    print('STARTING DIR ROTATIONS WITH INITUAL SOLUTION')
-    print(solution)
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
         if uniqueCenter == 4:
@@ -960,9 +952,6 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
         
     daisyRotResult['daisyCubeList'] = encodedCube
     
-    print('ENDING DIR ROTATIONS WITH INITUAL SOLUTION')
-    print(solution)
-    
     return daisyRotResult
 
 
@@ -970,28 +959,21 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     integratedResult = {}
     innerMethodResult = {}
     
-    print('STARTING INTEGRATED ROTATIONS WITH INITUAL SOLUTION')
-    print(solution)
-    
+
     innerMethodResult = _daisyURotations(uniqueCenter, topMiddle, adjacentDaisy, encodedCube, solution)
     
-    print('STARTING U ROTATIONS WITH INITUAL SOLUTION')
-    print(innerMethodResult.get('solution'))
-    
+
     innerMethodResult = _daisy_Rotations(uniqueCenter, topMiddle, innerMethodResult.get('daisyCubeList'), innerMethodResult.get('solution'))
     
     integratedResult['daisyCubeList'] = innerMethodResult.get('daisyCubeList')
     integratedResult['solution'] = innerMethodResult.get('solution')
-    
-    print('ENDING INTEGRATED ROTATIONS WITH FINAL SOLUTION')
-    print(solution)
-    
+
     return integratedResult
     
 
 
 def _daisySolution(encodedCube):
-    print('STARTING STARTING STARTING STARTING')
+
     result = {}
         
     daisyResult = {}
