@@ -919,7 +919,7 @@ def _daisySolution(encodedCube):
         
         result['solution'] = daisyResult.get('solution')
         encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCube = encodedCube
+        rotatedCubeList = encodedCube
         
         
 
