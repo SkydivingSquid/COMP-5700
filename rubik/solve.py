@@ -42,7 +42,7 @@ def _emptyCube(encodedCube, result):
 def _verifyInput(encodedCube):
     result = {}
     result['status'] = 'ok'
-    status = result['status']
+    #status = result['status']
     
     status = _emptyCube(encodedCube, result)
     #return status 
