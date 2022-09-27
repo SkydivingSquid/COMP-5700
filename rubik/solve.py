@@ -465,10 +465,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
         
         if bottomPetalIndex == 46:
             bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
-            
-            F_result = _rotateF(rotatedCubeList)
-            bottomToDaisyResult['solution'] += F_result.get('letter')
-            rotatedCubeList = F_result.get('cube')
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
 
         elif bottomPetalIndex == 48:
             L_result = _rotateL(rotatedCubeList)
