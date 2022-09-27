@@ -452,10 +452,6 @@ def _bottomCrossToDaisy(encodedCube, result):
 
 
 
-
-
-
-
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
     bottomToDaisyResult = {}
