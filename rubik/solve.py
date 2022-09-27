@@ -71,7 +71,8 @@ def _verifyInput(encodedCube):
 """
 
 
-def bottomCrossToDaisy(encodedCube, result):
+def _bottomCrossToDaisy(encodedCube, result):
+    """ Rotate an unaligned Bottom-Cross into a Daisy """
 
     F_result = _rotateF(encodedCube)
     result['solution'] += F_result.get('letter')
@@ -135,8 +136,7 @@ def _solveBottomCross(encodedCube):
         
         #Rotate unaligned bottom cross into top daisy
         else: 
-            encodedCube = bottomCrossToDaisy(encodedCube, result)
-            
+            encodedCube = _bottomCrossToDaisy(encodedCube, result)
             
             #DAISY HAS BEEN CREATED
             
