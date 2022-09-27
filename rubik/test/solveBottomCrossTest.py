@@ -486,16 +486,21 @@ class solveBottomCrossTest(unittest.TestCase):
         
         solution = ""
         
-        expectedResult = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
-                          'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
-                          'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                          'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-                          'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
-                          'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+        expectedResult = {}
+        expectedResult['list' = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
+                                 'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
+                                 'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+                                 'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
+                                 'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
+                                 'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+                                 
+        expectedResult['solution'] = 'U'
+        
         
         actualResult = solve._daisyURotations(inputList)
         
-        self.assertEqual(expectedResult, actualResult)
+        self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
 
 
 

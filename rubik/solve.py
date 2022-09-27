@@ -883,6 +883,7 @@ def _daisyURotations(encodedCube):
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     daisyResult['solution'] = ""
+    daisyResult['daisyCubeList'] = encodedCube
     
     while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
         
@@ -891,8 +892,9 @@ def _daisyURotations(encodedCube):
         encodedCube = U_result.get('cube')
     
         rotatedCubeList = encodedCube
-    
-    return rotatedCubeList
+        
+    daisyResult['cubeList'] = encodedCube
+    return daisyResult
 
 
         
