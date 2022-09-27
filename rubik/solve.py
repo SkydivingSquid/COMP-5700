@@ -535,52 +535,13 @@ def _solveBottomCross(encodedCube):
             #Front Face Vertical Bottom
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[7] == rotatedCubeList[49]:
-                     
+                    
                     verticalToDaisyResult = _verticalCubesToDaisy(7, 43, result['solution'], rotatedCubeList)
                     result['solution'] = verticalToDaisyResult.get('solution')
                     rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
                         
                     encodedCube = rotatedCubeList
                     numberOfPetalsFound += 1  
-        
-                #Move F,F,l,f,L,D,F,F
-                    if rotatedCubeList[1] != rotatedCubeList[43]:
-        
-                        F_result = _rotateF(encodedCube)
-                        result['solution'] += F_result.get('letter')
-                        encodedCube = F_result.get('cube')
-        
-                        F_result = _rotateF(encodedCube)
-                        result['solution'] += F_result.get('letter')
-                        encodedCube = F_result.get('cube')
-        
-                        l_result = _rotatel(encodedCube)
-                        result['solution'] += l_result.get('letter')
-                        encodedCube = l_result.get('cube')
-        
-                        f_result = _rotatef(encodedCube)
-                        result['solution'] += f_result.get('letter')
-                        encodedCube = f_result.get('cube')
-        
-                        L_result = _rotateL(encodedCube)
-                        result['solution'] += L_result.get('letter')
-                        encodedCube = L_result.get('cube')
-        
-                        D_result = _rotateD(encodedCube)
-                        result['solution'] += D_result.get('letter')
-                        encodedCube = D_result.get('cube')
-        
-                        F_result = _rotateF(encodedCube)
-                        result['solution'] += F_result.get('letter')
-                        encodedCube = F_result.get('cube')
-        
-                        F_result = _rotateF(encodedCube)
-                        result['solution'] += F_result.get('letter')
-                        encodedCube = F_result.get('cube')
-        
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
         
         
             #Right Face Vertical Top
