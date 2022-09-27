@@ -928,13 +928,13 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
             daisyRotResult['solution'] += F_result.get('letter')
             encodedCube = F_result.get('cube')
             
-        if uniqueCenter = 13:
-             R_result = _rotateR(encodedCube)
-            result['solution'] += R_result.get('letter')
+        if uniqueCenter == 13:
+            R_result = _rotateR(encodedCube)
+            daisyRotResult['solution'] += R_result.get('letter')
             encodedCube = R_result.get('cube')
         
             R_result = _rotateR(encodedCube)
-            result['solution'] += R_result.get('letter')
+            daisyRotResult['solution'] += R_result.get('letter')
             encodedCube = R_result.get('cube')
         
         rotatedCubeList = encodedCube
