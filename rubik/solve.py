@@ -184,7 +184,7 @@ def _solveBottomCross(encodedCube):
                     while rotatedCubeList[46] == rotatedCubeList[43]:
                         U_result = _rotateU(rotatedCubeList) 
                         result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
+                        rotatedCubeList = U_result.get('cube')
                         
                         #rotatedCubeList = encodedCube
      
@@ -199,8 +199,8 @@ def _solveBottomCross(encodedCube):
                         
                         result['cube'] = rotatedCubeList
                         
+                        #This May Become Irrelevant
                         encodedCube = rotatedCubeList
-                        
                         numberOfPetalsFound += 1
             
             #Checking Left of Bottom Face
