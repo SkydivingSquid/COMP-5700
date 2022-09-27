@@ -106,6 +106,7 @@ def _bottomCrossToDaisy(encodedCube, result):
 
 
 def _solveBottomCross(encodedCube):
+    """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
@@ -133,7 +134,6 @@ def _solveBottomCross(encodedCube):
         #Rotate unaligned bottom cross into top daisy
         else: 
             encodedCube = _bottomCrossToDaisy(encodedCube, result)
-            
             #DAISY HAS BEEN CREATED
             
             daisySolution = _daisySolution(encodedCube)
