@@ -890,6 +890,7 @@ def _solveBottomCross(encodedCube):
         
     
 def _daisySolution(encodedCube):
+    print('STARTING STARTING STARTING STARTING')
     result = {}
         
     cubeList = list(encodedCube)
@@ -911,10 +912,9 @@ def _daisySolution(encodedCube):
         
             rotatedCubeList = encodedCube
             
-            print('encoded cube & rotatedCubeList post U Rotation')
+            print('encoded cube post U Rotation')
             print(encodedCube)
-            print(rotatedCubeList)
-        
+           
 ###PROTECTED
         
 ###PROTECTED
