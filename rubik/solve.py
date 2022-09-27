@@ -467,7 +467,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             
         elif bottomPetalIndex == 50:
             bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
-           bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
             
         elif bottomPetalIndex == 52:
             B_result = _rotateB(rotatedCubeList)
