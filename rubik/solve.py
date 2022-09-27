@@ -159,6 +159,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
         
     return bottomToDaisyResult
 
+
 def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves horizontal pieces to top to begin forming a Daisy """
     horizontalToDaisyResult = {}
@@ -171,13 +172,16 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
         rotatedCubeList = U_result.get('cube')
 
     if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
-        horizontalPetalIndex
+        
         if horizontalPetalIndex == 3:
             l_result = _rotatel(rotatedCubeList)
             horizontalToDaisyResult['solution'] += l_result.get('letter')
             rotatedCubeList = l_result.get('cube')
-            #result['cube'] = encodedCube
-        
+
+
+
+
+
         horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
         
     return horizontalToDaisyResult
