@@ -1,21 +1,16 @@
 import rubik.cube as rubik
-
 """
 #############################################################        
 ############### Main Method For Solving Cube ################
 #############################################################
 """
-#Returns the solutions needed to solve a cube and the status of input.
-
 def _solve(parms):
+    """ Returns the solutions needed to solve a cube and the status of input. """
     result = {}
     solvedBottomCrossResult = {}
     encodedCube = parms.get('cube',None)
     result['rotations'] = ""           
     result['status'] = ''
-    
-    ##Removed below since we are not returning an encoded cube as a result.
-    #result['cube'] = encodedCube
     
     #Verify If Input Is Valid and Return Status
     result['status'] = _verifyInput(encodedCube)
@@ -32,8 +27,8 @@ def _solve(parms):
 ############## Verify Method For Solving Cube ###############
 #############################################################
 """
-#Verifies Cube Input as Valid (does not current check if 'possible', just valid). 
 def _verifyInput(encodedCube):
+    """ Verifies Cube Input as Valid (does not current check if 'possible', just valid). """
     result = {}
     result['status'] = 'ok'
     status = result['status']
@@ -68,16 +63,334 @@ def _verifyInput(encodedCube):
 """
 #############################################################        
 ########### Bottom-Cross Methods For Solving Cube ###########
-##############################################################
+#############################################################
 """
+def _solveBottomCross(encodedCube):
+    """ First Step in Solving a Cube. Solves for Bottom Cross. """
+    result = {}
+    cubeList = list(encodedCube)
+    rotatedCubeList = cubeList[:]
+    result['solution'] = ""
+    result['status'] = 'ok'
+    
+    #Check for bottom cross
+    if (rotatedCubeList[46] == rotatedCubeList[49] and
+    rotatedCubeList[48] == rotatedCubeList[49] and
+    rotatedCubeList[50] == rotatedCubeList[49] and
+    rotatedCubeList[52] == rotatedCubeList[49]):
+        #Check for bottom cross alignment
+        if (rotatedCubeList[4] == rotatedCubeList[7] and
+            rotatedCubeList[13] == rotatedCubeList[16] and
+            rotatedCubeList[22] == rotatedCubeList[25] and
+            rotatedCubeList[31] == rotatedCubeList[34]):
+            #Return solution for solved cube
+            result['solution'] = ''
+            result['status'] = 'ok'
+            return result
+        
+        #Rotate unaligned bottom cross into top daisy
+        else: 
+            encodedCube = _bottomCrossToDaisy(encodedCube, result)
+            #DAISY HAS BEEN CREATED ^
+            #Solves for Daisy and returns a bottom-cross
+            daisySolution = _daisySolution(encodedCube)
+            result['solution'] += daisySolution.get('solution')
+            return result
+    
+    #Check Top for Daisy  
+    elif (rotatedCubeList[37] == rotatedCubeList[49] and
+        rotatedCubeList[39] == rotatedCubeList[49] and
+        rotatedCubeList[41] == rotatedCubeList[49] and
+        rotatedCubeList[43] == rotatedCubeList[49]):
+        #Solves for Daisy and returns a bottom-cross
+        daisySolution = _daisySolution(encodedCube)
+        result['solution'] += daisySolution.get('solution')
+        return result
+        
+    #If Not a Daisy
+    else:
+        numberOfPetalsFound = 0
+        
+        #Check Top Petals Last
+        if rotatedCubeList[37] == rotatedCubeList[49]:
+            numberOfPetalsFound += 1
+            
+        if rotatedCubeList[39] == rotatedCubeList[49]:
+            numberOfPetalsFound += 1
+            
+        if rotatedCubeList[41] == rotatedCubeList[49]:
+            numberOfPetalsFound += 1
+            
+        if rotatedCubeList[43] == rotatedCubeList[49]:
+            numberOfPetalsFound += 1 
+            
+        
+        while(numberOfPetalsFound <= 3):
+            
+            ###############################################################
+            ################## CHECK BOTTOM FACE PIECES ###################
+            ###############################################################
+            
+            #Checking Top of Bottom Face
+            if(numberOfPetalsFound <= 3):                
+                if rotatedCubeList[46] == rotatedCubeList[49]:
+                    
+                    bottomToDaisyResult = _unalignedBottomToDaisy(46, 43, result['solution'], rotatedCubeList)
+                    result['solution'] = bottomToDaisyResult.get('solution')
+                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList  # <- This May Become Irrelevant
+                    numberOfPetalsFound += 1
+            
+            #Checking Left of Bottom Face
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[48] == rotatedCubeList[49]:
+                    
+                    bottomToDaisyResult = _unalignedBottomToDaisy(48, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = bottomToDaisyResult.get('solution')
+                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+                    
+            #Checking Right of Bottom Face
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[50] == rotatedCubeList[49]:
+                    
+                    bottomToDaisyResult = _unalignedBottomToDaisy(50, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = bottomToDaisyResult.get('solution')
+                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
 
+                    
+            #Checking Bottom of Bottom Face
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[52] == rotatedCubeList[49]:
+                    
+                    bottomToDaisyResult = _unalignedBottomToDaisy(52, 37, result['solution'], rotatedCubeList)
+                    result['solution'] = bottomToDaisyResult.get('solution')
+                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+                    
+            ###################################################################
+            ################## CHECK HORIZONTAL SIDE PIECES ###################
+            ###################################################################
+            
+            #Check Front Face (Left Side Piece)
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[3] == rotatedCubeList[49]:
+                    
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(3, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+            
+            
+            #Check Front Face (Right Side Piece)
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[5] == rotatedCubeList[49]:
+                    
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(5, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+            
+            #Check Right Face (Left Side Piece)
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[12] == rotatedCubeList[49]:
+                    
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(12, 43, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+            
+            
+            #Check Right Face (Right Side Piece)
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[14] == rotatedCubeList[49]:
+                    
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(14, 37, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+            
+            #Check Back Face (Left Side Piece)
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[21] == rotatedCubeList[49]:
+                     
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(21, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+         
+            #Check Back Face (Right Side Piece)
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[23] == rotatedCubeList[49]:
+                    
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(23, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+        
+            
+            #Check Right Face (Left Side Piece)
+            if(numberOfPetalsFound <= 3): 
+                if rotatedCubeList[30] == rotatedCubeList[49]:
+                     
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(30, 37, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+            
+            #Check Right Face (Right Side Piece)
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[32] == rotatedCubeList[49]:
+                     
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(32, 43, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
+        
+            #################################################################
+            ################## CHECK VERTICAL SIDE PIECES ###################
+            #################################################################
+        
+            #Front Face Vertical Top
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[1] == rotatedCubeList[49]:
+                    
+                    verticalToDaisyResult = _verticalCubesToDaisy(1, 43, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1        
+        
+            #Front Face Vertical Bottom
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[7] == rotatedCubeList[49]:
+                    
+                    verticalToDaisyResult = _verticalCubesToDaisy(7, 43, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
+        
+        
+            #Right Face Vertical Top
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[10] == rotatedCubeList[49]:
+                   
+                    verticalToDaisyResult = _verticalCubesToDaisy(10, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
+        
+            #Right Face Vertical Bottom
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[16] == rotatedCubeList[49]:
+                    
+                    verticalToDaisyResult = _verticalCubesToDaisy(16, 41, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
+        
+            # Back Face Vertical Top
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[19] == rotatedCubeList[49]:
+                    
+                    verticalToDaisyResult = _verticalCubesToDaisy(19, 37, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
+            
+            # Back Face Vertical Bottom
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[25] == rotatedCubeList[49]:
+                   
+                    verticalToDaisyResult = _verticalCubesToDaisy(25, 37, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
+            
+            # CHECKPOINT TEST 042
+            
+            #Left Face Vertical Top
+            if(numberOfPetalsFound <= 3):
+                if rotatedCubeList[28] == rotatedCubeList[49]:
+                   
+                    verticalToDaisyResult = _verticalCubesToDaisy(28, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
+            
+            #Left Face Vertical Bottom
+            if (numberOfPetalsFound <= 3):
+                if rotatedCubeList[34] == rotatedCubeList[49]:
+                       
+                    verticalToDaisyResult = _verticalCubesToDaisy(34, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = verticalToDaisyResult.get('solution')
+                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1  
+      
+    #TIME FOR DAISY SOLUTION HERE
+    daisySolution = _daisySolution(encodedCube)
+    encodedCube = daisySolution.get('cube')
+    
+    result['cube'] = "".join(encodedCube)
+    result['solution'] += daisySolution.get('solution')
+    result['status'] = 'ok'
+    
+    return result
+    
+    
+    
+    
+    
+def _functionF(encodedCube, result):
+    F_result = _rotateF(encodedCube)
+    result['solution'] += F_result.get('letter')
+    encodedCube = F_result.get('cube')
+    return result['solution'], encodedCube
 
 def _bottomCrossToDaisy(encodedCube, result):
     """ Rotate an unaligned Bottom-Cross into a Daisy """
 
-    F_result = _rotateF(encodedCube)
-    result['solution'] += F_result.get('letter')
-    encodedCube = F_result.get('cube')
+    result['solution'], encodedCube = _functionF(encodedCube, result)
+    
     F_result = _rotateF(encodedCube)
     result['solution'] += F_result.get('letter')
     encodedCube = F_result.get('cube')
@@ -104,7 +417,6 @@ def _bottomCrossToDaisy(encodedCube, result):
     encodedCube = L_result.get('cube')
     
     return encodedCube
-
 
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
@@ -474,324 +786,11 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
     
     return veritcalToDaisyResult
 
-def _solveBottomCross(encodedCube):
-    """ First Step in Solving a Cube. Solves for Bottom Cross. """
-    result = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
-    result['solution'] = ""
-    result['status'] = 'ok'
-    
-    #Check for bottom cross
-    if (rotatedCubeList[46] == rotatedCubeList[49] and
-    rotatedCubeList[48] == rotatedCubeList[49] and
-    rotatedCubeList[50] == rotatedCubeList[49] and
-    rotatedCubeList[52] == rotatedCubeList[49]):
-        #Check for bottom cross alignment
-        if (rotatedCubeList[4] == rotatedCubeList[7] and
-            rotatedCubeList[13] == rotatedCubeList[16] and
-            rotatedCubeList[22] == rotatedCubeList[25] and
-            rotatedCubeList[31] == rotatedCubeList[34]):
-            #Return solution for solved cube
-            result['solution'] = ''
-            result['status'] = 'ok'
-            return result
-        
-        #Rotate unaligned bottom cross into top daisy
-        else: 
-            encodedCube = _bottomCrossToDaisy(encodedCube, result)
-            #DAISY HAS BEEN CREATED ^
-            #Solves for Daisy and returns a bottom-cross
-            daisySolution = _daisySolution(encodedCube)
-            result['solution'] += daisySolution.get('solution')
-            return result
-    
-    #Check Top for Daisy  
-    elif (rotatedCubeList[37] == rotatedCubeList[49] and
-        rotatedCubeList[39] == rotatedCubeList[49] and
-        rotatedCubeList[41] == rotatedCubeList[49] and
-        rotatedCubeList[43] == rotatedCubeList[49]):
-        #Solves for Daisy and returns a bottom-cross
-        daisySolution = _daisySolution(encodedCube)
-        result['solution'] += daisySolution.get('solution')
-        return result
-        
-    #If Not a Daisy
-    else:
-        numberOfPetalsFound = 0
-        
-        #Check Top Petals Last
-        if rotatedCubeList[37] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[39] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[41] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[43] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1 
-            
-        
-        while(numberOfPetalsFound <= 3):
-            
-            ###############################################################
-            ################## CHECK BOTTOM FACE PIECES ###################
-            ###############################################################
-            
-            #Checking Top of Bottom Face
-            if(numberOfPetalsFound <= 3):                
-                if rotatedCubeList[46] == rotatedCubeList[49]:
-                    
-                    bottomToDaisyResult = _unalignedBottomToDaisy(46, 43, result['solution'], rotatedCubeList)
-                    result['solution'] = bottomToDaisyResult.get('solution')
-                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList  # <- This May Become Irrelevant
-                    numberOfPetalsFound += 1
-            
-            #Checking Left of Bottom Face
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[48] == rotatedCubeList[49]:
-                    
-                    bottomToDaisyResult = _unalignedBottomToDaisy(48, 39, result['solution'], rotatedCubeList)
-                    result['solution'] = bottomToDaisyResult.get('solution')
-                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-                    
-            #Checking Right of Bottom Face
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[50] == rotatedCubeList[49]:
-                    
-                    bottomToDaisyResult = _unalignedBottomToDaisy(50, 41, result['solution'], rotatedCubeList)
-                    result['solution'] = bottomToDaisyResult.get('solution')
-                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-
-                    
-            #Checking Bottom of Bottom Face
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[52] == rotatedCubeList[49]:
-                    
-                    bottomToDaisyResult = _unalignedBottomToDaisy(52, 37, result['solution'], rotatedCubeList)
-                    result['solution'] = bottomToDaisyResult.get('solution')
-                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-                    
-            ###################################################################
-            ################## CHECK HORIZONTAL SIDE PIECES ###################
-            ###################################################################
-            
-            #Check Front Face (Left Side Piece)
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[3] == rotatedCubeList[49]:
-                    
-                    horizontalToDaisyResult = _horizontalCubesToDaisy(3, 39, result['solution'], rotatedCubeList)
-                    result['solution'] = horizontalToDaisyResult.get('solution')
-                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-            
-            
-            #Check Front Face (Right Side Piece)
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[5] == rotatedCubeList[49]:
-                    
-                    horizontalToDaisyResult = _horizontalCubesToDaisy(5, 41, result['solution'], rotatedCubeList)
-                    result['solution'] = horizontalToDaisyResult.get('solution')
-                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-            
-            #Check Right Face (Left Side Piece)
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[12] == rotatedCubeList[49]:
-                    
-                    horizontalToDaisyResult = _horizontalCubesToDaisy(12, 43, result['solution'], rotatedCubeList)
-                    result['solution'] = horizontalToDaisyResult.get('solution')
-                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-            
-            
-            #Check Right Face (Right Side Piece)
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[14] == rotatedCubeList[49]:
-                    
-                    horizontalToDaisyResult = _horizontalCubesToDaisy(14, 37, result['solution'], rotatedCubeList)
-                    result['solution'] = horizontalToDaisyResult.get('solution')
-                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-            
-            #Check Back Face (Left Side Piece)
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[21] == rotatedCubeList[49]:
-                     
-                    horizontalToDaisyResult = _horizontalCubesToDaisy(21, 41, result['solution'], rotatedCubeList)
-                    result['solution'] = horizontalToDaisyResult.get('solution')
-                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-         
-            #Check Back Face (Right Side Piece)
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[23] == rotatedCubeList[49]:
-                    
-                    horizontalToDaisyResult = _horizontalCubesToDaisy(23, 39, result['solution'], rotatedCubeList)
-                    result['solution'] = horizontalToDaisyResult.get('solution')
-                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-        
-            
-            #Check Right Face (Left Side Piece)
-            if(numberOfPetalsFound <= 3): 
-                if rotatedCubeList[30] == rotatedCubeList[49]:
-                     
-                    horizontalToDaisyResult = _horizontalCubesToDaisy(30, 37, result['solution'], rotatedCubeList)
-                    result['solution'] = horizontalToDaisyResult.get('solution')
-                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-            
-            #Check Right Face (Right Side Piece)
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[32] == rotatedCubeList[49]:
-                     
-                    horizontalToDaisyResult = _horizontalCubesToDaisy(32, 43, result['solution'], rotatedCubeList)
-                    result['solution'] = horizontalToDaisyResult.get('solution')
-                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1
-        
-            #################################################################
-            ################## CHECK VERTICAL SIDE PIECES ###################
-            #################################################################
-        
-            #Front Face Vertical Top
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[1] == rotatedCubeList[49]:
-                    
-                    verticalToDaisyResult = _verticalCubesToDaisy(1, 43, result['solution'], rotatedCubeList)
-                    result['solution'] = verticalToDaisyResult.get('solution')
-                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1        
-        
-            #Front Face Vertical Bottom
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[7] == rotatedCubeList[49]:
-                    
-                    verticalToDaisyResult = _verticalCubesToDaisy(7, 43, result['solution'], rotatedCubeList)
-                    result['solution'] = verticalToDaisyResult.get('solution')
-                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1  
-        
-        
-            #Right Face Vertical Top
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[10] == rotatedCubeList[49]:
-                   
-                    verticalToDaisyResult = _verticalCubesToDaisy(10, 41, result['solution'], rotatedCubeList)
-                    result['solution'] = verticalToDaisyResult.get('solution')
-                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1  
-        
-            #Right Face Vertical Bottom
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[16] == rotatedCubeList[49]:
-                    
-                    verticalToDaisyResult = _verticalCubesToDaisy(16, 41, result['solution'], rotatedCubeList)
-                    result['solution'] = verticalToDaisyResult.get('solution')
-                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1  
-        
-            # Back Face Vertical Top
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[19] == rotatedCubeList[49]:
-                    
-                    verticalToDaisyResult = _verticalCubesToDaisy(19, 37, result['solution'], rotatedCubeList)
-                    result['solution'] = verticalToDaisyResult.get('solution')
-                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1  
-            
-            # Back Face Vertical Bottom
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[25] == rotatedCubeList[49]:
-                   
-                    verticalToDaisyResult = _verticalCubesToDaisy(25, 37, result['solution'], rotatedCubeList)
-                    result['solution'] = verticalToDaisyResult.get('solution')
-                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1  
-            
-            # CHECKPOINT TEST 042
-            
-            #Left Face Vertical Top
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[28] == rotatedCubeList[49]:
-                   
-                    verticalToDaisyResult = _verticalCubesToDaisy(28, 39, result['solution'], rotatedCubeList)
-                    result['solution'] = verticalToDaisyResult.get('solution')
-                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1  
-            
-            #Left Face Vertical Bottom
-            if (numberOfPetalsFound <= 3):
-                if rotatedCubeList[34] == rotatedCubeList[49]:
-                       
-                    verticalToDaisyResult = _verticalCubesToDaisy(34, 39, result['solution'], rotatedCubeList)
-                    result['solution'] = verticalToDaisyResult.get('solution')
-                    rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-                        
-                    encodedCube = rotatedCubeList
-                    numberOfPetalsFound += 1  
-      
-    #TIME FOR DAISY SOLUTION HERE
-    daisySolution = _daisySolution(encodedCube)
-    encodedCube = daisySolution.get('cube')
-    
-    result['cube'] = "".join(encodedCube)
-    result['solution'] += daisySolution.get('solution')
-    result['status'] = 'ok'
-    
-    return result
-    
-
 """  
 #############################################################        
 ############## Daisy Methods For Solving Cube ###############
 #############################################################
 """ 
-
 def _daisySolution(encodedCube):
     """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
     result = {}
@@ -839,7 +838,6 @@ def _daisySolution(encodedCube):
             
     result['cube'] = encodedCube
     return result
-
 
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
