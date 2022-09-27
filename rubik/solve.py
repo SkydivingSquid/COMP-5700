@@ -586,37 +586,21 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         
         if verticalPetalIndex == 7:
             
-            F_result = _rotateF(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += F_result.get('letter')
-            rotatedCubeList = F_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
         
-            F_result = _rotateF(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += F_result.get('letter')
-            rotatedCubeList = F_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
             
-            l_result = _rotatel(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += l_result.get('letter')
-            rotatedCubeList = l_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
         
-            f_result = _rotatef(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += f_result.get('letter')
-            rotatedCubeList = f_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
         
-            L_result = _rotateL(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += L_result.get('letter')
-            rotatedCubeList = L_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
         
-            D_result = _rotateD(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += D_result.get('letter')
-            rotatedCubeList = D_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
         
-            F_result = _rotateF(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += F_result.get('letter')
-            rotatedCubeList = F_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
         
-            F_result = _rotateF(rotatedCubeList)
-            veritcalToDaisyResult['solution'] += F_result.get('letter')
-            rotatedCubeList = F_result.get('cube')
+            veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
             
             
         if verticalPetalIndex == 10:
