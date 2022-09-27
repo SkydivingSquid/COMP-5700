@@ -924,9 +924,6 @@ def _daisySolution(encodedCube):
         
             print('encoded cube post U Rotation')
             print(encodedCube)
-            
-            print('solution')
-            print(result['soltution'])
            
 ###PROTECTED
         
