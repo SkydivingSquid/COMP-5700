@@ -578,7 +578,7 @@ class solveBottomCrossTest(unittest.TestCase):
         expectedResult['solution'] = 'bFFlfLDFFUURR'
     
     
-        actualResult = solve._unalignedBottomToDaisy(50, 41, inputList, 
+        actualResult = solve._unalignedBottomToDaisy(50, 41, solution, inputList) 
     
         self.assertEqual(expectedResult.get('list'), actualResult.get('roatedCubeList'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
