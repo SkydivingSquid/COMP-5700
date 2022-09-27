@@ -167,7 +167,7 @@ def _solveBottomCross(encodedCube):
     else:
         numberOfPetalsFound = 0
         
-      #Check Top Petals Last
+        #Check Top Petals Last
         if rotatedCubeList[37] == rotatedCubeList[49]:
             numberOfPetalsFound += 1
             
@@ -900,7 +900,7 @@ def _solveBottomCross(encodedCube):
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
     daisyResult = {}
-    daisyRotationResult = {}
+    #daisyRotationResult = {}
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     daisyResult['solution'] = solution
