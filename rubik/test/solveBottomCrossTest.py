@@ -502,6 +502,33 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
 
+        
+    def test_solve_1001_RefactoredDaisyRot(self):
+        inputList = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
+                     'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
+                     'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+                     'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
+                     'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
+                     'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+        
+        solution = ""
+        
+        expectedResult = {}
+        expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
+                                  'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
+                                  'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+                                  'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
+                                  'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
+                                  'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
+                                 
+        expectedResult['solution'] = 'FF'
+        
+        
+        actualResult = solve._daisy_Rotations(4, 1, inputList, solution)
+        
+        self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+
 
 
 
