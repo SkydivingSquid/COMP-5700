@@ -156,12 +156,21 @@ def _solveBottomCross(encodedCube):
         rotatedCubeList[41] == rotatedCubeList[49] and
         rotatedCubeList[43] == rotatedCubeList[49]):
         #Solves for Daisy and returns a bottom-cross
-        bottomCrossFromDaisyResult = _bottomCrossFromDaisy(encodedCube, result['solution'])
-        encodedCube = bottomCrossFromDaisyResult.get('encodedCube')
-        result['solution'] = bottomCrossFromDaisyResult.get('solution')
         
-        
+        daisySolution = _daisySolution(encodedCube)
+        encodedCube = daisySolution.get('cube')
+        result['cube'] = "".join(encodedCube)
+        result['solution'] += daisySolution.get('solution')
+        result['status'] = 'ok'
         return result
+        
+        #
+        # bottomCrossFromDaisyResult = _bottomCrossFromDaisy(encodedCube, result['solution'])
+        # encodedCube = bottomCrossFromDaisyResult.get('encodedCube')
+        # result['solution'] = bottomCrossFromDaisyResult.get('solution')
+        
+        
+        #return result
     
     
     #If Not a Daisy
