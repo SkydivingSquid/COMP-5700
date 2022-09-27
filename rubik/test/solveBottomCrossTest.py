@@ -352,209 +352,236 @@ class solveBottomCrossTest(unittest.TestCase):
         #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_solve_992_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'wooyggyorrwobryggobrywoobgrooyrybwbgwgrbbrgywbwbrwwgyy'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'obwoggggyrgbrrrbroggrooowoyobbyybwyybbrrbyyygwwgwwwowr'
-        expectedResult['solution'] = 'FFRRURUUfUUFFURRBBULL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_solve_993_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'oggyobbygybywwoybbrywyrwgwwrbbogryggbwwgbowooogrryrorr'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'ywygowoowgrbbwbbwwrgbrroyrboowbgooggwbgwbgrrryyryyygyo'
-        expectedResult['solution'] = 'lrFFlfLDFFrbRDBBUFFRRBBLL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_solve_994_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'bbyywwoobwrwrooyggywowgbygrggoyywogwbbrrbywobrrgorbgyr'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'ogybwbbwrbobwoygooyyybgbbgrrgrgyooywwwwobwwygoryrrrgrg'
-        expectedResult['solution'] = 'FFUFRFFUURRUUBBUULL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_solve_995_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ygoywyywrrgowbogrbwroggbgywyrgrobbwwgwyoyybbwbboorgror'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'rwgywogwbbwgwbgybyogwogbwgyobwgooborryyyyybbrorgrrrwro'
-        expectedResult['solution'] = 'bRRfrFDRRblBDLLUUUrUFFURRUUBBULL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_solve_996_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'wbwbroybygroyywroryorgbrgrbwrgwggowwybbyoorybbwoywgggo'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'bogrrrwrywbrgyrryowooybbgbygogggoogbryygoywbrywowwwbwb'
-        expectedResult['solution'] = 'FFBLLblBDLLUFFlfLDFFFFURRBBULL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_solve_997_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'yogrwbbwowwoyrorbwryobboyrybbwggwbwrggbgogrroyywoyrgyg'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'ywoowbrwgrorgrobrgyrobbwwbrgrbggrygowwbboggobwyoyyywyy'
-        expectedResult['solution'] = 'FFBBUFBBrbRDBBUUUFFURRUUBBULL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    def test_solve_998_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'yrrwrwyggoybybrorygbbyggwwyogbwwogybroobobgowrowgybwrr'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'brwbrbrrboworbgybrrogbgrwgyywowwobwwwgbgoogogyyryyygyo'
-        expectedResult['solution'] = 'frLLblBDLLUUfUUUFFRRBBLL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    
-    def test_solve_999_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'obrrooggobwryybboogworgbybgbwwyrwwgbrywgborogyyyrwrygw'
-    
-        expectedResult = {}       
-        expectedResult['cube'] = 'wywboyoobgbyoyrgyrogbbgrggyrygoroorrorwgbgrbywwywwwbwb'
-        expectedResult['solution'] = 'FfrFDRRrbRDBBblBDLLUFFRRBBLL'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-    
-    
-    def test_solve_1000_RefactoredDaisyU(self):
-        inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
-                     'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
-                     'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                     'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-                     'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
-                     'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+    #
+    # def test_solve_992_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'wooyggyorrwobryggobrywoobgrooyrybwbgwgrbbrgywbwbrwwgyy'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'obwoggggyrgbrrrbroggrooowoyobbyybwyybbrrbyyygwwgwwwowr'
+    #     expectedResult['solution'] = 'FFRRURUUfUUFFURRBBULL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_993_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'oggyobbygybywwoybbrywyrwgwwrbbogryggbwwgbowooogrryrorr'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'ywygowoowgrbbwbbwwrgbrroyrboowbgooggwbgwbgrrryyryyygyo'
+    #     expectedResult['solution'] = 'lrFFlfLDFFrbRDBBUFFRRBBLL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_994_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'bbyywwoobwrwrooyggywowgbygrggoyywogwbbrrbywobrrgorbgyr'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'ogybwbbwrbobwoygooyyybgbbgrrgrgyooywwwwobwwygoryrrrgrg'
+    #     expectedResult['solution'] = 'FFUFRFFUURRUUBBUULL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_995_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'ygoywyywrrgowbogrbwroggbgywyrgrobbwwgwyoyybbwbboorgror'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'rwgywogwbbwgwbgybyogwogbwgyobwgooborryyyyybbrorgrrrwro'
+    #     expectedResult['solution'] = 'bRRfrFDRRblBDLLUUUrUFFURRUUBBULL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_996_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'wbwbroybygroyywroryorgbrgrbwrgwggowwybbyoorybbwoywgggo'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'bogrrrwrywbrgyrryowooybbgbygogggoogbryygoywbrywowwwbwb'
+    #     expectedResult['solution'] = 'FFBLLblBDLLUFFlfLDFFFFURRBBULL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_997_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'yogrwbbwowwoyrorbwryobboyrybbwggwbwrggbgogrroyywoyrgyg'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'ywoowbrwgrorgrobrgyrobbwwbrgrbggrygowwbboggobwyoyyywyy'
+    #     expectedResult['solution'] = 'FFBBUFBBrbRDBBUUUFFURRUUBBULL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    # def test_solve_998_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'yrrwrwyggoybybrorygbbyggwwyogbwwogybroobobgowrowgybwrr'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'brwbrbrrboworbgybrrogbgrwgyywowwobwwwgbgoogogyyryyygyo'
+    #     expectedResult['solution'] = 'frLLblBDLLUUfUUUFFRRBBLL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    #
+    # def test_solve_999_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'obrrooggobwryybboogworgbybgbwwyrwwgbrywgborogyyyrwrygw'
+    #
+    #     expectedResult = {}       
+    #     expectedResult['cube'] = 'wywboyoobgbyoyrgyrogbbgrggyrygoroorrorwgbgrbywwywwwbwb'
+    #     expectedResult['solution'] = 'FfrFDRRrbRDBBblBDLLUFFRRBBLL'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+    #
+    #
+    # def test_solve_1000_RefactoredDaisyU(self):
+    #     inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
+    #                  'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
+    #                  'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+    #                  'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
+    #                  'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
+    #                  'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+    #
+    #     solution = ""
+    #
+    #     expectedResult = {}
+    #     expectedResult['list'] = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
+    #                              'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
+    #                              'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+    #                              'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
+    #                              'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
+    #                              'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+    #
+    #     expectedResult['solution'] = 'U'
+    #
+    #
+    #     actualResult = solve._daisyURotations(4, 1, 43, inputList, solution)
+    #
+    #     self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #
+    #
+    # def test_solve_1001_RefactoredDaisyRot(self):
+    #     inputList = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
+    #                  'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
+    #                  'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+    #                  'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
+    #                  'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
+    #                  'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+    #
+    #     solution = ""
+    #
+    #     expectedResult = {}
+    #     expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
+    #                               'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
+    #                               'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+    #                               'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
+    #                               'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
+    #                               'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
+    #
+    #     expectedResult['solution'] = 'FF'
+    #
+    #
+    #     actualResult = solve._daisy_Rotations(4, 1, inputList, solution)
+    #
+    #     self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #
+    #
+    # def test_solve_1001_RefactoredDaisyU_Integrated(self):
+    #     inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
+    #                  'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
+    #                  'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+    #                  'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
+    #                  'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
+    #                  'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
+    #
+    #     solution = ""
+    #
+    #     expectedResult = {}
+    #     expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
+    #                               'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
+    #                               'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
+    #                               'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
+    #                               'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
+    #                               'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
+    #
+    #     expectedResult['solution'] = 'UFF'
+    #
+    #
+    #     actualResult = solve._daisyIntegrated(4, 1, 43, inputList, solution)
+    #
+    #     self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         
-        solution = ""
-        
-        expectedResult = {}
-        expectedResult['list'] = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
-                                 'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
-                                 'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                                 'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-                                 'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
-                                 'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
-                                 
-        expectedResult['solution'] = 'U'
-        
-        
-        actualResult = solve._daisyURotations(4, 1, 43, inputList, solution)
-        
-        self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-        
-        
-    def test_solve_1001_RefactoredDaisyRot(self):
-        inputList = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
-                     'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
-                     'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                     'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-                     'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
-                     'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
-        
-        solution = ""
-        
-        expectedResult = {}
-        expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
-                                  'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
-                                  'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                                  'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
-                                  'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
-                                  'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
-                                 
-        expectedResult['solution'] = 'FF'
-        
-        
-        actualResult = solve._daisy_Rotations(4, 1, inputList, solution)
-        
-        self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-        
-        
-    def test_solve_1001_RefactoredDaisyU_Integrated(self):
-        inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
-                     'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
-                     'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                     'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-                     'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
-                     'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
-        
-        solution = ""
-        
-        expectedResult = {}
-        expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
-                                  'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
-                                  'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-                                  'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
-                                  'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
-                                  'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
-                                 
-        expectedResult['solution'] = 'UFF'
-        
-        
-        actualResult = solve._daisyIntegrated(4, 1, 43, inputList, solution)
-        
-        self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #
+    # def test_solve_1010_RefactoredUnAlaignedBottomCubesToDaisyTop_Integrated(self):
+    #     inputList = ['b', 'o', 'b', 'w', 'b', 'w', 'g', 'g', 'w', 
+    #                  'o', 'r', 'r', 'b', 'r', 'r', 'b', 'r', 'g', 
+    #                  'y', 'w', 'o', 'y', 'y', 'y', 'b', 'r', 'o', 
+    #                  'y', 'o', 'w', 'g', 'o', 'y', 'y', 'g', 'y', 
+    #                  'g', 'o', 'w', 'b', 'w', 'g', 'r', 'y', 'g', 
+    #                  'r', 'o', 'o', 'b', 'g', 'w', 'w', 'b', 'r']
+    #
+    #     solution = ""
+    #
+    #     expectedResult = {}
+    #     expectedResult['list'] = ['g', 'o', 'y', 'o', 'b', 'w', 'b', 'b', 'o', 
+    #                               'w', 'r', 'b', 'b', 'r', 'b', 'g', 'r', 'r', 
+    #                               'o', 'w', 'b', 'r', 'y', 'w', 'y', 'y', 'w', 
+    #                               'w', 'y', 'b', 'o', 'o', 'y', 'o', 'o', 'r', 
+    #                               'o', 'y', 'g', 'r', 'w', 'w', 'r', 'b', 'r', 
+    #                               'w', 'g', 'y', 'g', 'g', 'g', 'y', 'g', 'g']
+    #
+    #     expectedResult['solution'] = 'bFFlfLDFFUURR'
+    #
+    #
+    #     actualResult = solve._unalignedBottomToDaisy(50, 41, 
+    #
+    #     self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
 
 
 
