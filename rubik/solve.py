@@ -489,9 +489,7 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
     horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     while rotatedCubeList[horizontalPetalIndex] == rotatedCubeList[topPetalIndex]:
-        U_result = _rotateU(rotatedCubeList)
-        horizontalToDaisyResult['solution'] += U_result.get('letter')
-        rotatedCubeList = U_result.get('cube')
+        horizontalToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, horizontalToDaisyResult)
 
     if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
         
