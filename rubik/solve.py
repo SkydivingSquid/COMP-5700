@@ -158,10 +158,10 @@ def _solveBottomCross(encodedCube):
         #Solves for Daisy and returns a bottom-cross
         
         daisySolution = _daisySolution(encodedCube)
-        encodedCube = daisySolution.get('cube')
-        result['cube'] = "".join(encodedCube)
+        #encodedCube = daisySolution.get('cube')
+        #result['cube'] = "".join(encodedCube)
         result['solution'] += daisySolution.get('solution')
-        result['status'] = 'ok'
+        #result['status'] = 'ok'
         return result
         
         #
