@@ -932,8 +932,8 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
 ###PROTECTED
 
-print('result cube')
-print(result['cube'])
+    print('result cube')
+    print(result['cube'])
 
         
         
