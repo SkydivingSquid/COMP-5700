@@ -876,8 +876,14 @@ def _solveBottomCross(encodedCube):
         
         return result
     
-    
 
+"""  
+#############################################################        
+############## Daisy Methods For Solving Cube ##############
+#############################################################
+"""
+    
+#Sub-method of Integrated Daisy Method. Rotates the block U when not aligned. 
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     daisyResult = {}
     daisyRotationResult = {}
@@ -901,7 +907,7 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 
     return daisyResult
     
-    
+#Sub-method for Integrated Daisy Method. Roates the block a specific direction depending on its uniqueCenter.
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     daisyRotResult = {}
     cubeList = list(encodedCube)
@@ -954,15 +960,15 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     
     return daisyRotResult
 
-
+#Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. 
 def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     integratedResult = {}
     innerMethodResult = {}
     
-
+    #Rotate U if applicable
     innerMethodResult = _daisyURotations(uniqueCenter, topMiddle, adjacentDaisy, encodedCube, solution)
     
-
+    #Rotate top to bottom
     innerMethodResult = _daisy_Rotations(uniqueCenter, topMiddle, innerMethodResult.get('daisyCubeList'), innerMethodResult.get('solution'))
     
     integratedResult['daisyCubeList'] = innerMethodResult.get('daisyCubeList')
@@ -970,19 +976,15 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 
     return integratedResult
     
-
-
+#When a daisy is made, align colors and rotate into Bottom Cross solution. 
 def _daisySolution(encodedCube):
-
     result = {}
-        
     daisyResult = {}
-    
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
-    #Front Face Alignment
+    #Front Face 
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
         
         daisyResult = _daisyIntegrated(4, 1, 43, encodedCube, result['solution'])
@@ -991,8 +993,7 @@ def _daisySolution(encodedCube):
         encodedCube = daisyResult.get('daisyCubeList')
         rotatedCubeList = encodedCube
         
-        
-    #Right Face Alignment
+    #Right Face 
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
         
         daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
@@ -1001,8 +1002,7 @@ def _daisySolution(encodedCube):
         encodedCube = daisyResult.get('daisyCubeList')
         rotatedCubeList = encodedCube
         
-
-    # #Back Face Alignment
+    # #Back Face 
     if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
         
         daisyResult = _daisyIntegrated(22, 19, 37, encodedCube, result['solution'])
@@ -1012,7 +1012,7 @@ def _daisySolution(encodedCube):
         rotatedCubeList = encodedCube
       
       
-    # #Left Face Alignment
+    # #Left Face 
     if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
         
         daisyResult = _daisyIntegrated(31, 28, 39, encodedCube, result['solution'])
@@ -1028,6 +1028,7 @@ def _daisySolution(encodedCube):
 #############################################################        
 ############## Rotate Methods For Solving Cube ##############
 #############################################################
+
 def _rotateF(cube):
     result = {}
     
