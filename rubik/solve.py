@@ -78,10 +78,24 @@ def _functionF_BCD(encodedCube, result):
     
     return result['solution'], encodedCube
 
+def _functionf_BCD(encodedCube, result):
+    f_result = _rotatef(encodedCube)
+    result['solution'] += f_result.get('letter')
+    encodedCube = f_result.get('cube')
+    
+    return result['solution'], encodedCube
+
 def _functionR_BCD(encodedCube, result):
     R_result = _rotateR(encodedCube)
     result['solution'] += R_result.get('letter')
     encodedCube = R_result.get('cube')
+    
+    return result['solution'], encodedCube
+
+def _functionr_BCD(encodedCube, result):
+    r_result = _rotater(encodedCube)
+    result['solution'] += r_result.get('letter')
+    encodedCube = r_result.get('cube')
     
     return result['solution'], encodedCube
 
@@ -92,6 +106,13 @@ def _functionB_BCD(encodedCube, result):
     
     return result['solution'], encodedCube
 
+def _functionb_BCD(encodedCube, result):
+    b_result = _rotateb(encodedCube)
+    result['solution'] += b_result.get('letter')
+    encodedCube = b_result.get('cube')
+    
+    return result['solution'], encodedCube
+
 def _functionL_BCD(encodedCube, result):
     L_result = _rotateL(encodedCube)
     result['solution'] += L_result.get('letter')
@@ -99,10 +120,20 @@ def _functionL_BCD(encodedCube, result):
     
     return result['solution'], encodedCube
 
+def _functionl_BCD(encodedCube, result):
+    l_result = _rotatel(encodedCube)
+    result['solution'] += l_result.get('letter')
+    encodedCube = l_result.get('cube')
+    
+    return result['solution'], encodedCube
+
 def _functionU_BCD(encodedCube, result):
     U_result = _rotateU(encodedCube)
     result['solution'] += U_result.get('letter')
     encodedCube = U_result.get('cube')
+    
+    return result['solution'], encodedCube
+
     
     return result['solution'], encodedCube
 
@@ -518,9 +549,7 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
             horizontalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, horizontalToDaisyResult)
 
         if horizontalPetalIndex == 30:
-            b_result = _rotateb(rotatedCubeList)
-            horizontalToDaisyResult['solution'] += b_result.get('letter')
-            rotatedCubeList = b_result.get('cube')
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, horizontalToDaisyResult)
             
         if horizontalPetalIndex == 32:
             horizontalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, horizontalToDaisyResult)
