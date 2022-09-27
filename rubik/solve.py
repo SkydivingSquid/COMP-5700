@@ -919,7 +919,8 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     daisyResult['daisyCubeList'] = encodedCube
     
 
-    return daisyResu  
+    return daisyResult
+  
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
     daisyRotResult = {}
@@ -972,6 +973,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     daisyRotResult['daisyCubeList'] = encodedCube
     
     return daisyRotResult
+
 def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     """ Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. """
     integratedResult = {}
