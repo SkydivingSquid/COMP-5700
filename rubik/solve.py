@@ -893,6 +893,8 @@ def _daisySolution(encodedCube):
     result = {}
         
     cubeList = list(encodedCube)
+    print('initial encoded cube')
+    print(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
@@ -908,6 +910,10 @@ def _daisySolution(encodedCube):
             encodedCube = U_result.get('cube')
         
             rotatedCubeList = encodedCube
+            
+            print('encoded cube & rotatedCubeList post U Rotation')
+            print(encodedCube)
+            print(rotatedCubeList)
         
 ###PROTECTED
         
@@ -926,6 +932,8 @@ def _daisySolution(encodedCube):
             result['cube'] = encodedCube
 ###PROTECTED
 
+print('result cube')
+print(result['cube'])
 
         
         
