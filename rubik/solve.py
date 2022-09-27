@@ -32,17 +32,22 @@ def _solve(parms):
 #############################################################
 """
 #Verifies Cube Input as Valid (does not current check if 'possible', just valid). 
+
+def _emptyCube(encodedCube, result):
+    if encodedCube == None:
+        result['status'] = 'error: Missing Cube Argument'
+        status = result['status']
+    return status
+
 def _verifyInput(encodedCube):
     result = {}
     result['status'] = 'ok'
     status = result['status']
     
-    if encodedCube == None:
-        result['status'] = 'error: Missing Cube Argument'
-        status = result['status']
-        return status 
+    status = _emptyCube(encodedCube, result)
+    return status 
     
-    elif rubik.Cube.isValidLengthCube(encodedCube) == False:
+    if rubik.Cube.isValidLengthCube(encodedCube) == False:
         result['status'] = 'error: Invalid Cube Length'
         status = result['status']
         return status
@@ -976,7 +981,6 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
 def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     """ Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. """
     integratedResult = {}
-    #innerMethodResult = {}
     
     #Rotate U if applicable
     innerMethodResult = _daisyURotations(uniqueCenter, topMiddle, adjacentDaisy, encodedCube, solution)
@@ -1546,10 +1550,3 @@ def _rotated(cube):
     result['cube'] = rotatedCubeList
     result['letter'] = 'd'
     return result
-
-
-
-
-
-
-    
