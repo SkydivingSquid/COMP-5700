@@ -107,6 +107,7 @@ def _bottomCrossToDaisy(encodedCube, result):
 
 
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
+    """ Moves unaligned bottom pieces to top to begin forming a Daisy """
     bottomToDaisyResult = {}
     bottomToDaisyResult['solution'] = solution
     bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
@@ -116,7 +117,6 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
         bottomToDaisyResult['solution'] += U_result.get('letter')
         rotatedCubeList = U_result.get('cube')
 
-    
     if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         
         if bottomPetalIndex == 46:
@@ -154,16 +154,39 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             B_result = _rotateB(rotatedCubeList)
             bottomToDaisyResult['solution'] += B_result.get('letter')
             rotatedCubeList = B_result.get('cube')
-            
-       
-            
-            
-            
-            
         
         bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
         
     return bottomToDaisyResult
+
+def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
+    """ Moves horizontal pieces to top to begin forming a Daisy """
+    horizontalToDaisyResult = {}
+    horizontalToDaisyResult['solution'] = solution
+    horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    
+    while rotatedCubeList[horizontalPetalIndex] == rotatedCubeList[topPetalIndex]:
+        U_result = _rotateU(rotatedCubeList)
+        horizontalToDaisyResult['solution'] += U_result.get('letter')
+        rotatedCubeList = U_result.get('cube')
+
+    if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
+        horizontalPetalIndex
+        if horizontalPetalIndex == 46:
+            l_result = _rotatel(rotatedCubeList)
+            horizontalToDaisyResult['solution'] += l_result.get('letter')
+            rotatedCubeList = l_result.get('cube')
+            #result['cube'] = encodedCube
+        
+        horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+        
+    return horizontalToDaisyResult
+
+
+
+
+
+
 
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
@@ -232,7 +255,6 @@ def _solveBottomCross(encodedCube):
             ################## CHECK BOTTOM FACE PIECES ###################
             ###############################################################
             
-            
             #Checking Top of Bottom Face
             if(numberOfPetalsFound <= 3):                
                 if rotatedCubeList[46] == rotatedCubeList[49]:
@@ -278,10 +300,6 @@ def _solveBottomCross(encodedCube):
                     encodedCube = rotatedCubeList
                     numberOfPetalsFound += 1
                     
-            
-            # result['cube'] = "".join(encodedCube)
-            # result['status'] = 'ok'
-            
             ###################################################################
             ################## CHECK HORIZONTAL SIDE PIECES ###################
             ###################################################################
@@ -289,23 +307,13 @@ def _solveBottomCross(encodedCube):
             #Check Front Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[3] == rotatedCubeList[49]:
-                    while rotatedCubeList[3] == rotatedCubeList[39]:
-                        U_result = _rotateU(encodedCube) 
-                        result['solution'] += U_result.get('letter')
-                        encodedCube = U_result.get('cube')
-            
-                        # rotatedCubeList[3] = encodedCube[3]
-                        # rotatedCubeList[39] = encodedCube[39]
-                        rotatedCubeList = encodedCube
-            
-                    if rotatedCubeList[3] != rotatedCubeList[39]:
-                        l_result = _rotatel(encodedCube)
-                        result['solution'] += l_result.get('letter')
-                        encodedCube = l_result.get('cube')
-            
-                        result['cube'] = encodedCube
-                        rotatedCubeList = encodedCube
-                        numberOfPetalsFound += 1
+                    
+                    horizontalToDaisyResult = _horizontalCubesToDaisy(3, 39, result['solution'], rotatedCubeList)
+                    result['solution'] = horizontalToDaisyResult.get('solution')
+                    rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+                        
+                    encodedCube = rotatedCubeList
+                    numberOfPetalsFound += 1
             
             
             #Check Front Face (Right Side Piece)
@@ -316,8 +324,6 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                        # rotatedCubeList[5] = encodedCube[5]
-                        # rotatedCubeList[41] = encodedCube[41]
                         rotatedCubeList = encodedCube
             
                     if rotatedCubeList[5] != rotatedCubeList[41]:
@@ -329,7 +335,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
             
-            
             #Check Right Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[12] == rotatedCubeList[49]:
@@ -337,9 +342,7 @@ def _solveBottomCross(encodedCube):
                         U_result = _rotateU(encodedCube) 
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
-            
-                        # rotatedCubeList[12] = encodedCube[12]
-                        # rotatedCubeList[43] = encodedCube[43]
+
                         rotatedCubeList = encodedCube
             
                     if rotatedCubeList[12] != rotatedCubeList[43]:
@@ -359,9 +362,7 @@ def _solveBottomCross(encodedCube):
                         U_result = _rotateU(encodedCube) 
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
-            
-                        # rotatedCubeList[14] = encodedCube[14]
-                        # rotatedCubeList[37] = encodedCube[37]
+
                         rotatedCubeList = encodedCube
             
                     if rotatedCubeList[14] != rotatedCubeList[37]:
@@ -373,7 +374,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
             
-
             
             #Check Back Face (Left Side Piece)
             if(numberOfPetalsFound <= 3):
@@ -385,9 +385,6 @@ def _solveBottomCross(encodedCube):
                         U_result = _rotateU(encodedCube) 
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
-            
-                        # rotatedCubeList[21] = encodedCube[21]
-                        # rotatedCubeList[41] = encodedCube[41]
                         
                         rotatedCubeList = encodedCube
            
@@ -401,7 +398,6 @@ def _solveBottomCross(encodedCube):
                         rotatedCubeList = encodedCube
                         numberOfPetalsFound += 1
          
-            
             #Check Back Face (Right Side Piece)
             if(numberOfPetalsFound <= 3):
                 if rotatedCubeList[23] == rotatedCubeList[49]:
@@ -410,8 +406,6 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
             
-                        # rotatedCubeList[23] = encodedCube[23]
-                        # rotatedCubeList[39] = encodedCube[39]
                         rotatedCubeList = encodedCube
             
                     if rotatedCubeList[23] != rotatedCubeList[39]:
