@@ -118,7 +118,6 @@ def _solveBottomCross(encodedCube):
     rotatedCubeList[50] == rotatedCubeList[49] and
     rotatedCubeList[52] == rotatedCubeList[49]):
 
-            
         #Check for bottom cross alignment
         if (rotatedCubeList[4] == rotatedCubeList[7] and
             rotatedCubeList[13] == rotatedCubeList[16] and
@@ -128,10 +127,7 @@ def _solveBottomCross(encodedCube):
             #Return solution for solved cube
             result['solution'] = ''
             result['status'] = 'ok'
-            #These two are irrelevant, but here for future use
-            #rotatedCube = "".join(rotatedCubeList)
-            #result['cube'] = rotatedCube
-            
+      
             return result
         
         #Rotate unaligned bottom cross into top daisy
