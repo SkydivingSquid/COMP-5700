@@ -60,6 +60,20 @@ def _verifyInput(encodedCube):
     
     return status
 
+
+"""
+####################################################################################        
+########### INNER SOLUTION FUNCTIONS FOR CUBE ROTATION AND STATUS UPDATE ###########
+#################################################################################### 
+"""
+def _functionF(encodedCube, result):
+    F_result = _rotateF(encodedCube)
+    result['solution'] += F_result.get('letter')
+    encodedCube = F_result.get('cube')
+    
+    return result['solution'], encodedCube
+
+
 """
 #############################################################        
 ########### Bottom-Cross Methods For Solving Cube ###########
@@ -380,11 +394,7 @@ def _solveBottomCross(encodedCube):
     
     
     
-def _functionF(encodedCube, result):
-    F_result = _rotateF(encodedCube)
-    result['solution'] += F_result.get('letter')
-    encodedCube = F_result.get('cube')
-    return result['solution'], encodedCube
+
 
 def _bottomCrossToDaisy(encodedCube, result):
     """ Rotate an unaligned Bottom-Cross into a Daisy """
