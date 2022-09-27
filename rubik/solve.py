@@ -955,7 +955,10 @@ def _daisySolution(encodedCube):
     
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
         
-        daisyResult = _daisyURotations(4, 1, 43, encodedCube, result['solution'])
+        daisyResult = _daisyIntegrated(4, 1, 43, encodedCube, result['solution'])
+        
+        
+        #daisyResult = _daisyURotations(4, 1, 43, encodedCube, result['solution'])
         
         result['solution'] = daisyResult.get('solution')
         encodedCube = daisyResult.get('daisyCubeList')
