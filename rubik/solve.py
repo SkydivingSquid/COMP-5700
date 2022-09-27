@@ -109,6 +109,7 @@ def _bottomCrossToDaisy(encodedCube, result):
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     bottomToDaisyResult = {}
     bottomToDaisyResult['solution'] = solution
+    bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     print('TOP OF METHOD: INITIAL SOLUTION and cubeLIst')
     print(bottomToDaisyResult['solution'])
