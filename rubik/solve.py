@@ -543,9 +543,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
     veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     while rotatedCubeList[verticalPetalIndex] == rotatedCubeList[topPetalIndex]:
-        U_result = _rotateU(rotatedCubeList)
-        veritcalToDaisyResult['solution'] += U_result.get('letter')
-        rotatedCubeList = U_result.get('cube')
+        veritcalToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, veritcalToDaisyResult)
 
     if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
         
