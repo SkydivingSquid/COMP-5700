@@ -558,6 +558,21 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
         horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return horizontalToDaisyResult
 
+
+
+
+
+
+
+def _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
 def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves vertical pieces to top to begin forming a Daisy """
     veritcalToDaisyResult = {}
@@ -571,17 +586,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         
         #Move l,f,L,D,F,F
         if verticalPetalIndex == 1:
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
-        
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
-        
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-        
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-        
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-        
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+            veritcalToDaisyResult['solution'], rotatedCubeList = _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
         
         
         if verticalPetalIndex == 7:
