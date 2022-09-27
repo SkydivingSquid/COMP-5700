@@ -129,8 +129,8 @@ def _solveBottomCross(encodedCube):
             result['solution'] = ''
             result['status'] = 'ok'
             #These two are irrelevant, but here for future use
-            rotatedCube = "".join(rotatedCubeList)
-            result['cube'] = rotatedCube
+            #rotatedCube = "".join(rotatedCubeList)
+            #result['cube'] = rotatedCube
             
             return result
         
