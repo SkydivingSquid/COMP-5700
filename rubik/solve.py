@@ -158,7 +158,6 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
         bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return bottomToDaisyResult
 
-
 def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves horizontal pieces to top to begin forming a Daisy """
     horizontalToDaisyResult = {}
@@ -214,10 +213,6 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
 
         horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return horizontalToDaisyResult
-
-
-
-
 
 def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves vertical pieces to top to begin forming a Daisy """
@@ -478,16 +473,6 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     return veritcalToDaisyResult
-    
-        
-
-
-
-
-
-
-
-
 
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
@@ -531,7 +516,6 @@ def _solveBottomCross(encodedCube):
         result['solution'] += daisySolution.get('solution')
         return result
         
-    
     #If Not a Daisy
     else:
         numberOfPetalsFound = 0
@@ -790,9 +774,6 @@ def _solveBottomCross(encodedCube):
                         
                     encodedCube = rotatedCubeList
                     numberOfPetalsFound += 1  
-        
-                        
-        
       
     #TIME FOR DAISY SOLUTION HERE
     daisySolution = _daisySolution(encodedCube)
@@ -802,7 +783,6 @@ def _solveBottomCross(encodedCube):
     result['solution'] += daisySolution.get('solution')
     result['status'] = 'ok'
     
-    
     return result
     
 
@@ -811,6 +791,55 @@ def _solveBottomCross(encodedCube):
 ############## Daisy Methods For Solving Cube ###############
 #############################################################
 """ 
+
+def _daisySolution(encodedCube):
+    """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
+    result = {}
+    daisyResult = {}
+    cubeList = list(encodedCube)
+    rotatedCubeList = cubeList[:]
+    result['solution'] = ""
+    
+    #Front Face 
+    if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
+        
+        daisyResult = _daisyIntegrated(4, 1, 43, encodedCube, result['solution'])
+        
+        result['solution'] = daisyResult.get('solution')
+        encodedCube = daisyResult.get('daisyCubeList')
+        rotatedCubeList = encodedCube
+        
+    #Right Face 
+    if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
+        
+        daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
+        
+        result['solution'] = daisyResult.get('solution')
+        encodedCube = daisyResult.get('daisyCubeList')
+        rotatedCubeList = encodedCube
+        
+    # #Back Face 
+    if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
+        
+        daisyResult = _daisyIntegrated(22, 19, 37, encodedCube, result['solution'])
+        
+        result['solution'] = daisyResult.get('solution')
+        encodedCube = daisyResult.get('daisyCubeList')
+        rotatedCubeList = encodedCube
+      
+      
+    # #Left Face 
+    if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
+        
+        daisyResult = _daisyIntegrated(31, 28, 39, encodedCube, result['solution'])
+        
+        result['solution'] = daisyResult.get('solution')
+        encodedCube = daisyResult.get('daisyCubeList')
+        rotatedCubeList = encodedCube
+            
+    result['cube'] = encodedCube
+    return result
+
 
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
@@ -903,54 +932,6 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 
     return integratedResult
     
-def _daisySolution(encodedCube):
-    """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
-    result = {}
-    daisyResult = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
-    result['solution'] = ""
-    
-    #Front Face 
-    if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
-        
-        daisyResult = _daisyIntegrated(4, 1, 43, encodedCube, result['solution'])
-        
-        result['solution'] = daisyResult.get('solution')
-        encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCubeList = encodedCube
-        
-    #Right Face 
-    if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
-        
-        daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
-        
-        result['solution'] = daisyResult.get('solution')
-        encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCubeList = encodedCube
-        
-    # #Back Face 
-    if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
-        
-        daisyResult = _daisyIntegrated(22, 19, 37, encodedCube, result['solution'])
-        
-        result['solution'] = daisyResult.get('solution')
-        encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCubeList = encodedCube
-      
-      
-    # #Left Face 
-    if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
-        
-        daisyResult = _daisyIntegrated(31, 28, 39, encodedCube, result['solution'])
-        
-        result['solution'] = daisyResult.get('solution')
-        encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCubeList = encodedCube
-            
-    result['cube'] = encodedCube
-    return result
-
 """
 #############################################################        
 ############## Rotate Methods For Solving Cube ##############
