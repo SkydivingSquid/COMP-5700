@@ -105,16 +105,6 @@ def _bottomCrossToDaisy(encodedCube, result):
     return encodedCube
 
 
-
-def _bottomCrossFromDaisy(encodedCube, solution):
-    result = {}
-    daisySolution = _daisySolution(encodedCube)
-    encodedCube = daisySolution.get('cube')
-    #result['cube'] = "".join(encodedCube)
-    result['solution'] += daisySolution.get('solution')
-    #result['encodedCube'] = encodedCube
-    return result
-
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
@@ -144,10 +134,7 @@ def _solveBottomCross(encodedCube):
             #DAISY HAS BEEN CREATED ^
             #Solves for Daisy and returns a bottom-cross
             daisySolution = _daisySolution(encodedCube)
-            encodedCube = daisySolution.get('cube')
-            result['cube'] = "".join(encodedCube)
             result['solution'] += daisySolution.get('solution')
-            result['status'] = 'ok'
             return result
     
     #Check Top for Daisy  
@@ -156,12 +143,8 @@ def _solveBottomCross(encodedCube):
         rotatedCubeList[41] == rotatedCubeList[49] and
         rotatedCubeList[43] == rotatedCubeList[49]):
         #Solves for Daisy and returns a bottom-cross
-        
         daisySolution = _daisySolution(encodedCube)
-        #encodedCube = daisySolution.get('cube')
-        #result['cube'] = "".join(encodedCube)
         result['solution'] += daisySolution.get('solution')
-        #result['status'] = 'ok'
         return result
         
         #
