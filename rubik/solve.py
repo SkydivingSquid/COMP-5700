@@ -106,17 +106,17 @@ def _bottomCrossToDaisy(encodedCube, result):
 
 
 
-def _unalignedBottomToDaisy(solution, rotatedCubeList):
+def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     bottomToDaisyResult = {}
     bottomToDaisyResult['solution'] = solution
     
-    while rotatedCubeList[46] == rotatedCubeList[43]:
+    while rotatedCubeList[bottomPetalIndex] == rotatedCubeList[topPetalIndex]:
         U_result = _rotateU(rotatedCubeList)
         bottomToDaisyResult['solution'] += U_result.get('letter')
         rotatedCubeList = U_result.get('cube')
     
     #rotatedCubeList = encodedCube
-    if rotatedCubeList[46] != rotatedCubeList[43]:
+    if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         F_result = _rotateF(rotatedCubeList)
         bottomToDaisyResult['solution'] += F_result.get('letter')
         rotatedCubeList = F_result.get('cube')
@@ -208,7 +208,7 @@ def _solveBottomCross(encodedCube):
                 if rotatedCubeList[46] == rotatedCubeList[49]:
                     """ WORKING HERE """
                     
-                    bottomToDaisyResult = _unalignedBottomToDaisy(result['solution'], rotatedCubeList)
+                    bottomToDaisyResult = _unalignedBottomToDaisy(46, 43, result['solution'], rotatedCubeList)
                     result['solution'] = bottomToDaisyResult.get('solution')
                     rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
                         
