@@ -6,6 +6,7 @@ import rubik.cube as rubik
 #############################################################
 """
 #Returns the solutions needed to solve a cube and the status of input.
+from rubik.sandbox import rotatedCube
 
 def _solve(parms):
     result = {}
@@ -110,12 +111,18 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
     bottomToDaisyResult = {}
     bottomToDaisyResult['solution'] = solution
     
+    print('TOP OF METHOD: INITIAL SOLUTION and cubeLIst')
+    print(bottomToDaisyResult['solution'])
+    print(rotatedCubeList)
+    
     while rotatedCubeList[bottomPetalIndex] == rotatedCubeList[topPetalIndex]:
         U_result = _rotateU(rotatedCubeList)
         bottomToDaisyResult['solution'] += U_result.get('letter')
         rotatedCubeList = U_result.get('cube')
-    
-    #rotatedCubeList = encodedCube
+        
+        print('INSIDE WHILE: POST U solution and cubeList')
+        print(bottomToDaisyResult['solution'])
+        print(rotatedCubeList)
     
     if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         
@@ -127,7 +134,10 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             F_result = _rotateF(rotatedCubeList)
             bottomToDaisyResult['solution'] += F_result.get('letter')
             rotatedCubeList = F_result.get('cube')
-        #result['cube'] = rotatedCubeList  ##irrelevant 
+            
+            print('INSIDE IF: POST F solution and cubeList')
+            print(bottomToDaisyResult['solution'])
+            print(rotatedCubeList)
         
         elif bottomPetalIndex == 48:
             L_result = _rotateL(rotatedCubeList)
@@ -138,6 +148,10 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             bottomToDaisyResult['solution'] += L_result.get('letter')
             rotatedCubeList = L_result.get('cube')
             
+            print('INSIDE IF: POST L solution and cubeList')
+            print(bottomToDaisyResult['solution'])
+            print(rotatedCubeList)
+            
         elif bottomPetalIndex == 50:
             R_result = _rotateR(rotatedCubeList)
             bottomToDaisyResult['solution'] += R_result.get('letter')
@@ -146,6 +160,10 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             R_result = _rotateR(rotatedCubeList)
             bottomToDaisyResult['solution'] += R_result.get('letter')
             rotatedCubeList = R_result.get('cube')
+            
+            print('INSIDE IF: POST R solution and cubeList')
+            print(bottomToDaisyResult['solution'])
+            print(rotatedCubeList)
         
         
         bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
@@ -262,8 +280,6 @@ def _solveBottomCross(encodedCube):
                         result['solution'] += U_result.get('letter')
                         encodedCube = U_result.get('cube')
                         
-                        #rotatedCubeList[52] = encodedCube[52]
-                        #rotatedCubeList[37] = encodedCube[37]
                         rotatedCubeList = encodedCube
                     
                     if rotatedCubeList[52] != rotatedCubeList[37]:
