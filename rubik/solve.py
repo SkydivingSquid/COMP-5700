@@ -903,6 +903,8 @@ def _daisySolution(encodedCube):
     print('STARTING STARTING STARTING STARTING')
     result = {}
         
+    daisyResult = {}
+    
     cubeList = list(encodedCube)
     print('initial encoded cube')
     print(encodedCube)
@@ -913,22 +915,28 @@ def _daisySolution(encodedCube):
     
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
         
-        #rotatedCubeList = _daisyURotations(encodedCube)
+        daisyResult = _daisyURotations(encodedCube, result['solution'])
+        
+        result['solution'] = daisyResult.get('solution')
+        encodedCube = daisyResult.get('daisyCubeList')
+        rotatedCube = encodedCube
+        
+        
 
 ###PROTECTED
-        while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
-        
-            U_result = _rotateU(encodedCube) 
-            result['solution'] += U_result.get('letter')
-            encodedCube = U_result.get('cube')
-        
-            rotatedCubeList = encodedCube
-        
-            print('encoded cube post U Rotation')
-            print(encodedCube)
-            
-            print('solution')
-            print(result['solution'])
+        # while (rotatedCubeList[4]!= rotatedCubeList[1] or rotatedCubeList[43] != rotatedCubeList[49]):
+        #
+        #     U_result = _rotateU(encodedCube) 
+        #     result['solution'] += U_result.get('letter')
+        #     encodedCube = U_result.get('cube')
+        #
+        #     rotatedCubeList = encodedCube
+        #
+        #     print('encoded cube post U Rotation')
+        #     print(encodedCube)
+        #
+        #     print('solution')
+        #     print(result['solution'])
            
 ###PROTECTED
         
