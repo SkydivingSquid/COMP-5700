@@ -878,14 +878,13 @@ def _solveBottomCross(encodedCube):
     
     
 
-# def _daisyURotations(encodedCube, solution, rotatedCubeList):
-#     result = {}
-#
+# def _daisyURotations(encodedCube):
+#     daisyResult = {}
 #     cubeList = list(encodedCube)
 #     rotatedCubeList = cubeList[:]
-#     result['solution'] = ""
-#
-#
+#     daisyResult['cube']
+#     daisyResult['solution'] = ""
+
 
         
     
@@ -929,11 +928,11 @@ def _daisySolution(encodedCube):
             encodedCube = F_result.get('cube')
         
             rotatedCubeList = encodedCube
-            result['cube'] = encodedCube
+            #result['cube'] = encodedCube
 ###PROTECTED
 
-    print('result cube')
-    print(result['cube'])
+    #print('result cube')
+    #print(result['cube'])
 
         
         
@@ -965,7 +964,7 @@ def _daisySolution(encodedCube):
             encodedCube = R_result.get('cube')
             
             rotatedCubeList = encodedCube
-            result['cube'] = encodedCube
+            #result['cube'] = encodedCube
     
 
     # #Back Face Alignment
@@ -993,7 +992,7 @@ def _daisySolution(encodedCube):
             encodedCube = B_result.get('cube')
 
             rotatedCubeList = encodedCube
-            result['cube'] = encodedCube
+            #result['cube'] = encodedCube
       
             
     # #Left Face Alignment
@@ -1017,11 +1016,13 @@ def _daisySolution(encodedCube):
             encodedCube = L_result.get('cube')
     
             rotatedCubeList = encodedCube
-            result['cube'] = encodedCube
+            #result['cube'] = encodedCube
             
             
     print('THIS IS RESULT')
     print(result)
+    
+    result['cube'] = encodedCube
     return result
 
 
