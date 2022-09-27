@@ -893,7 +893,7 @@ def _daisyURotations(encodedCube):
     
         rotatedCubeList = encodedCube
         
-    daisyResult['cubeList'] = encodedCube
+    daisyResult['daisyCubeList'] = encodedCube
     return daisyResult
 
 
