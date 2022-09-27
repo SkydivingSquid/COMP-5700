@@ -497,7 +497,7 @@ class solveBottomCrossTest(unittest.TestCase):
         expectedResult['solution'] = 'U'
         
         
-        actualResult = solve._daisyURotations(inputList)
+        actualResult = solve._daisyURotations(inputList, solution)
         
         self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
