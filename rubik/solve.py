@@ -667,7 +667,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
 
             veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
             
-        if verticalPetalIndex == 28: b l B D L L
+        if verticalPetalIndex == 28: 
             
             veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
 
