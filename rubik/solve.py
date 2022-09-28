@@ -732,10 +732,8 @@ def _daisySolution(encodedCube):
     if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
         
         daisyResult = _daisyIntegrated(4, 1, 43, encodedCube, result['solution'])
-        
-        result['solution'] = daisyResult.get('solution')
-        encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCubeList = encodedCube
+        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+
         
     #Right Face 
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
@@ -747,20 +745,14 @@ def _daisySolution(encodedCube):
     if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
         
         daisyResult = _daisyIntegrated(22, 19, 37, encodedCube, result['solution'])
-        
-        result['solution'] = daisyResult.get('solution')
-        encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCubeList = encodedCube
-      
+        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+
       
     # #Left Face 
     if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
         
         daisyResult = _daisyIntegrated(31, 28, 39, encodedCube, result['solution'])
-        
-        result['solution'] = daisyResult.get('solution')
-        encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCubeList = encodedCube
+        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
             
     result['cube'] = encodedCube
     return result
