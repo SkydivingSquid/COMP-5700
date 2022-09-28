@@ -670,7 +670,7 @@ def _moveUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
-    return numberOfPetalsFound, rotatedCubeList, verticalToDaisyResult
+    return numberOfPetalsFound, rotatedCubeList, result
 
 
 
