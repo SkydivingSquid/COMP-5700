@@ -721,6 +721,17 @@ def _daisySolution(encodedCube):
     result['cube'] = encodedCube
     return result
 
+
+
+
+
+
+def _BrokenAndConfusedU(encodedCube, daisyResult):
+    U_result = _rotateU(encodedCube)
+    daisyResult['solution'] += U_result.get('letter')
+    encodedCube = U_result.get('cube')
+    return encodedCube
+
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
     daisyResult = {}
@@ -732,16 +743,12 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     
     while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
         
-        daisyResult['solution'], daisyResult['daisyCubeList'] = _functionU_BCD(rotatedCubeList, daisyResult)
+        encodedCube = _BrokenAndConfusedU(encodedCube, daisyResult)
+    
+        rotatedCubeList = encodedCube
         
-    #     U_result = _rotateU(encodedCube) 
-    #     daisyResult['solution'] += U_result.get('letter')
-    #     encodedCube = U_result.get('cube')
-    #
-    #     rotatedCubeList = encodedCube
-    #
-    #
-    # daisyResult['daisyCubeList'] = encodedCube
+        
+    daisyResult['daisyCubeList'] = encodedCube
     
 
     return daisyResult
