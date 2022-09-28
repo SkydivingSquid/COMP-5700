@@ -752,17 +752,6 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
   
   
   
-
-def _functionDoubleF_daisy(encodedCube, daisyRotResult):
-    F_result = _rotateF(encodedCube)
-    daisyRotResult['solution'] += F_result.get('letter')
-    encodedCube = F_result.get('cube')
-    F_result = _rotateF(encodedCube)
-    daisyRotResult['solution'] += F_result.get('letter')
-    encodedCube = F_result.get('cube')
-    return encodedCube
-
-
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
     daisyRotResult = {}
@@ -774,7 +763,13 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
         if uniqueCenter == 4:
-            encodedCube = _functionDoubleF_daisy(encodedCube, daisyRotResult)
+            F_result = _rotateF(encodedCube)
+            daisyRotResult['solution'] += F_result.get('letter')
+            encodedCube = F_result.get('cube')
+        
+            F_result = _rotateF(encodedCube)
+            daisyRotResult['solution'] += F_result.get('letter')
+            encodedCube = F_result.get('cube')
             
         if uniqueCenter == 13:
             R_result = _rotateR(encodedCube)
