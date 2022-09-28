@@ -619,8 +619,10 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         if verticalPetalIndex == 7:
             #rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult['solution'])
             print(solution)
+            print(rotatedCubeList)
             rotatedCubeList = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
             print(solution)
+            print(rotatedCubeList)
             
             
         if verticalPetalIndex == 10:
