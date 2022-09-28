@@ -60,307 +60,6 @@ def _verifyInput(encodedCube):
     
     return status
 
-    return (rotatedCubeList[37] == rotatedCubeList[49] 
-            and rotatedCubeList[39] == rotatedCubeList[49] 
-            and rotatedCubeList[41] == rotatedCubeList[49] 
-            and rotatedCubeList[43] == rotatedCubeList[49])
-    
-"""
-########################################################       
-########### Methods for Solving Bottom Cross ###########
-########################################################
-"""    
-def _solveBottomCross(encodedCube):
-    """ First Step in Solving a Cube. Solves for Bottom Cross. """
-    result = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
-    result['solution'] = ""
-    result['status'] = 'ok'
-    
-    #Check for bottom cross
-    if (_bottomCrossExists(rotatedCubeList)):
-        
-        #Check for bottom cross alignment
-        if (_bottomCrossAligned(rotatedCubeList)):
-            result['solution'] = ''
-            result['status'] = 'ok'
-            return result
-
-        #Rotate unaligned bottom cross into top daisy
-        else: 
-            encodedCube = _bottomCrossToDaisy(encodedCube, result)
-            daisySolution = _daisySolution(encodedCube)
-            result['solution'] += daisySolution.get('solution')
-            return result
-    
-    #Check Top for Daisy  
-    elif (_daisyExists(rotatedCubeList)):
-        daisySolution = _daisySolution(encodedCube)
-        result['solution'] += daisySolution.get('solution')
-        return result
-        
-    #If Not a Daisy
-    else:
-        rotatedCubeList = _notDaisyCase(result, rotatedCubeList)  
-      
-    #TIME FOR DAISY SOLUTION HERE
-    daisySolution = _daisySolution(rotatedCubeList)
-    rotatedCubeList = daisySolution.get('cube')
-    
-    #Set result keys
-    _setFinalSolveVariables(result, rotatedCubeList, daisySolution)
-    
-    return result
-    
-def _bottomCrossToDaisy(encodedCube, result):
-    """ Rotate an unaligned Bottom-Cross into a Daisy """
-    
-    #Double Front Rotation
-    result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
-    result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
-    
-    #Double Right Rotation
-    result['solution'], encodedCube = _functionR_BCD(encodedCube, result)
-    result['solution'], encodedCube = _functionR_BCD(encodedCube, result)
-    
-    #Double Back Rotation
-    result['solution'], encodedCube = _functionB_BCD(encodedCube, result)
-    result['solution'], encodedCube = _functionB_BCD(encodedCube, result)
-   
-    #Double Left Rotation
-    result['solution'], encodedCube = _functionL_BCD(encodedCube, result)
-    result['solution'], encodedCube = _functionL_BCD(encodedCube, result)
-    
-    return encodedCube
-
-def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
-    """ Moves unaligned bottom pieces to top to begin forming a Daisy """
-    bottomToDaisyResult = {}
-    bottomToDaisyResult['solution'] = solution
-    bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
-    
-    while rotatedCubeList[bottomPetalIndex] == rotatedCubeList[topPetalIndex]:
-        bottomToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, bottomToDaisyResult)
-
-    if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
-        
-        if bottomPetalIndex == 46:
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
-
-        elif bottomPetalIndex == 48:
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
-            
-        elif bottomPetalIndex == 50:
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
-            
-        elif bottomPetalIndex == 52:
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, bottomToDaisyResult)
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, bottomToDaisyResult)
-        
-        bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
-    return bottomToDaisyResult
-
-def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
-    """ Moves horizontal pieces to top to begin forming a Daisy """
-    horizontalToDaisyResult = {}
-    horizontalToDaisyResult['solution'] = solution
-    horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
-    
-    while rotatedCubeList[horizontalPetalIndex] == rotatedCubeList[topPetalIndex]:
-        horizontalToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, horizontalToDaisyResult)
-
-    if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
-        
-        if horizontalPetalIndex == 3:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, horizontalToDaisyResult)
-            
-        if horizontalPetalIndex == 5:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, horizontalToDaisyResult)
-            
-        if horizontalPetalIndex == 12:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, horizontalToDaisyResult)
-            
-        if horizontalPetalIndex == 14:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, horizontalToDaisyResult)
-            
-        if horizontalPetalIndex == 21:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, horizontalToDaisyResult)
-            
-        if horizontalPetalIndex == 23:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, horizontalToDaisyResult)
-
-        if horizontalPetalIndex == 30:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, horizontalToDaisyResult)
-            
-        if horizontalPetalIndex == 32:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, horizontalToDaisyResult)
-
-        horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
-    return horizontalToDaisyResult
-
-def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
-    """ Moves vertical pieces to top to begin forming a Daisy """
-    veritcalToDaisyResult = {}
-    veritcalToDaisyResult['solution'] = solution
-    veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
-    
-    while rotatedCubeList[verticalPetalIndex] == rotatedCubeList[topPetalIndex]:
-        veritcalToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-    if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
-        
-        #Move l,f,L,D,F,F
-        if verticalPetalIndex == 1:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
-        
-        if verticalPetalIndex == 7:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
-    
-        if verticalPetalIndex == 10:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult)
-    
-        if verticalPetalIndex == 16:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult)
-
-        if verticalPetalIndex == 19:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult)
-        
-        if verticalPetalIndex == 25:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult)
-            
-        if verticalPetalIndex == 28: 
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult)
-            
-        if verticalPetalIndex == 34:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult)
-        
-        veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
-    return veritcalToDaisyResult
-
-def _setFinalSolveVariables(result, rotatedCubeList, daisySolution):
-    result['cube'] = "".join(rotatedCubeList)
-    result['solution'] += daisySolution.get('solution')
-    result['status'] = 'ok'
-
-"""  
-########################################################       
-############## Methods for Solving Daisy ###############
-########################################################
-""" 
-def _daisyVariableUpdate(encodedCube, result, daisyResult):
-    """ Sets variables post daisyIntegrated. Forgot to refactor this into it originally. """
-    result['solution'] = daisyResult.get('solution')
-    encodedCube = daisyResult.get('daisyCubeList')
-    rotatedCubeList = encodedCube
-    return rotatedCubeList, encodedCube
-
-def _daisySolution(encodedCube):
-    """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
-    result = {}
-    daisyResult = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
-    result['solution'] = ""
-    
-    #Front Face 
-    if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
-        
-        daisyResult = _daisyIntegrated(4, 1, 43, encodedCube, result['solution'])
-        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
-        
-    #Right Face 
-    if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
-        
-        daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
-        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
-        
-    # #Back Face 
-    if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
-        
-        daisyResult = _daisyIntegrated(22, 19, 37, encodedCube, result['solution'])
-        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
-
-    # #Left Face 
-    if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
-        
-        daisyResult = _daisyIntegrated(31, 28, 39, encodedCube, result['solution'])
-        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
-            
-    result['cube'] = encodedCube
-    return result
-
-def _BrokenAndConfusedU(encodedCube, daisyResult):
-    """ A unique method to rotate U in daisy. Not sure why it doesn't need to return daisyResult['solution'] """
-    U_result = _rotateU(encodedCube)
-    daisyResult['solution'] += U_result.get('letter')
-    encodedCube = U_result.get('cube')
-    return encodedCube
-
-def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
-    """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
-    daisyResult = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
-    daisyResult['solution'] = solution
-    daisyResult['daisyCubeList'] = encodedCube
-    
-    while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
-        
-        encodedCube = _BrokenAndConfusedU(encodedCube, daisyResult)
-        rotatedCubeList = encodedCube
-        
-    daisyResult['daisyCubeList'] = encodedCube
-    return daisyResult
-  
-def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
-    """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
-    daisyRotResult = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
-    daisyRotResult['solution'] = solution
-    daisyRotResult['daisyCubeList'] = encodedCube
-    
-    if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
-        if uniqueCenter == 4:
-            encodedCube = _functionDoubleF_Daisy(encodedCube, daisyRotResult)
-            
-        if uniqueCenter == 13:
-            encodedCube = _funtionDoubleR_Daisy(encodedCube, daisyRotResult)
-            
-        if uniqueCenter == 22:
-            encodedCube = _functionDoubleB_Daisy(encodedCube, daisyRotResult)
-            
-        if uniqueCenter == 31:
-            encodedCube = _functionDoubleL_Daisy(encodedCube, daisyRotResult)
-            
-        rotatedCubeList = encodedCube
-        
-    daisyRotResult['daisyCubeList'] = encodedCube
-
-    return daisyRotResult
-
-def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
-    """ Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. """
-    integratedResult = {}
-
-    #Rotate U if applicable
-    innerMethodResult = _daisyURotations(uniqueCenter, topMiddle, adjacentDaisy, encodedCube, solution)
-    
-    #Rotate top to bottom
-    innerMethodResult = _daisy_Rotations(uniqueCenter, topMiddle, innerMethodResult.get('daisyCubeList'), innerMethodResult.get('solution'))
-    
-    integratedResult['daisyCubeList'] = innerMethodResult.get('daisyCubeList')
-    integratedResult['solution'] = innerMethodResult.get('solution')
-
-    return integratedResult
-    
-    
-
-
 """
 ####################################################################################        
 ############ Rotation Functions and Updates to Cube and Solution String ############
@@ -775,9 +474,304 @@ def _bottomCrossAligned(rotatedCubeList):
             and rotatedCubeList[22] == rotatedCubeList[25] 
             and rotatedCubeList[31] == rotatedCubeList[34])
     
-def _daisyExists(rotatedCubeList):   
+def _daisyExists(rotatedCubeList):
+    return (rotatedCubeList[37] == rotatedCubeList[49] 
+            and rotatedCubeList[39] == rotatedCubeList[49] 
+            and rotatedCubeList[41] == rotatedCubeList[49] 
+            and rotatedCubeList[43] == rotatedCubeList[49])
     
+"""
+########################################################       
+########### Methods for Solving Bottom Cross ###########
+########################################################
+"""    
+def _solveBottomCross(encodedCube):
+    """ First Step in Solving a Cube. Solves for Bottom Cross. """
+    result = {}
+    cubeList = list(encodedCube)
+    rotatedCubeList = cubeList[:]
+    result['solution'] = ""
+    result['status'] = 'ok'
+    
+    #Check for bottom cross
+    if (_bottomCrossExists(rotatedCubeList)):
+        
+        #Check for bottom cross alignment
+        if (_bottomCrossAligned(rotatedCubeList)):
+            result['solution'] = ''
+            result['status'] = 'ok'
+            return result
 
+        #Rotate unaligned bottom cross into top daisy
+        else: 
+            encodedCube = _bottomCrossToDaisy(encodedCube, result)
+            daisySolution = _daisySolution(encodedCube)
+            result['solution'] += daisySolution.get('solution')
+            return result
+    
+    #Check Top for Daisy  
+    elif (_daisyExists(rotatedCubeList)):
+        daisySolution = _daisySolution(encodedCube)
+        result['solution'] += daisySolution.get('solution')
+        return result
+        
+    #If Not a Daisy
+    else:
+        rotatedCubeList = _notDaisyCase(result, rotatedCubeList)  
+      
+    #TIME FOR DAISY SOLUTION HERE
+    daisySolution = _daisySolution(rotatedCubeList)
+    rotatedCubeList = daisySolution.get('cube')
+    
+    #Set result keys
+    _setFinalSolveVariables(result, rotatedCubeList, daisySolution)
+    
+    return result
+    
+def _bottomCrossToDaisy(encodedCube, result):
+    """ Rotate an unaligned Bottom-Cross into a Daisy """
+    
+    #Double Front Rotation
+    result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
+    result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
+    
+    #Double Right Rotation
+    result['solution'], encodedCube = _functionR_BCD(encodedCube, result)
+    result['solution'], encodedCube = _functionR_BCD(encodedCube, result)
+    
+    #Double Back Rotation
+    result['solution'], encodedCube = _functionB_BCD(encodedCube, result)
+    result['solution'], encodedCube = _functionB_BCD(encodedCube, result)
+   
+    #Double Left Rotation
+    result['solution'], encodedCube = _functionL_BCD(encodedCube, result)
+    result['solution'], encodedCube = _functionL_BCD(encodedCube, result)
+    
+    return encodedCube
+
+def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
+    """ Moves unaligned bottom pieces to top to begin forming a Daisy """
+    bottomToDaisyResult = {}
+    bottomToDaisyResult['solution'] = solution
+    bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    
+    while rotatedCubeList[bottomPetalIndex] == rotatedCubeList[topPetalIndex]:
+        bottomToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, bottomToDaisyResult)
+
+    if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
+        
+        if bottomPetalIndex == 46:
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
+
+        elif bottomPetalIndex == 48:
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
+            
+        elif bottomPetalIndex == 50:
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
+            
+        elif bottomPetalIndex == 52:
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, bottomToDaisyResult)
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, bottomToDaisyResult)
+        
+        bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    return bottomToDaisyResult
+
+def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
+    """ Moves horizontal pieces to top to begin forming a Daisy """
+    horizontalToDaisyResult = {}
+    horizontalToDaisyResult['solution'] = solution
+    horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    
+    while rotatedCubeList[horizontalPetalIndex] == rotatedCubeList[topPetalIndex]:
+        horizontalToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, horizontalToDaisyResult)
+
+    if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
+        
+        if horizontalPetalIndex == 3:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, horizontalToDaisyResult)
+            
+        if horizontalPetalIndex == 5:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, horizontalToDaisyResult)
+            
+        if horizontalPetalIndex == 12:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, horizontalToDaisyResult)
+            
+        if horizontalPetalIndex == 14:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, horizontalToDaisyResult)
+            
+        if horizontalPetalIndex == 21:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, horizontalToDaisyResult)
+            
+        if horizontalPetalIndex == 23:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, horizontalToDaisyResult)
+
+        if horizontalPetalIndex == 30:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, horizontalToDaisyResult)
+            
+        if horizontalPetalIndex == 32:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, horizontalToDaisyResult)
+
+        horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    return horizontalToDaisyResult
+
+def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
+    """ Moves vertical pieces to top to begin forming a Daisy """
+    veritcalToDaisyResult = {}
+    veritcalToDaisyResult['solution'] = solution
+    veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    
+    while rotatedCubeList[verticalPetalIndex] == rotatedCubeList[topPetalIndex]:
+        veritcalToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, veritcalToDaisyResult)
+
+    if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
+        
+        #Move l,f,L,D,F,F
+        if verticalPetalIndex == 1:
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
+        
+        if verticalPetalIndex == 7:
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
+    
+        if verticalPetalIndex == 10:
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult)
+    
+        if verticalPetalIndex == 16:
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult)
+
+        if verticalPetalIndex == 19:
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult)
+        
+        if verticalPetalIndex == 25:
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult)
+            
+        if verticalPetalIndex == 28: 
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult)
+            
+        if verticalPetalIndex == 34:
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult)
+        
+        veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    return veritcalToDaisyResult
+
+def _setFinalSolveVariables(result, rotatedCubeList, daisySolution):
+    result['cube'] = "".join(rotatedCubeList)
+    result['solution'] += daisySolution.get('solution')
+    result['status'] = 'ok'
+
+"""  
+########################################################       
+############## Methods for Solving Daisy ###############
+########################################################
+""" 
+def _daisyVariableUpdate(encodedCube, result, daisyResult):
+    """ Sets variables post daisyIntegrated. Forgot to refactor this into it originally. """
+    result['solution'] = daisyResult.get('solution')
+    encodedCube = daisyResult.get('daisyCubeList')
+    rotatedCubeList = encodedCube
+    return rotatedCubeList, encodedCube
+
+def _daisySolution(encodedCube):
+    """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
+    result = {}
+    daisyResult = {}
+    cubeList = list(encodedCube)
+    rotatedCubeList = cubeList[:]
+    result['solution'] = ""
+    
+    #Front Face 
+    if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
+        
+        daisyResult = _daisyIntegrated(4, 1, 43, encodedCube, result['solution'])
+        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        
+    #Right Face 
+    if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
+        
+        daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
+        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        
+    # #Back Face 
+    if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
+        
+        daisyResult = _daisyIntegrated(22, 19, 37, encodedCube, result['solution'])
+        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+
+    # #Left Face 
+    if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
+        
+        daisyResult = _daisyIntegrated(31, 28, 39, encodedCube, result['solution'])
+        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+            
+    result['cube'] = encodedCube
+    return result
+
+def _BrokenAndConfusedU(encodedCube, daisyResult):
+    """ A unique method to rotate U in daisy. Not sure why it doesn't need to return daisyResult['solution'] """
+    U_result = _rotateU(encodedCube)
+    daisyResult['solution'] += U_result.get('letter')
+    encodedCube = U_result.get('cube')
+    return encodedCube
+
+def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
+    """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
+    daisyResult = {}
+    cubeList = list(encodedCube)
+    rotatedCubeList = cubeList[:]
+    daisyResult['solution'] = solution
+    daisyResult['daisyCubeList'] = encodedCube
+    
+    while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
+        
+        encodedCube = _BrokenAndConfusedU(encodedCube, daisyResult)
+        rotatedCubeList = encodedCube
+        
+    daisyResult['daisyCubeList'] = encodedCube
+    return daisyResult
+  
+def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
+    """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
+    daisyRotResult = {}
+    cubeList = list(encodedCube)
+    rotatedCubeList = cubeList[:]
+    daisyRotResult['solution'] = solution
+    daisyRotResult['daisyCubeList'] = encodedCube
+    
+    if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
+        if uniqueCenter == 4:
+            encodedCube = _functionDoubleF_Daisy(encodedCube, daisyRotResult)
+            
+        if uniqueCenter == 13:
+            encodedCube = _funtionDoubleR_Daisy(encodedCube, daisyRotResult)
+            
+        if uniqueCenter == 22:
+            encodedCube = _functionDoubleB_Daisy(encodedCube, daisyRotResult)
+            
+        if uniqueCenter == 31:
+            encodedCube = _functionDoubleL_Daisy(encodedCube, daisyRotResult)
+            
+        rotatedCubeList = encodedCube
+        
+    daisyRotResult['daisyCubeList'] = encodedCube
+
+    return daisyRotResult
+
+def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
+    """ Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. """
+    integratedResult = {}
+
+    #Rotate U if applicable
+    innerMethodResult = _daisyURotations(uniqueCenter, topMiddle, adjacentDaisy, encodedCube, solution)
+    
+    #Rotate top to bottom
+    innerMethodResult = _daisy_Rotations(uniqueCenter, topMiddle, innerMethodResult.get('daisyCubeList'), innerMethodResult.get('solution'))
+    
+    integratedResult['daisyCubeList'] = innerMethodResult.get('daisyCubeList')
+    integratedResult['solution'] = innerMethodResult.get('solution')
+
+    return integratedResult
     
 """
 #############################################################        
