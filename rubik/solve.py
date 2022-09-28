@@ -354,10 +354,6 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 
     return integratedResult
 
-
-
-
-
 """
 ####################################################################################        
 ############ Rotation Functions and Updates to Cube and Solution String ############
@@ -443,6 +439,7 @@ def _functionDoubleF_Daisy(encodedCube, daisyRotResult):
     F_result = _rotateF(encodedCube)
     daisyRotResult['solution'] += F_result.get('letter')
     encodedCube = F_result.get('cube')
+
     F_result = _rotateF(encodedCube)
     daisyRotResult['solution'] += F_result.get('letter')
     encodedCube = F_result.get('cube')
@@ -452,6 +449,7 @@ def _funtionDoubleR_Daisy(encodedCube, daisyRotResult):
     R_result = _rotateR(encodedCube)
     daisyRotResult['solution'] += R_result.get('letter')
     encodedCube = R_result.get('cube')
+    
     R_result = _rotateR(encodedCube)
     daisyRotResult['solution'] += R_result.get('letter')
     encodedCube = R_result.get('cube')
@@ -461,6 +459,7 @@ def _functionDoubleB_Daisy(encodedCube, daisyRotResult):
     B_result = _rotateB(encodedCube)
     daisyRotResult['solution'] += B_result.get('letter')
     encodedCube = B_result.get('cube')
+    
     B_result = _rotateB(encodedCube)
     daisyRotResult['solution'] += B_result.get('letter')
     encodedCube = B_result.get('cube')
@@ -470,6 +469,7 @@ def _functionDoubleL_Daisy(encodedCube, daisyRotResult):
     L_result = _rotateL(encodedCube)
     daisyRotResult['solution'] += L_result.get('letter')
     encodedCube = L_result.get('cube')
+    
     L_result = _rotateL(encodedCube)
     daisyRotResult['solution'] += L_result.get('letter')
     encodedCube = L_result.get('cube')
@@ -480,7 +480,6 @@ def _functionDoubleL_Daisy(encodedCube, daisyRotResult):
 ############ Rotating Vertical Cubes into Daisy #############
 #############################################################
 """
-
 def _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
@@ -561,7 +560,6 @@ def _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
     return rotatedCubeList, veritcalToDaisyResult['solution']
     
-
 """
 #############################################################        
 ########### Bottom-Cross Methods For Solving Cube ###########
@@ -661,6 +659,10 @@ def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList
 
 
+
+
+
+
 def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Front Face Vertical Top
     if (numberOfPetalsFound <= 3):
@@ -668,7 +670,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             verticalToDaisyResult = _verticalCubesToDaisy(1, 43, result['solution'], rotatedCubeList)
             result['solution'] = verticalToDaisyResult.get('solution')
             rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-            #encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
 #Front Face Vertical Bottom
     if (numberOfPetalsFound <= 3):
@@ -676,7 +677,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             verticalToDaisyResult = _verticalCubesToDaisy(7, 43, result['solution'], rotatedCubeList)
             result['solution'] = verticalToDaisyResult.get('solution')
             rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-            #encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
 #Right Face Vertical Top
     if (numberOfPetalsFound <= 3):
@@ -684,7 +684,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             verticalToDaisyResult = _verticalCubesToDaisy(10, 41, result['solution'], rotatedCubeList)
             result['solution'] = verticalToDaisyResult.get('solution')
             rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-            #encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
 #Right Face Vertical Bottom
     if (numberOfPetalsFound <= 3):
@@ -692,7 +691,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             verticalToDaisyResult = _verticalCubesToDaisy(16, 41, result['solution'], rotatedCubeList)
             result['solution'] = verticalToDaisyResult.get('solution')
             rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-            #encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
 # Back Face Vertical Top
     if (numberOfPetalsFound <= 3):
@@ -700,7 +698,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             verticalToDaisyResult = _verticalCubesToDaisy(19, 37, result['solution'], rotatedCubeList)
             result['solution'] = verticalToDaisyResult.get('solution')
             rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-            #encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
 # Back Face Vertical Bottom
     if (numberOfPetalsFound <= 3):
@@ -708,7 +705,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             verticalToDaisyResult = _verticalCubesToDaisy(25, 37, result['solution'], rotatedCubeList)
             result['solution'] = verticalToDaisyResult.get('solution')
             rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-            #encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
 #Left Face Vertical Top
     if (numberOfPetalsFound <= 3):
@@ -716,7 +712,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             verticalToDaisyResult = _verticalCubesToDaisy(28, 39, result['solution'], rotatedCubeList)
             result['solution'] = verticalToDaisyResult.get('solution')
             rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-            #encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
 #Left Face Vertical Bottom
     if (numberOfPetalsFound <= 3):
@@ -724,7 +719,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             verticalToDaisyResult = _verticalCubesToDaisy(34, 39, result['solution'], rotatedCubeList)
             result['solution'] = verticalToDaisyResult.get('solution')
             rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-            #encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
             
     return numberOfPetalsFound, rotatedCubeList
@@ -778,11 +772,6 @@ def _daisyExists(rotatedCubeList):
             and rotatedCubeList[41] == rotatedCubeList[49] 
             and rotatedCubeList[43] == rotatedCubeList[49])
 
-
-
-
-
-    
 """
 #############################################################        
 ############## Rotate Methods For Solving Cube ##############
