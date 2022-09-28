@@ -460,11 +460,22 @@ def _notDaisyCase(result, rotatedCubeList):
     return rotatedCubeList
 
 
+
+
 def _bottomCrossExists(rotatedCubeList):
     return (rotatedCubeList[46] == rotatedCubeList[49] 
             and rotatedCubeList[48] == rotatedCubeList[49] 
             and rotatedCubeList[50] == rotatedCubeList[49] 
             and rotatedCubeList[52] == rotatedCubeList[49])
+    
+
+def _bottomCrossAligned(rotatedCubeList):
+    return (rotatedCubeList[4] == rotatedCubeList[7] 
+            and rotatedCubeList[13] == rotatedCubeList[16] 
+            and rotatedCubeList[22] == rotatedCubeList[25] 
+            and rotatedCubeList[31] == rotatedCubeList[34])
+    
+    
 
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
@@ -477,7 +488,7 @@ def _solveBottomCross(encodedCube):
     #Check for bottom cross
     if (_bottomCrossExists(rotatedCubeList)):
         #Check for bottom cross alignment
-        if (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[31] == rotatedCubeList[34]):
+        if (_bottomCrossAligned(rotatedCubeList)):
             #Return solution for solved cube
             result['solution'] = ''
             result['status'] = 'ok'
