@@ -363,9 +363,6 @@ def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList
 
 
-
-
-
 def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Front Face Vertical Top
     if (numberOfPetalsFound <= 3):
@@ -434,6 +431,33 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             
     return numberOfPetalsFound, rotatedCubeList
 
+
+def _countTopPreals(rotatedCubeList):
+    if rotatedCubeList[37] == rotatedCubeList[49]:
+        numberOfPetalsFound += 1
+    if rotatedCubeList[39] == rotatedCubeList[49]:
+        numberOfPetalsFound += 1
+    if rotatedCubeList[41] == rotatedCubeList[49]:
+        numberOfPetalsFound += 1
+    if rotatedCubeList[43] == rotatedCubeList[49]:
+        numberOfPetalsFound += 1
+    return numberOfPetalsFound
+
+
+def _notADaisyCase(result, rotatedCubeList):
+    numberOfPetalsFound = 0
+#Count Top Petals
+    numberOfPetalsFound = _countTopPreals(rotatedCubeList)
+    while numberOfPetalsFound <= 3:
+        #Bottom Cubes To Daisy
+        numberOfPetalsFound, rotatedCubeList = _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        #Horizontal Cubes To Daisy
+        numberOfPetalsFound, rotatedCubeList = _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        #Vertical Cubes To Daisy
+        numberOfPetalsFound, rotatedCubeList = _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+    
+    return rotatedCubeList
+
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
@@ -478,33 +502,7 @@ def _solveBottomCross(encodedCube):
         
     #If Not a Daisy
     else:
-        numberOfPetalsFound = 0
-        
-        #Check Top Petals Last
-        if rotatedCubeList[37] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[39] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[41] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[43] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1 
-            
-        
-        while(numberOfPetalsFound <= 3):
-            
-            #Bottom Cubes To Daisy            
-            numberOfPetalsFound, rotatedCubeList = _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-            
-            #Horizontal Cubes To Daisy
-            numberOfPetalsFound, rotatedCubeList = _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-        
-            #Vertical Cubes To Daisy
-            
-            numberOfPetalsFound, rotatedCubeList = _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)  
+        rotatedCubeList = _notADaisyCase(result, rotatedCubeList)  
       
     #TIME FOR DAISY SOLUTION HERE
     daisySolution = _daisySolution(rotatedCubeList)
@@ -649,7 +647,6 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
 ############## Daisy Methods For Solving Cube ###############
 #############################################################
 """ 
-
 def _daisyVariableUpdate(encodedCube, result, daisyResult):
     """ Sets variables post daisyIntegrated. Forgot to refactor this into it originally. """
     result['solution'] = daisyResult.get('solution')
@@ -714,7 +711,6 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
         
     daisyResult['daisyCubeList'] = encodedCube
     return daisyResult
-  
   
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
