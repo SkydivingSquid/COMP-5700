@@ -270,6 +270,36 @@ def _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
 #############################################################
 """
 
+def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
+#Checking Top of Bottom Face
+    if (numberOfPetalsFound <= 3):
+        if rotatedCubeList[46] == rotatedCubeList[49]:
+            bottomToDaisyResult = _unalignedBottomToDaisy(46, 43, result['solution'], rotatedCubeList)
+            result['solution'] = bottomToDaisyResult.get('solution')
+            rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+            numberOfPetalsFound += 1
+#Checking Left of Bottom Face
+    if (numberOfPetalsFound <= 3):
+        if rotatedCubeList[48] == rotatedCubeList[49]:
+            bottomToDaisyResult = _unalignedBottomToDaisy(48, 39, result['solution'], rotatedCubeList)
+            result['solution'] = bottomToDaisyResult.get('solution')
+            rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+            numberOfPetalsFound += 1
+#Checking Right of Bottom Face
+    if (numberOfPetalsFound <= 3):
+        if rotatedCubeList[50] == rotatedCubeList[49]:
+            bottomToDaisyResult = _unalignedBottomToDaisy(50, 41, result['solution'], rotatedCubeList)
+            result['solution'] = bottomToDaisyResult.get('solution')
+            rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+            numberOfPetalsFound += 1
+#Checking Bottom of Bottom Face
+    if (numberOfPetalsFound <= 3):
+        if rotatedCubeList[52] == rotatedCubeList[49]:
+            bottomToDaisyResult = _unalignedBottomToDaisy(52, 37, result['solution'], rotatedCubeList)
+            result['solution'] = bottomToDaisyResult.get('solution')
+            rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+            numberOfPetalsFound += 1
+    return numberOfPetalsFound, rotatedCubeList
 
 
 def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
@@ -331,6 +361,9 @@ def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             numberOfPetalsFound += 1
             
     return numberOfPetalsFound, rotatedCubeList, rotatedCubeList
+
+
+
 
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
@@ -398,46 +431,7 @@ def _solveBottomCross(encodedCube):
             ################## CHECK BOTTOM FACE PIECES ###################
             ###############################################################
             
-            #Checking Top of Bottom Face
-            if(numberOfPetalsFound <= 3):                
-                if rotatedCubeList[46] == rotatedCubeList[49]:
-                    
-                    bottomToDaisyResult = _unalignedBottomToDaisy(46, 43, result['solution'], rotatedCubeList)
-                    result['solution'] = bottomToDaisyResult.get('solution')
-                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-                    
-                    numberOfPetalsFound += 1
-            
-            #Checking Left of Bottom Face
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[48] == rotatedCubeList[49]:
-                    
-                    bottomToDaisyResult = _unalignedBottomToDaisy(48, 39, result['solution'], rotatedCubeList)
-                    result['solution'] = bottomToDaisyResult.get('solution')
-                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-
-                    numberOfPetalsFound += 1
-                    
-            #Checking Right of Bottom Face
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[50] == rotatedCubeList[49]:
-                    
-                    bottomToDaisyResult = _unalignedBottomToDaisy(50, 41, result['solution'], rotatedCubeList)
-                    result['solution'] = bottomToDaisyResult.get('solution')
-                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-
-                    numberOfPetalsFound += 1
-
-                    
-            #Checking Bottom of Bottom Face
-            if(numberOfPetalsFound <= 3):
-                if rotatedCubeList[52] == rotatedCubeList[49]:
-                    
-                    bottomToDaisyResult = _unalignedBottomToDaisy(52, 37, result['solution'], rotatedCubeList)
-                    result['solution'] = bottomToDaisyResult.get('solution')
-                    rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-                        
-                    numberOfPetalsFound += 1
+            numberOfPetalsFound, rotatedCubeList = _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
                     
             ###################################################################
             ################## CHECK HORIZONTAL SIDE PIECES ###################
