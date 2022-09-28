@@ -598,7 +598,7 @@ def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     
     print(veritcalToDaisyResult['solution'])
-    return rotatedCubeList
+    return rotatedCubeList, veritcalToDaisyResult['solution']
 
 def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves vertical pieces to top to begin forming a Daisy """
@@ -619,10 +619,8 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         if verticalPetalIndex == 7:
             #rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult['solution'])
             print(solution)
-            print(rotatedCubeList)
-            rotatedCubeList = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
             print(solution)
-            print(rotatedCubeList)
             
             
         if verticalPetalIndex == 10:
