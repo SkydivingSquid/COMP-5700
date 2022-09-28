@@ -459,6 +459,14 @@ def _notDaisyCase(result, rotatedCubeList):
     
     return rotatedCubeList
 
+
+def _bottomCrossExists(rotatedCubeList):
+    if rotatedCubeList[46] == rotatedCubeList[49] 
+    and rotatedCubeList[48] == rotatedCubeList[49] 
+    and rotatedCubeList[50] == rotatedCubeList[49] 
+    and rotatedCubeList[52] == rotatedCubeList[49]
+    return True
+
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
@@ -468,20 +476,14 @@ def _solveBottomCross(encodedCube):
     result['status'] = 'ok'
     
     #Check for bottom cross
-    if (rotatedCubeList[46] == rotatedCubeList[49] and
-    rotatedCubeList[48] == rotatedCubeList[49] and
-    rotatedCubeList[50] == rotatedCubeList[49] and
-    rotatedCubeList[52] == rotatedCubeList[49]):
+    if (_bottomCrossExists(rotatedCubeList)):
         #Check for bottom cross alignment
-        if (rotatedCubeList[4] == rotatedCubeList[7] and
-            rotatedCubeList[13] == rotatedCubeList[16] and
-            rotatedCubeList[22] == rotatedCubeList[25] and
-            rotatedCubeList[31] == rotatedCubeList[34]):
+        if (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[31] == rotatedCubeList[34]):
             #Return solution for solved cube
             result['solution'] = ''
             result['status'] = 'ok'
             return result
-        
+
         #Rotate unaligned bottom cross into top daisy
         else: 
             encodedCube = _bottomCrossToDaisy(encodedCube, result)
@@ -492,10 +494,7 @@ def _solveBottomCross(encodedCube):
             return result
     
     #Check Top for Daisy  
-    elif (rotatedCubeList[37] == rotatedCubeList[49] and
-        rotatedCubeList[39] == rotatedCubeList[49] and
-        rotatedCubeList[41] == rotatedCubeList[49] and
-        rotatedCubeList[43] == rotatedCubeList[49]):
+    elif (rotatedCubeList[37] == rotatedCubeList[49] and rotatedCubeList[39] == rotatedCubeList[49] and rotatedCubeList[41] == rotatedCubeList[49] and rotatedCubeList[43] == rotatedCubeList[49]):
         #Solves for Daisy and returns a bottom-cross
         daisySolution = _daisySolution(encodedCube)
         result['solution'] += daisySolution.get('solution')
