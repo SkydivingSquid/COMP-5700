@@ -1336,16 +1336,24 @@ def _rotated(cube):
     rotatedCubeList[47] = cubeList[53]
     
     #rotate top to left
-    rotatedCubeList[33], rotatedCubeList[34], rotatedCubeList[35] = cubeList[6], cubeList[7], cubeList[8]
-
+    rotatedCubeList[33] = cubeList[6]
+    rotatedCubeList[34] = cubeList[7]
+    rotatedCubeList[35] = cubeList[8]
+    
     #rotate right to top
-    rotatedCubeList[6],rotatedCubeList[7],rotatedCubeList[8] = cubeList[15],cubeList[16],cubeList[17]
-
+    rotatedCubeList[6] = cubeList[15]
+    rotatedCubeList[7] = cubeList[16]
+    rotatedCubeList[8] = cubeList[17]
+    
     #rotate bottom to right
-    rotatedCubeList[15],rotatedCubeList[16],rotatedCubeList[17] = cubeList[24],cubeList[25],cubeList[26]
+    rotatedCubeList[15] = cubeList[24]
+    rotatedCubeList[16] = cubeList[25]
+    rotatedCubeList[17] = cubeList[26]
     
     #rotate left to bottom
-    rotatedCubeList[24],rotatedCubeList[25],rotatedCubeList[26] = cubeList[33],cubeList[34] ,cubeList[35] 
+    rotatedCubeList[24] = cubeList[33]
+    rotatedCubeList[25] = cubeList[34] 
+    rotatedCubeList[26] = cubeList[35]
 
     result['cube'] = rotatedCubeList
     result['letter'] = 'd'
