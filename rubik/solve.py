@@ -451,7 +451,7 @@ def _countTopPreals(rotatedCubeList):
 
 
 def _notDaisyCase(result, rotatedCubeList):
-    numberOfPetalsFound = 0
+
 #Count Number of Top Petals
     numberOfPetalsFound = _countTopPreals(rotatedCubeList)
     while numberOfPetalsFound <= 3:
