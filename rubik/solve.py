@@ -431,6 +431,19 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             
     return numberOfPetalsFound, rotatedCubeList
 
+
+def _countTopPreals(rotatedCubeList):
+    numberOfPetalsFound = 0
+    if rotatedCubeList[37] == rotatedCubeList[49]:
+        numberOfPetalsFound += 1
+    if rotatedCubeList[39] == rotatedCubeList[49]:
+        numberOfPetalsFound += 1
+    if rotatedCubeList[41] == rotatedCubeList[49]:
+        numberOfPetalsFound += 1
+    if rotatedCubeList[43] == rotatedCubeList[49]:
+        numberOfPetalsFound += 1
+    return numberOfPetalsFound
+
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
@@ -478,17 +491,7 @@ def _solveBottomCross(encodedCube):
         numberOfPetalsFound = 0
     
         #Check Top Petals Last
-        if rotatedCubeList[37] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[39] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[41] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1
-            
-        if rotatedCubeList[43] == rotatedCubeList[49]:
-            numberOfPetalsFound += 1 
+        numberOfPetalsFound = _countTopPreals(rotatedCubeList) 
             
         
         while(numberOfPetalsFound <= 3):
