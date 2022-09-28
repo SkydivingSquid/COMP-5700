@@ -461,11 +461,10 @@ def _notDaisyCase(result, rotatedCubeList):
 
 
 def _bottomCrossExists(rotatedCubeList):
-    if rotatedCubeList[46] == rotatedCubeList[49] 
+    return rotatedCubeList[46] == rotatedCubeList[49] 
     and rotatedCubeList[48] == rotatedCubeList[49] 
     and rotatedCubeList[50] == rotatedCubeList[49] 
     and rotatedCubeList[52] == rotatedCubeList[49]
-    return True
 
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
