@@ -335,7 +335,8 @@ def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
             encodedCube = rotatedCubeList
             numberOfPetalsFound += 1
-    return numberOfPetalsFound, rotatedCubeList, encodedCube
+            
+    return numberOfPetalsFound, rotatedCubeList, rotatedCubeList
 
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
