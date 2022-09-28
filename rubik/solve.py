@@ -60,7 +60,6 @@ def _verifyInput(encodedCube):
     
     return status
 
-
 """
 ####################################################################################        
 ############ Rotation Functions and Updates to Cube and Solution String ############
@@ -714,6 +713,13 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
 ############## Daisy Methods For Solving Cube ###############
 #############################################################
 """ 
+
+def _TEMPORARYMETHOD(encodedCube, result, daisyResult):
+    result['solution'] = daisyResult.get('solution')
+    encodedCube = daisyResult.get('daisyCubeList')
+    rotatedCubeList = encodedCube
+    return rotatedCubeList, encodedCube
+
 def _daisySolution(encodedCube):
     """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
     result = {}
@@ -736,9 +742,7 @@ def _daisySolution(encodedCube):
         
         daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
         
-        result['solution'] = daisyResult.get('solution')
-        encodedCube = daisyResult.get('daisyCubeList')
-        rotatedCubeList = encodedCube
+        rotatedCubeList, encodedCube = _TEMPORARYMETHOD(encodedCube, result, daisyResult)
         
     # #Back Face 
     if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
