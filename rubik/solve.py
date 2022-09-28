@@ -443,21 +443,6 @@ def _countTopPreals(rotatedCubeList):
         numberOfPetalsFound += 1
     return numberOfPetalsFound
 
-
-def _notADaisyCase(result, rotatedCubeList):
-    numberOfPetalsFound = 0
-#Count Top Petals
-    numberOfPetalsFound = _countTopPreals(rotatedCubeList)
-    while numberOfPetalsFound <= 3:
-        #Bottom Cubes To Daisy
-        numberOfPetalsFound, rotatedCubeList = _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-        #Horizontal Cubes To Daisy
-        numberOfPetalsFound, rotatedCubeList = _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-        #Vertical Cubes To Daisy
-        numberOfPetalsFound, rotatedCubeList = _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-    
-    return rotatedCubeList
-
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
@@ -502,7 +487,21 @@ def _solveBottomCross(encodedCube):
         
     #If Not a Daisy
     else:
-        rotatedCubeList = _notADaisyCase(result, rotatedCubeList)  
+        numberOfPetalsFound = 0
+    
+        #Count Top Petals
+        numberOfPetalsFound = _countTopPreals(rotatedCubeList) 
+            
+        while(numberOfPetalsFound <= 3):
+            
+            #Bottom Cubes To Daisy            
+            numberOfPetalsFound, rotatedCubeList = _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+            
+            #Horizontal Cubes To Daisy
+            numberOfPetalsFound, rotatedCubeList = _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        
+            #Vertical Cubes To Daisy
+            numberOfPetalsFound, rotatedCubeList = _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)  
       
     #TIME FOR DAISY SOLUTION HERE
     daisySolution = _daisySolution(rotatedCubeList)
