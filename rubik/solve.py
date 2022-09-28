@@ -586,6 +586,8 @@ def _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
 
 
 def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
+    print(veritcalToDaisyResult['solution'])
+    
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
@@ -594,6 +596,8 @@ def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    
+    print(veritcalToDaisyResult['solution'])
     return rotatedCubeList
 
 def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
