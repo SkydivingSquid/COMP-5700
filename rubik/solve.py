@@ -664,7 +664,7 @@ def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 
 
 
-def _moveUpperVerticalCubeToDaisy(result, rotatedCubeList):
+def _moveUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     if rotatedCubeList[1] == rotatedCubeList[49]:
         verticalToDaisyResult = _verticalCubesToDaisy(1, 43, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
@@ -677,7 +677,7 @@ def _moveUpperVerticalCubeToDaisy(result, rotatedCubeList):
 def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Front Face Vertical Top
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, verticalToDaisyResult = _moveUpperVerticalCubeToDaisy(result, rotatedCubeList)
+        numberOfPetalsFound, rotatedCubeList, verticalToDaisyResult = _moveUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
 #Front Face Vertical Bottom
     if (numberOfPetalsFound <= 3):
         if rotatedCubeList[7] == rotatedCubeList[49]:
