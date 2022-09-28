@@ -596,6 +596,57 @@ def _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult):
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
     return rotatedCubeList, veritcalToDaisyResult['solution']
 
+def _verticleLowerCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleUpperCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleLowerCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleUpperCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult) 
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
 
 
 
@@ -616,102 +667,28 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         if verticalPetalIndex == 1:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
         
-        
         if verticalPetalIndex == 7:
-
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
-
-            
-            
-        if verticalPetalIndex == 10:
-
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult)
-
     
+        if verticalPetalIndex == 10:
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult)
     
         if verticalPetalIndex == 16:
-            
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
-    
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
-    
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-            
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult)
 
         if verticalPetalIndex == 19:
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult)
         
         if verticalPetalIndex == 25:
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult)
             
         if verticalPetalIndex == 28: 
-            
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult)
             
         if verticalPetalIndex == 34:
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-
-            veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-            
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult)
         
         veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
-    
     return veritcalToDaisyResult
 
 """  
