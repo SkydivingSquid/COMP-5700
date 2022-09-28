@@ -9,19 +9,18 @@ def _solve(parms):
     result = {}
     solvedBottomCrossResult = {}
     encodedCube = parms.get('cube',None)
-    #status = ""
     #result['rotations'] = ""           
     #result['status'] = ''
     
     #Verify If Input Is Valid and Return Status
-    result['status'] = _verifyInput(encodedCube)
+    status = _verifyInput(encodedCube)
     
     #Solve for Bottom Cross and set rotations to the solution.
-    if result['status'] == 'ok':
+    if status == 'ok':
         solvedBottomCrossResult = _solveBottomCross(encodedCube)
         result['rotations'] = solvedBottomCrossResult.get('solution')
     
-    
+    result['status'] = status
     return result
 
 """
