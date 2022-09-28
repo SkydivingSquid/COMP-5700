@@ -26,7 +26,9 @@ class solveBottomCrossTest(unittest.TestCase):
     #        abnormal:
     #            dict['status']: 'error: xxx', where xxx is a non-empty developer-selected diagnostic
     #
-    #    confidence level:    boundary level analysis
+    #    assumptions:     the given input cube, assuming all other validity checks pass, will be of 'possible' combinations. 
+    #
+    #    confidence level:    boundary level analysis, minus impossible-cube orientation checks (graduates)
     #    
     #    test path notes:
     #        _1_ digit annotates test for input verification from iteration 1
@@ -35,16 +37,16 @@ class solveBottomCrossTest(unittest.TestCase):
     #
     #    happy paths:
 
-    #        test 020: Input cube with bottom cross already solved
-    #        test 021: Input cube with unaligned bottom cross
-    #        test 022: Input cube with daisy solved
-    #        test 023: Input cube with unaligned daisy
-    #        test 024: Input cube with neither bottom cross nor daisy
+    #        test 020: Input nominal cube with bottom cross already solved
+    #        test 021: Input nominal cube with unaligned bottom cross
+    #        test 022: Input nominal cube with daisy solved
+    #        test 023: Input nominal cube with unaligned daisy
+    #        test 024: Input nominal cube with neither bottom cross nor daisy
     
-    #        test R25:
-    #        test 026:
-    #        test 027:
-    #        test 028:
+    #        test R20: Input nominal cube list checking for U rotation
+    #        test R21: Input nominal cube list checking for directional rotations
+    #        test R23: Input nominal cube list with simple solution checking for integrated U and directional rotations
+    #        test R22: Input nominal cube list checking for integrated U and directional rotations
      
     #        test 620: Scrambled Cube
     #        test 621: Scrambled Cube
@@ -57,7 +59,6 @@ class solveBottomCrossTest(unittest.TestCase):
     #        test 628: Scrambled Cube
     #        test 629: Scrambled Cube
     #       
-    # 
     #    sad paths:
     #        (Cube class calls)
     #        test 010: Validate Cube class has been imported - checks for valid cube length
@@ -198,12 +199,11 @@ class solveBottomCrossTest(unittest.TestCase):
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
-        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
         
-    def test_solve_R25_RefactoredDaisyU(self):
+    def test_solve_R20_RefactoredDaisyU(self):
         inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
                      'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
                      'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
@@ -230,7 +230,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
     
-    def test_solve_026_RefactoredDaisyRot(self):
+    def test_solve_R21_RefactoredDaisyRot(self):
         inputList = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
                      'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
                      'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
@@ -257,7 +257,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
     
-    def test_solve_027_RefactoredDaisyU_Integrated(self):
+    def test_solve_R22_RefactoredDaisyU_Integrated(self):
         inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
                      'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
                      'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
@@ -284,7 +284,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
     
-    def test_solve_028_RefactoredUnAlaignedBottomCubesToDaisyTop_Integrated(self):
+    def test_solve_R23_RefactoredUnAlaignedBottomCubesToDaisyTop_Integrated(self):
         inputList = ['o', 'r', 'g', 'o', 'b', 'w', 'b', 'w', 'w', 
                      'o', 'y', 'o', 'b', 'r', 'o', 'b', 'b', 'g', 
                      'w', 'o', 'y', 'w', 'y', 'r', 'b', 'r', 'w', 

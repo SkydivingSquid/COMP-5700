@@ -9,8 +9,8 @@ def _solve(parms):
     result = {}
     solvedBottomCrossResult = {}
     encodedCube = parms.get('cube',None)
-    result['rotations'] = ""           
-    result['status'] = ''
+    #result['rotations'] = ""           
+    #result['status'] = ''
     
     #Verify If Input Is Valid and Return Status
     result['status'] = _verifyInput(encodedCube)
