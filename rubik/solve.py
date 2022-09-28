@@ -732,7 +732,7 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     
     while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
         
-        daisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, daisyResult)
+        daisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, daisyResult['solution'])
     
         rotatedCubeList = encodedCube
         
