@@ -63,13 +63,9 @@ def _verifyInput(encodedCube):
 
 """
 ####################################################################################        
-########### INNER SOLUTION FUNCTIONS FOR CUBE ROTATION AND STATUS UPDATE ###########
+############ Rotation Functions and Updates to Cube and Solution String ############
 #################################################################################### 
 """
-
-    ###############################################################
-    ############### METHODS FOR BOTTOM CROSS DAISY ################
-    ###############################################################
 
 def _functionF_BCD(encodedCube, result):
     F_result = _rotateF(encodedCube)
@@ -141,13 +137,91 @@ def _functionD_BCD(encodedCube, result):
     
     return result['solution'], encodedCube
 
-    
+"""
+#############################################################        
+############ Rotating Vertical Cubes into Daisy #############
+#############################################################
+"""
 
+def _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
 
-    ####################################################################
-    ############### METHODS FOR UNALIGNED BOTTOM DAISY #################
-    ####################################################################
-    
+def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleLowerCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleUpperCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleLowerCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleUpperCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult) 
+    return rotatedCubeList, veritcalToDaisyResult['solution']
+
+def _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
+    return rotatedCubeList, veritcalToDaisyResult['solution']
     
 
 
@@ -558,94 +632,6 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
         horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return horizontalToDaisyResult
 
-
-
-
-
-
-
-
-""" METHODS FOR ROTATING VERTICALS INTO DAISY """
-
-def _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    return rotatedCubeList, veritcalToDaisyResult['solution']
-
-def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    return rotatedCubeList, veritcalToDaisyResult['solution']
-
-def _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult):
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    return rotatedCubeList, veritcalToDaisyResult['solution']
-
-def _verticleLowerCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult):
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    return rotatedCubeList, veritcalToDaisyResult['solution']
-
-def _verticleUpperCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult):
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-    return rotatedCubeList, veritcalToDaisyResult['solution']
-
-def _verticleLowerCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult):
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-    return rotatedCubeList, veritcalToDaisyResult['solution']
-
-def _verticleUpperCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult) 
-    return rotatedCubeList, veritcalToDaisyResult['solution']
-
-def _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-    veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-    return rotatedCubeList, veritcalToDaisyResult['solution']
 
 
 
