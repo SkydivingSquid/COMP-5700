@@ -9,8 +9,6 @@ def _solve(parms):
     result = {}
     solvedBottomCrossResult = {}
     encodedCube = parms.get('cube',None)
-    #result['rotations'] = ""           
-    #result['status'] = ''
     
     #Verify If Input Is Valid and Return Status
     status = _verifyInput(encodedCube)
@@ -574,11 +572,9 @@ def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Checking Left of Bottom Face
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-
 #Checking Right of Bottom Face
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-
 #Checking Bottom of Bottom Face
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
@@ -715,7 +711,6 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Front Face Vertical Top
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveFrontUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-        
 #Front Face Vertical Bottom
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveFrontLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
@@ -1360,7 +1355,3 @@ def _rotated(cube):
     result['cube'] = rotatedCubeList
     result['letter'] = 'd'
     return result
-
-    
-
-
