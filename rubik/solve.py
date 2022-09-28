@@ -573,7 +573,7 @@ def _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
 
 
 
-def _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
+def _moveBottomTopCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     if rotatedCubeList[46] == rotatedCubeList[49]:
         bottomToDaisyResult = _unalignedBottomToDaisy(46, 43, result['solution'], rotatedCubeList)
         result['solution'] = bottomToDaisyResult.get('solution')
@@ -581,31 +581,49 @@ def _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
+def _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
+    if rotatedCubeList[48] == rotatedCubeList[49]:
+        bottomToDaisyResult = _unalignedBottomToDaisy(48, 39, result['solution'], rotatedCubeList)
+        result['solution'] = bottomToDaisyResult.get('solution')
+        rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+        numberOfPetalsFound += 1
+    return numberOfPetalsFound, rotatedCubeList, result
+
+def _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
+    if rotatedCubeList[50] == rotatedCubeList[49]:
+        bottomToDaisyResult = _unalignedBottomToDaisy(50, 41, result['solution'], rotatedCubeList)
+        result['solution'] = bottomToDaisyResult.get('solution')
+        rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+        numberOfPetalsFound += 1
+    return numberOfPetalsFound, rotatedCubeList, result
+
+def _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
+    if rotatedCubeList[52] == rotatedCubeList[49]:
+        bottomToDaisyResult = _unalignedBottomToDaisy(52, 37, result['solution'], rotatedCubeList)
+        result['solution'] = bottomToDaisyResult.get('solution')
+        rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+        numberOfPetalsFound += 1
+    return numberOfPetalsFound, rotatedCubeList, result
+
+
+
+
 def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Checking Top of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, rotatedCubeList, result = _moveBottomTopCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
 #Checking Left of Bottom Face
     if (numberOfPetalsFound <= 3):
-        if rotatedCubeList[48] == rotatedCubeList[49]:
-            bottomToDaisyResult = _unalignedBottomToDaisy(48, 39, result['solution'], rotatedCubeList)
-            result['solution'] = bottomToDaisyResult.get('solution')
-            rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-            numberOfPetalsFound += 1
+        numberOfPetalsFound, rotatedCubeList, result = _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+
 #Checking Right of Bottom Face
     if (numberOfPetalsFound <= 3):
-        if rotatedCubeList[50] == rotatedCubeList[49]:
-            bottomToDaisyResult = _unalignedBottomToDaisy(50, 41, result['solution'], rotatedCubeList)
-            result['solution'] = bottomToDaisyResult.get('solution')
-            rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-            numberOfPetalsFound += 1
+        numberOfPetalsFound, rotatedCubeList, result = _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+
 #Checking Bottom of Bottom Face
     if (numberOfPetalsFound <= 3):
-        if rotatedCubeList[52] == rotatedCubeList[49]:
-            bottomToDaisyResult = _unalignedBottomToDaisy(52, 37, result['solution'], rotatedCubeList)
-            result['solution'] = bottomToDaisyResult.get('solution')
-            rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-            numberOfPetalsFound += 1
+        numberOfPetalsFound, rotatedCubeList, result = _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+
     return numberOfPetalsFound, rotatedCubeList
 
 
