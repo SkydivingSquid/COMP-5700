@@ -687,11 +687,8 @@ def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
         numberOfPetalsFound, rotatedCubeList, result = _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
 #Check Front Face (Right Side Piece)
     if (numberOfPetalsFound <= 3):
-        if rotatedCubeList[5] == rotatedCubeList[49]:
-            horizontalToDaisyResult = _horizontalCubesToDaisy(5, 41, result['solution'], rotatedCubeList)
-            result['solution'] = horizontalToDaisyResult.get('solution')
-            rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
-            numberOfPetalsFound += 1
+        numberOfPetalsFound, rotatedCubeList, result = _moveFrontStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+
 #Check Right Face (Left Side Piece)
     if (numberOfPetalsFound <= 3):
         if rotatedCubeList[12] == rotatedCubeList[49]:
