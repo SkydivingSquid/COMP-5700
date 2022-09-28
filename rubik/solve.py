@@ -224,7 +224,6 @@ def _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
     return rotatedCubeList, veritcalToDaisyResult['solution']
     
 
-
 """
 #############################################################        
 ########### Bottom-Cross Methods For Solving Cube ###########
@@ -562,8 +561,6 @@ def _bottomCrossToDaisy(encodedCube, result):
     
     return encodedCube
 
-
-
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
     bottomToDaisyResult = {}
@@ -631,12 +628,6 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
 
         horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return horizontalToDaisyResult
-
-
-
-
-
-
 
 def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
     """ Moves vertical pieces to top to begin forming a Daisy """
@@ -741,9 +732,7 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     
     while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
         
-        U_result = _rotateU(encodedCube) 
-        daisyResult['solution'] += U_result.get('letter')
-        encodedCube = U_result.get('cube')
+        daisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, daisyResult)
     
         rotatedCubeList = encodedCube
         
