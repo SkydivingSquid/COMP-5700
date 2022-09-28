@@ -727,10 +727,11 @@ def _daisySolution(encodedCube):
 
 
 def _BrokenAndConfusedU(encodedCube, daisyResult):
+    """ Unique Method for rotating U in _daisyURotation, that doesn't seem to make sense """
     U_result = _rotateU(encodedCube)
     daisyResult['solution'] += U_result.get('letter')
     encodedCube = U_result.get('cube')
-    return encodedCube
+    return encodedCube #Not Sure Why This Doesn't Need To Return daisyResult['solution']
 
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
@@ -740,17 +741,12 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     daisyResult['solution'] = solution
     daisyResult['daisyCubeList'] = encodedCube
     
-    
     while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
         
-        daisyResult['daisyCubeList'] = _BrokenAndConfusedU(encodedCube, daisyResult)
-    
+        encodedCube = _BrokenAndConfusedU(encodedCube, daisyResult)
         #rotatedCubeList = encodedCube
         
-        
-    #daisyResult['daisyCubeList'] = encodedCube
-    
-
+    daisyResult['daisyCubeList'] = encodedCube
     return daisyResult
   
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
@@ -764,9 +760,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
         if uniqueCenter == 4:
-            F_result = _rotateF(encodedCube)
-            daisyRotResult['solution'] += F_result.get('letter')
-            encodedCube = F_result.get('cube')
+            daisyRotResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, daisyRotResult)
         
             F_result = _rotateF(encodedCube)
             daisyRotResult['solution'] += F_result.get('letter')
