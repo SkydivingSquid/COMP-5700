@@ -360,6 +360,7 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     
     
 
+
 """
 ####################################################################################        
 ############ Rotation Functions and Updates to Cube and Solution String ############
@@ -774,7 +775,9 @@ def _bottomCrossAligned(rotatedCubeList):
             and rotatedCubeList[22] == rotatedCubeList[25] 
             and rotatedCubeList[31] == rotatedCubeList[34])
     
-def _daisyExists(rotatedCubeList):
+def _daisyExists(rotatedCubeList):   
+    
+
     
 """
 #############################################################        
