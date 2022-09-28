@@ -854,6 +854,7 @@ def _daisyExists(rotatedCubeList):
 """
 #############################################################        
 ############## Rotate Methods For Solving Cube ##############
+##############   These are my 'magic numbers'  ##############
 #############################################################
 """
 def _rotateF(cube):
@@ -1358,13 +1359,6 @@ def _rotated(cube):
     result['cube'] = rotatedCubeList
     result['letter'] = 'd'
     return result
-
-"""
-###################################################        
-############## Cube Index Assignment ##############
-###################################################
-"""
-
 
     
 
