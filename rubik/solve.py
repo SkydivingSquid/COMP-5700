@@ -753,7 +753,52 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
   
   
   
+  
+"""
+####################################################################################        
+############ Daisy Rotation Functions and Updates to Cube and Solution String ############
+#################################################################################### 
+"""
+  
 
+def _functionDoubleF_Daisy(encodedCube, daisyRotResult):
+    F_result = _rotateF(encodedCube)
+    daisyRotResult['solution'] += F_result.get('letter')
+    encodedCube = F_result.get('cube')
+    F_result = _rotateF(encodedCube)
+    daisyRotResult['solution'] += F_result.get('letter')
+    encodedCube = F_result.get('cube')
+    return encodedCube
+
+
+def _funtionDoubleR_Daisy(encodedCube, daisyRotResult):
+    R_result = _rotateR(encodedCube)
+    daisyRotResult['solution'] += R_result.get('letter')
+    encodedCube = R_result.get('cube')
+    R_result = _rotateR(encodedCube)
+    daisyRotResult['solution'] += R_result.get('letter')
+    encodedCube = R_result.get('cube')
+    return encodedCube
+
+
+def _functionDoubleB_Daisy(encodedCube, daisyRotResult):
+    B_result = _rotateB(encodedCube)
+    daisyRotResult['solution'] += B_result.get('letter')
+    encodedCube = B_result.get('cube')
+    B_result = _rotateB(encodedCube)
+    daisyRotResult['solution'] += B_result.get('letter')
+    encodedCube = B_result.get('cube')
+    return encodedCube
+
+
+def _functionDoubleL_Daisy(encodedCube, daisyRotResult):
+    L_result = _rotateL(encodedCube)
+    daisyRotResult['solution'] += L_result.get('letter')
+    encodedCube = L_result.get('cube')
+    L_result = _rotateL(encodedCube)
+    daisyRotResult['solution'] += L_result.get('letter')
+    encodedCube = L_result.get('cube')
+    return encodedCube
 
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
