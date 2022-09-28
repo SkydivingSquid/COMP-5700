@@ -714,7 +714,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
 #############################################################
 """ 
 
-def _TEMPORARYMETHOD(encodedCube, result, daisyResult):
+def _daisyVariableUpdate(encodedCube, result, daisyResult):
     result['solution'] = daisyResult.get('solution')
     encodedCube = daisyResult.get('daisyCubeList')
     rotatedCubeList = encodedCube
@@ -741,8 +741,7 @@ def _daisySolution(encodedCube):
     if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
         
         daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
-        
-        rotatedCubeList, encodedCube = _TEMPORARYMETHOD(encodedCube, result, daisyResult)
+        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
         
     # #Back Face 
     if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
