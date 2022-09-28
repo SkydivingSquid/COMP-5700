@@ -577,7 +577,9 @@ def _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
     return rotatedCubeList, veritcalToDaisyResult['solution']
 
 def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
-    
+    print('INSIDE LOWER METHOD')
+    print(rotatedCubeList)
+    print(veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
@@ -588,6 +590,11 @@ def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
     veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     
     veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    
+    print('LEAVING LOWER METHOD')
+    print(rotatedCubeList)
+    print(veritcalToDaisyResult['rotatedCubeList'])
+    
     return rotatedCubeList, veritcalToDaisyResult['solution']
 
 

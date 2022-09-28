@@ -352,21 +352,21 @@ class solveBottomCrossTest(unittest.TestCase):
     #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    # #
-    # def test_solve_992_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'wooyggyorrwobryggobrywoobgrooyrybwbgwgrbbrgywbwbrwwgyy'
     #
-    #     expectedResult = {}       
-    #     expectedResult['cube'] = 'obwoggggyrgbrrrbroggrooowoyobbyybwyybbrrbyyygwwgwwwowr'
-    #     expectedResult['solution'] = 'FFRRURUUfUUFFURRBBULL'
-    #     expectedResult['status'] = 'ok'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    def test_solve_992_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'wooyggyorrwobryggobrywoobgrooyrybwbgwgrbbrgywbwbrwwgyy'
+    
+        expectedResult = {}       
+        expectedResult['cube'] = 'obwoggggyrgbrrrbroggrooowoyobbyybwyybbrrbyyygwwgwwwowr'
+        expectedResult['solution'] = 'FFRRURUUfUUFFURRBBULL'
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     #
     # def test_solve_993_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
     #     inputDict = {}
@@ -585,32 +585,35 @@ class solveBottomCrossTest(unittest.TestCase):
     #
 
         
-    def test_solve_1020_RefactoringLowerVerticalCubeOnFrontFaceIntoDaisy(self):
-        inputList = ['o', 'r', 'g', 'o', 'b', 'w', 'b', 'w', 'w', 
-                     'o', 'y', 'o', 'b', 'r', 'o', 'b', 'b', 'g', 
-                     'w', 'o', 'y', 'w', 'y', 'r', 'b', 'r', 'w', 
-                     'r', 'o', 'b', 'b', 'o', 'y', 'y', 'y', 'r', 
-                     'g', 'b', 'y', 'g', 'w', 'g', 'g', 'g', 'y', 
-                     'w', 'y', 'o', 'r', 'g', 'g', 'r', 'w', 'r']
-    
-        solution = ""
-    
-        expectedResult = {}
-        expectedResult['list'] = ['w', 'y', 'g', 'r', 'b', 'w', 'o', 'o', 'w', 
-                                  'o', 'y', 'o', 'b', 'r', 'o', 'b', 'r', 'r', 
-                                  'w', 'o', 'y', 'w', 'y', 'r', 'w', 'b', 'g', 
-                                  'r', 'o', 'r', 'b', 'o', 'g', 'b', 'r', 'g', 
-                                  'g', 'b', 'y', 'g', 'w', 'g', 'b', 'w', 'y', 
-                                  'b', 'y', 'o', 'w', 'g', 'y', 'r', 'g', 'y']
-    
-        expectedResult['solution'] = 'FFlfLDFF'
-    
-    
-        actualResult = solve._verticleLowerCubeIntoDaisy_Front(inputList, solution) 
-    
-        self.assertEqual(expectedResult.get('list'), actualResult.get('rotatedCubeList'))
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-        
+    # def test_solve_1020_RefactoringLowerVerticalCubeOnFrontFaceIntoDaisy(self):
+    #     inputList = ['o', 'r', 'g', 'o', 'b', 'w', 'b', 'w', 'w', 
+    #                  'o', 'y', 'o', 'b', 'r', 'o', 'b', 'b', 'g', 
+    #                  'w', 'o', 'y', 'w', 'y', 'r', 'b', 'r', 'w', 
+    #                  'r', 'o', 'b', 'b', 'o', 'y', 'y', 'y', 'r', 
+    #                  'g', 'b', 'y', 'g', 'w', 'g', 'g', 'g', 'y', 
+    #                  'w', 'y', 'o', 'r', 'g', 'g', 'r', 'w', 'r']
+    #
+    #     solution = ""
+    #
+    #     expectedResult = {}
+    #     expectedResult['list'] = ['w', 'y', 'g', 'r', 'b', 'w', 'o', 'o', 'w', 
+    #                               'o', 'y', 'o', 'b', 'r', 'o', 'b', 'r', 'r', 
+    #                               'w', 'o', 'y', 'w', 'y', 'r', 'w', 'b', 'g', 
+    #                               'r', 'o', 'r', 'b', 'o', 'g', 'b', 'r', 'g', 
+    #                               'g', 'b', 'y', 'g', 'w', 'g', 'b', 'w', 'y', 
+    #                               'b', 'y', 'o', 'w', 'g', 'y', 'r', 'g', 'y']
+    #
+    #     expectedResult['solution'] = 'FFlfLDFF'
+    #
+    #
+    #     actualResult = solve._verticleLowerCubeIntoDaisy_Front(inputList, solution) 
+    #
+    #     print()
+    #
+    #     self.assertEqual(expectedResult.get('list'), actualResult.get('rotatedCubeList'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    #
+
 
 
 
