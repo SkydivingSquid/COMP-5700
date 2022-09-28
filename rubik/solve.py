@@ -360,7 +360,7 @@ def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
             rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
             numberOfPetalsFound += 1
             
-    return numberOfPetalsFound, rotatedCubeList, rotatedCubeList
+    return numberOfPetalsFound, rotatedCubeList
 
 
 
@@ -500,7 +500,7 @@ def _solveBottomCross(encodedCube):
             numberOfPetalsFound, rotatedCubeList = _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
             
             #Horizontal Cubes To Daisy
-            numberOfPetalsFound, rotatedCubeList, encodedCube = _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+            numberOfPetalsFound, rotatedCubeList = _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
         
             #Vertical Cubes To Daisy
             
