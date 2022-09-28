@@ -525,10 +525,10 @@ def _solveBottomCross(encodedCube):
                     numberOfPetalsFound += 1  
       
     #TIME FOR DAISY SOLUTION HERE
-    daisySolution = _daisySolution(encodedCube)
-    encodedCube = daisySolution.get('cube')
+    daisySolution = _daisySolution(rotatedCubeList)
+    rotatedCubeList = daisySolution.get('cube')
     
-    result['cube'] = "".join(encodedCube)
+    result['cube'] = "".join(rotatedCubeList)
     result['solution'] += daisySolution.get('solution')
     result['status'] = 'ok'
     
