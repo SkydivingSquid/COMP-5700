@@ -745,9 +745,9 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
         
         encodedCube = _BrokenAndConfusedU(encodedCube, daisyResult)
     
-        rotatedCubeList = encodedCube
+        #rotatedCubeList = encodedCube
         
-        
+    
     daisyResult['daisyCubeList'] = encodedCube
     
 
