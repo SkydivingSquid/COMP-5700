@@ -60,7 +60,6 @@ def _verifyInput(encodedCube):
     
     return status
 
-    
 """
 ########################################################       
 ########### Methods for Solving Bottom Cross ###########
@@ -566,12 +565,24 @@ def _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult):
 #############################################################
 """
 
+""" Bottom Moves """
+def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
+#Checking Top of Bottom Face
+    if (numberOfPetalsFound <= 3):
+        numberOfPetalsFound, rotatedCubeList, result = _moveBottomTopCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+#Checking Left of Bottom Face
+    if (numberOfPetalsFound <= 3):
+        numberOfPetalsFound, rotatedCubeList, result = _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
 
+#Checking Right of Bottom Face
+    if (numberOfPetalsFound <= 3):
+        numberOfPetalsFound, rotatedCubeList, result = _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
 
+#Checking Bottom of Bottom Face
+    if (numberOfPetalsFound <= 3):
+        numberOfPetalsFound, rotatedCubeList, result = _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
 
-
-
-
+    return numberOfPetalsFound, rotatedCubeList
 
 def _moveBottomTopCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     if rotatedCubeList[46] == rotatedCubeList[49]:
@@ -604,32 +615,6 @@ def _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
         rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
-
-
-
-
-def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-#Checking Top of Bottom Face
-    if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBottomTopCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-#Checking Left of Bottom Face
-    if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-
-#Checking Right of Bottom Face
-    if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-
-#Checking Bottom of Bottom Face
-    if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
-
-    return numberOfPetalsFound, rotatedCubeList
-
-
-
-
-
 
 """ Horizontal Moves """
 def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
@@ -1335,9 +1320,7 @@ def _rotateD(cube):
 
 #Rotate bottom (Downward) face counter-clockwise (d)
 def _rotated(cube):
-
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1353,8 +1336,8 @@ def _rotated(cube):
     rotatedCubeList[47] = cubeList[53]
     
     #rotate top to left
-    rotatedCubeList[33] = cubeList[6]
-    rotatedCubeList[34] = cubeList[7]
+    rotatedCubeList[33], rotatedCubeList[34] = cubeList[6], cubeList[7]
+    #rotatedCubeList[34] = cubeList[7]
     rotatedCubeList[35] = cubeList[8]
     
     #rotate right to top
@@ -1375,3 +1358,14 @@ def _rotated(cube):
     result['cube'] = rotatedCubeList
     result['letter'] = 'd'
     return result
+
+"""
+###################################################        
+############## Cube Index Assignment ##############
+###################################################
+"""
+
+
+    
+
+
