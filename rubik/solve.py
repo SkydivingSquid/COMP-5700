@@ -519,16 +519,8 @@ def _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
     algorithm = "lfLDFF"
     
     for char in algorithm:
-         veritcalToDaisyResult['solution'], rotatedCubeList = __functionalRotations(rotatedCubeList, veritcalToDaisyResult, char)
+         veritcalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, veritcalToDaisyResult, char)
     
-    return rotatedCubeList, veritcalToDaisyResult['solution']
-    
-    # veritcalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, veritcalToDaisyResult)
-    # veritcalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, veritcalToDaisyResult)
-    # veritcalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, veritcalToDaisyResult)
-    # veritcalToDaisyResult['solution'], rotatedCubeList = _functionD_BCD(rotatedCubeList, veritcalToDaisyResult)
-    # veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
-    # veritcalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, veritcalToDaisyResult)
     return rotatedCubeList, veritcalToDaisyResult['solution']
 
 def _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult):
