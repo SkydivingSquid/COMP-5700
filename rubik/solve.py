@@ -112,7 +112,8 @@ def _bottomCrossToDaisy(encodedCube, result):
     
     algorithm = 'FFRRBBLL'
     
-    result['solution'], encodedCube = _functionalRotations(encodedCube, result, algorithm)
+    for char in algorithm:
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, char)
     
     # #Double Front Rotation
     # result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
