@@ -516,7 +516,7 @@ def _functionalRotations(encodedCube, result, letter):
 def _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, algorithm):
     
     for char in algorithm:
-         veritcalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, veritcalToDaisyResult, char)
+        veritcalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, veritcalToDaisyResult, char)
     
     return rotatedCubeList, veritcalToDaisyResult['solution']
 
