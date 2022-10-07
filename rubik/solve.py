@@ -503,7 +503,7 @@ def _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, cub
 def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Check Front Face (Left Side Piece)
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, FRONT_PORT, TOP_PORT)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachFrontCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, FRONT_PORT, TOP_PORT)
         #numberOfPetalsFound, rotatedCubeList, result = _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
 #Check Front Face (Right Side Piece)
     if (numberOfPetalsFound <= 3):
