@@ -129,7 +129,7 @@ def _verifyInput(encodedCube):
         return status
         
     elif rubik.Cube.isNineOfEachChar(encodedCube) == False:
-        result['status'] = 'error: There May Only Be RIGHT_UPPER_PORT_EDGE Of Each Color'
+        result['status'] = 'error: There May Only Be 9 Of Each Color'
         status = result['status']
         return status    
     
