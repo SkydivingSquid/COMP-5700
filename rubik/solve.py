@@ -215,10 +215,10 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "FFlfLDFF")
     
         if verticalPetalIndex == 10:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "frFDRR")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult, "frFDRR")
     
         if verticalPetalIndex == 16:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "RRfrFDRR")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult, "RRfrFDRR")
 
         if verticalPetalIndex == 19:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult, "rbRDBB")
