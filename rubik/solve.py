@@ -195,7 +195,6 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
 
     if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
         
-        #Move l,f,L,D,F,F
         if verticalPetalIndex == 1:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "lfLDFF")
         
@@ -349,79 +348,6 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 ############ Rotation Functions and Updates to Cube and Solution String ############
 #################################################################################### 
 """
-def _functionF_BCD(encodedCube, result):
-    F_result = _rotateF(encodedCube)
-    result['solution'] += F_result.get('letter')
-    encodedCube = F_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionf_BCD(encodedCube, result):
-    f_result = _rotatef(encodedCube)
-    result['solution'] += f_result.get('letter')
-    encodedCube = f_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionR_BCD(encodedCube, result):
-    R_result = _rotateR(encodedCube)
-    result['solution'] += R_result.get('letter')
-    encodedCube = R_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionr_BCD(encodedCube, result):
-    r_result = _rotater(encodedCube)
-    result['solution'] += r_result.get('letter')
-    encodedCube = r_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionB_BCD(encodedCube, result):
-    B_result = _rotateB(encodedCube)
-    result['solution'] += B_result.get('letter')
-    encodedCube = B_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionb_BCD(encodedCube, result):
-    b_result = _rotateb(encodedCube)
-    result['solution'] += b_result.get('letter')
-    encodedCube = b_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionL_BCD(encodedCube, result):
-    L_result = _rotateL(encodedCube)
-    result['solution'] += L_result.get('letter')
-    encodedCube = L_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionl_BCD(encodedCube, result):
-    l_result = _rotatel(encodedCube)
-    result['solution'] += l_result.get('letter')
-    encodedCube = l_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionU_BCD(encodedCube, result):
-    U_result = _rotateU(encodedCube)
-    result['solution'] += U_result.get('letter')
-    encodedCube = U_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-def _functionD_BCD(encodedCube, result):
-
-    D_result = _rotateD(encodedCube)
-    result['solution'] += D_result.get('letter')
-    encodedCube = D_result.get('cube')
-    
-    return result['solution'], encodedCube
-  
-
-
 
 def _functionalRotations(encodedCube, result, letter):
     rotationDirection = None
