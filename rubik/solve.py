@@ -320,8 +320,8 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
         if uniqueCenter == 4:
-            #encodedCube = _functionDoubleF_Daisy(encodedCube, daisyRotResult)
-            encodedCube = _functionalRotations(encodedCube, daisyRotResult, 'FF').get(encodedCube)
+            encodedCube = _functionDoubleF_Daisy(encodedCube, daisyRotResult, 'FF')
+            #encodedCube = _functionalRotations(encodedCube, daisyRotResult, 'FF').get(encodedCube)
             
         if uniqueCenter == 13:
             encodedCube = _funtionDoubleR_Daisy(encodedCube, daisyRotResult)
@@ -434,12 +434,13 @@ def _functionD_BCD(encodedCube, result):
 ############ Daisy Rotation Functions and Updates to Cube and Solution String ############
 ########################################################################################## 
 """
-def _functionDoubleF_Daisy(encodedCube, daisyRotResult):
-    F_result = _rotateF(encodedCube)
-    daisyRotResult['solution'] += F_result.get('letter')
-    encodedCube = F_result.get('cube')
+def _functionDoubleF_Daisy(encodedCube, daisyRotResult, letter):
+    rotationDirection = None
+    
+    if letter == 'F':
+        rotationDirection = _rotateF(encodedCube)
 
-    F_result = _rotateF(encodedCube)
+    F_result = rotationDirection
     daisyRotResult['solution'] += F_result.get('letter')
     encodedCube = F_result.get('cube')
     return encodedCube
