@@ -476,7 +476,7 @@ def _functionD_BCD(encodedCube, result):
 #     L_result = _rotateL(encodedCube)
 #     daisyRotResult['solution'] += L_result.get('letter')
 #     encodedCube = L_result.get('cube')
-    return encodedCube
+    # return encodedCube
 
 
 def _functionalRotations(encodedCube, result, letter):
