@@ -547,7 +547,7 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
         numberOfPetalsFound, rotatedCubeList, result = _moveEachVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, FRONT_LOWER_MIDDLE, TOP_LOWER_MIDDLE)
 #Right Face Vertical Top
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveRightUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, RIGHT_UPPER_MIDDLE, TOP_STBD)
 #Right Face Vertical Bottom
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveRightLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
@@ -575,21 +575,6 @@ def _moveEachVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, c
     return numberOfPetalsFound, rotatedCubeList, result
 
 
-def _moveFrontLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[FRONT_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
-        verticalToDaisyResult = _verticalCubesToDaisy(FRONT_LOWER_MIDDLE, TOP_LOWER_MIDDLE, result['solution'], rotatedCubeList)
-        result['solution'] = verticalToDaisyResult.get('solution')
-        rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-        numberOfPetalsFound += 1
-    return numberOfPetalsFound, rotatedCubeList, result
-
-def _moveRightUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[RIGHT_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
-        verticalToDaisyResult = _verticalCubesToDaisy(RIGHT_UPPER_MIDDLE, TOP_STBD, result['solution'], rotatedCubeList)
-        result['solution'] = verticalToDaisyResult.get('solution')
-        rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
-        numberOfPetalsFound += 1
-    return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveRightLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     if rotatedCubeList[RIGHT_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
