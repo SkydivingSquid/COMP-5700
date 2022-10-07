@@ -785,7 +785,7 @@ def _rotateF(cube):
     rotatedCubeList[FRONT_LOWER_PORT_EDGE] = cubeList[FRONT_LOWER_STBD_EDGE]
     
     #rotate top to right
-    rotatedCubeList[RIGHT_UPPER_PORT_EDGE] = cubeList[TOP_CENTER]
+    rotatedCubeList[RIGHT_UPPER_PORT_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
     rotatedCubeList[RIGHT_PORT] = cubeList[TOP_LOWER_MIDDLE]
     rotatedCubeList[RIGHT_LOWER_PORT_EDGE] = cubeList[TOP_LOWER_STBD_EDGE]
     
@@ -802,7 +802,7 @@ def _rotateF(cube):
     #rotate left to top
     rotatedCubeList[TOP_LOWER_STBD_EDGE] = cubeList[LEFT_UPPER_STBD_EDGE]
     rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[LEFT_STBD] 
-    rotatedCubeList[TOP_CENTER] = cubeList[LEFT_LOWER_STBD_EDGE]
+    rotatedCubeList[TOP_LOWER_PORT_EDGE] = cubeList[LEFT_LOWER_STBD_EDGE]
     
     result['cube'] = rotatedCubeList
     result['letter'] = 'F'
@@ -828,7 +828,7 @@ def _rotatef(cube):
     rotatedCubeList[FRONT_LOWER_STBD_EDGE] = cubeList[FRONT_LOWER_PORT_EDGE]
     
     #rotate right to top
-    rotatedCubeList[TOP_CENTER] = cubeList[RIGHT_UPPER_PORT_EDGE]
+    rotatedCubeList[TOP_LOWER_PORT_EDGE] = cubeList[RIGHT_UPPER_PORT_EDGE]
     rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[RIGHT_PORT]
     rotatedCubeList[TOP_LOWER_STBD_EDGE] = cubeList[RIGHT_LOWER_PORT_EDGE]
     
@@ -845,7 +845,7 @@ def _rotatef(cube):
     #rotate top to left
     rotatedCubeList[LEFT_UPPER_STBD_EDGE] = cubeList[TOP_LOWER_STBD_EDGE]
     rotatedCubeList[LEFT_STBD] = cubeList[TOP_LOWER_MIDDLE] 
-    rotatedCubeList[LEFT_LOWER_STBD_EDGE] = cubeList[TOP_CENTER]
+    rotatedCubeList[LEFT_LOWER_STBD_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
     
     result['cube'] = rotatedCubeList
     result['letter'] = 'f'
