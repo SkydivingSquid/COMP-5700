@@ -352,9 +352,9 @@ def _daisySolution(encodedCube):
 
 def _BrokenAndConfusedU(encodedCube, daisyResult):
     """ A unique method to rotate U in daisy. Not sure why it doesn't need to return daisyResult['solution'] """
-    U_result = _rotateU(encodedCube)
-    daisyResult['solution'] += U_result.get('letter')
-    encodedCube = U_result.get('cube')
+    u_result = _rotateU(encodedCube)
+    daisyResult['solution'] += u_result.get('letter')
+    encodedCube = u_result.get('cube')
     return encodedCube
 
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
@@ -364,10 +364,11 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     rotatedCubeList = cubeList[:]
     daisyResult['solution'] = solution
     daisyResult['daisyCubeList'] = encodedCube
+    irrelevantVar = None
     
     while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[BOTTOM_CENTER]):
         
-        encodedCube = _BrokenAndConfusedU(encodedCube, daisyResult)
+        irrelevantVar, encodedCube = _functionalRotations(rotatedCubeList, daisyResult, 'U')
         rotatedCubeList = encodedCube
         
     daisyResult['daisyCubeList'] = encodedCube
