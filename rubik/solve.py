@@ -317,11 +317,12 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     rotatedCubeList = cubeList[:]
     daisyRotResult['solution'] = solution
     daisyRotResult['daisyCubeList'] = encodedCube
+    irrelevantVar = None
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
         if uniqueCenter == 4:
-            resultOfRotation = _verticalCubeIntoDaisy(encodedCube, daisyRotResult, 'FF')
-            encodeCube = resultOfRotation.get(encodedCube)
+            #encodedCube = _funtionDoubleR_Daisy(encodedCube, daisyRotResult)
+            irrelevantVar, encodedCube = _verticalCubeIntoDaisy(encodedCube, daisyRotResult, 'FF')
             
         if uniqueCenter == 13:
             encodedCube = _funtionDoubleR_Daisy(encodedCube, daisyRotResult)
