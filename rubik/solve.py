@@ -153,7 +153,7 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
     horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     while rotatedCubeList[horizontalPetalIndex] == rotatedCubeList[topPetalIndex]:
-        horizontalToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, horizontalToDaisyResult)
+        horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'U')
 
     if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
         
@@ -191,7 +191,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
     veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     while rotatedCubeList[verticalPetalIndex] == rotatedCubeList[topPetalIndex]:
-        veritcalToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, veritcalToDaisyResult)
+        veritcalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, veritcalToDaisyResult, 'U')
 
     if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
         
