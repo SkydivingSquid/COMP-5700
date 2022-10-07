@@ -499,12 +499,12 @@ def _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, cub
     return numberOfPetalsFound, rotatedCubeList, result
 
 
-
 """ Horizontal Moves """
 def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Check Front Face (Left Side Piece)
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, rotatedCubeList, result = _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, FRONT_PORT, TOP_PORT)
+        #numberOfPetalsFound, rotatedCubeList, result = _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
 #Check Front Face (Right Side Piece)
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveFrontStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
@@ -528,6 +528,14 @@ def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
         numberOfPetalsFound, rotatedCubeList, result = _moveLeftStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
   
     return numberOfPetalsFound, rotatedCubeList
+
+def _moveEachFrontCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, cubeOne, cubeTwo):
+    if rotatedCubeList[cubeOne] == rotatedCubeList[BOTTOM_CENTER]:
+        horizontalToDaisyResult = _horizontalCubesToDaisy(cubeOne, cubeTwo, result['solution'], rotatedCubeList)
+        result['solution'] = horizontalToDaisyResult.get('solution')
+        rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
+        numberOfPetalsFound += 1
+    return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     if rotatedCubeList[FRONT_PORT] == rotatedCubeList[BOTTOM_CENTER]:
