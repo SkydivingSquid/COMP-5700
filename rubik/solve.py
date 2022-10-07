@@ -350,13 +350,6 @@ def _daisySolution(encodedCube):
     result['cube'] = encodedCube
     return result
 
-def _BrokenAndConfusedU(encodedCube, daisyResult):
-    """ A unique method to rotate U in daisy. Not sure why it doesn't need to return daisyResult['solution'] """
-    u_result = _rotateU(encodedCube)
-    daisyResult['solution'] += u_result.get('letter')
-    encodedCube = u_result.get('cube')
-    return encodedCube
-
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
     daisyResult = {}
