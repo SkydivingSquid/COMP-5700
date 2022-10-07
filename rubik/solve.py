@@ -30,7 +30,7 @@ BOTTOM_LOWER_MIDDLE = 52
 
 #SIDES
 FRONT_PORT = 3
-FRONT_STBD = 5
+FRONT_STRBD = 5
 RIGHT_PORT = 12
 RIGHT_STBD = 14
 BACK_PORT = 21
@@ -129,7 +129,7 @@ def _verifyInput(encodedCube):
         return status
         
     elif rubik.Cube.isNineOfEachChar(encodedCube) == False:
-        result['status'] = 'error: There May Only Be 9 Of Each Color'
+        result['status'] = 'error: There May Only Be RIGHT_UPPER_PORT_EDGE Of Each Color'
         status = result['status']
         return status    
     
@@ -1040,7 +1040,7 @@ def _rotateL(cube):
     #rotate top to right
     rotatedCubeList[FRONT_UPPER_PORT_EDGE] = cubeList[TOP_UPPER_PORT_EDGE]
     rotatedCubeList[FRONT_PORT] = cubeList[TOP_PORT]
-    rotatedCubeList[FRONT_LOWER_PORT_EDGE] = cubeList[TOP_CENTER]
+    rotatedCubeList[FRONT_LOWER_PORT_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
 
     #rotate right to bottom
     rotatedCubeList[BOTTOM_UPPER_PORT_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
@@ -1053,7 +1053,7 @@ def _rotateL(cube):
     rotatedCubeList[BACK_UPPER_STBD_EDGE] = cubeList[BOTTOM_LOWER_PORT_EDGE]
 
     #rotate left to top
-    rotatedCubeList[TOP_CENTER] = cubeList[BACK_UPPER_STBD_EDGE]
+    rotatedCubeList[TOP_LOWER_PORT_EDGE] = cubeList[BACK_UPPER_STBD_EDGE]
     rotatedCubeList[TOP_PORT] = cubeList[BACK_STBD] 
     rotatedCubeList[TOP_UPPER_PORT_EDGE] = cubeList[BACK_LOWER_STBD_EDGE]
 
@@ -1082,7 +1082,7 @@ def _rotatel(cube):
     #rotate top to right
     rotatedCubeList[TOP_UPPER_PORT_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
     rotatedCubeList[TOP_PORT] = cubeList[FRONT_PORT]
-    rotatedCubeList[TOP_CENTER] = cubeList[FRONT_LOWER_PORT_EDGE]
+    rotatedCubeList[TOP_LOWER_PORT_EDGE] = cubeList[FRONT_LOWER_PORT_EDGE]
     
     #rotate right to bottom
     rotatedCubeList[FRONT_UPPER_PORT_EDGE] = cubeList[BOTTOM_UPPER_PORT_EDGE]
@@ -1095,7 +1095,7 @@ def _rotatel(cube):
     rotatedCubeList[BOTTOM_UPPER_PORT_EDGE] = cubeList[BACK_LOWER_STBD_EDGE]
     
     #rotate left to top
-    rotatedCubeList[BACK_UPPER_STBD_EDGE] = cubeList[TOP_CENTER]
+    rotatedCubeList[BACK_UPPER_STBD_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
     rotatedCubeList[BACK_STBD] = cubeList[TOP_PORT] 
     rotatedCubeList[BACK_LOWER_STBD_EDGE] = cubeList[TOP_UPPER_PORT_EDGE]
 
@@ -1117,9 +1117,9 @@ def _rotateU(cube):
     rotatedCubeList[TOP_UPPER_MIDDLE] = cubeList[TOP_PORT]
     rotatedCubeList[TOP_CENTER] = cubeList[TOP_CENTER]
     rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[TOP_STBD]
-    rotatedCubeList[TOP_UPPER_PORT_EDGE] = cubeList[TOP_CENTER]
+    rotatedCubeList[TOP_UPPER_PORT_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
     rotatedCubeList[TOP_PORT] = cubeList[TOP_LOWER_MIDDLE]
-    rotatedCubeList[TOP_CENTER] = cubeList[TOP_LOWER_STBD_EDGE]
+    rotatedCubeList[TOP_LOWER_PORT_EDGE] = cubeList[TOP_LOWER_STBD_EDGE]
     
     #rotate top to right
     rotatedCubeList[RIGHT_UPPER_PORT_EDGE] = cubeList[BACK_UPPER_PORT_EDGE]
@@ -1159,9 +1159,9 @@ def _rotateu(cube):
     rotatedCubeList[TOP_PORT] = cubeList[TOP_UPPER_MIDDLE]
     rotatedCubeList[TOP_CENTER] = cubeList[TOP_CENTER]
     rotatedCubeList[TOP_STBD] = cubeList[TOP_LOWER_MIDDLE]
-    rotatedCubeList[TOP_CENTER] = cubeList[TOP_UPPER_PORT_EDGE]
+    rotatedCubeList[TOP_LOWER_PORT_EDGE] = cubeList[TOP_UPPER_PORT_EDGE]
     rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[TOP_PORT]
-    rotatedCubeList[TOP_LOWER_STBD_EDGE] = cubeList[TOP_CENTER]
+    rotatedCubeList[TOP_LOWER_STBD_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
     
     #rotate top to right
     rotatedCubeList[BACK_UPPER_PORT_EDGE] = cubeList[RIGHT_UPPER_PORT_EDGE]
