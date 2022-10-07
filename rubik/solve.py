@@ -158,28 +158,38 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
     if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
         
         if horizontalPetalIndex == 3:
+            letters = 'l'
             horizontalToDaisyResult['solution'], rotatedCubeList = _functionl_BCD(rotatedCubeList, horizontalToDaisyResult)
             
         if horizontalPetalIndex == 5:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, horizontalToDaisyResult)
+            letters = 'R'
+            #horizontalToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, horizontalToDaisyResult)
             
         if horizontalPetalIndex == 12:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, horizontalToDaisyResult)
+            letters = 'f'
+            #horizontalToDaisyResult['solution'], rotatedCubeList = _functionf_BCD(rotatedCubeList, horizontalToDaisyResult)
             
         if horizontalPetalIndex == 14:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, horizontalToDaisyResult)
+            letters = 'B'
+            #horizontalToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, horizontalToDaisyResult)
             
         if horizontalPetalIndex == 21:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, horizontalToDaisyResult)
+            letters = 'r'
+            #horizontalToDaisyResult['solution'], rotatedCubeList = _functionr_BCD(rotatedCubeList, horizontalToDaisyResult)
             
         if horizontalPetalIndex == 23:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, horizontalToDaisyResult)
+            letters = 'L'
+            #horizontalToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, horizontalToDaisyResult)
 
         if horizontalPetalIndex == 30:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, horizontalToDaisyResult)
+            letters = 'b'
+            #horizontalToDaisyResult['solution'], rotatedCubeList = _functionb_BCD(rotatedCubeList, horizontalToDaisyResult)
             
         if horizontalPetalIndex == 32:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, horizontalToDaisyResult)
+            letters = 'F'
+            #horizontalToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, horizontalToDaisyResult)
+        for char in letters:
+            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, char)
 
         horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return horizontalToDaisyResult
