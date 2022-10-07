@@ -320,7 +320,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
         if uniqueCenter == 4:
-            encodedCube = _verticalCubeIntoDaisy(encodedCube, daisyRotResult, 'FF')
+            encodedCube = _verticalCubeIntoDaisy(encodedCube, daisyRotResult, 'FF').get(encodedCube)
             
         if uniqueCenter == 13:
             encodedCube = _funtionDoubleR_Daisy(encodedCube, daisyRotResult)
