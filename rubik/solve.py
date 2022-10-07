@@ -215,22 +215,22 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "FFlfLDFF")
     
         if verticalPetalIndex == 10:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult, "frFDRR")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "frFDRR")
     
         if verticalPetalIndex == 16:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult, "RRfrFDRR")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "RRfrFDRR")
 
         if verticalPetalIndex == 19:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult, "rbRDBB")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "rbRDBB")
         
         if verticalPetalIndex == 25:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Back(rotatedCubeList, veritcalToDaisyResult, "BBrbRDBB")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "BBrbRDBB")
             
         if verticalPetalIndex == 28: 
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult, "blBDLL")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "blBDLL")
             
         if verticalPetalIndex == 34:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Left(rotatedCubeList, veritcalToDaisyResult, "LLblBDLL")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "LLblBDLL")
         
         veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return veritcalToDaisyResult
