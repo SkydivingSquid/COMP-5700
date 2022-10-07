@@ -322,22 +322,19 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
         if uniqueCenter == 4:
             letters = 'FF'
-            #encodedCube = _functionDoubleF_Daisy(encodedCube, daisyRotResult, 'FF')
             
         if uniqueCenter == 13:
             letters = 'RR'
-            #encodedCube = _funtionDoubleR_Daisy(encodedCube, daisyRotResult)
             
         if uniqueCenter == 22:
             letters = 'BB'
-            #encodedCube = _functionDoubleB_Daisy(encodedCube, daisyRotResult)
             
         if uniqueCenter == 31:
             letters = 'LL'
-            #encodedCube = _functionDoubleL_Daisy(encodedCube, daisyRotResult)
             
         for char in letters:
             irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
+            
         rotatedCubeList = encodedCube
         
     daisyRotResult['daisyCubeList'] = encodedCube
@@ -440,45 +437,45 @@ def _functionD_BCD(encodedCube, result):
 ############ Daisy Rotation Functions and Updates to Cube and Solution String ############
 ########################################################################################## 
 """
-def _functionDoubleF_Daisy(encodedCube, daisyRotResult, letter):
-    rotationDirection = None
-    
-    if letter == 'F':
-        rotationDirection = _rotateF(encodedCube)
-
-        F_result = rotationDirection
-        daisyRotResult['solution'] += F_result.get('letter')
-        encodedCube = F_result.get('cube')
-        return encodedCube
-
-def _funtionDoubleR_Daisy(encodedCube, daisyRotResult):
-    R_result = _rotateR(encodedCube)
-    daisyRotResult['solution'] += R_result.get('letter')
-    encodedCube = R_result.get('cube')
-    
-    R_result = _rotateR(encodedCube)
-    daisyRotResult['solution'] += R_result.get('letter')
-    encodedCube = R_result.get('cube')
-    return encodedCube
-
-def _functionDoubleB_Daisy(encodedCube, daisyRotResult):
-    B_result = _rotateB(encodedCube)
-    daisyRotResult['solution'] += B_result.get('letter')
-    encodedCube = B_result.get('cube')
-    
-    B_result = _rotateB(encodedCube)
-    daisyRotResult['solution'] += B_result.get('letter')
-    encodedCube = B_result.get('cube')
-    return encodedCube
-
-def _functionDoubleL_Daisy(encodedCube, daisyRotResult):
-    L_result = _rotateL(encodedCube)
-    daisyRotResult['solution'] += L_result.get('letter')
-    encodedCube = L_result.get('cube')
-    
-    L_result = _rotateL(encodedCube)
-    daisyRotResult['solution'] += L_result.get('letter')
-    encodedCube = L_result.get('cube')
+# def _functionDoubleF_Daisy(encodedCube, daisyRotResult, letter):
+#     rotationDirection = None
+#
+#     if letter == 'F':
+#         rotationDirection = _rotateF(encodedCube)
+#
+#         F_result = rotationDirection
+#         daisyRotResult['solution'] += F_result.get('letter')
+#         encodedCube = F_result.get('cube')
+#         return encodedCube
+#
+# def _funtionDoubleR_Daisy(encodedCube, daisyRotResult):
+#     R_result = _rotateR(encodedCube)
+#     daisyRotResult['solution'] += R_result.get('letter')
+#     encodedCube = R_result.get('cube')
+#
+#     R_result = _rotateR(encodedCube)
+#     daisyRotResult['solution'] += R_result.get('letter')
+#     encodedCube = R_result.get('cube')
+#     return encodedCube
+#
+# def _functionDoubleB_Daisy(encodedCube, daisyRotResult):
+#     B_result = _rotateB(encodedCube)
+#     daisyRotResult['solution'] += B_result.get('letter')
+#     encodedCube = B_result.get('cube')
+#
+#     B_result = _rotateB(encodedCube)
+#     daisyRotResult['solution'] += B_result.get('letter')
+#     encodedCube = B_result.get('cube')
+#     return encodedCube
+#
+# def _functionDoubleL_Daisy(encodedCube, daisyRotResult):
+#     L_result = _rotateL(encodedCube)
+#     daisyRotResult['solution'] += L_result.get('letter')
+#     encodedCube = L_result.get('cube')
+#
+#     L_result = _rotateL(encodedCube)
+#     daisyRotResult['solution'] += L_result.get('letter')
+#     encodedCube = L_result.get('cube')
     return encodedCube
 
 
