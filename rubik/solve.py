@@ -30,7 +30,7 @@ BOTTOM_LOWER_MIDDLE = 52
 
 #SIDES
 FRONT_PORT = 3
-FRONT_STBD = 5
+FRONT_STRBD = 5
 RIGHT_PORT = 12
 RIGHT_STBD = 14
 BACK_PORT = 21
@@ -271,7 +271,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
 
     if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
         
-        if verticalPetalIndex == 1:
+        if verticalPetalIndex == FRONT_UPPER_MIDDLE:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "lfLDFF")
         
         if verticalPetalIndex == FRONT_LOWER_MIDDLE:
@@ -324,9 +324,9 @@ def _daisySolution(encodedCube):
     result['solution'] = ""
     
     #Front Face 
-    if not (rotatedCubeList[4] == rotatedCubeList[FRONT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_UPPER_MIDDLE]):
+    if not (rotatedCubeList[FRONT_CENTER] == rotatedCubeList[FRONT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_UPPER_MIDDLE]):
         
-        daisyResult = _daisyIntegrated(4, 1, TOP_LOWER_MIDDLE, encodedCube, result['solution'])
+        daisyResult = _daisyIntegrated(FRONT_CENTER, FRONT_UPPER_MIDDLE, TOP_LOWER_MIDDLE, encodedCube, result['solution'])
         rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
         
     #Right Face 
@@ -383,7 +383,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     irrelevantVar = None
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
-        if uniqueCenter == 4:
+        if uniqueCenter == FRONT_CENTER:
             letters = 'FF'
             
         if uniqueCenter == RIGHT_CENTER:
@@ -750,7 +750,7 @@ def _bottomCrossExists(rotatedCubeList):
             and rotatedCubeList[BOTTOM_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
     
 def _bottomCrossAligned(rotatedCubeList):
-    return (rotatedCubeList[4] == rotatedCubeList[FRONT_LOWER_MIDDLE] 
+    return (rotatedCubeList[FRONT_CENTER] == rotatedCubeList[FRONT_LOWER_MIDDLE] 
             and rotatedCubeList[RIGHT_CENTER] == rotatedCubeList[RIGHT_LOWER_MIDDLE] 
             and rotatedCubeList[BACK_CENTER] == rotatedCubeList[BACK_LOWER_MIDDLE] 
             and rotatedCubeList[LEFT_CENTER] == rotatedCubeList[LEFT_LOWER_MIDDLE])
@@ -775,10 +775,10 @@ def _rotateF(cube):
     
         #rotate front face
     rotatedCubeList[FRONT_UPPER_STBD_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
-    rotatedCubeList[FRONT_STBD] = cubeList[1]
+    rotatedCubeList[FRONT_STBD] = cubeList[FRONT_UPPER_MIDDLE]
     rotatedCubeList[FRONT_LOWER_STBD_EDGE] = cubeList[FRONT_UPPER_STBD_EDGE]
-    rotatedCubeList[1] = cubeList[FRONT_PORT]
-    rotatedCubeList[4] = cubeList[4]
+    rotatedCubeList[FRONT_UPPER_MIDDLE] = cubeList[FRONT_PORT]
+    rotatedCubeList[FRONT_CENTER] = cubeList[FRONT_CENTER]
     rotatedCubeList[FRONT_LOWER_MIDDLE] = cubeList[FRONT_STBD]
     rotatedCubeList[FRONT_UPPER_PORT_EDGE] = cubeList[FRONT_LOWER_PORT_EDGE]
     rotatedCubeList[FRONT_PORT] = cubeList[FRONT_LOWER_MIDDLE]
@@ -818,10 +818,10 @@ def _rotatef(cube):
     
     #rotate front face
     rotatedCubeList[FRONT_UPPER_PORT_EDGE] = cubeList[FRONT_UPPER_STBD_EDGE]
-    rotatedCubeList[1] = cubeList[FRONT_STBD]
+    rotatedCubeList[FRONT_UPPER_MIDDLE] = cubeList[FRONT_STBD]
     rotatedCubeList[FRONT_UPPER_STBD_EDGE] = cubeList[FRONT_LOWER_STBD_EDGE]
-    rotatedCubeList[FRONT_PORT] = cubeList[1]
-    rotatedCubeList[4] = cubeList[4]
+    rotatedCubeList[FRONT_PORT] = cubeList[FRONT_UPPER_MIDDLE]
+    rotatedCubeList[FRONT_CENTER] = cubeList[FRONT_CENTER]
     rotatedCubeList[FRONT_STBD] = cubeList[FRONT_LOWER_MIDDLE]
     rotatedCubeList[FRONT_LOWER_PORT_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
     rotatedCubeList[FRONT_LOWER_MIDDLE] = cubeList[FRONT_PORT]
@@ -1128,12 +1128,12 @@ def _rotateU(cube):
     
     #rotate right to bottom
     rotatedCubeList[FRONT_UPPER_PORT_EDGE] = cubeList[RIGHT_UPPER_PORT_EDGE]
-    rotatedCubeList[1] = cubeList[RIGHT_UPPER_MIDDLE]
+    rotatedCubeList[FRONT_UPPER_MIDDLE] = cubeList[RIGHT_UPPER_MIDDLE]
     rotatedCubeList[FRONT_UPPER_STBD_EDGE] = cubeList[RIGHT_UPPER_STBD_EDGE]
     
     #rotate bottom to left
     rotatedCubeList[LEFT_UPPER_PORT_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
-    rotatedCubeList[LEFT_UPPER_MIDDLE] = cubeList[1]
+    rotatedCubeList[LEFT_UPPER_MIDDLE] = cubeList[FRONT_UPPER_MIDDLE]
     rotatedCubeList[LEFT_UPPER_STBD_EDGE] = cubeList[FRONT_UPPER_STBD_EDGE]
     
     #rotate left to top
@@ -1170,12 +1170,12 @@ def _rotateu(cube):
     
     #rotate right to bottom
     rotatedCubeList[RIGHT_UPPER_PORT_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
-    rotatedCubeList[RIGHT_UPPER_MIDDLE] = cubeList[1]
+    rotatedCubeList[RIGHT_UPPER_MIDDLE] = cubeList[FRONT_UPPER_MIDDLE]
     rotatedCubeList[RIGHT_UPPER_STBD_EDGE] = cubeList[FRONT_UPPER_STBD_EDGE]
     
     #rotate bottom to left
     rotatedCubeList[FRONT_UPPER_PORT_EDGE] = cubeList[LEFT_UPPER_PORT_EDGE]
-    rotatedCubeList[1] = cubeList[LEFT_UPPER_MIDDLE]
+    rotatedCubeList[FRONT_UPPER_MIDDLE] = cubeList[LEFT_UPPER_MIDDLE]
     rotatedCubeList[FRONT_UPPER_STBD_EDGE] = cubeList[LEFT_UPPER_STBD_EDGE]
     
     #rotate left to top
