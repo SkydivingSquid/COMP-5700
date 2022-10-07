@@ -317,6 +317,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     rotatedCubeList = cubeList[:]
     daisyRotResult['solution'] = solution
     daisyRotResult['daisyCubeList'] = encodedCube
+    irrelevantVar = None
     
     if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
         if uniqueCenter == 4:
@@ -336,7 +337,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
             #encodedCube = _functionDoubleL_Daisy(encodedCube, daisyRotResult)
             
         for char in letters:
-            encodedCube = _functionalRotations(encodedCube, daisyRotResult, char).get(encodedCube)
+            irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
             
         rotatedCubeList = encodedCube
         
