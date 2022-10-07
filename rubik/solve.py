@@ -479,13 +479,13 @@ def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
         numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
 #Checking Left of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_PORT, TOP_PORT)
 #Checking Right of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
 #Checking Bottom of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
 
     return numberOfPetalsFound, rotatedCubeList
 
@@ -498,22 +498,6 @@ def _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, cub
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
-
-def _moveBottomTopCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[BOTTOM_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
-        bottomToDaisyResult = _unalignedBottomToDaisy(BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE, result['solution'], rotatedCubeList)
-        result['solution'] = bottomToDaisyResult.get('solution')
-        rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-        numberOfPetalsFound += 1
-    return numberOfPetalsFound, rotatedCubeList, result
-
-def _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[BOTTOM_PORT] == rotatedCubeList[BOTTOM_CENTER]:
-        bottomToDaisyResult = _unalignedBottomToDaisy(BOTTOM_PORT, TOP_PORT, result['solution'], rotatedCubeList)
-        result['solution'] = bottomToDaisyResult.get('solution')
-        rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
-        numberOfPetalsFound += 1
-    return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     if rotatedCubeList[BOTTOM_STBD] == rotatedCubeList[BOTTOM_CENTER]:
