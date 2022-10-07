@@ -553,7 +553,7 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
         numberOfPetalsFound, rotatedCubeList, result = _moveEachVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, RIGHT_LOWER_MIDDLE, TOP_STBD)
 # Back Face Vertical Top
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveBackUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_UPPER_MIDDLE)
 # Back Face Vertical Bottom
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveBackLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
@@ -573,7 +573,6 @@ def _moveEachVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, c
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
-
 
 
 
