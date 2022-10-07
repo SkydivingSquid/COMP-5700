@@ -1,4 +1,80 @@
 import rubik.cube as rubik
+
+"""
+###############################################     
+############### CUBE CONSTANTS ################
+###############################################
+"""
+
+#CENTERS
+FRONT_CENTER = 4
+RIGHT_CENTER = RIGHT_CENTER
+BACK_CENTER = BACK_CENTER
+LEFT_CENTER = LEFT_CENTER
+TOP_CENTER = TOP_CENTER
+BOTTOM_CENTER = BOTTOM_CENTER 
+
+#MIDDLES
+FRONT_UPPER_MIDDLE = 1
+FRONT_LOWER_MIDDLE = 7
+RIGHT_UPPER_MIDDLE = RIGHT_UPPER_MIDDLE
+RIGHT_LOWER_MIDDLE = RIGHT_LOWER_MIDDLE
+BACK_UPPER_MIDDLE = BACK_UPPER_MIDDLE
+BACK_LOWER_MIDDLE = BACK_LOWER_MIDDLE
+LEFT_UPPER_MIDDLE = LEFT_UPPER_MIDDLE
+LEFT_LOWER_MIDDLE = LEFT_LOWER_MIDDLE
+TOP_UPPER_MIDDLE = TOP_UPPER_MIDDLE
+TOP_LOWER_MIDDLE = TOP_LOWER_MIDDLE
+BOTTOM_UPPER_MIDDLE = BOTTOM_UPPER_MIDDLE 
+BOTTOM_LOWER_MIDDLE = BOTTOM_LOWER_MIDDLE
+
+#SIDES
+FRONT_PORT = 3
+FRONT_STRBD = 5
+RIGHT_PORT = 12
+RIGHT_STBD = 14
+BACK_PORT = 21
+BACK_STBD = 23
+LEFT_PORT = 30
+LEFT_STBD = 32
+TOP_PORT = 39
+TOP_STBD = 41
+BOTTOM_PORT = 48
+BOTTOM_STBD = 50
+
+#EDGES
+
+FRONT_UPPER_PORT_EDGE = 0
+FRONT_UPPER_STBD_EDGE = 2
+FRONT_LOWER_PORT_EDGE = 6
+FRONT_LOWER_STBD_EDGE = 8
+
+RIGHT_UPPER_PORT_EDGE = 9
+RIGHT_UPPER_STBD_EDGE = 11
+RIGHT_LOWER_PORT_EDGE = 15
+RIGHT_LOWER_STBD_EDGE = 17
+
+BACK_UPPER_PORT_EDGE = 18
+BACK_UPPER_STBD_EDGE = 20
+BACK_LOWER_PORT_EDGE = 24
+BACK_LOWER_STBD_EDGE = 26
+
+LEFT_UPPER_PORT_EDGE = 27
+LEFT_UPPER_STBD_EDGE = 29
+LEFT_LOWER_PORT_EDGE = 33
+LEFT_LOWER_STBD_EDGE = 35
+
+TOP_UPPER_PORT_EDGE = 36
+TOP_UPPER_STBD_EDGE = 38
+TOP_LOWER_PORT_EDGE = 42
+TOP_LOWER_STBD_EDGE = 44
+
+BOTTOM_UPPER_PORT_EDGE = 45
+BOTTOM_UPPER_STBD_EDGE = 47
+BOTTOM_LOWER_PORT_EDGE = 51
+BOTTOM_LOWER_STBD_EDGE = 53
+
+
 """
 #############################################################        
 ############### Main Method For Solving Cube ################
@@ -128,7 +204,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
 
     if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         
-        if bottomPetalIndex == 46:
+        if bottomPetalIndex == BOTTOM_UPPER_MIDDLE:
             letters = 'FF'
 
         elif bottomPetalIndex == 48:
@@ -137,7 +213,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
         elif bottomPetalIndex == 50:
             letters = 'RR'
             
-        elif bottomPetalIndex == 52:
+        elif bottomPetalIndex == BOTTOM_LOWER_MIDDLE:
             letters = 'BB'
 
         for char in letters:
@@ -201,22 +277,22 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         if verticalPetalIndex == 7:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "FFlfLDFF")
     
-        if verticalPetalIndex == 10:
+        if verticalPetalIndex == RIGHT_UPPER_MIDDLE:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "frFDRR")
     
-        if verticalPetalIndex == 16:
+        if verticalPetalIndex == RIGHT_LOWER_MIDDLE:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "RRfrFDRR")
 
-        if verticalPetalIndex == 19:
+        if verticalPetalIndex == BACK_UPPER_MIDDLE:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "rbRDBB")
         
-        if verticalPetalIndex == 25:
+        if verticalPetalIndex == BACK_LOWER_MIDDLE:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "BBrbRDBB")
             
-        if verticalPetalIndex == 28: 
+        if verticalPetalIndex == LEFT_UPPER_MIDDLE: 
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "blBDLL")
             
-        if verticalPetalIndex == 34:
+        if verticalPetalIndex == LEFT_LOWER_MIDDLE:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "LLblBDLL")
         
         veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
@@ -248,27 +324,27 @@ def _daisySolution(encodedCube):
     result['solution'] = ""
     
     #Front Face 
-    if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[49] == rotatedCubeList[46]):
+    if not (rotatedCubeList[4] == rotatedCubeList[7] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_UPPER_MIDDLE]):
         
-        daisyResult = _daisyIntegrated(4, 1, 43, encodedCube, result['solution'])
+        daisyResult = _daisyIntegrated(4, 1, TOP_LOWER_MIDDLE, encodedCube, result['solution'])
         rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
         
     #Right Face 
-    if not (rotatedCubeList[13] == rotatedCubeList[16] and rotatedCubeList[49] == rotatedCubeList[50]):
+    if not (rotatedCubeList[RIGHT_CENTER] == rotatedCubeList[RIGHT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[50]):
         
-        daisyResult = _daisyIntegrated(13, 10, 41, encodedCube, result['solution'])
+        daisyResult = _daisyIntegrated(RIGHT_CENTER, RIGHT_UPPER_MIDDLE, 41, encodedCube, result['solution'])
         rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
         
     # #Back Face 
-    if not (rotatedCubeList[22] == rotatedCubeList[25] and rotatedCubeList[49] == rotatedCubeList[52]):
+    if not (rotatedCubeList[BACK_CENTER] == rotatedCubeList[BACK_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_LOWER_MIDDLE]):
         
-        daisyResult = _daisyIntegrated(22, 19, 37, encodedCube, result['solution'])
+        daisyResult = _daisyIntegrated(BACK_CENTER, BACK_UPPER_MIDDLE, TOP_UPPER_MIDDLE, encodedCube, result['solution'])
         rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
 
     # #Left Face 
-    if not (rotatedCubeList[31] == rotatedCubeList[34] and rotatedCubeList[49] == rotatedCubeList[48]):
+    if not (rotatedCubeList[LEFT_CENTER] == rotatedCubeList[LEFT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[48]):
         
-        daisyResult = _daisyIntegrated(31, 28, 39, encodedCube, result['solution'])
+        daisyResult = _daisyIntegrated(LEFT_CENTER, LEFT_UPPER_MIDDLE, 39, encodedCube, result['solution'])
         rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
             
     result['cube'] = encodedCube
@@ -289,7 +365,7 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     daisyResult['solution'] = solution
     daisyResult['daisyCubeList'] = encodedCube
     
-    while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[49]):
+    while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[BOTTOM_CENTER]):
         
         encodedCube = _BrokenAndConfusedU(encodedCube, daisyResult)
         rotatedCubeList = encodedCube
@@ -310,13 +386,13 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
         if uniqueCenter == 4:
             letters = 'FF'
             
-        if uniqueCenter == 13:
+        if uniqueCenter == RIGHT_CENTER:
             letters = 'RR'
             
-        if uniqueCenter == 22:
+        if uniqueCenter == BACK_CENTER:
             letters = 'BB'
             
-        if uniqueCenter == 31:
+        if uniqueCenter == LEFT_CENTER:
             letters = 'LL'
             
         for char in letters:
@@ -420,15 +496,15 @@ def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList
 
 def _moveBottomTopCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[46] == rotatedCubeList[49]:
-        bottomToDaisyResult = _unalignedBottomToDaisy(46, 43, result['solution'], rotatedCubeList)
+    if rotatedCubeList[BOTTOM_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+        bottomToDaisyResult = _unalignedBottomToDaisy(BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = bottomToDaisyResult.get('solution')
         rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[48] == rotatedCubeList[49]:
+    if rotatedCubeList[48] == rotatedCubeList[BOTTOM_CENTER]:
         bottomToDaisyResult = _unalignedBottomToDaisy(48, 39, result['solution'], rotatedCubeList)
         result['solution'] = bottomToDaisyResult.get('solution')
         rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
@@ -436,7 +512,7 @@ def _moveBottomRightCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[50] == rotatedCubeList[49]:
+    if rotatedCubeList[50] == rotatedCubeList[BOTTOM_CENTER]:
         bottomToDaisyResult = _unalignedBottomToDaisy(50, 41, result['solution'], rotatedCubeList)
         result['solution'] = bottomToDaisyResult.get('solution')
         rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
@@ -444,8 +520,8 @@ def _moveBottomBackCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveBottomLeftCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[52] == rotatedCubeList[49]:
-        bottomToDaisyResult = _unalignedBottomToDaisy(52, 37, result['solution'], rotatedCubeList)
+    if rotatedCubeList[BOTTOM_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+        bottomToDaisyResult = _unalignedBottomToDaisy(BOTTOM_LOWER_MIDDLE, TOP_UPPER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = bottomToDaisyResult.get('solution')
         rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
@@ -481,7 +557,7 @@ def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList
 
 def _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[3] == rotatedCubeList[49]:
+    if rotatedCubeList[3] == rotatedCubeList[BOTTOM_CENTER]:
         horizontalToDaisyResult = _horizontalCubesToDaisy(3, 39, result['solution'], rotatedCubeList)
         result['solution'] = horizontalToDaisyResult.get('solution')
         rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
@@ -489,7 +565,7 @@ def _moveFrontPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveFrontStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[5] == rotatedCubeList[49]:
+    if rotatedCubeList[5] == rotatedCubeList[BOTTOM_CENTER]:
         horizontalToDaisyResult = _horizontalCubesToDaisy(5, 41, result['solution'], rotatedCubeList)
         result['solution'] = horizontalToDaisyResult.get('solution')
         rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
@@ -497,23 +573,23 @@ def _moveFrontStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound)
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveRightPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[12] == rotatedCubeList[49]:
-        horizontalToDaisyResult = _horizontalCubesToDaisy(12, 43, result['solution'], rotatedCubeList)
+    if rotatedCubeList[12] == rotatedCubeList[BOTTOM_CENTER]:
+        horizontalToDaisyResult = _horizontalCubesToDaisy(12, TOP_LOWER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = horizontalToDaisyResult.get('solution')
         rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveRightStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[14] == rotatedCubeList[49]:
-        horizontalToDaisyResult = _horizontalCubesToDaisy(14, 37, result['solution'], rotatedCubeList)
+    if rotatedCubeList[14] == rotatedCubeList[BOTTOM_CENTER]:
+        horizontalToDaisyResult = _horizontalCubesToDaisy(14, TOP_UPPER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = horizontalToDaisyResult.get('solution')
         rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveBackPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[21] == rotatedCubeList[49]:
+    if rotatedCubeList[21] == rotatedCubeList[BOTTOM_CENTER]:
         horizontalToDaisyResult = _horizontalCubesToDaisy(21, 41, result['solution'], rotatedCubeList)
         result['solution'] = horizontalToDaisyResult.get('solution')
         rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
@@ -521,7 +597,7 @@ def _moveBackPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveBackStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[23] == rotatedCubeList[49]:
+    if rotatedCubeList[23] == rotatedCubeList[BOTTOM_CENTER]:
         horizontalToDaisyResult = _horizontalCubesToDaisy(23, 39, result['solution'], rotatedCubeList)
         result['solution'] = horizontalToDaisyResult.get('solution')
         rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
@@ -529,16 +605,16 @@ def _moveBackStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveLeftPortCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[30] == rotatedCubeList[49]:
-        horizontalToDaisyResult = _horizontalCubesToDaisy(30, 37, result['solution'], rotatedCubeList)
+    if rotatedCubeList[30] == rotatedCubeList[BOTTOM_CENTER]:
+        horizontalToDaisyResult = _horizontalCubesToDaisy(30, TOP_UPPER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = horizontalToDaisyResult.get('solution')
         rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveLeftStarboardCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[32] == rotatedCubeList[49]:
-        horizontalToDaisyResult = _horizontalCubesToDaisy(32, 43, result['solution'], rotatedCubeList)
+    if rotatedCubeList[32] == rotatedCubeList[BOTTOM_CENTER]:
+        horizontalToDaisyResult = _horizontalCubesToDaisy(32, TOP_LOWER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = horizontalToDaisyResult.get('solution')
         rotatedCubeList = horizontalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
@@ -574,64 +650,64 @@ def _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
     return numberOfPetalsFound, rotatedCubeList
 
 def _moveFrontUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[1] == rotatedCubeList[49]:
-        verticalToDaisyResult = _verticalCubesToDaisy(1, 43, result['solution'], rotatedCubeList)
+    if rotatedCubeList[1] == rotatedCubeList[BOTTOM_CENTER]:
+        verticalToDaisyResult = _verticalCubesToDaisy(1, TOP_LOWER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveFrontLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[7] == rotatedCubeList[49]:
-        verticalToDaisyResult = _verticalCubesToDaisy(7, 43, result['solution'], rotatedCubeList)
+    if rotatedCubeList[7] == rotatedCubeList[BOTTOM_CENTER]:
+        verticalToDaisyResult = _verticalCubesToDaisy(7, TOP_LOWER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveRightUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[10] == rotatedCubeList[49]:
-        verticalToDaisyResult = _verticalCubesToDaisy(10, 41, result['solution'], rotatedCubeList)
+    if rotatedCubeList[RIGHT_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+        verticalToDaisyResult = _verticalCubesToDaisy(RIGHT_UPPER_MIDDLE, 41, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveRightLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[16] == rotatedCubeList[49]:
-        verticalToDaisyResult = _verticalCubesToDaisy(16, 41, result['solution'], rotatedCubeList)
+    if rotatedCubeList[RIGHT_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+        verticalToDaisyResult = _verticalCubesToDaisy(RIGHT_LOWER_MIDDLE, 41, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveBackUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[19] == rotatedCubeList[49]:
-        verticalToDaisyResult = _verticalCubesToDaisy(19, 37, result['solution'], rotatedCubeList)
+    if rotatedCubeList[BACK_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+        verticalToDaisyResult = _verticalCubesToDaisy(BACK_UPPER_MIDDLE, TOP_UPPER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveBackLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[25] == rotatedCubeList[49]:
-        verticalToDaisyResult = _verticalCubesToDaisy(25, 37, result['solution'], rotatedCubeList)
+    if rotatedCubeList[BACK_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+        verticalToDaisyResult = _verticalCubesToDaisy(BACK_LOWER_MIDDLE, TOP_UPPER_MIDDLE, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveLeftUpperVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[28] == rotatedCubeList[49]:
-        verticalToDaisyResult = _verticalCubesToDaisy(28, 39, result['solution'], rotatedCubeList)
+    if rotatedCubeList[LEFT_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+        verticalToDaisyResult = _verticalCubesToDaisy(LEFT_UPPER_MIDDLE, 39, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
 
 def _moveLeftLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    if rotatedCubeList[34] == rotatedCubeList[49]:
-        verticalToDaisyResult = _verticalCubesToDaisy(34, 39, result['solution'], rotatedCubeList)
+    if rotatedCubeList[LEFT_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+        verticalToDaisyResult = _verticalCubesToDaisy(LEFT_LOWER_MIDDLE, 39, result['solution'], rotatedCubeList)
         result['solution'] = verticalToDaisyResult.get('solution')
         rotatedCubeList = verticalToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
@@ -644,13 +720,13 @@ def _moveLeftLowerVerticalCubeToDaisy(result, rotatedCubeList, numberOfPetalsFou
 """
 def _countTopPetals(rotatedCubeList):
     numberOfPetalsFound = 0
-    if rotatedCubeList[37] == rotatedCubeList[49]:
+    if rotatedCubeList[TOP_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
         numberOfPetalsFound += 1
-    if rotatedCubeList[39] == rotatedCubeList[49]:
+    if rotatedCubeList[39] == rotatedCubeList[BOTTOM_CENTER]:
         numberOfPetalsFound += 1
-    if rotatedCubeList[41] == rotatedCubeList[49]:
+    if rotatedCubeList[41] == rotatedCubeList[BOTTOM_CENTER]:
         numberOfPetalsFound += 1
-    if rotatedCubeList[43] == rotatedCubeList[49]:
+    if rotatedCubeList[TOP_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
         numberOfPetalsFound += 1
     return numberOfPetalsFound
 
@@ -668,22 +744,22 @@ def _notDaisyCase(result, rotatedCubeList):
     return rotatedCubeList
 
 def _bottomCrossExists(rotatedCubeList):
-    return (rotatedCubeList[46] == rotatedCubeList[49] 
-            and rotatedCubeList[48] == rotatedCubeList[49] 
-            and rotatedCubeList[50] == rotatedCubeList[49] 
-            and rotatedCubeList[52] == rotatedCubeList[49])
+    return (rotatedCubeList[BOTTOM_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER] 
+            and rotatedCubeList[48] == rotatedCubeList[BOTTOM_CENTER] 
+            and rotatedCubeList[50] == rotatedCubeList[BOTTOM_CENTER] 
+            and rotatedCubeList[BOTTOM_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
     
 def _bottomCrossAligned(rotatedCubeList):
     return (rotatedCubeList[4] == rotatedCubeList[7] 
-            and rotatedCubeList[13] == rotatedCubeList[16] 
-            and rotatedCubeList[22] == rotatedCubeList[25] 
-            and rotatedCubeList[31] == rotatedCubeList[34])
+            and rotatedCubeList[RIGHT_CENTER] == rotatedCubeList[RIGHT_LOWER_MIDDLE] 
+            and rotatedCubeList[BACK_CENTER] == rotatedCubeList[BACK_LOWER_MIDDLE] 
+            and rotatedCubeList[LEFT_CENTER] == rotatedCubeList[LEFT_LOWER_MIDDLE])
     
 def _daisyExists(rotatedCubeList):
-    return (rotatedCubeList[37] == rotatedCubeList[49] 
-            and rotatedCubeList[39] == rotatedCubeList[49] 
-            and rotatedCubeList[41] == rotatedCubeList[49] 
-            and rotatedCubeList[43] == rotatedCubeList[49])
+    return (rotatedCubeList[TOP_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER] 
+            and rotatedCubeList[39] == rotatedCubeList[BOTTOM_CENTER] 
+            and rotatedCubeList[41] == rotatedCubeList[BOTTOM_CENTER] 
+            and rotatedCubeList[TOP_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
 
 """
 #############################################################        
@@ -709,24 +785,24 @@ def _rotateF(cube):
     rotatedCubeList[6] = cubeList[8]
     
     #rotate top to right
-    rotatedCubeList[9] = cubeList[42]
-    rotatedCubeList[12] = cubeList[43]
+    rotatedCubeList[9] = cubeList[TOP_CENTER]
+    rotatedCubeList[12] = cubeList[TOP_LOWER_MIDDLE]
     rotatedCubeList[15] = cubeList[44]
     
     #rotate right to bottom
     rotatedCubeList[47] = cubeList[9]
-    rotatedCubeList[46] = cubeList[12]
+    rotatedCubeList[BOTTOM_UPPER_MIDDLE] = cubeList[12]
     rotatedCubeList[45] = cubeList[15]
     
     #rotate bottom to left
     rotatedCubeList[29] = cubeList[45]
-    rotatedCubeList[32] = cubeList[46]
+    rotatedCubeList[32] = cubeList[BOTTOM_UPPER_MIDDLE]
     rotatedCubeList[35] = cubeList[47]
     
     #rotate left to top
     rotatedCubeList[44] = cubeList[29]
-    rotatedCubeList[43] = cubeList[32] 
-    rotatedCubeList[42] = cubeList[35]
+    rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[32] 
+    rotatedCubeList[TOP_CENTER] = cubeList[35]
     
     result['cube'] = rotatedCubeList
     result['letter'] = 'F'
@@ -752,24 +828,24 @@ def _rotatef(cube):
     rotatedCubeList[8] = cubeList[6]
     
     #rotate right to top
-    rotatedCubeList[42] = cubeList[9]
-    rotatedCubeList[43] = cubeList[12]
+    rotatedCubeList[TOP_CENTER] = cubeList[9]
+    rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[12]
     rotatedCubeList[44] = cubeList[15]
     
     #rotate bottom to right
     rotatedCubeList[9] = cubeList[47]
-    rotatedCubeList[12] = cubeList[46]
+    rotatedCubeList[12] = cubeList[BOTTOM_UPPER_MIDDLE]
     rotatedCubeList[15] = cubeList[45]
     
     #rotate left to bottom
     rotatedCubeList[45] = cubeList[29]
-    rotatedCubeList[46] = cubeList[32]
+    rotatedCubeList[BOTTOM_UPPER_MIDDLE] = cubeList[32]
     rotatedCubeList[47] = cubeList[35]
     
     #rotate top to left
     rotatedCubeList[29] = cubeList[44]
-    rotatedCubeList[32] = cubeList[43] 
-    rotatedCubeList[35] = cubeList[42]
+    rotatedCubeList[32] = cubeList[TOP_LOWER_MIDDLE] 
+    rotatedCubeList[35] = cubeList[TOP_CENTER]
     
     result['cube'] = rotatedCubeList
     result['letter'] = 'f'
@@ -784,13 +860,13 @@ def _rotateR(cube):
     
     #rotate front face
     rotatedCubeList[11] = cubeList[9]
-    rotatedCubeList[14] = cubeList[10]
+    rotatedCubeList[14] = cubeList[RIGHT_UPPER_MIDDLE]
     rotatedCubeList[17] = cubeList[11]
-    rotatedCubeList[10] = cubeList[12]
-    rotatedCubeList[13] = cubeList[13]
-    rotatedCubeList[16] = cubeList[14]
+    rotatedCubeList[RIGHT_UPPER_MIDDLE] = cubeList[12]
+    rotatedCubeList[RIGHT_CENTER] = cubeList[RIGHT_CENTER]
+    rotatedCubeList[RIGHT_LOWER_MIDDLE] = cubeList[14]
     rotatedCubeList[9] = cubeList[15]
-    rotatedCubeList[12] = cubeList[16]
+    rotatedCubeList[12] = cubeList[RIGHT_LOWER_MIDDLE]
     rotatedCubeList[15] = cubeList[17]
     
     #rotate top to right
@@ -826,13 +902,13 @@ def _rotater(cube):
     
     #rotate front face
     rotatedCubeList[9] = cubeList[11]
-    rotatedCubeList[10] = cubeList[14]
+    rotatedCubeList[RIGHT_UPPER_MIDDLE] = cubeList[14]
     rotatedCubeList[11] = cubeList[17]
-    rotatedCubeList[12] = cubeList[10]
-    rotatedCubeList[13] = cubeList[13]
-    rotatedCubeList[14] = cubeList[16]
+    rotatedCubeList[12] = cubeList[RIGHT_UPPER_MIDDLE]
+    rotatedCubeList[RIGHT_CENTER] = cubeList[RIGHT_CENTER]
+    rotatedCubeList[14] = cubeList[RIGHT_LOWER_MIDDLE]
     rotatedCubeList[15] = cubeList[9]
-    rotatedCubeList[16] = cubeList[12]
+    rotatedCubeList[RIGHT_LOWER_MIDDLE] = cubeList[12]
     rotatedCubeList[17] = cubeList[15]
     
     #rotate top to right
@@ -868,33 +944,33 @@ def _rotateB(cube):
 
     #rotate front face
     rotatedCubeList[20] = cubeList[18]
-    rotatedCubeList[23] = cubeList[19]
+    rotatedCubeList[23] = cubeList[BACK_UPPER_MIDDLE]
     rotatedCubeList[26] = cubeList[20]
-    rotatedCubeList[19] = cubeList[21]
-    rotatedCubeList[22] = cubeList[22]
-    rotatedCubeList[25] = cubeList[23]
+    rotatedCubeList[BACK_UPPER_MIDDLE] = cubeList[21]
+    rotatedCubeList[BACK_CENTER] = cubeList[BACK_CENTER]
+    rotatedCubeList[BACK_LOWER_MIDDLE] = cubeList[23]
     rotatedCubeList[18] = cubeList[24]
-    rotatedCubeList[21] = cubeList[25]
+    rotatedCubeList[21] = cubeList[BACK_LOWER_MIDDLE]
     rotatedCubeList[24] = cubeList[26]
 
     #rotate top to right
     rotatedCubeList[27] = cubeList[38]
-    rotatedCubeList[30] = cubeList[37]
+    rotatedCubeList[30] = cubeList[TOP_UPPER_MIDDLE]
     rotatedCubeList[33] = cubeList[36]
 
     #rotate right to bottom
     rotatedCubeList[51] = cubeList[27]
-    rotatedCubeList[52] = cubeList[30]
+    rotatedCubeList[BOTTOM_LOWER_MIDDLE] = cubeList[30]
     rotatedCubeList[53] = cubeList[33]
 
     #rotate bottom to left
     rotatedCubeList[17] = cubeList[51]
-    rotatedCubeList[14] = cubeList[52]
+    rotatedCubeList[14] = cubeList[BOTTOM_LOWER_MIDDLE]
     rotatedCubeList[11] = cubeList[53]
 
     #rotate left to top
     rotatedCubeList[36] = cubeList[11]
-    rotatedCubeList[37] = cubeList[14] 
+    rotatedCubeList[TOP_UPPER_MIDDLE] = cubeList[14] 
     rotatedCubeList[38] = cubeList[17]
 #
     result['cube'] = rotatedCubeList
@@ -910,33 +986,33 @@ def _rotateb(cube):
 
     #rotate front face
     rotatedCubeList[18] = cubeList[20]
-    rotatedCubeList[19] = cubeList[23]
+    rotatedCubeList[BACK_UPPER_MIDDLE] = cubeList[23]
     rotatedCubeList[20] = cubeList[26]
-    rotatedCubeList[21] = cubeList[19]
-    rotatedCubeList[22] = cubeList[22]
-    rotatedCubeList[23] = cubeList[25]
+    rotatedCubeList[21] = cubeList[BACK_UPPER_MIDDLE]
+    rotatedCubeList[BACK_CENTER] = cubeList[BACK_CENTER]
+    rotatedCubeList[23] = cubeList[BACK_LOWER_MIDDLE]
     rotatedCubeList[24] = cubeList[18]
-    rotatedCubeList[25] = cubeList[21]
+    rotatedCubeList[BACK_LOWER_MIDDLE] = cubeList[21]
     rotatedCubeList[26] = cubeList[24]
 
     #rotate top to right
     rotatedCubeList[38] = cubeList[27]
-    rotatedCubeList[37] = cubeList[30]
+    rotatedCubeList[TOP_UPPER_MIDDLE] = cubeList[30]
     rotatedCubeList[36] = cubeList[33]
 
     #rotate right to bottom
     rotatedCubeList[27] = cubeList[51]
-    rotatedCubeList[30] = cubeList[52]
+    rotatedCubeList[30] = cubeList[BOTTOM_LOWER_MIDDLE]
     rotatedCubeList[33] = cubeList[53]
 
     #rotate bottom to left
     rotatedCubeList[51] = cubeList[17]
-    rotatedCubeList[52] = cubeList[14]
+    rotatedCubeList[BOTTOM_LOWER_MIDDLE] = cubeList[14]
     rotatedCubeList[53] = cubeList[11]
 
     #rotate left to top
     rotatedCubeList[11] = cubeList[36]
-    rotatedCubeList[14] = cubeList[37] 
+    rotatedCubeList[14] = cubeList[TOP_UPPER_MIDDLE] 
     rotatedCubeList[17] = cubeList[38]
 #
     result['cube'] = rotatedCubeList
@@ -952,19 +1028,19 @@ def _rotateL(cube):
 
     #rotate front face
     rotatedCubeList[29] = cubeList[27]
-    rotatedCubeList[32] = cubeList[28]
+    rotatedCubeList[32] = cubeList[LEFT_UPPER_MIDDLE]
     rotatedCubeList[35] = cubeList[29]
-    rotatedCubeList[28] = cubeList[30]
-    rotatedCubeList[31] = cubeList[31]
-    rotatedCubeList[34] = cubeList[32]
+    rotatedCubeList[LEFT_UPPER_MIDDLE] = cubeList[30]
+    rotatedCubeList[LEFT_CENTER] = cubeList[LEFT_CENTER]
+    rotatedCubeList[LEFT_LOWER_MIDDLE] = cubeList[32]
     rotatedCubeList[27] = cubeList[33]
-    rotatedCubeList[30] = cubeList[34]
+    rotatedCubeList[30] = cubeList[LEFT_LOWER_MIDDLE]
     rotatedCubeList[33] = cubeList[35]
 
     #rotate top to right
     rotatedCubeList[0] = cubeList[36]
     rotatedCubeList[3] = cubeList[39]
-    rotatedCubeList[6] = cubeList[42]
+    rotatedCubeList[6] = cubeList[TOP_CENTER]
 
     #rotate right to bottom
     rotatedCubeList[45] = cubeList[0]
@@ -977,7 +1053,7 @@ def _rotateL(cube):
     rotatedCubeList[20] = cubeList[51]
 
     #rotate left to top
-    rotatedCubeList[42] = cubeList[20]
+    rotatedCubeList[TOP_CENTER] = cubeList[20]
     rotatedCubeList[39] = cubeList[23] 
     rotatedCubeList[36] = cubeList[26]
 
@@ -994,19 +1070,19 @@ def _rotatel(cube):
 
     #rotate front face
     rotatedCubeList[27] = cubeList[29]
-    rotatedCubeList[28] = cubeList[32]
+    rotatedCubeList[LEFT_UPPER_MIDDLE] = cubeList[32]
     rotatedCubeList[29] = cubeList[35]
-    rotatedCubeList[30] = cubeList[28]
-    rotatedCubeList[31] = cubeList[31]
-    rotatedCubeList[32] = cubeList[34]
+    rotatedCubeList[30] = cubeList[LEFT_UPPER_MIDDLE]
+    rotatedCubeList[LEFT_CENTER] = cubeList[LEFT_CENTER]
+    rotatedCubeList[32] = cubeList[LEFT_LOWER_MIDDLE]
     rotatedCubeList[33] = cubeList[27]
-    rotatedCubeList[34] = cubeList[30]
+    rotatedCubeList[LEFT_LOWER_MIDDLE] = cubeList[30]
     rotatedCubeList[35] = cubeList[33]
     
     #rotate top to right
     rotatedCubeList[36] = cubeList[0]
     rotatedCubeList[39] = cubeList[3]
-    rotatedCubeList[42] = cubeList[6]
+    rotatedCubeList[TOP_CENTER] = cubeList[6]
     
     #rotate right to bottom
     rotatedCubeList[0] = cubeList[45]
@@ -1019,7 +1095,7 @@ def _rotatel(cube):
     rotatedCubeList[45] = cubeList[26]
     
     #rotate left to top
-    rotatedCubeList[20] = cubeList[42]
+    rotatedCubeList[20] = cubeList[TOP_CENTER]
     rotatedCubeList[23] = cubeList[39] 
     rotatedCubeList[26] = cubeList[36]
 
@@ -1036,33 +1112,33 @@ def _rotateU(cube):
 
     #rotate front face
     rotatedCubeList[38] = cubeList[36]
-    rotatedCubeList[41] = cubeList[37]
+    rotatedCubeList[41] = cubeList[TOP_UPPER_MIDDLE]
     rotatedCubeList[44] = cubeList[38]
-    rotatedCubeList[37] = cubeList[39]
-    rotatedCubeList[40] = cubeList[40]
-    rotatedCubeList[43] = cubeList[41]
-    rotatedCubeList[36] = cubeList[42]
-    rotatedCubeList[39] = cubeList[43]
-    rotatedCubeList[42] = cubeList[44]
+    rotatedCubeList[TOP_UPPER_MIDDLE] = cubeList[39]
+    rotatedCubeList[TOP_CENTER] = cubeList[TOP_CENTER]
+    rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[41]
+    rotatedCubeList[36] = cubeList[TOP_CENTER]
+    rotatedCubeList[39] = cubeList[TOP_LOWER_MIDDLE]
+    rotatedCubeList[TOP_CENTER] = cubeList[44]
     
     #rotate top to right
     rotatedCubeList[9] = cubeList[18]
-    rotatedCubeList[10] = cubeList[19]
+    rotatedCubeList[RIGHT_UPPER_MIDDLE] = cubeList[BACK_UPPER_MIDDLE]
     rotatedCubeList[11] = cubeList[20]
     
     #rotate right to bottom
     rotatedCubeList[0] = cubeList[9]
-    rotatedCubeList[1] = cubeList[10]
+    rotatedCubeList[1] = cubeList[RIGHT_UPPER_MIDDLE]
     rotatedCubeList[2] = cubeList[11]
     
     #rotate bottom to left
     rotatedCubeList[27] = cubeList[0]
-    rotatedCubeList[28] = cubeList[1]
+    rotatedCubeList[LEFT_UPPER_MIDDLE] = cubeList[1]
     rotatedCubeList[29] = cubeList[2]
     
     #rotate left to top
     rotatedCubeList[18] = cubeList[27]
-    rotatedCubeList[19] = cubeList[28] 
+    rotatedCubeList[BACK_UPPER_MIDDLE] = cubeList[LEFT_UPPER_MIDDLE] 
     rotatedCubeList[20] = cubeList[29]
 
     result['cube'] = rotatedCubeList
@@ -1078,33 +1154,33 @@ def _rotateu(cube):
 
     #rotate front face
     rotatedCubeList[36] = cubeList[38]
-    rotatedCubeList[37] = cubeList[41]
+    rotatedCubeList[TOP_UPPER_MIDDLE] = cubeList[41]
     rotatedCubeList[38] = cubeList[44]
-    rotatedCubeList[39] = cubeList[37]
-    rotatedCubeList[40] = cubeList[40]
-    rotatedCubeList[41] = cubeList[43]
-    rotatedCubeList[42] = cubeList[36]
-    rotatedCubeList[43] = cubeList[39]
-    rotatedCubeList[44] = cubeList[42]
+    rotatedCubeList[39] = cubeList[TOP_UPPER_MIDDLE]
+    rotatedCubeList[TOP_CENTER] = cubeList[TOP_CENTER]
+    rotatedCubeList[41] = cubeList[TOP_LOWER_MIDDLE]
+    rotatedCubeList[TOP_CENTER] = cubeList[36]
+    rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[39]
+    rotatedCubeList[44] = cubeList[TOP_CENTER]
     
     #rotate top to right
     rotatedCubeList[18] = cubeList[9]
-    rotatedCubeList[19] = cubeList[10]
+    rotatedCubeList[BACK_UPPER_MIDDLE] = cubeList[RIGHT_UPPER_MIDDLE]
     rotatedCubeList[20] = cubeList[11]
     
     #rotate right to bottom
     rotatedCubeList[9] = cubeList[0]
-    rotatedCubeList[10] = cubeList[1]
+    rotatedCubeList[RIGHT_UPPER_MIDDLE] = cubeList[1]
     rotatedCubeList[11] = cubeList[2]
     
     #rotate bottom to left
     rotatedCubeList[0] = cubeList[27]
-    rotatedCubeList[1] = cubeList[28]
+    rotatedCubeList[1] = cubeList[LEFT_UPPER_MIDDLE]
     rotatedCubeList[2] = cubeList[29]
     
     #rotate left to top
     rotatedCubeList[27] = cubeList[18]
-    rotatedCubeList[28] = cubeList[19] 
+    rotatedCubeList[LEFT_UPPER_MIDDLE] = cubeList[BACK_UPPER_MIDDLE] 
     rotatedCubeList[29] = cubeList[20]
 
     result['cube'] = rotatedCubeList
@@ -1120,33 +1196,33 @@ def _rotateD(cube):
 
     #rotate front face
     rotatedCubeList[45] = cubeList[51]
-    rotatedCubeList[46] = cubeList[48]
+    rotatedCubeList[BOTTOM_UPPER_MIDDLE] = cubeList[48]
     rotatedCubeList[47] = cubeList[45]
-    rotatedCubeList[48] = cubeList[52]
-    rotatedCubeList[49] = cubeList[49]
-    rotatedCubeList[50] = cubeList[46]
+    rotatedCubeList[48] = cubeList[BOTTOM_LOWER_MIDDLE]
+    rotatedCubeList[BOTTOM_CENTER] = cubeList[BOTTOM_CENTER]
+    rotatedCubeList[50] = cubeList[BOTTOM_UPPER_MIDDLE]
     rotatedCubeList[51] = cubeList[53]
-    rotatedCubeList[52] = cubeList[50]
+    rotatedCubeList[BOTTOM_LOWER_MIDDLE] = cubeList[50]
     rotatedCubeList[53] = cubeList[47]
     
     #rotate top to left
     rotatedCubeList[6] = cubeList[33]
-    rotatedCubeList[7] = cubeList[34]
+    rotatedCubeList[7] = cubeList[LEFT_LOWER_MIDDLE]
     rotatedCubeList[8] = cubeList[35]
     
     #rotate right to top
     rotatedCubeList[15] = cubeList[6]
-    rotatedCubeList[16] = cubeList[7]
+    rotatedCubeList[RIGHT_LOWER_MIDDLE] = cubeList[7]
     rotatedCubeList[17] = cubeList[8]
     
     #rotate bottom to right
     rotatedCubeList[24] = cubeList[15]
-    rotatedCubeList[25] = cubeList[16]
+    rotatedCubeList[BACK_LOWER_MIDDLE] = cubeList[RIGHT_LOWER_MIDDLE]
     rotatedCubeList[26] = cubeList[17]
     
     #rotate left to bottom
     rotatedCubeList[33] = cubeList[24]
-    rotatedCubeList[34] = cubeList[25] 
+    rotatedCubeList[LEFT_LOWER_MIDDLE] = cubeList[BACK_LOWER_MIDDLE] 
     rotatedCubeList[35] = cubeList[26]
 
     result['cube'] = rotatedCubeList
@@ -1161,33 +1237,33 @@ def _rotated(cube):
 
     #rotate front face
     rotatedCubeList[51] = cubeList[45]
-    rotatedCubeList[48] = cubeList[46]
+    rotatedCubeList[48] = cubeList[BOTTOM_UPPER_MIDDLE]
     rotatedCubeList[45] = cubeList[47]
-    rotatedCubeList[52] = cubeList[48]
-    rotatedCubeList[49] = cubeList[49]
-    rotatedCubeList[46] = cubeList[50]
+    rotatedCubeList[BOTTOM_LOWER_MIDDLE] = cubeList[48]
+    rotatedCubeList[BOTTOM_CENTER] = cubeList[BOTTOM_CENTER]
+    rotatedCubeList[BOTTOM_UPPER_MIDDLE] = cubeList[50]
     rotatedCubeList[53] = cubeList[51]
-    rotatedCubeList[50] = cubeList[52]
+    rotatedCubeList[50] = cubeList[BOTTOM_LOWER_MIDDLE]
     rotatedCubeList[47] = cubeList[53]
     
     #rotate top to left
     rotatedCubeList[33] = cubeList[6]
-    rotatedCubeList[34] = cubeList[7]
+    rotatedCubeList[LEFT_LOWER_MIDDLE] = cubeList[7]
     rotatedCubeList[35] = cubeList[8]
     
     #rotate right to top
     rotatedCubeList[6] = cubeList[15]
-    rotatedCubeList[7] = cubeList[16]
+    rotatedCubeList[7] = cubeList[RIGHT_LOWER_MIDDLE]
     rotatedCubeList[8] = cubeList[17]
     
     #rotate bottom to right
     rotatedCubeList[15] = cubeList[24]
-    rotatedCubeList[16] = cubeList[25]
+    rotatedCubeList[RIGHT_LOWER_MIDDLE] = cubeList[BACK_LOWER_MIDDLE]
     rotatedCubeList[17] = cubeList[26]
     
     #rotate left to bottom
     rotatedCubeList[24] = cubeList[33]
-    rotatedCubeList[25] = cubeList[34] 
+    rotatedCubeList[BACK_LOWER_MIDDLE] = cubeList[LEFT_LOWER_MIDDLE] 
     rotatedCubeList[26] = cubeList[35]
 
     result['cube'] = rotatedCubeList
