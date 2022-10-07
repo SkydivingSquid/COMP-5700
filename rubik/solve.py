@@ -337,8 +337,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
             #encodedCube = _functionDoubleL_Daisy(encodedCube, daisyRotResult)
             
         for char in letters:
-            irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
-            
+            encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
         rotatedCubeList = encodedCube
         
     daisyRotResult['daisyCubeList'] = encodedCube
