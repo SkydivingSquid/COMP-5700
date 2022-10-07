@@ -114,23 +114,7 @@ def _bottomCrossToDaisy(encodedCube, result):
     
     for char in algorithm:
         result['solution'], encodedCube = _functionalRotations(encodedCube, result, char)
-    
-    # #Double Front Rotation
-    # result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
-    # result['solution'], encodedCube = _functionF_BCD(encodedCube, result)
-    #
-    # #Double Right Rotation
-    # result['solution'], encodedCube = _functionR_BCD(encodedCube, result)
-    # result['solution'], encodedCube = _functionR_BCD(encodedCube, result)
-    #
-    # #Double Back Rotation
-    # result['solution'], encodedCube = _functionB_BCD(encodedCube, result)
-    # result['solution'], encodedCube = _functionB_BCD(encodedCube, result)
-    #
-    # #Double Left Rotation
-    # result['solution'], encodedCube = _functionL_BCD(encodedCube, result)
-    # result['solution'], encodedCube = _functionL_BCD(encodedCube, result)
-    
+
     return encodedCube
 
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
@@ -145,20 +129,27 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
     if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         
         if bottomPetalIndex == 46:
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
+            letters = 'FF'
+            #bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
+            #bottomToDaisyResult['solution'], rotatedCubeList = _functionF_BCD(rotatedCubeList, bottomToDaisyResult)
 
         elif bottomPetalIndex == 48:
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
+            letters = 'LL'
+            #bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
+            #bottomToDaisyResult['solution'], rotatedCubeList = _functionL_BCD(rotatedCubeList, bottomToDaisyResult)
             
         elif bottomPetalIndex == 50:
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
+            letters = 'RR'
+            #bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
+            #bottomToDaisyResult['solution'], rotatedCubeList = _functionR_BCD(rotatedCubeList, bottomToDaisyResult)
             
         elif bottomPetalIndex == 52:
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, bottomToDaisyResult)
-            bottomToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, bottomToDaisyResult)
+            letters = 'BB'
+            #bottomToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, bottomToDaisyResult)
+            #bottomToDaisyResult['solution'], rotatedCubeList = _functionB_BCD(rotatedCubeList, bottomToDaisyResult)
+        
+        for char in letters:
+            bottomToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, bottomToDaisyResult, char) 
         
         bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
     return bottomToDaisyResult
