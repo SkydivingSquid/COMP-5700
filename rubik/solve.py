@@ -505,7 +505,7 @@ def _functionalRotations(encodedCube, daisyRotResult, letter):
     directionResult = rotationDirection
     daisyRotResult['solution'] += directionResult.get('letter')
     encodedCube = directionResult.get('cube')
-    return encodedCube
+    return encodedCube, encodedCube
     
 
 """
