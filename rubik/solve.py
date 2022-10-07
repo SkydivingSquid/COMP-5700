@@ -209,10 +209,10 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         
         #Move l,f,L,D,F,F
         if verticalPetalIndex == 1:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult, "lfLDFF")
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "lfLDFF")
         
         if verticalPetalIndex == 7:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleLowerCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult)
+            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "FFlfLDFF")
     
         if verticalPetalIndex == 10:
             rotatedCubeList, veritcalToDaisyResult['solution'] = _verticleUpperCubeIntoDaisy_Right(rotatedCubeList, veritcalToDaisyResult)
@@ -513,7 +513,7 @@ def _functionalRotations(encodedCube, result, letter):
 ############ Rotating Vertical Cubes into Daisy #############
 #############################################################
 """
-def _verticleUpperCubeIntoDaisy_Front(rotatedCubeList, veritcalToDaisyResult, algorithm):
+def _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, algorithm):
     
     for char in algorithm:
          veritcalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, veritcalToDaisyResult, char)
