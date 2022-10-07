@@ -474,7 +474,7 @@ def _functionDoubleL_Daisy(encodedCube, daisyRotResult):
     return encodedCube
 
 
-def _functionalRotations(encodedCube, daisyRotResult, letter):
+def _functionalRotations(encodedCube, result, letter):
     rotationDirection = None
     
     if letter == 'F':
@@ -502,10 +502,11 @@ def _functionalRotations(encodedCube, daisyRotResult, letter):
     elif letter == 'd':
         rotationDirection = _rotated(encodedCube)
         
-    directionResult = rotationDirection
-    daisyRotResult['solution'] += directionResult.get('letter')
-    encodedCube = directionResult.get('cube')
-    return encodedCube, encodedCube
+    Direct_result = rotationDirection
+    result['solution'] += Direct_result.get('letter')
+    encodedCube = Direct_result.get('cube')
+    
+    return result['solution'], encodedCube
     
 
 """
