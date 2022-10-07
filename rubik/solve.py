@@ -124,7 +124,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
     bottomToDaisyResult['rotatedCubeList'] = rotatedCubeList
     
     while rotatedCubeList[bottomPetalIndex] == rotatedCubeList[topPetalIndex]:
-        bottomToDaisyResult['solution'], rotatedCubeList = _functionU_BCD(rotatedCubeList, bottomToDaisyResult)
+        bottomToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, bottomToDaisyResult, U)
 
     if rotatedCubeList[bottomPetalIndex] != rotatedCubeList[topPetalIndex]:
         
