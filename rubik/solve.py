@@ -415,45 +415,6 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     return integratedResult
 
 """
-####################################################################################        
-############ Rotation Functions and Updates to Cube and Solution String ############
-#################################################################################### 
-"""
-def _functionalRotations(encodedCube, result, letter):
-    rotationDirection = None
-    
-    if letter == 'F':
-        rotationDirection = _rotateF(encodedCube)
-    elif letter == 'f':
-        rotationDirection = _rotatef(encodedCube)
-    elif letter == 'R':
-        rotationDirection = _rotateR(encodedCube)
-    elif letter == 'r':
-        rotationDirection = _rotater(encodedCube)
-    elif letter == 'B':
-        rotationDirection = _rotateB(encodedCube)
-    elif letter == 'b':
-        rotationDirection = _rotateb(encodedCube)
-    elif letter == 'L':
-        rotationDirection = _rotateL(encodedCube)
-    elif letter == 'l':
-        rotationDirection = _rotatel(encodedCube)
-    elif letter == 'U':
-        rotationDirection = _rotateU(encodedCube)
-    elif letter == 'u':
-        rotationDirection = _rotateu(encodedCube)
-    elif letter == 'D':
-        rotationDirection = _rotateD(encodedCube)
-    elif letter == 'd':
-        rotationDirection = _rotated(encodedCube)
-        
-    Direct_result = rotationDirection
-    result['solution'] += Direct_result.get('letter')
-    encodedCube = Direct_result.get('cube')
-    
-    return result['solution'], encodedCube
-
-"""
 #############################################################        
 ############ Rotating Vertical Cubes into Daisy #############
 #############################################################
@@ -489,7 +450,6 @@ def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 
     return numberOfPetalsFound, rotatedCubeList
 
-
 def _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, cubeOne, cubeTwo):
     if rotatedCubeList[cubeOne] == rotatedCubeList[BOTTOM_CENTER]:
         bottomToDaisyResult = _unalignedBottomToDaisy(cubeOne, cubeTwo, result['solution'], rotatedCubeList)
@@ -497,7 +457,6 @@ def _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, cub
         rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
     return numberOfPetalsFound, rotatedCubeList, result
-
 
 """ Horizontal Moves """
 def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
@@ -621,6 +580,52 @@ def _daisyExists(rotatedCubeList):
             and rotatedCubeList[TOP_PORT] == rotatedCubeList[BOTTOM_CENTER] 
             and rotatedCubeList[TOP_STBD] == rotatedCubeList[BOTTOM_CENTER] 
             and rotatedCubeList[TOP_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
+
+
+
+
+
+
+
+
+"""
+####################################################################################        
+############ Rotation Functions and Updates to Cube and Solution String ############
+#################################################################################### 
+"""
+def _functionalRotations(encodedCube, result, letter):
+    rotationDirection = None
+    
+    if letter == 'F':
+        rotationDirection = _rotateF(encodedCube)
+    elif letter == 'f':
+        rotationDirection = _rotatef(encodedCube)
+    elif letter == 'R':
+        rotationDirection = _rotateR(encodedCube)
+    elif letter == 'r':
+        rotationDirection = _rotater(encodedCube)
+    elif letter == 'B':
+        rotationDirection = _rotateB(encodedCube)
+    elif letter == 'b':
+        rotationDirection = _rotateb(encodedCube)
+    elif letter == 'L':
+        rotationDirection = _rotateL(encodedCube)
+    elif letter == 'l':
+        rotationDirection = _rotatel(encodedCube)
+    elif letter == 'U':
+        rotationDirection = _rotateU(encodedCube)
+    elif letter == 'u':
+        rotationDirection = _rotateu(encodedCube)
+    elif letter == 'D':
+        rotationDirection = _rotateD(encodedCube)
+    elif letter == 'd':
+        rotationDirection = _rotated(encodedCube)
+        
+    Direct_result = rotationDirection
+    result['solution'] += Direct_result.get('letter')
+    encodedCube = Direct_result.get('cube')
+    
+    return result['solution'], encodedCube
 
 """
 #############################################################        
