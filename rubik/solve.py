@@ -188,9 +188,9 @@ def _bottomCrossToDaisy(encodedCube, result):
     algorithm = 'FFRRBBLL'
     
     for char in algorithm:
-        result['solution'], rotatedCubeList = _functionalRotations(encodedCube, result, char)
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, char)
 
-    return rotatedCubeList
+    return encodedCube
 
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
