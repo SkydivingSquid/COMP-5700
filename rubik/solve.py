@@ -722,6 +722,9 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
 
 
 def _findBottomEdge(encodedCube, zCube, yCube, xCube):
+    
+    encodedCube = ''.join(encodedCube)
+    
     rcl = encodedCube
 
     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
