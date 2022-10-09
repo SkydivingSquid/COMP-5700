@@ -645,6 +645,7 @@ def _solveBottomFace(encodedCube, solution):
     
         #result['cube'], result['solution'] = encodedCube, "FFFFFFFFF"
     
+    result = {result['cube'],result['solution']}
     return result
         
 #
