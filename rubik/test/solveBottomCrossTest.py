@@ -503,11 +503,11 @@ class solveBottomCrossTest(unittest.TestCase):
         
     def test_999_functionalMovement(self):
         
-        cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        cube = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
         solution = ''
-        letter = 1
+        letter = 'f'
         
-        expectedResult = 'bbbbbbbbbwrrwrrwrrgggggggggooyooyooyyyyyyyrrrooowwwwww', 1
+        expectedResult = 'bbbbbbbbbwrrwrrwrrgggggggggooyooyooyyyyyyyrrrooowwwwww', 'f'
         actualResult = solve._functionalRotations(cube, solution, letter)
         self.assertEqual(expectedResult, actualResult)
                                              
