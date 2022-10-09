@@ -173,10 +173,10 @@ def _solveBottomCross(encodedCube):
         
     #If Not a Daisy
     else:
-        rotatedCubeList = _notDaisyCase(result, rotatedCubeList)  
+        rotatedCubeList = _notDaisyCase(result, encodedCube)  
       
     #TIME FOR DAISY SOLUTION HERE
-    daisySolution = _daisySolution(rotatedCubeList)
+    daisySolution = _daisySolution(encodedCube)
     rotatedCubeList = daisySolution.get('cube')
     
     #Set result keys
