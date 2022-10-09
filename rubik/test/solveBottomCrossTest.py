@@ -462,7 +462,8 @@ class solveBottomCrossTest(unittest.TestCase):
     def test_solve_030_SolveBottomFace(self):
         cube  = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
         
-        expectedResult = 3
+        #expectedResult = 3
+        expectedResult = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
         actualResult = solve._solveBottomFace(cube)
         self.assertEqual(actualResult, expectedResult)
         

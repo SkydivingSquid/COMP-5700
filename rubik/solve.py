@@ -592,13 +592,14 @@ def _daisyExists(rotatedCubeList):
 
 def _solveBottomFace(rotatedCubeList):
     
-    return _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    
+    return(rotatedCubeList)
     
 
 def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
     rcl = rotatedCubeList
-    
-    #triangulatedBottomEdge_BFR = {rcl[BOTTOM_CENTER], rcl[FRONT_CENTER], rcl[RIGHT_CENTER]}
+
     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
     
     #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
