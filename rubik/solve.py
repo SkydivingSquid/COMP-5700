@@ -100,6 +100,12 @@ def _solve(parms):
     result['status'] = status
     return result
 
+
+def _setFinalSolveVariables(result, encodedCube, daisySolution):
+    result['cube'] = "".join(encodedCube)
+    result['solution'] += daisySolution.get('solution')
+
+
 """
 #############################################################        
 ############## Verify Method For Solving Cube ###############
@@ -297,9 +303,6 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         veritcalToDaisyResult['rotatedCubeList'] = encodedCube
     return veritcalToDaisyResult
 
-def _setFinalSolveVariables(result, encodedCube, daisySolution):
-    result['cube'] = "".join(encodedCube)
-    result['solution'] += daisySolution.get('solution')
 
 """  
 ########################################################       
