@@ -5,7 +5,6 @@ import rubik.cube as rubik
 ############### CUBE CONSTANTS ################
 ###############################################
 """
-from encodings.rot_13 import rot13
 
 #CENTERS
 FRONT_CENTER = 4
@@ -437,7 +436,6 @@ def _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, algorithm):
 
 """ Bottom Moves """
 def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
-    multiElemental = {}
 #Checking Top of Bottom Face
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
@@ -596,9 +594,25 @@ def _findBottomEdge(rotatedCubeList):
     
     triangulatedBottomEdge_BFR = {rcl[BOTTOM_CENTER], rcl[FRONT_CENTER], rcl[RIGHT_CENTER]}
     
-    TOP_UP_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
+    #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
+    TOP_UPR_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
+    TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
+    TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
+    TOP_LWR_R_RDGE = {'Value': 3, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
     
-    return triangulatedBottomEdge_BFR
+    #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
+    BTTM_UPR_L_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
+    BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
+    BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}  
+    BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD]}}
+    
+    
+    if triangulatedBottomEdge_BFR == BTTM_UPR_R_EDGE'Colors']:
+        return True
+    else:
+        return False
+    
+    
 
     
 
@@ -612,11 +626,11 @@ def _findBottomEdge(rotatedCubeList):
 
 
 
-    """
-    ####################################################################################        
-    ############ Rotation Functions and Updates to Cube and Solution String ############
-    #################################################################################### 
-    """
+"""
+####################################################################################        
+############ Rotation Functions and Updates to Cube and Solution String ############
+#################################################################################### 
+"""
 
 def _functionalRotations(encodedCube, result, letter):
     rotationDirection = None
