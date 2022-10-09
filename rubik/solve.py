@@ -589,10 +589,17 @@ def _daisyExists(rotatedCubeList):
 ###############################################################
 """
 
-def _findBottomEdge(rotatedCubeList):
+
+def _solveBottomFace(rotatedCubeList):
+    
+    return _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    
+
+def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
     rcl = rotatedCubeList
     
-    triangulatedBottomEdge_BFR = {rcl[BOTTOM_CENTER], rcl[FRONT_CENTER], rcl[RIGHT_CENTER]}
+    #triangulatedBottomEdge_BFR = {rcl[BOTTOM_CENTER], rcl[FRONT_CENTER], rcl[RIGHT_CENTER]}
+    triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
     
     #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
     TOP_UPR_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
@@ -610,7 +617,7 @@ def _findBottomEdge(rotatedCubeList):
     
     EdgeNumber = 0
     
-    while EdgeNumber < 7:
+    while EdgeNumber < 8:
         if (triangulatedBottomEdge_BFR != EdgeList[EdgeNumber]['Colors']):
             EdgeNumber += 1
             
