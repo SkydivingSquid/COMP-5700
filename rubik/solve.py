@@ -154,7 +154,7 @@ def _solveBottomCross(encodedCube):
     if (_bottomCrossExists(encodedCube)):
         
         #Check for bottom cross alignment
-        if (_bottomCrossAligned(rotatedCubeList)):
+        if (_bottomCrossAligned(encodedCube)):
             result['solution'] = ''
             return result
 
