@@ -650,7 +650,7 @@ def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
     movementList = ""
     value = cubeLocation
     solution = {}
-    solution['solution'] = ''
+    #solution['solution'] = ''
     #These four are to move edge from bottom to top 
     if value == 7:
         movementList = 'luLU'
