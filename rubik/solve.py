@@ -95,6 +95,9 @@ def _solve(parms):
     #Solve for Bottom Cross and set rotations to the solution.
     if status == 'ok':
         solvedBottomCrossResult = _solveBottomCross(encodedCube)
+        
+        
+        
         result['rotations'] = solvedBottomCrossResult.get('solution')
     
     result['status'] = status
@@ -184,7 +187,9 @@ def _solveBottomCross(encodedCube):
     encodedCube = daisySolution.get('cube')
     
     #Set result keys
-    _setFinalSolveVariables(result, encodedCube, daisySolution)
+# _setFinalSolveVariables(result, encodedCube, daisySolution)
+    
+    result['cube'] = encodedCube
     
     return result
     
