@@ -5,6 +5,7 @@ import rubik.cube as rubik
 ############### CUBE CONSTANTS ################
 ###############################################
 """
+from encodings.rot_13 import rot13
 
 #CENTERS
 FRONT_CENTER = 4
@@ -72,6 +73,9 @@ BOTTOM_UPPER_PORT_EDGE = 45
 BOTTOM_UPPER_STBD_EDGE = 47
 BOTTOM_LOWER_PORT_EDGE = 51
 BOTTOM_LOWER_STBD_EDGE = 53
+
+#COMBINED EDGES
+#TOP_UP_L_EDGE = {'Value': 1, 'EdgeIndices': {FRONT_UPPER_PORT_EDGE, LEFT_UPPER_PORT_EDGE, BACK_UPPER_STBD_EDGE}}
 
 
 """
@@ -587,6 +591,13 @@ def _daisyExists(rotatedCubeList):
 ###############################################################
 """
 
+def _findBottomEdge(rotatedCubeList):
+    rcl = rotatedCubeList
+    TOP_UP_L_EDGE = {'Value': 1, 'Colors': {rcl[FRONT_UPPER_PORT_EDGE], rlc[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
+    
+    return True
+
+    
 
 
 
@@ -598,13 +609,12 @@ def _daisyExists(rotatedCubeList):
 
 
 
+    """
+    ####################################################################################        
+    ############ Rotation Functions and Updates to Cube and Solution String ############
+    #################################################################################### 
+    """
 
-
-"""
-####################################################################################        
-############ Rotation Functions and Updates to Cube and Solution String ############
-#################################################################################### 
-"""
 def _functionalRotations(encodedCube, result, letter):
     rotationDirection = None
     
