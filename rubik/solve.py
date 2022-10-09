@@ -96,10 +96,8 @@ def _solve(parms):
         FinalResult = _solveBottomCross(encodedCube)
          
         #FinalResult = _solveBottomFace(FinalResult.get('encodedCube'), FinalResult.get('solution'))
-        result['cube'] = FinalResult.get('cube')
-        print(result['cube'])
         
-        FinalResult = _solveBottomFace(encodedCube, FinalResult.get('solution'))
+        FinalResult = _solveBottomFace(FinalResult.get('cube'), FinalResult.get('solution'))
                                         # ^ NONE OBJECT
         
     
@@ -199,8 +197,6 @@ def _solveBottomCross(encodedCube):
     result['solution'] += daisySolution.get('solution')
     result['cube'] = encodedCube
     
-    print('From Bottom Cross: ')
-    print(encodedCube)
     return result
     
 def _bottomCrossToDaisy(encodedCube, result):
