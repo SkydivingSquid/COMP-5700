@@ -803,40 +803,40 @@ def _rotateF(cube):
     result = {}
     
     cubeList = list(cube)
-    #encodedCube = cubeList[:]
+    rotatedCubeList = cubeList[:]
     
         #rotate front face
-    encodedCube[FRONT_UPPER_STBD_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
-    encodedCube[FRONT_STBD] = cubeList[FRONT_UPPER_MIDDLE]
-    encodedCube[FRONT_LOWER_STBD_EDGE] = cubeList[FRONT_UPPER_STBD_EDGE]
-    encodedCube[FRONT_UPPER_MIDDLE] = cubeList[FRONT_PORT]
-    encodedCube[FRONT_CENTER] = cubeList[FRONT_CENTER]
-    encodedCube[FRONT_LOWER_MIDDLE] = cubeList[FRONT_STBD]
-    encodedCube[FRONT_UPPER_PORT_EDGE] = cubeList[FRONT_LOWER_PORT_EDGE]
-    encodedCube[FRONT_PORT] = cubeList[FRONT_LOWER_MIDDLE]
-    encodedCube[FRONT_LOWER_PORT_EDGE] = cubeList[FRONT_LOWER_STBD_EDGE]
+    rotatedCubeList[FRONT_UPPER_STBD_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
+    rotatedCubeList[FRONT_STBD] = cubeList[FRONT_UPPER_MIDDLE]
+    rotatedCubeList[FRONT_LOWER_STBD_EDGE] = cubeList[FRONT_UPPER_STBD_EDGE]
+    rotatedCubeList[FRONT_UPPER_MIDDLE] = cubeList[FRONT_PORT]
+    rotatedCubeList[FRONT_CENTER] = cubeList[FRONT_CENTER]
+    rotatedCubeList[FRONT_LOWER_MIDDLE] = cubeList[FRONT_STBD]
+    rotatedCubeList[FRONT_UPPER_PORT_EDGE] = cubeList[FRONT_LOWER_PORT_EDGE]
+    rotatedCubeList[FRONT_PORT] = cubeList[FRONT_LOWER_MIDDLE]
+    rotatedCubeList[FRONT_LOWER_PORT_EDGE] = cubeList[FRONT_LOWER_STBD_EDGE]
     
     #rotate top to right
-    encodedCube[RIGHT_UPPER_PORT_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
-    encodedCube[RIGHT_PORT] = cubeList[TOP_LOWER_MIDDLE]
-    encodedCube[RIGHT_LOWER_PORT_EDGE] = cubeList[TOP_LOWER_STBD_EDGE]
+    rotatedCubeList[RIGHT_UPPER_PORT_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
+    rotatedCubeList[RIGHT_PORT] = cubeList[TOP_LOWER_MIDDLE]
+    rotatedCubeList[RIGHT_LOWER_PORT_EDGE] = cubeList[TOP_LOWER_STBD_EDGE]
     
     #rotate right to bottom
-    encodedCube[BOTTOM_UPPER_STBD_EDGE] = cubeList[RIGHT_UPPER_PORT_EDGE]
-    encodedCube[BOTTOM_UPPER_MIDDLE] = cubeList[RIGHT_PORT]
-    encodedCube[BOTTOM_UPPER_PORT_EDGE] = cubeList[RIGHT_LOWER_PORT_EDGE]
+    rotatedCubeList[BOTTOM_UPPER_STBD_EDGE] = cubeList[RIGHT_UPPER_PORT_EDGE]
+    rotatedCubeList[BOTTOM_UPPER_MIDDLE] = cubeList[RIGHT_PORT]
+    rotatedCubeList[BOTTOM_UPPER_PORT_EDGE] = cubeList[RIGHT_LOWER_PORT_EDGE]
     
     #rotate bottom to left
-    encodedCube[LEFT_UPPER_STBD_EDGE] = cubeList[BOTTOM_UPPER_PORT_EDGE]
-    encodedCube[LEFT_STBD] = cubeList[BOTTOM_UPPER_MIDDLE]
-    encodedCube[LEFT_LOWER_STBD_EDGE] = cubeList[BOTTOM_UPPER_STBD_EDGE]
+    rotatedCubeList[LEFT_UPPER_STBD_EDGE] = cubeList[BOTTOM_UPPER_PORT_EDGE]
+    rotatedCubeList[LEFT_STBD] = cubeList[BOTTOM_UPPER_MIDDLE]
+    rotatedCubeList[LEFT_LOWER_STBD_EDGE] = cubeList[BOTTOM_UPPER_STBD_EDGE]
     
     #rotate left to top
-    encodedCube[TOP_LOWER_STBD_EDGE] = cubeList[LEFT_UPPER_STBD_EDGE]
-    encodedCube[TOP_LOWER_MIDDLE] = cubeList[LEFT_STBD] 
-    encodedCube[TOP_LOWER_PORT_EDGE] = cubeList[LEFT_LOWER_STBD_EDGE]
+    rotatedCubeList[TOP_LOWER_STBD_EDGE] = cubeList[LEFT_UPPER_STBD_EDGE]
+    rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[LEFT_STBD] 
+    rotatedCubeList[TOP_LOWER_PORT_EDGE] = cubeList[LEFT_LOWER_STBD_EDGE]
     
-    result['cube'] = encodedCube
+    result['cube'] = rotatedCubeList
     result['letter'] = 'F'
     return result
 
