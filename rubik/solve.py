@@ -569,7 +569,7 @@ def _daisyExists(encodedCube):
     return (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[BOTTOM_CENTER] 
             and encodedCube[TOP_PORT] == encodedCube[BOTTOM_CENTER] 
             and encodedCube[TOP_STBD] == encodedCube[BOTTOM_CENTER] 
-            and encodedCube[TOP_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
+            and encodedCube[TOP_LOWER_MIDDLE] == encodedCube[BOTTOM_CENTER])
 
 
 """
