@@ -223,42 +223,42 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
         bottomToDaisyResult['rotatedCubeList'] = encodedCube
     return bottomToDaisyResult
 
-def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
+def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves horizontal pieces to top to begin forming a Daisy """
     horizontalToDaisyResult = {}
     horizontalToDaisyResult['solution'] = solution
-    horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    horizontalToDaisyResult['rotatedCubeList'] = encodedCube
     
-    while rotatedCubeList[horizontalPetalIndex] == rotatedCubeList[topPetalIndex]:
-        horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'U')
+    while encodedCube[horizontalPetalIndex] == encodedCube[topPetalIndex]:
+        horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'U')
 
-    if rotatedCubeList[horizontalPetalIndex] != rotatedCubeList[topPetalIndex]:
+    if encodedCube[horizontalPetalIndex] != encodedCube[topPetalIndex]:
         
         if horizontalPetalIndex == FRONT_PORT:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'l')
+            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'l')
             
         if horizontalPetalIndex == FRONT_STBD:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'R')
+            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'R')
             
         if horizontalPetalIndex == RIGHT_PORT:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'f')
+            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'f')
             
         if horizontalPetalIndex == RIGHT_STBD:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'B')
+            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'B')
             
         if horizontalPetalIndex == BACK_PORT:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'r')
+            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'r')
             
         if horizontalPetalIndex == BACK_STBD:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'L')
+            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'L')
 
         if horizontalPetalIndex == LEFT_PORT:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'b')
+            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'b')
             
         if horizontalPetalIndex == LEFT_STBD:
-            horizontalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, horizontalToDaisyResult, 'F')
+            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'F')
         
-        horizontalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+        horizontalToDaisyResult['rotatedCubeList'] = encodedCube
     return horizontalToDaisyResult
 
 def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
