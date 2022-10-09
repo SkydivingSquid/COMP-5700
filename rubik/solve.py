@@ -803,7 +803,7 @@ def _rotateF(cube):
     result = {}
     
     cubeList = list(cube)
-    encodedCube = cubeList[:]
+    #encodedCube = cubeList[:]
     
         #rotate front face
     encodedCube[FRONT_UPPER_STBD_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
