@@ -790,9 +790,9 @@ def _functionalRotations(encodedCube, result, letter):
         
     Direct_result = rotationDirection
     result['solution'] += Direct_result.get('letter')
-    encodedCube = Direct_result.get('cube')
+    rotatedCubeList = Direct_result.get('cube')
     
-    return result['solution'], encodedCube
+    return result['solution'], rotatedCubeList
 
 """
 #############################################################        
