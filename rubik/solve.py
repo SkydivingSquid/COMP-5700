@@ -149,7 +149,7 @@ def _solveBottomCross(encodedCube):
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
-    result['status'] = 'ok'
+    #result['status'] = 'ok'
     
     #Check for bottom cross
     if (_bottomCrossExists(rotatedCubeList)):
@@ -590,6 +590,13 @@ def _daisyExists(rotatedCubeList):
 """
 
 
+
+
+
+
+
+
+
 def _solveBottomFace(rotatedCubeList):
     #This will likely need to have the solution passed as an argument. 
     
@@ -628,6 +635,10 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
     solution = {}
     solution['solution'] = ''
     
+    result = {}
+    result['cube'] = rotatedCubeList
+    result['solution'] = solution
+    
     TOP_UPR_L_EDGE = {'Value': 1}
     TOP_UPR_R_EDGE = {'Value': 2}
     TOP_LWR_L_EDGE = {'Value': 4}
@@ -648,11 +659,11 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
     difference = (cubeLocation - correctLocation)
     
     if (difference == 0):
-        return True
+        return rotatedCubeList, solution['solution']
     
     elif (difference == 1 or difference == -3):
         #Clockwise rotation
-        return True
+        _rotateU(rotatedCubeList)
         
     elif (difference == -1 or difference == 3):
         #Counter Clockwise Rotation
@@ -673,9 +684,6 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
 
 
 
-def _moveTopEdgesToCorrectLocation():
-    
-    return None
 
 
 
