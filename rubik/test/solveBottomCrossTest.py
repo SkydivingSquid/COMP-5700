@@ -462,10 +462,11 @@ class solveBottomCrossTest(unittest.TestCase):
         
     def test_solve_030_SolveBottomFace(self):
         cube  = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
+        solution = 'QQQ'
         
         #expectedResult = 3
-        expectedResult = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
-        actualResult = solve._solveBottomFace(cube)
+        expectedResult = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy', 'QQQ'
+        actualResult = solve._solveBottomFace(cube, solution)
         self.assertEqual(actualResult, expectedResult)
         
         
@@ -479,8 +480,9 @@ class solveBottomCrossTest(unittest.TestCase):
         
     def test_solve_032_SolveBottomFace2(self):
         cube  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-        expectedResult  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-        actualResult = solve._solveBottomFace(cube)
+        solution = 'QQQ'
+        expectedResult  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', 'QQQ'
+        actualResult = solve._solveBottomFace(cube, solution)
         self.assertTrue(actualResult)
         
     # def test_solve_033_SolveBottomEdges(self):
