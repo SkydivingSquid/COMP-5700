@@ -410,12 +410,12 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 ############ Rotating Vertical Cubes into Daisy #############
 #############################################################
 """
-def _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, algorithm):
+def _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, algorithm):
     
     for char in algorithm:
-        veritcalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, veritcalToDaisyResult, char)
+        veritcalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, veritcalToDaisyResult, char)
     
-    return encodedCube, veritcalToDaisyResult['solution']
+    return rotatedCubeList, veritcalToDaisyResult['solution']
     
 """
 #############################################################        
@@ -427,7 +427,7 @@ def _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, algorithm):
 def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Checking Top of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(rotatedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
 #Checking Left of Bottom Face
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_PORT, TOP_PORT)
