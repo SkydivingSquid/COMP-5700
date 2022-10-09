@@ -101,9 +101,9 @@ def _solve(parms):
     return result
 
 
-def _setFinalSolveVariables(result, encodedCube, daisySolution):
+def _setFinalSolveVariables(result, encodedCube, solution):
     result['cube'] = "".join(encodedCube)
-    result['solution'] += daisySolution.get('solution')
+    result['solution'] += solution.get('solution')
 
 
 """
