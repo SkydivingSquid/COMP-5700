@@ -618,7 +618,7 @@ def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
     EdgeNumber = 0
     
     while EdgeNumber < 8:
-        if (triangulatedBottomEdge_BFR != EdgeList[EdgeNumber]['Colors']):
+        if (triangulatedBottomEdge != EdgeList[EdgeNumber]['Colors']):
             EdgeNumber += 1
             
         else:
