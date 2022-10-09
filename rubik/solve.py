@@ -424,21 +424,21 @@ def _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, algorithm):
 """
 
 """ Bottom Moves """
-def _moveBottomCubesToDaisy(result, encodedCube, numberOfPetalsFound):
+def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Checking Top of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, encodedCube, result = _moveEachBottomCubeToDaisy(encodedCube, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(resuencodedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
 #Checking Left of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, encodedCube, result = _moveEachBottomCubeToDaisy(result, encodedCube, numberOfPetalsFound, BOTTOM_PORT, TOP_PORT)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_PORT, TOP_PORT)
 #Checking Right of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, encodedCube, result = _moveEachBottomCubeToDaisy(result, encodedCube, numberOfPetalsFound, BOTTOM_STBD, TOP_STBD)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_STBD, TOP_STBD)
 #Checking Bottom of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, encodedCube, result = _moveEachBottomCubeToDaisy(result, encodedCube, numberOfPetalsFound, BOTTOM_LOWER_MIDDLE, TOP_UPPER_MIDDLE)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_LOWER_MIDDLE, TOP_UPPER_MIDDLE)
 
-    return numberOfPetalsFound, encodedCube
+    return numberOfPetalsFound, rotatedCubeList
 
 def _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, cubeOne, cubeTwo):
     if rotatedCubeList[cubeOne] == rotatedCubeList[BOTTOM_CENTER]:
