@@ -591,9 +591,11 @@ def _daisyExists(rotatedCubeList):
 
 
 def _solveBottomFace(rotatedCubeList):
+    #This will likely need to have the solution passed as an argument. 
     
     _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     
+    # This will have to return solution and rotated cube.
     return(rotatedCubeList)
     
 
