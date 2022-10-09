@@ -491,17 +491,25 @@ class solveBottomCrossTest(unittest.TestCase):
         actualResult = solve._solveBottomEdges(cube, solution, cubeLocation)
         self.assertEqual(expectedResult, actualResult)
 
-    def test_solve_034_movingBottomEdgeToTopEdge(self):
+    # def test_solve_034_movingBottomEdgeToTopEdge(self):
+    #     cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+    #     solution = ''
+    #     value = 7
+    #
+    #     expectedResult = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww', 'f',2
+    #     actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
+    #     self.assertEqual(expectedResult,actualResult)
+        
+        
+    def test_999_functionalMovement(self):
+        
         cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         solution = ''
-        value = 7
+        letter = 'f'
         
-        expectedResult = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww', 'f',2
-        actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
-        self.assertEqual(expectedResult,actualResult)
-        
-        
-                                             
+        expectedResult = 'bbbbbbbbbwrrwrrwrrgggggggggooyooyooyyyyyyyrrrooowwwwww', 'f'
+        actualResult = solve._functionalRotations(cube, solution, letter)
+        self.assertEqual(expectedResult, actualResult)
                                              
                                              
                                        
