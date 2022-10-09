@@ -624,7 +624,7 @@ def _solveBottomFace(encodedCube, solution):
             
         
     # This will have to return solution and rotated cube.
-    return(encodedCube)
+    return(encodedCube, solution)
     
     
 def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
