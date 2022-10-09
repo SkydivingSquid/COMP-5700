@@ -658,7 +658,7 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
         #Counter Clockwise Rotation
         break
         
-    elif: (difference == 2 or difference == -2):
+    elif (difference == 2 or difference == -2):
         #Double CLockwise
         break
         
