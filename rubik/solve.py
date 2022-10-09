@@ -166,7 +166,7 @@ def _solveBottomCross(encodedCube):
             return result
     
     #Check Top for Daisy  
-    elif (_daisyExists(rotatedCubeList)):
+    elif (_daisyExists(encodedCube)):
         daisySolution = _daisySolution(encodedCube)
         result['solution'] += daisySolution.get('solution')
         return result
