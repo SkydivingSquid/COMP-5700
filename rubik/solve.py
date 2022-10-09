@@ -750,11 +750,11 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     solution = ""
     movementList = 'luLU'
     for letter in movementList:
-        solution, encodedCube = _functionalRotations(encodedCube, solution, letter)
+        result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
  
-    result['cube'] = encodedCube
-    result['cubeLocation'] = cubeLocation
-    result['solution'] = solution #I dont think it's += here
+    #result['cube'] = encodedCube
+    #result['cubeLocation'] = cubeLocation
+    #result['solution'] = solution #I dont think it's += here
     
     print(result['solution'])
     print(result)
