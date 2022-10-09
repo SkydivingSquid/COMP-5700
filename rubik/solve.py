@@ -643,7 +643,7 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
         if value == cubeLocation:
             rotatedCubeList, solution, cubeLocation = _moveBottomEdgeToTopEdge(rotatedCubeList,solution,cubeLocation)
         
-    if (cubeLocation - 
+    #if (cubeLocation - 
     
         
         
