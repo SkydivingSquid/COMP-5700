@@ -177,10 +177,10 @@ def _solveBottomCross(encodedCube):
       
     #TIME FOR DAISY SOLUTION HERE
     daisySolution = _daisySolution(encodedCube)
-    rotatedCubeList = daisySolution.get('cube')
+    encodedCube = daisySolution.get('cube')
     
     #Set result keys
-    _setFinalSolveVariables(result, rotatedCubeList, daisySolution)
+    _setFinalSolveVariables(result, encodedCube, daisySolution)
     
     return result
     
