@@ -96,7 +96,9 @@ def _solve(parms):
     if status == 'ok':
         FinalResult = _solveBottomCross(encodedCube)
          
-        FinalResult = _solveBottomFace(FinalResult.get('encodedCube'), FinalResult.get('solution'))
+        #FinalResult = _solveBottomFace(FinalResult.get('encodedCube'), FinalResult.get('solution'))
+        FinalResult = _solveBottomFace('bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', FinalResult.get('solution'))
+        
     
     result['rotations'] = FinalResult.get('solution')
     result['status'] = status
@@ -722,8 +724,6 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
 
 
 def _findBottomEdge(encodedCube, zCube, yCube, xCube):
-    
-    encodedCube = ''.join(encodedCube)
     
     rcl = encodedCube
 
