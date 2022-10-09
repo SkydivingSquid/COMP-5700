@@ -261,42 +261,42 @@ def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solut
         horizontalToDaisyResult['rotatedCubeList'] = encodedCube
     return horizontalToDaisyResult
 
-def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
+def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves vertical pieces to top to begin forming a Daisy """
     veritcalToDaisyResult = {}
     veritcalToDaisyResult['solution'] = solution
-    veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+    veritcalToDaisyResult['encodedCube'] = encodedCube
     
-    while rotatedCubeList[verticalPetalIndex] == rotatedCubeList[topPetalIndex]:
-        veritcalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, veritcalToDaisyResult, 'U')
+    while encodedCube[verticalPetalIndex] == encodedCube[topPetalIndex]:
+        veritcalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, veritcalToDaisyResult, 'U')
 
-    if rotatedCubeList[verticalPetalIndex] != rotatedCubeList[topPetalIndex]:
+    if encodedCube[verticalPetalIndex] != encodedCube[topPetalIndex]:
         
         if verticalPetalIndex == FRONT_UPPER_MIDDLE:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "lfLDFF")
+            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "lfLDFF")
         
         if verticalPetalIndex == FRONT_LOWER_MIDDLE:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "FFlfLDFF")
+            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "FFlfLDFF")
     
         if verticalPetalIndex == RIGHT_UPPER_MIDDLE:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "frFDRR")
+            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "frFDRR")
     
         if verticalPetalIndex == RIGHT_LOWER_MIDDLE:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "RRfrFDRR")
+            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "RRfrFDRR")
 
         if verticalPetalIndex == BACK_UPPER_MIDDLE:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "rbRDBB")
+            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "rbRDBB")
         
         if verticalPetalIndex == BACK_LOWER_MIDDLE:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "BBrbRDBB")
+            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "BBrbRDBB")
             
         if verticalPetalIndex == LEFT_UPPER_MIDDLE: 
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "blBDLL")
+            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "blBDLL")
             
         if verticalPetalIndex == LEFT_LOWER_MIDDLE:
-            rotatedCubeList, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, "LLblBDLL")
+            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "LLblBDLL")
         
-        veritcalToDaisyResult['rotatedCubeList'] = rotatedCubeList
+        veritcalToDaisyResult['rotatedCubeList'] = encodedCube
     return veritcalToDaisyResult
 
 def _setFinalSolveVariables(result, rotatedCubeList, daisySolution):
