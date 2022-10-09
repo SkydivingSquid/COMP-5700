@@ -643,12 +643,40 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
         if value == cubeLocation:
             rotatedCubeList, solution, cubeLocation = _moveBottomEdgeToTopEdge(rotatedCubeList,solution,cubeLocation)
         
-    #if (cubeLocation - 
+        
+    #Solving Bottom
+    difference = (cubeLocation - correctLocation)
+    
+    if (difference == 0):
+        break
+    
+    elif (difference == 1 or difference == -3):
+        #Clockwise rotation
+        break
+        
+    elif (difference == -1 or difference == 3):
+        #Counter Clockwise Rotation
+        break
+        
+    elif: (difference == 2 or difference == -2):
+        #Double CLockwise
+        break
+        
+    #CAN GET RID OF THIS
+    else: 
+        print('SOMETHING HAS GONE WRONG')
     
         
         
     #This return is just for unit testing
     return rotatedCubeList, solution['solution']
+
+
+
+def _moveTopEdgesToCorrectLocation:
+
+
+
 
 
 def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
