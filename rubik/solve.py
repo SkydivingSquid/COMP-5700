@@ -149,7 +149,7 @@ def _solveBottomCross(encodedCube):
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
-    #result['status'] = 'ok'
+    result['status'] = 'ok'
     
     #Check for bottom cross
     if (_bottomCrossExists(rotatedCubeList)):
