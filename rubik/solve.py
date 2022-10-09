@@ -606,11 +606,19 @@ def _findBottomEdge(rotatedCubeList):
     BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}  
     BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
     
+    EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_RDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
     
-    if triangulatedBottomEdge_BFR == TOP_LWR_R_RDGE['Colors']:
-        return True
-    else:
-        return False
+    EdgeNumber = 0
+    
+    while EdgeNumber < 7:
+        if (triangulatedBottomEdge_BFR != EdgeList[EdgeNumber]['Colors']):
+            EdgeNumber += 1
+            
+        else:
+            return True
+        
+    return False
+        
     
     
 
