@@ -478,9 +478,11 @@ class solveBottomCrossTest(unittest.TestCase):
                                              
                                              
     def test_solve_032_IsBottomEdgeInCorrectLocation(self):
-        cube  = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
+        cube = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
         
-        self.assertTrue(solve._BottomEdgeCheck(cube))
+        lctnResult = solve._findBottomEdge(cube, 49, 4, 13)
+        
+        self.assertTrue(solve._bottomEdgeCheck(3,lctnResult))
         
                                              
                                              

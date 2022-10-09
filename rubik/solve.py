@@ -5,6 +5,7 @@ import rubik.cube as rubik
 ############### CUBE CONSTANTS ################
 ###############################################
 """
+from pickle import TRUE
 
 #CENTERS
 FRONT_CENTER = 4
@@ -593,7 +594,18 @@ def _daisyExists(rotatedCubeList):
 def _solveBottomFace(rotatedCubeList):
     #This will likely need to have the solution passed as an argument. 
     
-    _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    TOP_UPR_L_EDGE = {'Value': 1}
+    TOP_UPR_R_EDGE = {'Value': 2}
+    TOP_LWR_L_EDGE = {'Value': 4}
+    TOP_LWR_R_EDGE = {'Value': 3}
+    
+    BTTM_UPR_L_EDGE = {'Value': 5}
+    BTTM_UPR_R_EDGE = {'Value': 6}
+    BTTM_LWR_L_EDGE = {'Value': 8}  
+    BTTM_LWR_R_EDGE = {'Value': 7}
+    
+    cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    _bottomEdgeCheck(TOP_LWR_R_EDGE['Value'], cubeLctn)
     
     # This will have to return solution and rotated cube.
     return(rotatedCubeList)
@@ -608,7 +620,7 @@ def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
     TOP_UPR_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
     TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
     TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
-    TOP_LWR_R_RDGE = {'Value': 3, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
+    TOP_LWR_R_EDGE = {'Value': 3, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
     
     #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
     BTTM_UPR_L_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
@@ -616,7 +628,7 @@ def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
     BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}  
     BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
     
-    EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_RDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
+    EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
     
     EdgeNumber = 0
     
@@ -630,8 +642,14 @@ def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
     return False
         
     
+def _bottomEdgeCheck(correctLctn,cubeLctn):
     
-
+    if correctLctn == cubeLctn:
+        return True
+    
+    else:
+        return False
+    
     
 
 
