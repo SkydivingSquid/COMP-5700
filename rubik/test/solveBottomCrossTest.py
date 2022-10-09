@@ -597,7 +597,10 @@ class solveBottomCrossTest(unittest.TestCase):
         expectedResult['solution'] = 'abcf'
         expectedResult['cube'] = 'bbbbbbbbbwrrwrrwrrgggggggggooyooyooyyyyyyyrrrooowwwwww'
         
-        actualResult = solve._functionalRotations(cube, solution, letter)
+        actualResult = {}
+        
+        actualResult['solution'], actualResult['cube'] = solve._functionalRotations(cube, solution, letter)
+        
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         
         
