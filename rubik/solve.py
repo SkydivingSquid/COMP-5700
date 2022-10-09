@@ -611,149 +611,151 @@ def _solveBottomFace(encodedCube, solution):
     BTTM_LWR_R_EDGE = {'Value': 7}
     
     #IF Edges are in the correct spot and oriented correctly, return encodedCube. No update to solution. 
-    cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
-    if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
-        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
-        if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
-            cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,BACK_CENTER)
-            if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-                cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
-                if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-                    result['cube'], result['solution'] = encodedCube, solution
+    # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    # if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+    #     cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
+    #     if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+    #         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,BACK_CENTER)
+    #         if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+    #             cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
+    #             if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+    #                 result['cube'], result['solution'] = encodedCube, solution
                 
     # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     # if (cubeLctn != BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         
+    result['cube'], result['solution'] = encodedCube, solution
     
     return result
         
-        
-            
-    
-def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
-    solution = {}
-    solution['solution'] = ''
-    
-    result = {}
-    #result['cube'] = encodedCube
-    result['solution'] = solution
-    
-    TOP_UPR_L_EDGE = {'Value': 1}
-    TOP_UPR_R_EDGE = {'Value': 2}
-    TOP_LWR_L_EDGE = {'Value': 4}
-    TOP_LWR_R_EDGE = {'Value': 3}
-    
-    BTTM_UPR_L_EDGE = {'Value': 5}
-    BTTM_UPR_R_EDGE = {'Value': 6}
-    BTTM_LWR_L_EDGE = {'Value': 8}  
-    BTTM_LWR_R_EDGE = {'Value': 7}
-    
-    #Rotate edge out of bottom into top
-    for value in (BTTM_UPR_L_EDGE['Value'],BTTM_UPR_R_EDGE['Value'], BTTM_LWR_L_EDGE['Value'], BTTM_LWR_R_EDGE['Value']):
-        if value == cubeLocation:
-            encodedCube, solution, cubeLocation = _moveBottomEdgeToTopEdge(encodedCube,solution,cubeLocation)
-        
-    #Solving Bottom
-    difference = (cubeLocation - correctLocation)
-    
-    if (difference == 0):
-        return encodedCube, solution['solution']
-    
-    elif (difference == 1 or difference == -3):
-        #Clockwise rotation
-        encodedCube,solution =_rotateU(encodedCube)
-        
-    elif (difference == -1 or difference == 3):
-        #Counter Clockwise Rotation
-        encodedCube,solution = _rotateu(encodedCube)
-        
-    elif (difference == 2 or difference == -2):
-        #Double CLockwise
-        encodedCube,solution = _rotateU(encodedCube)
-        
-        encodedCube = _rotateU(encodedCube)
+#
+#
+#
+# def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
+#     solution = {}
+#     solution['solution'] = ''
+#
+#     result = {}
+#     #result['cube'] = encodedCube
+#     result['solution'] = solution
+#
+#     TOP_UPR_L_EDGE = {'Value': 1}
+#     TOP_UPR_R_EDGE = {'Value': 2}
+#     TOP_LWR_L_EDGE = {'Value': 4}
+#     TOP_LWR_R_EDGE = {'Value': 3}
+#
+#     BTTM_UPR_L_EDGE = {'Value': 5}
+#     BTTM_UPR_R_EDGE = {'Value': 6}
+#     BTTM_LWR_L_EDGE = {'Value': 8}  
+#     BTTM_LWR_R_EDGE = {'Value': 7}
+#
+#     #Rotate edge out of bottom into top
+#     for value in (BTTM_UPR_L_EDGE['Value'],BTTM_UPR_R_EDGE['Value'], BTTM_LWR_L_EDGE['Value'], BTTM_LWR_R_EDGE['Value']):
+#         if value == cubeLocation:
+#             encodedCube, solution, cubeLocation = _moveBottomEdgeToTopEdge(encodedCube,solution,cubeLocation)
+#
+#     #Solving Bottom
+#     difference = (cubeLocation - correctLocation)
+#
+#     if (difference == 0):
+#         return encodedCube, solution['solution']
+#
+#     elif (difference == 1 or difference == -3):
+#         #Clockwise rotation
+#         encodedCube,solution =_rotateU(encodedCube)
+#
+#     elif (difference == -1 or difference == 3):
+#         #Counter Clockwise Rotation
+#         encodedCube,solution = _rotateu(encodedCube)
+#
+#     elif (difference == 2 or difference == -2):
+#         #Double CLockwise
+#         encodedCube,solution = _rotateU(encodedCube)
+#
+#         encodedCube = _rotateU(encodedCube)
+#
+#         result['encodedCube'] = encodedCube
+#         result['solution'] += solution 
+#
+#     #This return is just for unit testing
+#     return result
+#
+#
+#
+#
+#
+#
+#
+#
+# def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
+#                                 #^ This must be in list format
+#
+#     #Precautionary
+#     encodedCube = list(encodedCube)
+#     movementList = ""
+#     value = cubeLocation
+#     solution = {}
+#     solution['solution'] = ''
+#     #These four are to move edge from bottom to top 
+#     if value == 7:
+#         movementList = 'luLU'
+#         cubeLocation = 2
+#
+#     if value == 8:
+#         movementList = 'fuFU'
+#         cubeLocation = 1
+#
+#     if value == 5:
+#         movementList = 'ruRU'
+#         cubeLocation = 4
+#
+#     if value == 6:
+#         movementList = 'buBU'
+#         cubeLocation = 3
+#
+#     for letter in movementList:
+#         solution['solution'], encodedCube = _functionalRotations(encodedCube, solution, letter)
+#
+#
+#     return encodedCube, solution['solution'], cubeLocation
+# #            ^ This is in list format
+#
+#
+#
+#
+# def _findBottomEdge(encodedCube, zCube, yCube, xCube):
+#
+#     rcl = encodedCube
+#
+#     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
+#
+#     #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
+#     TOP_UPR_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
+#     TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
+#     TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
+#     TOP_LWR_R_EDGE = {'Value': 3, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
+#
+#     #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
+#     BTTM_UPR_L_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
+#     BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
+#     BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}  
+#     BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
+#
+#     EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
+#
+#     EdgeNumber = 0
+#
+#     while EdgeNumber < 8:
+#         if (triangulatedBottomEdge != EdgeList[EdgeNumber]['Colors']):
+#             EdgeNumber += 1
+#
+#         else:
+#             return EdgeList[EdgeNumber]['Value']
+#
+#     return False
+#
+#
 
-        result['encodedCube'] = encodedCube
-        result['solution'] += solution 
-    
-    #This return is just for unit testing
-    return result
-
-
-
-
-
-
-
-
-def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
-                                #^ This must be in list format
-    
-    #Precautionary
-    encodedCube = list(encodedCube)
-    movementList = ""
-    value = cubeLocation
-    solution = {}
-    solution['solution'] = ''
-    #These four are to move edge from bottom to top 
-    if value == 7:
-        movementList = 'luLU'
-        cubeLocation = 2
-        
-    if value == 8:
-        movementList = 'fuFU'
-        cubeLocation = 1
-        
-    if value == 5:
-        movementList = 'ruRU'
-        cubeLocation = 4
-        
-    if value == 6:
-        movementList = 'buBU'
-        cubeLocation = 3
-        
-    for letter in movementList:
-        solution['solution'], encodedCube = _functionalRotations(encodedCube, solution, letter)
-        
-    
-    return encodedCube, solution['solution'], cubeLocation
-#            ^ This is in list format
-
-
-
-
-def _findBottomEdge(encodedCube, zCube, yCube, xCube):
-    
-    rcl = encodedCube
-
-    triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
-    
-    #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
-    TOP_UPR_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
-    TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
-    TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
-    TOP_LWR_R_EDGE = {'Value': 3, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
-    
-    #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
-    BTTM_UPR_L_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
-    BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
-    BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}  
-    BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
-    
-    EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
-    
-    EdgeNumber = 0
-    
-    while EdgeNumber < 8:
-        if (triangulatedBottomEdge != EdgeList[EdgeNumber]['Colors']):
-            EdgeNumber += 1
-            
-        else:
-            return EdgeList[EdgeNumber]['Value']
-        
-    return False
-        
-    
 
 
 

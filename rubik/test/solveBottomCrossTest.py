@@ -476,33 +476,34 @@ class solveBottomCrossTest(unittest.TestCase):
         #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-        
-        
-    def test_solve_030_SolveBottomFace(self):
-        cube  = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
-        solution = 'QQQ'
-        
-        #expectedResult = 3
-        expectedResult = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy', 'QQQ'
-        actualResult = solve._solveBottomFace(cube, solution)
-        self.assertEqual(actualResult, expectedResult)
-        
-        
-    def test_solve_031_FindCorrectBottomEdge(self):
-        inputDict = {}
-        inputDict['cube'] = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
-        
-        expectedResult = 3
-        actualResult = solve._findBottomEdge(inputDict['cube'], 49, 4, 13)
-        self.assertEqual(actualResult, expectedResult)
-        
-    def test_solve_032_SolveBottomFace2(self):
-        cube  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-        solution = 'QQQ'
-        expectedResult  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', 'QQQ'
-        actualResult = solve._solveBottomFace(cube, solution)
-        self.assertTrue(actualResult)
-        
+    #
+    #
+    # def test_solve_030_SolveBottomFace(self):
+    #     cube  = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
+    #     solution = 'QQQ'
+    #
+    #     #expectedResult = 3
+    #     expectedResult = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy', 'QQQ'
+    #     actualResult = solve._solveBottomFace(cube, solution)
+    #     self.assertEqual(actualResult, expectedResult)
+    #
+    #
+    # def test_solve_031_FindCorrectBottomEdge(self):
+    #     inputDict = {}
+    #     inputDict['cube'] = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
+    #
+    #     expectedResult = 3
+    #     actualResult = solve._findBottomEdge(inputDict['cube'], 49, 4, 13)
+    #     self.assertEqual(actualResult, expectedResult)
+    #
+    # def test_solve_032_SolveBottomFace2(self):
+    #     cube  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+    #     solution = 'QQQ'
+    #     expectedResult  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', 'QQQ'
+    #     actualResult = solve._solveBottomFace(cube, solution)
+    #     self.assertTrue(actualResult)
+    #
+
     # def test_solve_033_SolveBottomEdges(self):
     #     cube = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww'
     #     solution = ""
@@ -513,53 +514,53 @@ class solveBottomCrossTest(unittest.TestCase):
     #     actualResult = solve._solveBottomEdges(cube, solution, cubeLocation, correctLocation)
     #     #self.assertEqual(expectedResult, actualResult)
     #     self.assertEqual(True, actualResult)
-
-    def test_solve_034_movingBottomEdgeToTopEdge(self):
-        cube = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
-        solution = {}
-        solution['solution'] = '' 
-        value = 8
-    
-        expectedResult = ['y', 'b', 'b', 'b', 'b', 'o', 'b', 'b', 'y', 'w', 'r', 'r', 'y', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'g', 'r', 'r', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w'], 'fuFU',1
-        actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
-        self.assertEqual(expectedResult,actualResult)
-        
-        #This is just a test to ensure a string will also work. 
-    def test_solve_034a_movingBottomEdgeToTopEdge2(self):
-        cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-        solution = {}
-        solution['solution'] = '' 
-        value = 8
-    
-        expectedResult = ['y', 'b', 'b', 'b', 'b', 'o', 'b', 'b', 'y', 'w', 'r', 'r', 'y', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'g', 'r', 'r', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w'], 'fuFU',1
-        actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
-        self.assertEqual(expectedResult,actualResult)
-        
-        
-        #Needs specific type of cube, and specific type of solution (ie result)
-    def test_999_functionalMovement(self):
-        
-        cube = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
-        solution = {}
-        solution['solution'] = '' 
-        letter = 'f'
-        
-        expectedResult = 'f', ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'w', 'r', 'r', 'w', 'r', 'r', 'w', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'y', 'o', 'o', 'y', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'r', 'r', 'r', 'o', 'o', 'o', 'w', 'w', 'w', 'w', 'w', 'w']
-        actualResult = solve._functionalRotations(cube, solution, letter)
-        self.assertEqual(expectedResult, actualResult)
-                                             
-
-    def test_998_rotation(self):
-        cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-        
-        expectedResult = {}
-        expectedResult['cube'] = ['r', 'r', 'r', 'b', 'b', 'b', 'b', 'b', 'b', 'g', 'g', 'g', 'r', 'r', 'r', 'r', 'r', 'r', 'o', 'o', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
-        
-
-        actualResult = solve._rotateU(cube)
-        
-        
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #
+    # def test_solve_034_movingBottomEdgeToTopEdge(self):
+    #     cube = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
+    #     solution = {}
+    #     solution['solution'] = '' 
+    #     value = 8
+    #
+    #     expectedResult = ['y', 'b', 'b', 'b', 'b', 'o', 'b', 'b', 'y', 'w', 'r', 'r', 'y', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'g', 'r', 'r', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w'], 'fuFU',1
+    #     actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
+    #     self.assertEqual(expectedResult,actualResult)
+    #
+    #     #This is just a test to ensure a string will also work. 
+    # def test_solve_034a_movingBottomEdgeToTopEdge2(self):
+    #     cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+    #     solution = {}
+    #     solution['solution'] = '' 
+    #     value = 8
+    #
+    #     expectedResult = ['y', 'b', 'b', 'b', 'b', 'o', 'b', 'b', 'y', 'w', 'r', 'r', 'y', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'g', 'r', 'r', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w'], 'fuFU',1
+    #     actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
+    #     self.assertEqual(expectedResult,actualResult)
+    #
+    #
+    #     #Needs specific type of cube, and specific type of solution (ie result)
+    # def test_999_functionalMovement(self):
+    #
+    #     cube = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
+    #     solution = {}
+    #     solution['solution'] = '' 
+    #     letter = 'f'
+    #
+    #     expectedResult = 'f', ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'w', 'r', 'r', 'w', 'r', 'r', 'w', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'y', 'o', 'o', 'y', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'r', 'r', 'r', 'o', 'o', 'o', 'w', 'w', 'w', 'w', 'w', 'w']
+    #     actualResult = solve._functionalRotations(cube, solution, letter)
+    #     self.assertEqual(expectedResult, actualResult)
+    #
+    #
+    # def test_998_rotation(self):
+    #     cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+    #
+    #     expectedResult = {}
+    #     expectedResult['cube'] = ['r', 'r', 'r', 'b', 'b', 'b', 'b', 'b', 'b', 'g', 'g', 'g', 'r', 'r', 'r', 'r', 'r', 'r', 'o', 'o', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
+    #
+    #
+    #     actualResult = solve._rotateU(cube)
+    #
+    #
+    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     
     
     
