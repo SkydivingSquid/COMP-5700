@@ -613,12 +613,16 @@ def _solveBottomFace(encodedCube, solution):
     #IF Edges are in the correct spot and oriented correctly, return encodedCube. No update to solution. 
     cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+        print('first')
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
         if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+            print('second')
             cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,BACK_CENTER)
             if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+                print('third')
                 cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
                 if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+                    print('fourth')
                     result['cube'], result['solution'] = encodedCube, solution
                     return result
                 
