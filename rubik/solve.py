@@ -94,11 +94,8 @@ def _solve(parms):
     #Solve for Bottom Cross and set rotations to the solution.
     if status == 'ok':
         FinalResult = _solveBottomCross(encodedCube)
-         
-        #FinalResult = _solveBottomFace(FinalResult.get('encodedCube'), FinalResult.get('solution'))
         
         FinalResult = _solveBottomFace(FinalResult.get('cube'), FinalResult.get('solution'))
-                                        # ^ NONE OBJECT
         
     
     result['rotations'] = FinalResult.get('solution')
@@ -627,9 +624,13 @@ def _solveBottomFace(encodedCube, solution):
                     return result
             
     else:
-    # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
-    # if (cubeLctn != BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
-        result['cube'], result['solution'] = encodedCube, "FFFFFFFFF"
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+        if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] != encodedCube[BOTTOM_CENTER]):
+            result['cube'], result['solution'], cubeLctn = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
+            
+    
+    
+        #result['cube'], result['solution'] = encodedCube, "FFFFFFFFF"
     
     return result
         
@@ -690,42 +691,49 @@ def _solveBottomFace(encodedCube, solution):
 #
 #
 #
-#
-#
-# def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
-#                                 #^ This must be in list format
-#
-#     #Precautionary
-#     encodedCube = list(encodedCube)
-#     movementList = ""
-#     value = cubeLocation
-#     solution = {}
-#     solution['solution'] = ''
-#     #These four are to move edge from bottom to top 
-#     if value == 7:
-#         movementList = 'luLU'
-#         cubeLocation = 2
-#
-#     if value == 8:
-#         movementList = 'fuFU'
-#         cubeLocation = 1
-#
-#     if value == 5:
-#         movementList = 'ruRU'
-#         cubeLocation = 4
-#
-#     if value == 6:
-#         movementList = 'buBU'
-#         cubeLocation = 3
-#
-#     for letter in movementList:
-#         solution['solution'], encodedCube = _functionalRotations(encodedCube, solution, letter)
-#
-#
-#     return encodedCube, solution['solution'], cubeLocation
-# #            ^ This is in list format
-#
-#
+def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
+                                #^ This must be in list format
+
+    
+    #Precautionary
+    #encodedCube = list(encodedCube)
+    
+    result = {}
+    result['solution'] = solution
+    
+    movementList = ""
+    value = cubeLocation
+    #solution = {}
+    #solution['solution'] = ''
+    #These four are to move edge from bottom to top 
+    if value == 7:
+        movementList = 'BUbu'
+        cubeLocation = 2
+
+    if value == 8:
+        movementList = 'buBU'
+        cubeLocation = 1
+
+    if value == 5:
+        movementList = 'luLU'
+        cubeLocation = 4
+
+    if value == 6:
+        movementList = 'RUru'
+        cubeLocation = 3
+
+    for letter in movementList:
+        result['solution'], encodedCube = _functionalRotations(encodedCube, solution, letter)
+
+
+    result['cube'] = encodedCube
+    result['cubeLocation'] = cubeLocation
+    result['solution'] += solution
+    
+    return result
+#            ^ This is in list format
+
+
 
 
 def _findBottomEdge(encodedCube, zCube, yCube, xCube):
