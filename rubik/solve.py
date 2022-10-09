@@ -312,7 +312,6 @@ def _daisyVariableUpdate(encodedCube, result, daisyResult):
     """ Sets variables post daisyIntegrated. Forgot to refactor this into it originally. """
     result['solution'] = daisyResult.get('solution')
     encodedCube = daisyResult.get('daisyCubeList')
-    #rotatedCubeList = encodedCube
     
     return encodedCube
 
@@ -325,25 +324,25 @@ def _daisySolution(encodedCube):
     result['solution'] = ""
     
     #Front Face 
-    if not (rotatedCubeList[FRONT_CENTER] == rotatedCubeList[FRONT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_UPPER_MIDDLE]):
+    if not (encodedCube[FRONT_CENTER] == encodedCube[FRONT_LOWER_MIDDLE] and encodedCube[BOTTOM_CENTER] == encodedCube[BOTTOM_UPPER_MIDDLE]):
         
         daisyResult = _daisyIntegrated(FRONT_CENTER, FRONT_UPPER_MIDDLE, TOP_LOWER_MIDDLE, encodedCube, result['solution'])
         encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
         
     #Right Face 
-    if not (rotatedCubeList[RIGHT_CENTER] == rotatedCubeList[RIGHT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_STBD]):
+    if not (encodedCube[RIGHT_CENTER] == encodedCube[RIGHT_LOWER_MIDDLE] and encodedCube[BOTTOM_CENTER] == encodedCube[BOTTOM_STBD]):
         
         daisyResult = _daisyIntegrated(RIGHT_CENTER, RIGHT_UPPER_MIDDLE, TOP_STBD, encodedCube, result['solution'])
         encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
         
     # #Back Face 
-    if not (rotatedCubeList[BACK_CENTER] == rotatedCubeList[BACK_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_LOWER_MIDDLE]):
+    if not (encodedCube[BACK_CENTER] == encodedCube[BACK_LOWER_MIDDLE] and encodedCube[BOTTOM_CENTER] == encodedCube[BOTTOM_LOWER_MIDDLE]):
         
         daisyResult = _daisyIntegrated(BACK_CENTER, BACK_UPPER_MIDDLE, TOP_UPPER_MIDDLE, encodedCube, result['solution'])
         encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
 
     # #Left Face 
-    if not (rotatedCubeList[LEFT_CENTER] == rotatedCubeList[LEFT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_PORT]):
+    if not (encodedCube[LEFT_CENTER] == encodedCube[LEFT_LOWER_MIDDLE] and encodedCube[BOTTOM_CENTER] == encodedCube[BOTTOM_PORT]):
         
         daisyResult = _daisyIntegrated(LEFT_CENTER, LEFT_UPPER_MIDDLE, TOP_PORT, encodedCube, result['solution'])
         encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
