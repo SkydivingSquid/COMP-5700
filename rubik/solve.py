@@ -168,6 +168,7 @@ def _solveBottomCross(encodedCube):
         #Check for bottom cross alignment
         if (_bottomCrossAligned(encodedCube)):
             result['solution'] = ''
+            result['cube'] = encodedCube
             return result
 
         #Rotate unaligned bottom cross into top daisy
@@ -175,12 +176,14 @@ def _solveBottomCross(encodedCube):
             encodedCube = _bottomCrossToDaisy(encodedCube, result)
             daisySolution = _daisySolution(encodedCube)
             result['solution'] += daisySolution.get('solution')
+            result['cube'] = encodedCube
             return result
     
     #Check Top for Daisy  
     elif (_daisyExists(encodedCube)):
         daisySolution = _daisySolution(encodedCube)
         result['solution'] += daisySolution.get('solution')
+        result['cube'] = encodedCube
         return result
         
     #If Not a Daisy
