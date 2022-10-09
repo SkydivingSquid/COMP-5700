@@ -312,9 +312,9 @@ def _daisyVariableUpdate(encodedCube, result, daisyResult):
     """ Sets variables post daisyIntegrated. Forgot to refactor this into it originally. """
     result['solution'] = daisyResult.get('solution')
     encodedCube = daisyResult.get('daisyCubeList')
-    rotatedCubeList = encodedCube
+    #rotatedCubeList = encodedCube
     
-    return rotatedCubeList, encodedCube
+    return encodedCube, encodedCube
 
 def _daisySolution(encodedCube):
     """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
