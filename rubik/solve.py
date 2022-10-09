@@ -314,7 +314,7 @@ def _daisyVariableUpdate(encodedCube, result, daisyResult):
     encodedCube = daisyResult.get('daisyCubeList')
     #rotatedCubeList = encodedCube
     
-    return encodedCube, encodedCube
+    return encodedCube
 
 def _daisySolution(encodedCube):
     """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
@@ -328,25 +328,25 @@ def _daisySolution(encodedCube):
     if not (rotatedCubeList[FRONT_CENTER] == rotatedCubeList[FRONT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_UPPER_MIDDLE]):
         
         daisyResult = _daisyIntegrated(FRONT_CENTER, FRONT_UPPER_MIDDLE, TOP_LOWER_MIDDLE, encodedCube, result['solution'])
-        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
         
     #Right Face 
     if not (rotatedCubeList[RIGHT_CENTER] == rotatedCubeList[RIGHT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_STBD]):
         
         daisyResult = _daisyIntegrated(RIGHT_CENTER, RIGHT_UPPER_MIDDLE, TOP_STBD, encodedCube, result['solution'])
-        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
         
     # #Back Face 
     if not (rotatedCubeList[BACK_CENTER] == rotatedCubeList[BACK_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_LOWER_MIDDLE]):
         
         daisyResult = _daisyIntegrated(BACK_CENTER, BACK_UPPER_MIDDLE, TOP_UPPER_MIDDLE, encodedCube, result['solution'])
-        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
 
     # #Left Face 
     if not (rotatedCubeList[LEFT_CENTER] == rotatedCubeList[LEFT_LOWER_MIDDLE] and rotatedCubeList[BOTTOM_CENTER] == rotatedCubeList[BOTTOM_PORT]):
         
         daisyResult = _daisyIntegrated(LEFT_CENTER, LEFT_UPPER_MIDDLE, TOP_PORT, encodedCube, result['solution'])
-        rotatedCubeList, encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
             
     result['cube'] = encodedCube
     return result
