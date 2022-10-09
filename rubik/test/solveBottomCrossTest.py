@@ -508,7 +508,7 @@ class solveBottomCrossTest(unittest.TestCase):
         solution['solution'] = '' 
         letter = 'f'
         
-        expectedResult = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'w', 'r', 'r', 'w', 'r', 'r', 'w', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'y', 'o', 'o', 'y', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'r', 'r', 'r', 'o', 'o', 'o', 'w', 'w', 'w', 'w', 'w', 'w'], 'f'
+        expectedResult = 'f', ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'w', 'r', 'r', 'w', 'r', 'r', 'w', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'y', 'o', 'o', 'y', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'r', 'r', 'r', 'o', 'o', 'o', 'w', 'w', 'w', 'w', 'w', 'w']
         actualResult = solve._functionalRotations(cube, solution, letter)
         self.assertEqual(expectedResult, actualResult)
                                              
