@@ -427,7 +427,7 @@ def _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, algorithm):
 def _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
 #Checking Top of Bottom Face
     if (numberOfPetalsFound <= 3):
-        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(resuencodedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
+        numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(rotatedCubeList, numberOfPetalsFound, BOTTOM_UPPER_MIDDLE, TOP_LOWER_MIDDLE)
 #Checking Left of Bottom Face
     if (numberOfPetalsFound <= 3):
         numberOfPetalsFound, rotatedCubeList, result = _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, BOTTOM_PORT, TOP_PORT)
