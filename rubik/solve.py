@@ -620,6 +620,8 @@ def _solveBottomFace(rotatedCubeList):
     # This will have to return solution and rotated cube.
     return(rotatedCubeList)
     
+    
+
 
 def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
     rcl = rotatedCubeList
