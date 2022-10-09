@@ -486,9 +486,10 @@ class solveBottomCrossTest(unittest.TestCase):
         cube = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww'
         solution = ""
         cubeLocation = 3
+        correctLocation = 3
         
         expectedResult = cube, solution
-        actualResult = solve._solveBottomEdges(cube, solution, cubeLocation)
+        actualResult = solve._solveBottomEdges(cube, solution, cubeLocation, correctLocation)
         self.assertEqual(expectedResult, actualResult)
 
     def test_solve_034_movingBottomEdgeToTopEdge(self):
