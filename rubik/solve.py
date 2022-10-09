@@ -673,7 +673,7 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
 
 
 
-def _moveTopEdgesToCorrectLocation:
+def _moveTopEdgesToCorrectLocation():
     
     return None
 
