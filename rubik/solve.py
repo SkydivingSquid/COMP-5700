@@ -596,7 +596,7 @@ def _daisyExists(encodedCube):
 def _solveBottomFace(encodedCube, solution):
     #This will likely need to have the solution passed as an argument. 
     
-    bottomResult = {}
+    result = {}
     #bottomResult['solution'] = ''.join(solution)
     
     
@@ -619,17 +619,16 @@ def _solveBottomFace(encodedCube, solution):
             if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
                 cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
                 if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-                    return encodedCube, solution
+                    result['cube'], result['solution'] = encodedCube, solution
                 
     # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     # if (cubeLctn != BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         
     
-            
+    return result
         
-    # This will have to return solution and rotated cube.
-    return(encodedCube, solution)
-    
+        
+            
     
 def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
     solution = {}
