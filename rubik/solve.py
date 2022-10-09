@@ -626,6 +626,7 @@ def _solveBottomFace(encodedCube, solution):
     else:
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
         if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] != encodedCube[BOTTOM_CENTER]):
+            print('ELSE')
             result['cube'], result['solution'], cubeLctn = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
             
     
@@ -728,7 +729,7 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
 
     result['cube'] = encodedCube
     result['cubeLocation'] = cubeLocation
-    result['solution'] += solution
+    result['solution'] += movementList
     
     return result
 #            ^ This is in list format
