@@ -670,7 +670,7 @@ def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
         solution['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, solution, letter)
         
     
-    return rotatedCubeList, solution, cubeLocation
+    return rotatedCubeList, solution['solution'], cubeLocation
 
 
 
