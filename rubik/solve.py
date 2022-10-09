@@ -351,15 +351,13 @@ def _daisySolution(encodedCube):
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution): 
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
     daisyResult = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
     daisyResult['solution'] = solution
     daisyResult['daisyCubeList'] = encodedCube
     irrelevantVar = None
     
-    while (rotatedCubeList[uniqueCenter]!= rotatedCubeList[topMiddle] or rotatedCubeList[adjacentDaisy] != rotatedCubeList[BOTTOM_CENTER]):
+    while (encodedCube[uniqueCenter]!= encodedCube[topMiddle] or encodedCube[adjacentDaisy] != encodedCube[BOTTOM_CENTER]):
         
-        irrelevantVar, encodedCube = _functionalRotations(rotatedCubeList, daisyResult, 'U')
+        irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyResult, 'U')
         rotatedCubeList = encodedCube
         
     daisyResult['daisyCubeList'] = encodedCube
