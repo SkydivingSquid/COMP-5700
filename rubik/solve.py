@@ -86,8 +86,7 @@ BOTTOM_LOWER_STBD_EDGE = 53
 def _solve(parms):
     """ Returns the solutions needed to solve a cube and the status of input. """
     result = {}
-    result['solution'] = ''
-    FinalResult = {}
+    solvedBottomCrossResult = {}
     encodedCube = parms.get('cube',None)
     
     #Verify If Input Is Valid and Return Status
@@ -95,19 +94,16 @@ def _solve(parms):
     
     #Solve for Bottom Cross and set rotations to the solution.
     if status == 'ok':
-        encodedCube, result['solution'] = _solveBottomCross(encodedCube)
-        
-        FinalResult = _setFinalSolveVariables(result, encodedCube, result['solution'])
-        
-        result['rotations'] = FinalResult.get('solution')
+        solvedBottomCrossResult = _solveBottomCross(encodedCube)
+        result['rotations'] = solvedBottomCrossResult.get('solution')
     
     result['status'] = status
     return result
 
 
-def _setFinalSolveVariables(result, encodedCube, solution):
+def _setFinalSolveVariables(result, encodedCube, daisySolution):
     result['cube'] = "".join(encodedCube)
-    result['solution'] += solution.get('solution')
+    result['solution'] += daisySolution.get('solution')
 
 
 """
@@ -188,9 +184,9 @@ def _solveBottomCross(encodedCube):
     encodedCube = daisySolution.get('cube')
     
     #Set result keys
-    #_setFinalSolveVariables(result, encodedCube, daisySolution)
+    _setFinalSolveVariables(result, encodedCube, daisySolution)
     
-    return encodedCube, result['solution']
+    return result
     
 def _bottomCrossToDaisy(encodedCube, result):
     """ Rotate an unaligned Bottom-Cross into a Daisy """
