@@ -97,7 +97,7 @@ def _solve(parms):
         FinalResult = _solveBottomCross(encodedCube)
          
         #FinalResult = _solveBottomFace(FinalResult.get('encodedCube'), FinalResult.get('solution'))
-        #FinalResult = _solveBottomFace('bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', FinalResult.get('solution'))
+        FinalResult = _solveBottomFace('bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', FinalResult.get('solution'))
         
     
     result['rotations'] = FinalResult.get('solution')
