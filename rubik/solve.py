@@ -617,7 +617,7 @@ def _solveBottomFace(encodedCube, solution):
             if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
                 cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
                 if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-                    return encodedCube
+                    return encodedCube, solution
                 
     # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     # if (cubeLctn != BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
@@ -634,7 +634,7 @@ def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
     solution['solution'] = ''
     
     result = {}
-    result['cube'] = encodedCube
+    #result['cube'] = encodedCube
     result['solution'] = solution
     
     TOP_UPR_L_EDGE = {'Value': 1}
@@ -652,7 +652,6 @@ def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
         if value == cubeLocation:
             encodedCube, solution, cubeLocation = _moveBottomEdgeToTopEdge(encodedCube,solution,cubeLocation)
         
-        
     #Solving Bottom
     difference = (cubeLocation - correctLocation)
     
@@ -661,24 +660,23 @@ def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
     
     elif (difference == 1 or difference == -3):
         #Clockwise rotation
-        _rotateU(encodedCube)
+        encodedCube,solution =_rotateU(encodedCube)
         
     elif (difference == -1 or difference == 3):
         #Counter Clockwise Rotation
-        return True
+        encodedCube,solution = _rotateu(encodedCube)
         
     elif (difference == 2 or difference == -2):
         #Double CLockwise
-        return True
+        encodedCube,solution = _rotateU(encodedCube)
         
-    #CAN GET RID OF THIS
-    else: 
-        print('SOMETHING HAS GONE WRONG')
+        encodedCube = _rotateU(encodedCube)
+
+        result['encodedCube'] = encodedCube
+        result['solution'] += solution 
     
-        
-        
     #This return is just for unit testing
-    return encodedCube, solution['solution']
+    return result
 
 
 
