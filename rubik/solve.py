@@ -528,15 +528,15 @@ def _moveEachVerticalCubeToDaisy(result, encodedCube, numberOfPetalsFound, cubeO
 ########### Bottom Cross / Daisy Orientation Checks ###########
 ###############################################################
 """
-def _countTopPetals(rotatedCubeList):
+def _countTopPetals(encodedCube):
     numberOfPetalsFound = 0
-    if rotatedCubeList[TOP_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+    if encodedCube[TOP_UPPER_MIDDLE] == encodedCube[BOTTOM_CENTER]:
         numberOfPetalsFound += 1
-    if rotatedCubeList[TOP_PORT] == rotatedCubeList[BOTTOM_CENTER]:
+    if encodedCube[TOP_PORT] == encodedCube[BOTTOM_CENTER]:
         numberOfPetalsFound += 1
-    if rotatedCubeList[TOP_STBD] == rotatedCubeList[BOTTOM_CENTER]:
+    if encodedCube[TOP_STBD] == encodedCube[BOTTOM_CENTER]:
         numberOfPetalsFound += 1
-    if rotatedCubeList[TOP_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER]:
+    if encodedCube[TOP_LOWER_MIDDLE] == encodedCube[BOTTOM_CENTER]:
         numberOfPetalsFound += 1
     return numberOfPetalsFound
 
