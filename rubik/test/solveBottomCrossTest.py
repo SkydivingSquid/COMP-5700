@@ -491,14 +491,16 @@ class solveBottomCrossTest(unittest.TestCase):
         actualResult = solve._solveBottomEdges(cube, solution, cubeLocation)
         self.assertEqual(expectedResult, actualResult)
 
-    # def test_solve_034_movingBottomEdgeToTopEdge(self):
-    #     cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-    #     solution = ''
-    #     value = 7
-    #
-    #     expectedResult = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww', 'f',2
-    #     actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
-    #     self.assertEqual(expectedResult,actualResult)
+    def test_solve_034_movingBottomEdgeToTopEdge(self):
+        cube = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
+        solution = {}
+        solution['solution'] = 'fuFU'
+        value = 7
+    
+        expectedResult = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'w', 'r', 'r', 'w', 'r', 'r', 'w', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'y', 'o', 'o', 'y', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'r', 'r', 'r', 'o', 'o', 'o', 'w', 'w', 'w', 'w', 'w', 'w'], 'f',2
+        actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
+        self.assertEqual(expectedResult,actualResult)
+        
         
         
         #Needs specific type of cube, and specific type of solution (ie result)
