@@ -644,7 +644,31 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation):
 
 
 
-
+def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
+    movementList = ""
+    value = cubeLocation
+    #These four are to move edge from bottom to top 
+    if value == 7:
+        movementList = 'luLU'
+        cubeLocation = 2
+        
+    if value == 8:
+        movementList = 'fuFU'
+        cubeLocation = 1
+        
+    if value == 5:
+        movementList = 'ruRU'
+        cubeLocation = 4
+        
+    if value == 6:
+        movementList = 'buBU'
+        cubeLocation = 3
+        
+    for letter in movementList:
+        solution, rotatedCubeList = _functionalRotations(rotatedCubeList, solution, letter)
+        
+    
+    return rotatedCubeList, solution, cubeLocation
 
 
 
