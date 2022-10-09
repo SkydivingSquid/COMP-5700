@@ -633,13 +633,17 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation):
     BTTM_LWR_L_EDGE = {'Value': 8}  
     BTTM_LWR_R_EDGE = {'Value': 7}
     
-    for value in (BTTM_UPR_L_EDGE,BTTM_UPR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE):
+    #Rotate edge out of bottom into top
+    for value in (BTTM_UPR_L_EDGE['Value'],BTTM_UPR_R_EDGE['Value'], BTTM_LWR_L_EDGE['Value'], BTTM_LWR_R_EDGE['Value']):
         if value == cubeLocation:
-            rotatedCubeList, solution,cubeLocation = _moveBottomEdgeToTopEdge(rotatedCubeList,solution,cubeLocation)
+            rotatedCubeList, solution, cubeLocation = _moveBottomEdgeToTopEdge(rotatedCubeList,solution,cubeLocation)
         
+    #if (cubeLocation - )
+    
+        
+        
+    #This return is just for unit testing
     return rotatedCubeList, solution['solution']
-
-
 
 
 def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
@@ -650,7 +654,7 @@ def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
     movementList = ""
     value = cubeLocation
     solution = {}
-    #solution['solution'] = ''
+    solution['solution'] = ''
     #These four are to move edge from bottom to top 
     if value == 7:
         movementList = 'luLU'
