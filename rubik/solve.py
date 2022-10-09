@@ -356,7 +356,6 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     while (encodedCube[uniqueCenter]!= encodedCube[topMiddle] or encodedCube[adjacentDaisy] != encodedCube[BOTTOM_CENTER]):
         
         irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyResult, 'U')
-        #rotatedCubeList = encodedCube
         
     daisyResult['daisyCubeList'] = encodedCube
     return daisyResult
@@ -584,7 +583,7 @@ def _daisyExists(encodedCube):
 
 
 
-def _solveBottomFace(rotatedCubeList):
+def _solveBottomFace(encodedCube):
     #This will likely need to have the solution passed as an argument. 
     
     TOP_UPR_L_EDGE = {'Value': 1}
@@ -597,25 +596,25 @@ def _solveBottomFace(rotatedCubeList):
     BTTM_LWR_L_EDGE = {'Value': 8}  
     BTTM_LWR_R_EDGE = {'Value': 7}
     
-    #IF Edges are in the correct spot and oriented correctly, return rotatedCubeList. No update to solution. 
-    cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
-    if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and rotatedCubeList[BOTTOM_UPPER_STBD_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
-        cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
-        if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and rotatedCubeList[BOTTOM_LOWER_STBD_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
-            cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, LEFT_CENTER,BACK_CENTER)
-            if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and rotatedCubeList[BOTTOM_LOWER_PORT_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
-                cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
-                if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and rotatedCubeList[BOTTOM_UPPER_PORT_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
-                    return rotatedCubeList
+    #IF Edges are in the correct spot and oriented correctly, return encodedCube. No update to solution. 
+    cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
+        if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+            cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,BACK_CENTER)
+            if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+                cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
+                if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+                    return encodedCube
                 
-    # cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
-    # if (cubeLctn != BTTM_UPR_R_EDGE['Value'] and rotatedCubeList[BOTTOM_UPPER_STBD_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
+    # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    # if (cubeLctn != BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         
     
             
         
     # This will have to return solution and rotated cube.
-    return(rotatedCubeList)
+    return(encodedCube)
     
     
 def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
