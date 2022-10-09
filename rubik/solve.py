@@ -648,7 +648,7 @@ def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
     movementList = ""
     value = cubeLocation
     solution = {}
-    solution['solution']
+    solution['solution'] = ''
     #These four are to move edge from bottom to top 
     if value == 7:
         movementList = 'luLU'
@@ -667,7 +667,7 @@ def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
         cubeLocation = 3
         
     for letter in movementList:
-        solution, rotatedCubeList = _functionalRotations(rotatedCubeList, solution, letter)
+        solution['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, solution, letter)
         
     
     return rotatedCubeList, solution, cubeLocation
