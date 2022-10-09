@@ -607,11 +607,11 @@ def _solveBottomFace(rotatedCubeList):
     cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and rotatedCubeList[BOTTOM_UPPER_STBD_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
-        if cubeLctn == BTTM_LWR_R_EDGE['Value'] and rotatedCubeList[BOTTOM_LOWER_STBD_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
+        if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and rotatedCubeList[BOTTOM_LOWER_STBD_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
             cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, LEFT_CENTER,BACK_CENTER)
-            if cubeLctn == BTTM_LWR_L_EDGE['Value'] and rotatedCubeList[BOTTOM_LOWER_PORT_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
+            if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and rotatedCubeList[BOTTOM_LOWER_PORT_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
                 cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
-                if cubeLctn == BTTM_UPR_L_EDGE['Value'] and rotatedCubeList[BOTTOM_UPPER_PORT_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
+                if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and rotatedCubeList[BOTTOM_UPPER_PORT_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
                     return rotatedCubeList
                 
             
