@@ -595,7 +595,7 @@ def _findBottomEdge(rotatedCubeList):
     rcl = rotatedCubeList
     TOP_UP_L_EDGE = {'Value': 1, 'Colors': {rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
     
-    return True
+    return TOP_UP_L_EDGE['Colors']
 
     
 
