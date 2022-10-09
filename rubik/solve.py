@@ -149,7 +149,6 @@ def _solveBottomCross(encodedCube):
     cubeList = list(encodedCube)
     rotatedCubeList = cubeList[:]
     result['solution'] = ""
-    #result['status'] = 'ok'
     
     #Check for bottom cross
     if (_bottomCrossExists(rotatedCubeList)):
@@ -303,7 +302,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
 def _setFinalSolveVariables(result, rotatedCubeList, daisySolution):
     result['cube'] = "".join(rotatedCubeList)
     result['solution'] += daisySolution.get('solution')
-    result['status'] = 'ok'
+    #result['status'] = 'ok'
 
 """  
 ########################################################       
