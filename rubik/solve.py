@@ -188,7 +188,7 @@ def _solveBottomCross(encodedCube):
     
     #Set result keys
 # _setFinalSolveVariables(result, encodedCube, daisySolution)
-    result['soltion'] += daisySolution.get('solution')
+    result['solution'] += daisySolution.get('solution')
     result['cube'] = encodedCube
     
     return result
