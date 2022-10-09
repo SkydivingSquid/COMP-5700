@@ -413,9 +413,9 @@ def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 def _verticalCubeIntoDaisy(rotatedCubeList, veritcalToDaisyResult, algorithm):
     
     for char in algorithm:
-        veritcalToDaisyResult['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, veritcalToDaisyResult, char)
+        veritcalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, veritcalToDaisyResult, char)
     
-    return rotatedCubeList, veritcalToDaisyResult['solution']
+    return encodedCube, veritcalToDaisyResult['solution']
     
 """
 #############################################################        
