@@ -593,7 +593,7 @@ def _daisyExists(rotatedCubeList):
 
 def _findBottomEdge(rotatedCubeList):
     rcl = rotatedCubeList
-    TOP_UP_L_EDGE = {'Value': 1, 'Colors': {'green'}} 
+    TOP_UP_L_EDGE = {'Value': 1, 'Colors': {rotatedCubeList[0]}} 
     
     return True
 
