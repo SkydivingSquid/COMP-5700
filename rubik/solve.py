@@ -146,8 +146,6 @@ def _verifyInput(encodedCube):
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
-    #cubeList = list(encodedCube)
-    #rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
     #Check for bottom cross
@@ -358,7 +356,7 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     while (encodedCube[uniqueCenter]!= encodedCube[topMiddle] or encodedCube[adjacentDaisy] != encodedCube[BOTTOM_CENTER]):
         
         irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyResult, 'U')
-        rotatedCubeList = encodedCube
+        #rotatedCubeList = encodedCube
         
     daisyResult['daisyCubeList'] = encodedCube
     return daisyResult
