@@ -299,8 +299,8 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
         veritcalToDaisyResult['rotatedCubeList'] = encodedCube
     return veritcalToDaisyResult
 
-def _setFinalSolveVariables(result, rotatedCubeList, daisySolution):
-    result['cube'] = "".join(rotatedCubeList)
+def _setFinalSolveVariables(result, encodedCube, daisySolution):
+    result['cube'] = "".join(encodedCube)
     result['solution'] += daisySolution.get('solution')
 
 """  
