@@ -590,9 +590,7 @@ def _daisyExists(rotatedCubeList):
 """
 
 
-def _solveBottomFace(rotatedCubeList):
-    
-    return _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+
     
 
 def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
