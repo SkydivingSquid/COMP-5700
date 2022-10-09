@@ -624,9 +624,10 @@ def _solveBottomFace(encodedCube, solution):
                     return result
             
     else:
+        print('ELSE')
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,FRONT_CENTER)
         if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
-            print('ELSE')
+            print('TWO ELSE')
             result['cube'], result['solution'], cubeLctn = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
             
     
