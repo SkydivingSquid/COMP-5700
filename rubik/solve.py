@@ -96,9 +96,7 @@ def _solve(parms):
     if status == 'ok':
         FinalResult = _solveBottomCross(encodedCube)
          
-        listVar = list(FinalResult.get('encodedCube'))
-        
-        FinalResult = _solveBottomFace(listVar, FinalResult.get('solution'))
+        FinalResult = _solveBottomFace(FinalResult.get('encodedCube'), FinalResult.get('solution'))
     
     result['rotations'] = FinalResult.get('solution')
     result['status'] = status
