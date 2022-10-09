@@ -607,7 +607,7 @@ def _findBottomEdge(rotatedCubeList):
     BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD]}}
     
     
-    if triangulatedBottomEdge_BFR == BTTM_UPR_R_EDGE'Colors']:
+    if triangulatedBottomEdge_BFR == BTTM_UPR_R_EDGE['Colors']:
         return True
     else:
         return False
