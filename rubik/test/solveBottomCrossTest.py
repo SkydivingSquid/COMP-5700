@@ -533,7 +533,7 @@ class solveBottomCrossTest(unittest.TestCase):
         cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         
         expectedResult = {}
-        expectedResult['cube'] = 'rrrbbbbbbgggrrrrrroooggggggbbbooooooyyyyyyyyywwwwwwwww'
+        expectedResult['cube'] = ['r', 'r', 'r', 'b', 'b', 'b', 'b', 'b', 'b', 'g', 'g', 'g', 'r', 'r', 'r', 'r', 'r', 'r', 'o', 'o', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
         
 
         actualResult = solve._rotateU(cube)
