@@ -598,7 +598,7 @@ def _solveBottomFace(encodedCube, solution):
     #This will likely need to have the solution passed as an argument. 
     
     result = {}
-    #bottomResult['solution'] = ''.join(solution)
+    bototmResult = {}
     
     
     TOP_UPR_L_EDGE = {'Value': 1}
@@ -639,13 +639,19 @@ def _solveBottomFace(encodedCube, solution):
     else:
         if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
             print('TWO ELSE')
-            result['cube'], result['solution'], cubeLctn = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
+            bottomResult = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
+            
+            result['solution'] = bottomResult.get('solution')
+            result['cube'] = bottomResult.get('cube')
+            
+            return result
+    
             
     
     
         #result['cube'], result['solution'] = encodedCube, "FFFFFFFFF"
     
-    result = {result['cube'],result['solution']}
+    #result = {result['cube'], result['solution']}
     return result
         
 #
@@ -712,8 +718,12 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     #Precautionary
     #encodedCube = list(encodedCube)
     
+    print('IN MOVE BOTTOM EDGE')
+    
     result = {}
-    result['solution'] = solution
+    result['cube'] = encodedCube
+    result['solution'] = ''
+    result['cubeLocation'] = cubeLocation
     
     movementList = ""
     value = cubeLocation
@@ -741,10 +751,9 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
  
     result['cube'] = encodedCube
     result['cubeLocation'] = cubeLocation
-    result['solution'] += movementList
+    result['solution'] += movementList 
     
-    result = {result['cube'],result['solution'],result['cubeLocation']}
-    
+    print(result['solution'])
     print(result)
     
     return result
