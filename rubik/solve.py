@@ -196,6 +196,8 @@ def _solveBottomCross(encodedCube):
     result['solution'] += daisySolution.get('solution')
     result['cube'] = encodedCube
     
+    print('From Bottom Cross: ')
+    print(encodedCube)
     return result
     
 def _bottomCrossToDaisy(encodedCube, result):
