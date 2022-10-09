@@ -615,7 +615,7 @@ def _findBottomEdge(rotatedCubeList):
             EdgeNumber += 1
             
         else:
-            return list(EdgeList[EdgeNumber]['Value'])[0]
+            return list(EdgeList[EdgeNumber]['Value'])
         
     return False
         
