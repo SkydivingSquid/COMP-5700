@@ -146,8 +146,8 @@ def _verifyInput(encodedCube):
 def _solveBottomCross(encodedCube):
     """ First Step in Solving a Cube. Solves for Bottom Cross. """
     result = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
+    #cubeList = list(encodedCube)
+    #rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
     #Check for bottom cross
