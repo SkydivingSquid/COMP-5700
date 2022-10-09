@@ -505,10 +505,7 @@ class solveBottomCrossTest(unittest.TestCase):
         
         #This is just a test to ensure a string will also work. 
     def test_solve_034a_movingBottomEdgeToTopEdge2(self):
-        cube = 'TOP_UPR_L_EDGE = {'Value': 1}
-    TOP_UPR_R_EDGE = {'Value': 2}
-    TOP_LWR_L_EDGE = {'Value': 4}
-    TOP_LWR_R_EDGE = {'Value': 3}'
+        cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         solution = {}
         solution['solution'] = '' 
         value = 8
