@@ -86,7 +86,7 @@ BOTTOM_LOWER_STBD_EDGE = 53
 def _solve(parms):
     """ Returns the solutions needed to solve a cube and the status of input. """
     result = {}
-    solvedBottomCrossResult = {}
+    FinalResult = {}
     encodedCube = parms.get('cube',None)
     
     #Verify If Input Is Valid and Return Status
@@ -94,8 +94,11 @@ def _solve(parms):
     
     #Solve for Bottom Cross and set rotations to the solution.
     if status == 'ok':
-        solvedBottomCrossResult = _solveBottomCross(encodedCube)
-        result['rotations'] = solvedBottomCrossResult.get('solution')
+        FinalResult = _solveBottomCross(encodedCube)
+        
+        
+        
+        result['rotations'] = FinalResult.get('solution')
     
     result['status'] = status
     return result
