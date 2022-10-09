@@ -593,7 +593,7 @@ def _solveBottomFace(encodedCube, solution):
     #This will likely need to have the solution passed as an argument. 
     
     bottomResult = {}
-    bottomResult['solution'] = ''.join(solution)
+    #bottomResult['solution'] = ''.join(solution)
     
     
     TOP_UPR_L_EDGE = {'Value': 1}
