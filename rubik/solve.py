@@ -665,7 +665,7 @@ def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
         cubeLocation = 3
         
     for letter in movementList:
-        solution, rotatedCubeList = _functionalRotations(rotatedCubeList, solution, letter)
+        solution, rotatedCubeList = _functionalRotations(rotatedCubeList, solution, 'f')
         
     
     return rotatedCubeList, solution, cubeLocation
