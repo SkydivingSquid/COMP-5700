@@ -86,6 +86,7 @@ BOTTOM_LOWER_STBD_EDGE = 53
 def _solve(parms):
     """ Returns the solutions needed to solve a cube and the status of input. """
     result = {}
+    result['solution'] = ''
     FinalResult = {}
     encodedCube = parms.get('cube',None)
     
@@ -94,10 +95,9 @@ def _solve(parms):
     
     #Solve for Bottom Cross and set rotations to the solution.
     if status == 'ok':
-        result, encodedCube, solution = _solveBottomCross(encodedCube)
+        encodedCube, result['solution'] = _solveBottomCross(encodedCube)
         
-        FinalResult = _setFinalSolveVariables(result, encodedCube, solution)
-        
+        FinalResult = _setFinalSolveVariables(result, encodedCube, result['solution'])
         
         result['rotations'] = FinalResult.get('solution')
     
@@ -190,7 +190,7 @@ def _solveBottomCross(encodedCube):
     #Set result keys
     #_setFinalSolveVariables(result, encodedCube, daisySolution)
     
-    return result, encodedCube, daisySolution
+    return encodedCube, result['solution']
     
 def _bottomCrossToDaisy(encodedCube, result):
     """ Rotate an unaligned Bottom-Cross into a Daisy """
