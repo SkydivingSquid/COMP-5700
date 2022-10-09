@@ -625,6 +625,8 @@ def _solveBottomFace(rotatedCubeList):
     
     
 def _solveBottomEdges(rotatedCubeList, solution, cubeLocation):
+    solution = {}
+    solution['solution'] = ''
     
     BTTM_UPR_L_EDGE = {'Value': 5}
     BTTM_UPR_R_EDGE = {'Value': 6}
@@ -633,12 +635,8 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation):
     
     for value in (BTTM_UPR_L_EDGE,BTTM_UPR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE):
         if value == cubeLocation:
-            # move and update solution
-            break
-    
-    
-    
-    
+            rotatedCubeList, solution,cubeLocation = _moveBottomEdgeToTopEdge(rotatedCubeList,solution,cubeLocation)
+        
     return rotatedCubeList, solution
 
 
