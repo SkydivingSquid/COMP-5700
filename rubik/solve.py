@@ -540,36 +540,36 @@ def _countTopPetals(encodedCube):
         numberOfPetalsFound += 1
     return numberOfPetalsFound
 
-def _notDaisyCase(result, rotatedCubeList):
+def _notDaisyCase(result, encodedCube):
     #Count Number of Top Petals
-    numberOfPetalsFound = _countTopPetals(rotatedCubeList)
+    numberOfPetalsFound = _countTopPetals(encodedCube)
     while numberOfPetalsFound <= 3:
         #Bottom Cubes To Daisy
-        numberOfPetalsFound, rotatedCubeList = _moveBottomCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, encodedCube = _moveBottomCubesToDaisy(result, encodedCube, numberOfPetalsFound)
         #Horizontal Cubes To Daisy
-        numberOfPetalsFound, rotatedCubeList = _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, encodedCube = _moveHorizontalCubesToDaisy(result, encodedCube, numberOfPetalsFound)
         #Vertical Cubes To Daisy
-        numberOfPetalsFound, rotatedCubeList = _moveVerticalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound)
+        numberOfPetalsFound, encodedCube = _moveVerticalCubesToDaisy(result, encodedCube, numberOfPetalsFound)
     
-    return rotatedCubeList
+    return encodedCube
 
-def _bottomCrossExists(rotatedCubeList):
-    return (rotatedCubeList[BOTTOM_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER] 
-            and rotatedCubeList[BOTTOM_PORT] == rotatedCubeList[BOTTOM_CENTER] 
-            and rotatedCubeList[BOTTOM_STBD] == rotatedCubeList[BOTTOM_CENTER] 
-            and rotatedCubeList[BOTTOM_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
+def _bottomCrossExists(encodedCube):
+    return (encodedCube[BOTTOM_UPPER_MIDDLE] == encodedCube[BOTTOM_CENTER] 
+            and encodedCube[BOTTOM_PORT] == encodedCube[BOTTOM_CENTER] 
+            and encodedCube[BOTTOM_STBD] == encodedCube[BOTTOM_CENTER] 
+            and encodedCube[BOTTOM_LOWER_MIDDLE] == encodedCube[BOTTOM_CENTER])
     
-def _bottomCrossAligned(rotatedCubeList):
-    return (rotatedCubeList[FRONT_CENTER] == rotatedCubeList[FRONT_LOWER_MIDDLE] 
-            and rotatedCubeList[RIGHT_CENTER] == rotatedCubeList[RIGHT_LOWER_MIDDLE] 
-            and rotatedCubeList[BACK_CENTER] == rotatedCubeList[BACK_LOWER_MIDDLE] 
-            and rotatedCubeList[LEFT_CENTER] == rotatedCubeList[LEFT_LOWER_MIDDLE])
+def _bottomCrossAligned(encodedCube):
+    return (encodedCube[FRONT_CENTER] == encodedCube[FRONT_LOWER_MIDDLE] 
+            and encodedCube[RIGHT_CENTER] == encodedCube[RIGHT_LOWER_MIDDLE] 
+            and encodedCube[BACK_CENTER] == encodedCube[BACK_LOWER_MIDDLE] 
+            and encodedCube[LEFT_CENTER] == encodedCube[LEFT_LOWER_MIDDLE])
     
-def _daisyExists(rotatedCubeList):
-    return (rotatedCubeList[TOP_UPPER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER] 
-            and rotatedCubeList[TOP_PORT] == rotatedCubeList[BOTTOM_CENTER] 
-            and rotatedCubeList[TOP_STBD] == rotatedCubeList[BOTTOM_CENTER] 
-            and rotatedCubeList[TOP_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
+def _daisyExists(encodedCube):
+    return (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[BOTTOM_CENTER] 
+            and encodedCube[TOP_PORT] == encodedCube[BOTTOM_CENTER] 
+            and encodedCube[TOP_STBD] == encodedCube[BOTTOM_CENTER] 
+            and encodedCube[TOP_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
 
 
 """
