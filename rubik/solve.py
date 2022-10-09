@@ -645,6 +645,10 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation):
 
 
 def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
+                                #^ This must be in list format
+    
+    #Precautionary
+    rotatedCubeList = list(rotatedCubeList)
     movementList = ""
     value = cubeLocation
     solution = {}
@@ -671,6 +675,7 @@ def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
         
     
     return rotatedCubeList, solution['solution'], cubeLocation
+#            ^ This is in list format
 
 
 
