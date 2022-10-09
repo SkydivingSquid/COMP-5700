@@ -501,14 +501,15 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult,actualResult)
         
         
+        #Needs specific type of cube, and specific type of solution (ie result)
     def test_999_functionalMovement(self):
         
-        cube = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
-        solution = ''
-        #solution['solution'] = '' 
+        cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        solution = {}
+        solution['solution'] = '' 
         letter = 'f'
         
-        expectedResult = 'f', ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'w', 'r', 'r', 'w', 'r', 'r', 'w', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'y', 'o', 'o', 'y', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'r', 'r', 'r', 'o', 'o', 'o', 'w', 'w', 'w', 'w', 'w', 'w']
+        expectedResult = 'f', 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww'
         actualResult = solve._functionalRotations(cube, solution, letter)
         self.assertEqual(expectedResult, actualResult)
                                              
