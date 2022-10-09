@@ -533,9 +533,9 @@ class solveBottomCrossTest(unittest.TestCase):
         
         expectedResult = 'rrrbbbbbbgggrrrrrroooggggggbbbooooooyyyyyyyyywwwwwwwww'
         
-        actualResult = solve._rotateU(cube)
+        actualResult = solve._rotateU(cube).get['cube']
         
-        self.assertEqual(expectedResult, actualResult.get['cube'])
+        self.assertEqual(expectedResult, actualResult)
     
         
                                        
