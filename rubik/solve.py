@@ -611,15 +611,16 @@ def _solveBottomFace(encodedCube, solution):
     BTTM_LWR_R_EDGE = {'Value': 7}
     
     #IF Edges are in the correct spot and oriented correctly, return encodedCube. No update to solution. 
-    # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
-    # if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
-    #     cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
-    #     if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
-    #         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,BACK_CENTER)
-    #         if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-    #             cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
-    #             if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-    #                 result['cube'], result['solution'] = encodedCube, solution
+    cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
+    if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
+        if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+            cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,BACK_CENTER)
+            if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+                cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
+                if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+                    result['cube'], result['solution'] = encodedCube, solution
+                    return result
                 
     # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     # if (cubeLctn != BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
@@ -721,40 +722,40 @@ def _solveBottomFace(encodedCube, solution):
 # #            ^ This is in list format
 #
 #
-#
-#
-# def _findBottomEdge(encodedCube, zCube, yCube, xCube):
-#
-#     rcl = encodedCube
-#
-#     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
-#
-#     #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
-#     TOP_UPR_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
-#     TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
-#     TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
-#     TOP_LWR_R_EDGE = {'Value': 3, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
-#
-#     #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
-#     BTTM_UPR_L_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
-#     BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
-#     BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}  
-#     BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
-#
-#     EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
-#
-#     EdgeNumber = 0
-#
-#     while EdgeNumber < 8:
-#         if (triangulatedBottomEdge != EdgeList[EdgeNumber]['Colors']):
-#             EdgeNumber += 1
-#
-#         else:
-#             return EdgeList[EdgeNumber]['Value']
-#
-#     return False
-#
-#
+
+
+def _findBottomEdge(encodedCube, zCube, yCube, xCube):
+
+    rcl = encodedCube
+
+    triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
+
+    #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
+    TOP_UPR_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
+    TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
+    TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
+    TOP_LWR_R_EDGE = {'Value': 3, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
+
+    #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
+    BTTM_UPR_L_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
+    BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
+    BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}  
+    BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
+
+    EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
+
+    EdgeNumber = 0
+
+    while EdgeNumber < 8:
+        if (triangulatedBottomEdge != EdgeList[EdgeNumber]['Colors']):
+            EdgeNumber += 1
+
+        else:
+            return EdgeList[EdgeNumber]['Value']
+
+    return False
+
+
 
 
 
