@@ -440,13 +440,13 @@ def _moveBottomCubesToDaisy(result, encodedCube, numberOfPetalsFound):
 
     return numberOfPetalsFound, encodedCube
 
-def _moveEachBottomCubeToDaisy(result, rotatedCubeList, numberOfPetalsFound, cubeOne, cubeTwo):
-    if rotatedCubeList[cubeOne] == rotatedCubeList[BOTTOM_CENTER]:
-        bottomToDaisyResult = _unalignedBottomToDaisy(cubeOne, cubeTwo, result['solution'], rotatedCubeList)
+def _moveEachBottomCubeToDaisy(result, encodedCube, numberOfPetalsFound, cubeOne, cubeTwo):
+    if encodedCube[cubeOne] == encodedCube[BOTTOM_CENTER]:
+        bottomToDaisyResult = _unalignedBottomToDaisy(cubeOne, cubeTwo, result['solution'], encodedCube)
         result['solution'] = bottomToDaisyResult.get('solution')
-        rotatedCubeList = bottomToDaisyResult.get('rotatedCubeList')
+        encodedCube = bottomToDaisyResult.get('rotatedCubeList')
         numberOfPetalsFound += 1
-    return numberOfPetalsFound, rotatedCubeList, result
+    return numberOfPetalsFound, encodedCube, result
 
 """ Horizontal Moves """
 def _moveHorizontalCubesToDaisy(result, rotatedCubeList, numberOfPetalsFound):
