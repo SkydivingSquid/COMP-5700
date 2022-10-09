@@ -483,16 +483,16 @@ class solveBottomCrossTest(unittest.TestCase):
         actualResult = solve._solveBottomFace(cube)
         self.assertTrue(actualResult)
         
-    def test_solve_033_SolveBottomEdges(self):
-        cube = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww'
-        solution = ""
-        cubeLocation = 3
-        correctLocation = 3
-        
-        expectedResult = cube, solution
-        actualResult = solve._solveBottomEdges(cube, solution, cubeLocation, correctLocation)
-        #self.assertEqual(expectedResult, actualResult)
-        self.assertEqual(True, actualResult)
+    # def test_solve_033_SolveBottomEdges(self):
+    #     cube = 'ybbbbobbywrryrrrrrggoggggggbboooooooyyyyyygrrwwbwwwwww'
+    #     solution = ""
+    #     cubeLocation = 3
+    #     correctLocation = 3
+    #
+    #     expectedResult = cube, solution
+    #     actualResult = solve._solveBottomEdges(cube, solution, cubeLocation, correctLocation)
+    #     #self.assertEqual(expectedResult, actualResult)
+    #     self.assertEqual(True, actualResult)
 
     def test_solve_034_movingBottomEdgeToTopEdge(self):
         cube = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w']
