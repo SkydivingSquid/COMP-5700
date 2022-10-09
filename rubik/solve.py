@@ -198,7 +198,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
     bottomToDaisyResult = {}
     bottomToDaisyResult['solution'] = solution
-    bottomToDaisyResult['rotatedCubeList'] = encodedCube
+    bottomToDaisyResult['encodedCube'] = encodedCube
     
     while encodedCube[bottomPetalIndex] == encodedCube[topPetalIndex]:
         bottomToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, bottomToDaisyResult, 'U')
@@ -220,7 +220,7 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
         for char in letters:
             bottomToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, bottomToDaisyResult, char) 
         
-        bottomToDaisyResult['rotatedCubeList'] = encodedCube
+        bottomToDaisyResult['encodedCube'] = encodedCube
     return bottomToDaisyResult
 
 def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, rotatedCubeList):
