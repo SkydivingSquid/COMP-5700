@@ -625,7 +625,7 @@ def _solveBottomFace(encodedCube, solution):
     # cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     # if (cubeLctn != BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         
-    result['cube'], result['solution'] = encodedCube, solution
+    result['cube'], result['solution'] = encodedCube, "ugly"
     
     return result
         
