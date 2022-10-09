@@ -497,7 +497,7 @@ class solveBottomCrossTest(unittest.TestCase):
         solution['solution'] = '' 
         value = 8
     
-        expectedResult = ['y', 'b', 'b', 'b', 'b', 'o', 'b', 'b', 'y', 'w', 'r', 'r', 'y', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'g', 'r', 'r', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w'], 'fuFU',2
+        expectedResult = ['y', 'b', 'b', 'b', 'b', 'o', 'b', 'b', 'y', 'w', 'r', 'r', 'y', 'r', 'r', 'r', 'r', 'r', 'g', 'g', 'o', 'g', 'g', 'g', 'g', 'g', 'g', 'b', 'b', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'y', 'y', 'y', 'y', 'y', 'y', 'g', 'r', 'r', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w'], 'fuFU',1
         actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
         self.assertEqual(expectedResult,actualResult)
         
