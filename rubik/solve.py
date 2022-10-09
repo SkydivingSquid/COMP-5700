@@ -612,26 +612,32 @@ def _solveBottomFace(encodedCube, solution):
     BTTM_LWR_R_EDGE = {'Value': 7}
     
     #IF Edges are in the correct spot and oriented correctly, return encodedCube. No update to solution. 
-    cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
-    
-    print(cubeLctn)
-    print(encodedCube[BOTTOM_UPPER_STBD_EDGE])
-    print(encodedCube[BOTTOM_CENTER])
-    
+    cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER) 
     if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
-        if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
-            cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
-            if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-                cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,FRONT_CENTER)
-                if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-                    result['cube'], result['solution'] = encodedCube, solution
-                    print('NO NO NO')
-                    return result
-            
+    
     else:
-        print('ELSE')
-        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER,FRONT_CENTER)
+        return result
+
+    if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
+        
+    else:
+        return result
+
+           
+    if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
+        
+    else:
+        return result
+
+               
+    if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+        cubeLct = 
+        result['cube'], result['solution'] = encodedCube, solution
+        
+    else:
         if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
             print('TWO ELSE')
             result['cube'], result['solution'], cubeLctn = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
