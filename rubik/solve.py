@@ -319,8 +319,6 @@ def _daisySolution(encodedCube):
     """ When a daisy is made, align colors and rotate into Bottom Cross solution. """
     result = {}
     daisyResult = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
     result['solution'] = ""
     
     #Front Face 
