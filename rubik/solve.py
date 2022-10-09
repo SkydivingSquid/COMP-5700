@@ -188,9 +188,9 @@ def _bottomCrossToDaisy(encodedCube, result):
     algorithm = 'FFRRBBLL'
     
     for char in algorithm:
-        result['solution'], rotatedCubeList = _functionalRotations(encodedCube, result, char)
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, char)
 
-    return rotatedCubeList
+    return encodedCube
 
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
@@ -849,35 +849,35 @@ def _rotatef(cube):
     rotatedCubeList = cubeList[:]
     
     #rotate front face
-    rotatedCubeList[FRONT_UPPER_PORT_EDGE] = cubeList[FRONT_UPPER_STBD_EDGE]
-    rotatedCubeList[FRONT_UPPER_MIDDLE] = cubeList[FRONT_STBD]
-    rotatedCubeList[FRONT_UPPER_STBD_EDGE] = cubeList[FRONT_LOWER_STBD_EDGE]
-    rotatedCubeList[FRONT_PORT] = cubeList[FRONT_UPPER_MIDDLE]
-    rotatedCubeList[FRONT_CENTER] = cubeList[FRONT_CENTER]
-    rotatedCubeList[FRONT_STBD] = cubeList[FRONT_LOWER_MIDDLE]
-    rotatedCubeList[FRONT_LOWER_PORT_EDGE] = cubeList[FRONT_UPPER_PORT_EDGE]
-    rotatedCubeList[FRONT_LOWER_MIDDLE] = cubeList[FRONT_PORT]
-    rotatedCubeList[FRONT_LOWER_STBD_EDGE] = cubeList[FRONT_LOWER_PORT_EDGE]
+    rotatedCubeList[FRONT_UPPER_PORT_EDGE]  = cubeList[FRONT_UPPER_STBD_EDGE]
+    rotatedCubeList[FRONT_UPPER_MIDDLE]     = cubeList[FRONT_STBD]
+    rotatedCubeList[FRONT_UPPER_STBD_EDGE]  = cubeList[FRONT_LOWER_STBD_EDGE]
+    rotatedCubeList[FRONT_PORT]             = cubeList[FRONT_UPPER_MIDDLE]
+    rotatedCubeList[FRONT_CENTER]           = cubeList[FRONT_CENTER]
+    rotatedCubeList[FRONT_STBD]             = cubeList[FRONT_LOWER_MIDDLE]
+    rotatedCubeList[FRONT_LOWER_PORT_EDGE]  = cubeList[FRONT_UPPER_PORT_EDGE]
+    rotatedCubeList[FRONT_LOWER_MIDDLE]     = cubeList[FRONT_PORT]
+    rotatedCubeList[FRONT_LOWER_STBD_EDGE]  = cubeList[FRONT_LOWER_PORT_EDGE]
     
     #rotate right to top
-    rotatedCubeList[TOP_LOWER_PORT_EDGE] = cubeList[RIGHT_UPPER_PORT_EDGE]
-    rotatedCubeList[TOP_LOWER_MIDDLE] = cubeList[RIGHT_PORT]
-    rotatedCubeList[TOP_LOWER_STBD_EDGE] = cubeList[RIGHT_LOWER_PORT_EDGE]
+    rotatedCubeList[TOP_LOWER_PORT_EDGE]    = cubeList[RIGHT_UPPER_PORT_EDGE]
+    rotatedCubeList[TOP_LOWER_MIDDLE]       = cubeList[RIGHT_PORT]
+    rotatedCubeList[TOP_LOWER_STBD_EDGE]    = cubeList[RIGHT_LOWER_PORT_EDGE]
     
     #rotate bottom to right
-    rotatedCubeList[RIGHT_UPPER_PORT_EDGE] = cubeList[BOTTOM_UPPER_STBD_EDGE]
-    rotatedCubeList[RIGHT_PORT] = cubeList[BOTTOM_UPPER_MIDDLE]
-    rotatedCubeList[RIGHT_LOWER_PORT_EDGE] = cubeList[BOTTOM_UPPER_PORT_EDGE]
+    rotatedCubeList[RIGHT_UPPER_PORT_EDGE]  = cubeList[BOTTOM_UPPER_STBD_EDGE]
+    rotatedCubeList[RIGHT_PORT]             = cubeList[BOTTOM_UPPER_MIDDLE]
+    rotatedCubeList[RIGHT_LOWER_PORT_EDGE]  = cubeList[BOTTOM_UPPER_PORT_EDGE]
     
     #rotate left to bottom
     rotatedCubeList[BOTTOM_UPPER_PORT_EDGE] = cubeList[LEFT_UPPER_STBD_EDGE]
-    rotatedCubeList[BOTTOM_UPPER_MIDDLE] = cubeList[LEFT_STBD]
+    rotatedCubeList[BOTTOM_UPPER_MIDDLE]    = cubeList[LEFT_STBD]
     rotatedCubeList[BOTTOM_UPPER_STBD_EDGE] = cubeList[LEFT_LOWER_STBD_EDGE]
     
     #rotate top to left
-    rotatedCubeList[LEFT_UPPER_STBD_EDGE] = cubeList[TOP_LOWER_STBD_EDGE]
-    rotatedCubeList[LEFT_STBD] = cubeList[TOP_LOWER_MIDDLE] 
-    rotatedCubeList[LEFT_LOWER_STBD_EDGE] = cubeList[TOP_LOWER_PORT_EDGE]
+    rotatedCubeList[LEFT_UPPER_STBD_EDGE]   = cubeList[TOP_LOWER_STBD_EDGE]
+    rotatedCubeList[LEFT_STBD]              = cubeList[TOP_LOWER_MIDDLE] 
+    rotatedCubeList[LEFT_LOWER_STBD_EDGE]   = cubeList[TOP_LOWER_PORT_EDGE]
     
     result['cube'] = rotatedCubeList
     result['letter'] = 'f'
