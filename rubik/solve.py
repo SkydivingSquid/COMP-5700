@@ -366,13 +366,11 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
     daisyRotResult = {}
-    cubeList = list(encodedCube)
-    rotatedCubeList = cubeList[:]
     daisyRotResult['solution'] = solution
     daisyRotResult['daisyCubeList'] = encodedCube
     irrelevantVar = None
     
-    if rotatedCubeList[uniqueCenter] == rotatedCubeList[topMiddle]:
+    if encodedCube[uniqueCenter] == encodedCube[topMiddle]:
         if uniqueCenter == FRONT_CENTER:
             letters = 'FF'
             
@@ -388,8 +386,6 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
         for char in letters:
             irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
             
-        rotatedCubeList = encodedCube
-        
     daisyRotResult['daisyCubeList'] = encodedCube
 
     return daisyRotResult
