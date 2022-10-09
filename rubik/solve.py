@@ -617,12 +617,12 @@ def _solveBottomFace(encodedCube):
     return(encodedCube)
     
     
-def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
+def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
     solution = {}
     solution['solution'] = ''
     
     result = {}
-    result['cube'] = rotatedCubeList
+    result['cube'] = encodedCube
     result['solution'] = solution
     
     TOP_UPR_L_EDGE = {'Value': 1}
@@ -638,18 +638,18 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
     #Rotate edge out of bottom into top
     for value in (BTTM_UPR_L_EDGE['Value'],BTTM_UPR_R_EDGE['Value'], BTTM_LWR_L_EDGE['Value'], BTTM_LWR_R_EDGE['Value']):
         if value == cubeLocation:
-            rotatedCubeList, solution, cubeLocation = _moveBottomEdgeToTopEdge(rotatedCubeList,solution,cubeLocation)
+            encodedCube, solution, cubeLocation = _moveBottomEdgeToTopEdge(encodedCube,solution,cubeLocation)
         
         
     #Solving Bottom
     difference = (cubeLocation - correctLocation)
     
     if (difference == 0):
-        return rotatedCubeList, solution['solution']
+        return encodedCube, solution['solution']
     
     elif (difference == 1 or difference == -3):
         #Clockwise rotation
-        _rotateU(rotatedCubeList)
+        _rotateU(encodedCube)
         
     elif (difference == -1 or difference == 3):
         #Counter Clockwise Rotation
@@ -666,7 +666,7 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
         
         
     #This return is just for unit testing
-    return rotatedCubeList, solution['solution']
+    return encodedCube, solution['solution']
 
 
 
@@ -675,11 +675,11 @@ def _solveBottomEdges(rotatedCubeList, solution, cubeLocation, correctLocation):
 
 
 
-def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
+def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
                                 #^ This must be in list format
     
     #Precautionary
-    rotatedCubeList = list(rotatedCubeList)
+    encodedCube = list(encodedCube)
     movementList = ""
     value = cubeLocation
     solution = {}
@@ -702,17 +702,17 @@ def _moveBottomEdgeToTopEdge(rotatedCubeList, solution, cubeLocation):
         cubeLocation = 3
         
     for letter in movementList:
-        solution['solution'], rotatedCubeList = _functionalRotations(rotatedCubeList, solution, letter)
+        solution['solution'], encodedCube = _functionalRotations(encodedCube, solution, letter)
         
     
-    return rotatedCubeList, solution['solution'], cubeLocation
+    return encodedCube, solution['solution'], cubeLocation
 #            ^ This is in list format
 
 
 
 
-def _findBottomEdge(rotatedCubeList, zCube, yCube, xCube):
-    rcl = rotatedCubeList
+def _findBottomEdge(encodedCube, zCube, yCube, xCube):
+    rcl = encodedCube
 
     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
     
