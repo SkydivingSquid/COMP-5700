@@ -475,6 +475,12 @@ class solveBottomCrossTest(unittest.TestCase):
         expectedResult = 3
         actualResult = solve._findBottomEdge(inputDict['cube'], 49, 4, 13)
         self.assertEqual(actualResult, expectedResult)
+        
+    def test_solve_032_SolveBottomFace2(self):
+        cube  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        
+        actualResult = solve._solveBottomFace(cube)
+        self.assertTrue(actualResult)
                                              
                                              
                                              

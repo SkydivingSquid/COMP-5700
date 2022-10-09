@@ -157,7 +157,6 @@ def _solveBottomCross(encodedCube):
         #Check for bottom cross alignment
         if (_bottomCrossAligned(rotatedCubeList)):
             result['solution'] = ''
-            #result['status'] = 'ok'
             return result
 
         #Rotate unaligned bottom cross into top daisy
@@ -605,7 +604,13 @@ def _solveBottomFace(rotatedCubeList):
     BTTM_LWR_R_EDGE = {'Value': 7}
     
     cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
-    
+    if cubeLctn == BTTM_UPR_R_EDGE['Value']:
+        return True
+        # cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
+        # if cubeLctn == BTTM_LWR_R_EDGE['Value']:
+            
+            
+        
     # This will have to return solution and rotated cube.
     return(rotatedCubeList)
     
