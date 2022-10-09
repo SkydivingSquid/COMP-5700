@@ -606,8 +606,6 @@ def _solveBottomFace(rotatedCubeList):
     
     cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     
-    _bottomEdgeCheck(TOP_LWR_R_EDGE['Value'], cubeLctn)
-    
     # This will have to return solution and rotated cube.
     return(rotatedCubeList)
     
