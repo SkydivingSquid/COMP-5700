@@ -603,7 +603,7 @@ def _solveBottomFace(rotatedCubeList):
     BTTM_LWR_L_EDGE = {'Value': 8}  
     BTTM_LWR_R_EDGE = {'Value': 7}
     
-    
+    #IF Edges are in the correct spot and oriented correctly, return rotatedCubeList. No update to solution. 
     cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER)
     if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and rotatedCubeList[BOTTOM_UPPER_STBD_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, RIGHT_CENTER, LEFT_CENTER)
@@ -614,7 +614,7 @@ def _solveBottomFace(rotatedCubeList):
                 if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and rotatedCubeList[BOTTOM_UPPER_PORT_EDGE] == rotatedCubeList[BOTTOM_CENTER]):
                     return rotatedCubeList
                 
-            
+    
             
         
     # This will have to return solution and rotated cube.
