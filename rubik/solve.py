@@ -42,8 +42,7 @@ TOP_STBD = 41
 BOTTOM_PORT = 48
 BOTTOM_STBD = 50
 
-#EDGES
-
+#INDIVIDUAL EDGES
 FRONT_UPPER_PORT_EDGE = 0
 FRONT_UPPER_STBD_EDGE = 2
 FRONT_LOWER_PORT_EDGE = 6
@@ -580,6 +579,19 @@ def _daisyExists(rotatedCubeList):
             and rotatedCubeList[TOP_PORT] == rotatedCubeList[BOTTOM_CENTER] 
             and rotatedCubeList[TOP_STBD] == rotatedCubeList[BOTTOM_CENTER] 
             and rotatedCubeList[TOP_LOWER_MIDDLE] == rotatedCubeList[BOTTOM_CENTER])
+
+
+"""
+###############################################################        
+########### Bottom Edge ###########
+###############################################################
+"""
+
+
+
+
+
+
 
 
 

@@ -47,6 +47,8 @@ class solveBottomCrossTest(unittest.TestCase):
     #        test R21: Input nominal cube list checking for directional rotations
     #        test R23: Input nominal cube list with simple solution checking for integrated U and directional rotations
     #        test R22: Input nominal cube list checking for integrated U and directional rotations
+    
+    #        test 030: Find desired edge on nominal cube
      
     #        test 620: Scrambled Cube
     #        test 621: Scrambled Cube
@@ -82,7 +84,6 @@ class solveBottomCrossTest(unittest.TestCase):
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    
     def test_rotateController_011_ValidCubeChars(self):
         inputDict = {}
         inputDict['op'] = 'rotate'
@@ -106,7 +107,6 @@ class solveBottomCrossTest(unittest.TestCase):
     
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-        
         
     def test_rotateController_013_CubeIsMissing(self):
         inputDict = {}
@@ -145,7 +145,6 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
 
-        
     def test_solve_021_ShouldAlignDaisyAndSolveForBottomCross_OnInputCubeWithUnaignedBottomCross(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -201,8 +200,7 @@ class solveBottomCrossTest(unittest.TestCase):
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-        
-        
+            
     def test_solve_R20_RefactoredDaisyU(self):
         inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
                      'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
@@ -228,7 +226,6 @@ class solveBottomCrossTest(unittest.TestCase):
     
         self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    
     
     def test_solve_R21_RefactoredDaisyRot(self):
         inputList = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
@@ -256,8 +253,8 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
-    
     def test_solve_R22_RefactoredDaisyU_Integrated(self):
+
         inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
                      'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
                      'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
@@ -282,9 +279,9 @@ class solveBottomCrossTest(unittest.TestCase):
     
         self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    
-    
+        
     def test_solve_R23_RefactoredUnAlaignedBottomCubesToDaisyTop_Integrated(self):
+
         inputList = ['o', 'r', 'g', 'o', 'b', 'w', 'b', 'w', 'w', 
                      'o', 'y', 'o', 'b', 'r', 'o', 'b', 'b', 'g', 
                      'w', 'o', 'y', 'w', 'y', 'r', 'b', 'r', 'w', 
@@ -310,8 +307,18 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('list'), actualResult.get('rotatedCubeList'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
+    def test_solve_030_FindCorrectBottomEdge(self):
+        inputDict = {}
+        inputDict['solve']
+        inputDict['cube'] = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
+        
+        self.assertTrue(solve._findBottomEdge(inputDict))
+    
+    
+    
     
     def test_solve_620_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
+        
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'wbgyoowrgyorbgbyyowrrgrybrobwywwgwwygbbrbgrwrogooyobyg'
@@ -325,7 +332,7 @@ class solveBottomCrossTest(unittest.TestCase):
         #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
+    
     def test_solve_621_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -340,7 +347,7 @@ class solveBottomCrossTest(unittest.TestCase):
         #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
+    
     def test_solve_622_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -445,7 +452,6 @@ class solveBottomCrossTest(unittest.TestCase):
         #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
     
     def test_solve_629_ShouldSolveExampleFromClass_ThoughInDifferentOrder(self):
         inputDict = {}
