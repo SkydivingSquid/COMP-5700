@@ -501,6 +501,7 @@ class solveBottomCrossTest(unittest.TestCase):
         actualResult = solve._moveBottomEdgeToTopEdge(cube, solution, value)
         self.assertEqual(expectedResult,actualResult)
         
+        #This is just a test to ensure a string will also work. 
     def test_solve_034a_movingBottomEdgeToTopEdge2(self):
         cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         solution = {}
