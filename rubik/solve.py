@@ -611,7 +611,7 @@ def _solveBottomFace(rotatedCubeList):
             if cubeLctn == BTTM_LWR_L_EDGE['Value']:
                 cubeLctn = _findBottomEdge(rotatedCubeList, BOTTOM_CENTER, BACK_CENTER,FRONT_CENTER)
                 if cubeLctn == BTTM_UPR_L_EDGE['Value']:
-                    return True
+                    return rotatedCubeList
             
             
         
