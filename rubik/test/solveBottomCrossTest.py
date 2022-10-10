@@ -560,6 +560,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
+    
     def test_solve_0306_SolvingTheCubeToBottomFace_MissplacedEdge4(self):
         inputDict = {}
         inputDict['op'] = 'solve'
@@ -574,10 +575,39 @@ class solveBottomCrossTest(unittest.TestCase):
         #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
-
-
         
+
+    def test_solve_0307_SolvingTheCubeToBottomFace_MissplacedEdge3(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'wrrbbobbyggoyrrrrrbboggggggybboooooogyyryyryywwbwwwwww'
+    
+        expectedResult = {}
+        expectedResult['cube'] = list('ybbbbybbbryygrrrrrorrgggggggboooooooyybyyogrywwwwwwwww')
+        expectedResult['solution'] = 'uufUF' 
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+
+    # def test_solve_0308_SolvingTheCubeToBottomFace_MissplacedEdge2(self):
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = ''
+    #
+    #     expectedResult = {}
+    #     expectedResult['cube'] = list('')
+    #     expectedResult['solution'] = 'u' 
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+
         
         
         
