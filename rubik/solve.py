@@ -682,7 +682,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn):
         result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
         encodedCube = result['cube']
     
-    return result['solution']
+    return result['solution'], result['cube']
         
         
         
