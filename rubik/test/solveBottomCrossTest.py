@@ -615,7 +615,7 @@ class solveBottomCrossTest(unittest.TestCase):
         expectedResult['cube'] = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         
         actualResult = {}
-        actualResult[solution], actualResult['cube'] = solve._topToBottomEdgeAlgorithm(cube,solution,cubeLctn)
+        actualResult['solution'], actualResult['cube'] = solve._topToBottomEdgeAlgorithm(cube,solution,cubeLctn)
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         #expectedResultTrue = solve._topToBottomEdgeAlgorithm(cube,solution,cubeLctn)
         self.assertTrue(expectedResultTrue)
