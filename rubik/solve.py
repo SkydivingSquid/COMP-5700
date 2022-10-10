@@ -698,9 +698,9 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
             movementList = 'luuLUluLU'
         
         
-    for letter in movementList:
-        result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
-        encodedCube = result['cube']
+        for letter in movementList:
+            result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
+            encodedCube = result['cube']
     
     return result
         
