@@ -612,8 +612,24 @@ def _solveBottomFace(encodedCube, solution):
     if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
     
-    else:
-        return result
+    elif (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] != encodedCube[BOTTOM_CENTER]):
+        
+        if encodedCube[RIGHT_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:
+            colorMarker = 1
+        
+        elif encodedCube[FRONT_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:
+            colorMarker = 2
+            
+        #MOVE INCORRECTLY ORIENTED PIECE TO TOP
+        bottomResult = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
+        result['solution'] = bottomResult.get('solution')
+        result['cube'] = bottomResult.get('cube')
+        result['cubeLocation'] = bottomResult.get('cubeLocation')
+        solution = result['solution']
+        encodedCube = result['cube']
+        cubeLctn = result['cubeLocation']
+
+
 
     if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
@@ -621,16 +637,25 @@ def _solveBottomFace(encodedCube, solution):
     else:
         return result
 
+
+
            
     if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
+        
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
         
     else:
         return result
 
+
+
+
+
+
+
     #CHECK TO SEE IF BOTTOM PIECE IS CORRECT AND ORIENTED               
     if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-        result['cube'], result['solution'] = encodedCube, solution
+        result['cube'], result['solution'] = encodedCube, solution # Runs this because its the final check.. 
         
     #CHECK TO SEE IF BOTTOM PIECE IS CORRECT, BUT INCORRECTLY ORIENTED
     elif (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
@@ -652,15 +677,19 @@ def _solveBottomFace(encodedCube, solution):
         encodedCube = result['cube']
         cubeLctn = result['cubeLocation']
         
-        #ALGORITHM TO PUT IN CORRECT PLACE (SOLVE ALGORITHM) - Need to pass in correct color index (which for example was top lower port
+        #ALGORITHM TO PUT IN CORRECT PLACE (SOLVE ALGORITHM) 
         #THIS CUBE IS NOW IN TOP_LWR_L_EDGE. COLOR MUST BE ON BOTTOM OR SIDE (NOT FACE)
-        if colorMarker == 1:
-            bottomResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
-            
-            result['solution'] = bottomResult.get('solution')
-            result['cube'] = bottomResult.get('cube')
-            solution = result['solution']
-            encodedCube = result['cube']
+        
+        bottomResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
+        
+        result['solution'] = bottomResult.get('solution')
+        result['cube'] = bottomResult.get('cube')
+        solution = result['solution']
+        encodedCube = result['cube']
+                
+                
+                
+                
                 
     #IF NOT IN CORRECT BOTTOM LOCATION, MUST BE SOMEWHERE ELSE. FIND IT. 
     else:
@@ -701,10 +730,36 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
         if colorMarker == 1:
             movementList = 'luuLUluLU'
             
-        #UNVALIDATED
         elif colorMarker == 2:
             movementList = 'luLU'
             
+        
+    if cubeLctn == 3:
+        
+        if colorMarker == 1:
+            movementList = 'fuuFUfuFU' #UNVALIDATED
+            
+        elif colorMarker == 2:
+            movementList = 'fuFU'
+        
+    
+    if cubeLctn == 2:
+        if colorMarker == 1:
+            movementList = ''
+        
+        elif colorMarker == 2:
+            movementList = ''
+        
+        
+    if cubeLctn == 1:
+        
+        if colorMarker == 1:
+            movementList = ''
+            
+        elif colorMarker == 2:
+            movementList = ''
+        
+        
         
     for letter in movementList:
         result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
@@ -789,11 +844,11 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
 
     #These four are to move edge from bottom to top 
     if value == 7:
-        movementList = 'BUbu'
+        movementList = 'BUbu' #UNVALIDATED
         cubeLocation = 2
 
     if value == 8:
-        movementList = 'buBU'
+        movementList = 'buBU' #UNVALIDATED
         cubeLocation = 1
 
     if value == 5:
@@ -801,7 +856,7 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
         cubeLocation = 4
 
     if value == 6:
-        movementList = 'RUru'
+        movementList = 'fuFU' 
         cubeLocation = 3
     
     for letter in movementList:
