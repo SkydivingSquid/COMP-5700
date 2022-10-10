@@ -641,7 +641,9 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
         
     else:
-        return False
+        return result
+
+
 
 
 
@@ -650,8 +652,28 @@ def _solveBottomFace(encodedCube, solution):
         
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
         
-    else:
-        return False
+    elif (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
+        
+        if encodedCube[BACK_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:
+            colorMarker = 1
+        
+        elif encodedCube[RIGHT_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:
+            colorMarker = 2
+        
+        
+        bottomResult = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
+        result['solution'] = bottomResult.get('solution')
+        result['cube'] = bottomResult.get('cube')
+        result['cubeLocation'] = bottomResult.get('cubeLocation')
+        solution = result['solution']
+        encodedCube = result['cube']
+        cubeLctn = result['cubeLocation']
+        
+        topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
+        result['solution'] = topResult.get('solution')
+        result['cube'] = topResult.get('cube')
+        solution = result['solution']
+        encodedCube = result['cube']
 
 
 
@@ -742,10 +764,10 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     if cubeLctn == 3:
         
         if colorMarker == 1:
-            movementList = 'fuuFUfuFU' #UNVALIDATED
+            movementList = 'fuuFUfuFU'
             
         elif colorMarker == 2:
-            movementList = 'fuFU'
+            movementList = 'fuFU' #UNVALIDATED
         
     
     if cubeLctn == 2:
@@ -759,10 +781,10 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     if cubeLctn == 1:
         
         if colorMarker == 1:
-            movementList = ''
+            movementList = 'ruuRUruRU'
             
         elif colorMarker == 2:
-            movementList = ''
+            movementList = 'ruRU'
         
         
         
@@ -849,7 +871,7 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
 
     #These four are to move edge from bottom to top 
     if value == 7:
-        movementList = 'BUbu' #UNVALIDATED
+        movementList = 'ruRU' #UNVALIDATED
         cubeLocation = 2
 
     if value == 8:
