@@ -770,6 +770,36 @@ def _solveBottomFace(encodedCube, solution):
     
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
     
+    else:
+    
+        bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, TOP_UPR_L_EDGE['Value']) # <- UNIQUE VALUE
+        ##print('BOTTOM DONE')
+        result['solution'] = bottomResult.get('solution')
+        result['cube'] = bottomResult.get('cube')
+        result['cubeLocation'] = bottomResult.get('cubeLocation')
+        solution = result['solution']
+        encodedCube = result['cube']
+        cubeLctn = result['cubeLocation']
+        
+        if encodedCube[TOP_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:  # <- UNIQUE VALUE
+            colorMarker = 1
+        
+        elif encodedCube[LEFT_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
+            colorMarker = 2
+            
+        #MAY BE POINTLESS BECAUSE OF CM SET ABOVE
+        else:
+            colorMarker = 0
+
+        topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker) 
+        result['solution'] = topResult.get('solution')
+        result['cube'] = topResult.get('cube')
+        solution = result['solution']
+        encodedCube = result['cube']
+
+
+
+
 
 
 
