@@ -770,8 +770,8 @@ def _solveBottomFace(encodedCube, solution):
         elif encodedCube[LEFT_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:
             colorMarker = 2
             
-        else:
-            colorMarker = 0 #This is an inherent risk / guess
+        elif encodedCube[FRONT_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:
+            colorMarker = 0 
         
         #SOLVE ALGORITHM
 
@@ -799,7 +799,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
         elif colorMarker == 2:
             movementList = 'luLU'
             
-        else:
+        elif colorMarker == 0:
             movementList = 'ulUL'
             
         
