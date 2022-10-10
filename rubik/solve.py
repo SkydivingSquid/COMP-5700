@@ -671,8 +671,8 @@ def _solveBottomFace(encodedCube, solution):
     
 def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn):
     result = {}
-    result['cube'] = encodedCube
     result['solution'] = solution
+    result['cube'] = encodedCube
     #result['cubeLocation'] = cubeLctn
     
     if cubeLctn == 4:
@@ -682,7 +682,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn):
         result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
         encodedCube = result['cube']
     
-    return result['solution'], result['cube']
+    return result#['solution'], result['cube']
         
         
         
