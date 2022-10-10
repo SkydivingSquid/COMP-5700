@@ -852,6 +852,7 @@ def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
     result = {}
     #result['cube'] = encodedCube
     result['solution'] = solution
+    movementList = '' 
 
     BTTM_UPR_L_EDGE = {'Value': 5}
     BTTM_UPR_R_EDGE = {'Value': 6}
