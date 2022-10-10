@@ -660,7 +660,7 @@ def _solveBottomFace(encodedCube, solution):
             #THIS CUBE IS NOW IN TOP_LWR_L_EDGE. COLOR MUST BE ON BOTTOM OR SIDE (NOT FACE)
             if colorMarker == 1:
                 bottomResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
-            
+                print('IN THE MARKER')
             
                 #IF NOT IN CORRECT BOTTOM LOCATION, MUST BE SOMEWHERE ELSE. FIND IT. 
                     #IF ON BOTTOM, ROTATE TO TOP
@@ -670,10 +670,10 @@ def _solveBottomFace(encodedCube, solution):
             
             
             
-            result['solution'] = bottomResult.get('solution')
-            result['cube'] = bottomResult.get('cube')
-            solution = result['solution']
-            encodedCube = result['cube']
+                result['solution'] = bottomResult.get('solution')
+                result['cube'] = bottomResult.get('cube')
+                solution = result['solution']
+                encodedCube = result['cube']
             
             
             
@@ -681,8 +681,8 @@ def _solveBottomFace(encodedCube, solution):
             
             #YOU CAN PASS A RESULT FOR A TEST BY USING RETURN RESULT IN THAT ELSE OR IF STATEMENT. 
     
-    
-    
+    print('RESULT')
+    print(result)
     return result
         
 
@@ -696,12 +696,14 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     if cubeLctn == 4:
         if colorMarker == 1:
             movementList = 'luuLUluLU'
-        
+            print(movementList)
         
         for letter in movementList:
             result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
             encodedCube = result['cube']
     
+    print('Algorithm Result')
+    print(result)
     return result
         
         
