@@ -804,7 +804,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     if cubeLctn == 1:
         
         if colorMarker == 1:
-            movementList = 'buBUbuuBUbuBU'
+            movementList = 'buuBUbuBU'
             
         elif colorMarker == 2:
             movementList = 'buBU'
