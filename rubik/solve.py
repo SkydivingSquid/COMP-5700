@@ -684,12 +684,6 @@ def _solveBottomFace(encodedCube, solution):
         
     elif (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
         
-        if encodedCube[LEFT_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:
-            colorMarker = 1
-            
-        elif encodedCube[BACK_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:
-            colorMarker = 2
-        
         bottomResult = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
         result['solution'] = bottomResult.get('solution')
         result['cube'] = bottomResult.get('cube')
@@ -697,6 +691,12 @@ def _solveBottomFace(encodedCube, solution):
         solution = result['solution']
         encodedCube = result['cube']
         cubeLctn = result['cubeLocation']
+        
+        if encodedCube[TOP_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:
+            colorMarker = 1
+            
+        elif encodedCube[BACK_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:
+            colorMarker = 2
         
         topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
         result['solution'] = topResult.get('solution')
