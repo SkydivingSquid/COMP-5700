@@ -641,7 +641,7 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
         
     else:
-        return result
+        return False
 
 
 
@@ -651,7 +651,7 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
         
     else:
-        return result
+        return False
 
 
 
