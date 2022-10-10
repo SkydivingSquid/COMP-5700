@@ -620,8 +620,6 @@ def _solveBottomFace(encodedCube, solution):
         elif encodedCube[FRONT_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:
             colorMarker = 2
         
-        print(cubeLctn)
-        print(colorMarker)
         #MOVE INCORRECTLY ORIENTED PIECE TO TOP
         bottomResult = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
         result['solution'] = bottomResult.get('solution')
@@ -631,10 +629,9 @@ def _solveBottomFace(encodedCube, solution):
         encodedCube = result['cube']
         cubeLctn = result['cubeLocation']
         
-        bottomResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
-        
-        result['solution'] = bottomResult.get('solution')
-        result['cube'] = bottomResult.get('cube')
+        topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
+        result['solution'] = topResult.get('solution')
+        result['cube'] = topResult.get('cube')
         solution = result['solution']
         encodedCube = result['cube']
 
