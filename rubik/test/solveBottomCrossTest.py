@@ -493,20 +493,20 @@ class solveBottomCrossTest(unittest.TestCase):
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    # def test_solve_0302_SolvingTheCubeToBottomFace_F_L_P_E(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'obbybbwbbrrgrrrrrryooggggggygyooooobgbryyybyyowwwwwwww'
-    #
-    #     expectedResult = {}
-    #     expectedResult['cube'] = list('yobybbbbbybrrrrrrrygrgggggggroooooooyybyyygbowwwwwwwww')
-    #     expectedResult['solution'] = 'luLUluuLUluLU'
-    #     expectedResult['status'] = 'ok'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    def test_solve_0302_SolvingTheCubeToBottomFace_F_L_P_E(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'obbybbwbbrrgrrrrrryooggggggygyooooobgbryyybyyowwwwwwww'
+    
+        expectedResult = {}
+        expectedResult['cube'] = list('yobybbbbbybrrrrrrrygrgggggggroooooooyybyyygbowwwwwwwww')
+        expectedResult['solution'] = 'luLUluuLUluLU'
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
     def test_solve_0303_SolvingTheCubeToBottomFace_F_L_R_E(self):
         inputDict = {}

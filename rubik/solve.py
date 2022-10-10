@@ -686,10 +686,9 @@ def _solveBottomFace(encodedCube, solution):
         #ALGORITHM TO PUT IN CORRECT PLACE (SOLVE ALGORITHM) 
         #THIS CUBE IS NOW IN TOP_LWR_L_EDGE. COLOR MUST BE ON BOTTOM OR SIDE (NOT FACE)
         
-        bottomResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
-        
-        result['solution'] = bottomResult.get('solution')
-        result['cube'] = bottomResult.get('cube')
+        topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
+        result['solution'] = topResult.get('solution')
+        result['cube'] = topResult.get('cube')
         solution = result['solution']
         encodedCube = result['cube']
                 
