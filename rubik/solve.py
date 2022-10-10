@@ -634,15 +634,18 @@ def _solveBottomFace(encodedCube, solution):
         result['cube'] = topResult.get('cube')
         solution = result['solution']
         encodedCube = result['cube']
-
-
-
+        
+        #MOVE ON TO NEXT EDGE
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
+        
     if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
         
     else:
+        
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
         return result
-
+    
 
 
 
@@ -675,7 +678,7 @@ def _solveBottomFace(encodedCube, solution):
         solution = result['solution']
         encodedCube = result['cube']
 
-
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
 
 
 
