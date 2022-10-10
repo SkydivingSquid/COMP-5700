@@ -756,7 +756,7 @@ def _solveBottomFace(encodedCube, solution):
         #IF ON TOP, ROTATE U TO CORRECT LOCATION
         # ^ Happens all in one method
     
-        bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, BTTM_UPR_L_EDGE)
+        bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, BTTM_UPR_L_EDGE['Value'])
         #print('BOTTOM DONE')
         result['solution'] = bottomResult.get('solution')
         result['cube'] = bottomResult.get('cube')
