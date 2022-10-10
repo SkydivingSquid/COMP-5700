@@ -784,7 +784,7 @@ def _solveBottomFace(encodedCube, solution):
         if encodedCube[TOP_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:  # <- UNIQUE VALUE
             colorMarker = 1
         
-        elif encodedCube[LEFT_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
+        elif encodedCube[BACK_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
             colorMarker = 2
             
         #MAY BE POINTLESS BECAUSE OF CM SET ABOVE
@@ -797,6 +797,7 @@ def _solveBottomFace(encodedCube, solution):
         solution = result['solution']
         encodedCube = result['cube']
 
+        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
 
 
 
