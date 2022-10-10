@@ -493,6 +493,20 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
+    def test_solve_0302_SolvingTheCubeToBottomFace(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'obbbbbobbrrorrrrrrygyggggggrobooooobgygyyywyyywwwwwwww'
+    
+        expectedResult = {}
+        expectedResult['cube'] = list('yobybbbbbybrrrrrrrygrgggggggroooooooyybyyygbowwwwwwwww')
+        expectedResult['solution'] = 'luuLUluLU'
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
     
     
