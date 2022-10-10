@@ -598,13 +598,11 @@ def _solveBottomFace(encodedCube, solution):
     #This will likely need to have the solution passed as an argument. 
     
     result = {}
-    bototmResult = {}
     
-    
-    TOP_UPR_L_EDGE = {'Value': 1}
-    TOP_UPR_R_EDGE = {'Value': 2}
-    TOP_LWR_L_EDGE = {'Value': 4}
-    TOP_LWR_R_EDGE = {'Value': 3}
+    # TOP_UPR_L_EDGE = {'Value': 1}
+    # TOP_UPR_R_EDGE = {'Value': 2}
+    # TOP_LWR_L_EDGE = {'Value': 4}
+    # TOP_LWR_R_EDGE = {'Value': 3}
     
     BTTM_UPR_L_EDGE = {'Value': 5}
     BTTM_UPR_R_EDGE = {'Value': 6}
@@ -612,6 +610,7 @@ def _solveBottomFace(encodedCube, solution):
     BTTM_LWR_R_EDGE = {'Value': 7}
     
     #IF Edges are in the correct spot and oriented correctly, return encodedCube. No update to solution. 
+    #Else if Edges are in the right spot, but not oriented correctly, rotate from bottom to top.
     cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, RIGHT_CENTER) 
     if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
@@ -632,30 +631,42 @@ def _solveBottomFace(encodedCube, solution):
     else:
         return result
 
-               
+    #CHECK TO SEE IF BOTTOM PIECE IS CORRECT AND ORIENTED               
     if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
         result['cube'], result['solution'] = encodedCube, solution
         
     else:
+        #CHECK TO SEE IF BOTTOM PIECE IS CORRECT, BUT INCORRECTLY ORIENTED
         if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
-            print('TWO ELSE')
+
+            #MOVE INCORRECTLY ORIENTED PIECE TO TOP
             bottomResult = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
+            
+            #ALGORITHM TO PUT IN CORRECT PLACE (SOLVE ALGORITHM)
+            
+                #IF NOT IN CORRECT BOTTOM LOCATION, MUST BE SOMEWHERE ELSE. FIND IT. 
+                    #IF ON BOTTOM, ROTATE TO TOP
+                    #IF ON TOP, ROTATE U TO CORRECT LOCATION
+                    
+                #SOLVE ALGORITHM
+            
+            
             
             result['solution'] = bottomResult.get('solution')
             result['cube'] = bottomResult.get('cube')
+            solution = result['solution']
+            encodedCube = result['cube']
             
-            return result
-    
             
+            
+            
+            
+            #YOU CAN PASS A RESULT FOR A TEST BY USING RETURN RESULT IN THAT ELSE OR IF STATEMENT. 
     
     
-        #result['cube'], result['solution'] = encodedCube, "FFFFFFFFF"
     
-    #result = {result['cube'], result['solution']}
     return result
         
-#
-#
 #
 # def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
 #     solution = {}
@@ -711,15 +722,13 @@ def _solveBottomFace(encodedCube, solution):
 #
 #
 #
-def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
-                                #^ This must be in list format
 
-    
-    #Precautionary
-    #encodedCube = list(encodedCube)
-    
-    print('IN MOVE BOTTOM EDGE')
-    
+
+
+
+
+def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
+                             
     result = {}
     result['cube'] = encodedCube
     result['solution'] = solution
@@ -748,14 +757,9 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     
     for letter in movementList:
         result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
+        encodedCube = result['cube']
 
-    
-    print(result['solution'])
-    print(result)
-    
     return result
-#            ^ This is in list format
-
 
 
 

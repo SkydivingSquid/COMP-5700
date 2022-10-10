@@ -604,6 +604,20 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         
         
+    def test_997_orientCorrectTopEdgeIntoCorrectBottomEdge(self):
+        cube = 'obbbbbobbrrorrrrrrygyggggggrobooooobgygyyywyyywwwwwwww'
+        #This Cube has Bottom Center Color at index[2]
+        solution = ''
+        cubeLctn = 4
+        
+        expectedResult = {}
+        expectedResult['solution'] = 'ulUL'
+        expectedResult['cube'] = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        
+        actualResult = {}
+        actualResult[solution], actualResult['cube'] = solve._topToBottomEdgeAlgorithm(cube,solution,cubeLctn)
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        
     
     
         
