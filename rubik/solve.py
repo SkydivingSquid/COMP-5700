@@ -598,7 +598,7 @@ def _solveBottomFace(encodedCube, solution):
     #This will likely need to have the solution passed as an argument. 
     
     result = {}
-    colorMarker = 0
+    colorMarker = 99
     locationMarker = 0
     
     BTTM_UPR_L_EDGE = {'Value': 5}
@@ -714,16 +714,17 @@ def _solveBottomFace(encodedCube, solution):
     #TEMPORARY ASSIGNMENT  #TEMPORARY ASSIGNMENT  #TEMPORARY ASSIGNMENT
     cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
     #TEMPORARY ASSIGNMENT  #TEMPORARY ASSIGNMENT  #TEMPORARY ASSIGNMENT
-                 
+    print('GOING INTO METHOD')
     if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
         result['cube'], result['solution'] = encodedCube, solution # Runs this because its the final check.. 
         
     #CHECK TO SEE IF BOTTOM PIECE IS CORRECT, BUT INCORRECTLY ORIENTED
     elif (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
-        
+        print('IN ELIF METHOD')
             
         #MOVE INCORRECTLY ORIENTED PIECE TO TOP
         bottomResult = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
+        print('FINISHED BOTTOM RESULT')
         result['solution'] = bottomResult.get('solution')
         result['cube'] = bottomResult.get('cube')
         result['cubeLocation'] = bottomResult.get('cubeLocation')
@@ -732,15 +733,18 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = result['cubeLocation']
         
         if encodedCube[TOP_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:
+            print('IN CM 1')
             colorMarker = 1
         
         elif encodedCube[LEFT_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:
+            print('IN CM2')
             colorMarker = 2
         
         #ALGORITHM TO PUT IN CORRECT PLACE (SOLVE ALGORITHM) 
         #THIS CUBE IS NOW IN TOP_LWR_L_EDGE. COLOR MUST BE ON BOTTOM OR SIDE (NOT FACE)
         
         topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
+        print('FINISHED TOP RESULT')
         result['solution'] = topResult.get('solution')
         result['cube'] = topResult.get('cube')
         solution = result['solution']
@@ -749,6 +753,7 @@ def _solveBottomFace(encodedCube, solution):
                  
     #IF NOT IN CORRECT BOTTOM LOCATION, MUST BE SOMEWHERE ELSE. FIND IT. 
     elif (cubeLctn != BTTM_UPR_L_EDGE['Value']):
+        print('DO NOT GO IN HERE')
         #locationMarker = _findBottomEdge(encodedCube, BOTTOM_CENTER, FRONT_CENTER, LEFT_CENTER)
     
         #IF ON BOTTOM, ROTATE TO TOP        
