@@ -659,7 +659,7 @@ def _solveBottomFace(encodedCube, solution):
             #ALGORITHM TO PUT IN CORRECT PLACE (SOLVE ALGORITHM) - Need to pass in correct color index (which for example was top lower port
             #THIS CUBE IS NOW IN TOP_LWR_L_EDGE. COLOR MUST BE ON BOTTOM OR SIDE (NOT FACE)
             if colorMarker == 1:
-                bottomResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn)
+                bottomResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
             
             
                 #IF NOT IN CORRECT BOTTOM LOCATION, MUST BE SOMEWHERE ELSE. FIND IT. 
@@ -687,16 +687,15 @@ def _solveBottomFace(encodedCube, solution):
         
 
     
-def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn):
+def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     result = {}
     result['solution'] = solution
     result['cube'] = encodedCube
     #result['cubeLocation'] = cubeLctn
     
     if cubeLctn == 4:
-        if 
-        movementList = 'luuLUluLU'
-        
+        if colorMarker == 1:
+            movementList = 'luuLUluLU'
         
         
     for letter in movementList:
