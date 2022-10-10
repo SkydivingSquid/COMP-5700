@@ -872,7 +872,7 @@ def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
     difference = (cubeLocation - correctLocation)
 
     if (difference == 0):
-        pass # NOT SURE UNVALIDATED 
+        movementList = ''
 
     elif (difference == 1 or difference == -3):
         #Clockwise rotation
