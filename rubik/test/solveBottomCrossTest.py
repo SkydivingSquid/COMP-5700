@@ -511,10 +511,10 @@ class solveBottomCrossTest(unittest.TestCase):
     def test_solve_0303_SolvingTheCubeToBottomFace_F_L_R_E(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'obbybbwbbrrgrrrrrryooggggggygyooooobgbryyybyyowwwwwwww'
+        inputDict['cube'] = 'yoybbbbbrbrryrrwrrggoggggggybboooooogyyryyoyrwwbwwwwww'
     
         expectedResult = {}
-        expectedResult['cube'] = list('yoybbbbbrbrryrrwrrggoggggggybboooooogyyryyoyrwwbwwwwww')
+        expectedResult['cube'] = list('ogbbbbbbbybryrrrrryrgggggggyogoooooorybyyryyowwwwwwwww')
         expectedResult['solution'] = 'fuFUfuuFUfuFU' 
         expectedResult['status'] = 'ok'
     
