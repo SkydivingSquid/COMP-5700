@@ -574,7 +574,8 @@ class solveBottomCrossTest(unittest.TestCase):
     #     #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
     #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
+    #
+
 
         
         
@@ -711,6 +712,21 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     
+    
+    def test_995_solvingBottomEdgesMethod(self):
+        cube = 'rrgybbbbboogrrrrrryooggggggwbboogooybbryyyyyyowwwwwwww'
+        #This Cube has Bottom Center Color at index[2]
+        solution = ''
+        cubeLctn = 1
+    
+        expectedResult = {}
+        expectedResult['solution'] = 'u'
+        expectedResult['cube'] = list('wbbybbbbbrrgrrrrrroogggggggyoooogooyryybyybyyowwwwwwww')
+    
+        actualResult = solve._solveBottomEdges(cube, solution, cubeLctn, 4)
+        
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     
     
     
