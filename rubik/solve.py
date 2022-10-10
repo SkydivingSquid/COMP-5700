@@ -801,10 +801,6 @@ def _solveBottomFace(encodedCube, solution):
 
 
 
-
-
-
-
     
     #THIS ONE IS DONE - UNVERIFIED
     if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
