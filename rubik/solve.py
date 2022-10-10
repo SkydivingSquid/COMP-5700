@@ -640,7 +640,7 @@ def _solveBottomFace(encodedCube, solution):
     else:
         #CHECK TO SEE IF BOTTOM PIECE IS CORRECT, BUT INCORRECTLY ORIENTED
         if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] != encodedCube[BOTTOM_CENTER]):
-
+            
             #IF COLOR IS ON FACE, MOVE TO BOTTOM, IF COLOR ON SIDE MOTE TO SIDE
             if encodedCube[FRONT_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:
                 colorMarker = 1
@@ -653,14 +653,18 @@ def _solveBottomFace(encodedCube, solution):
             bottomResult = _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLctn)
             result['solution'] = bottomResult.get('solution')
             result['cube'] = bottomResult.get('cube')
+            result['cubeLocation'] = bottomResult.get('cubeLocation')
             solution = result['solution']
             encodedCube = result['cube']
+            cubeLctn = result['cubeLocation']
             
             #ALGORITHM TO PUT IN CORRECT PLACE (SOLVE ALGORITHM) - Need to pass in correct color index (which for example was top lower port
             #THIS CUBE IS NOW IN TOP_LWR_L_EDGE. COLOR MUST BE ON BOTTOM OR SIDE (NOT FACE)
             if colorMarker == 1:
+                
+                
                 bottomResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
-                print('IN THE MARKER')
+                
             
                 #IF NOT IN CORRECT BOTTOM LOCATION, MUST BE SOMEWHERE ELSE. FIND IT. 
                     #IF ON BOTTOM, ROTATE TO TOP
@@ -681,8 +685,8 @@ def _solveBottomFace(encodedCube, solution):
             
             #YOU CAN PASS A RESULT FOR A TEST BY USING RETURN RESULT IN THAT ELSE OR IF STATEMENT. 
     
-    print('RESULT')
-    print(result)
+    
+    
     return result
         
 
@@ -694,16 +698,17 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     #result['cubeLocation'] = cubeLctn
     
     if cubeLctn == 4:
+    
         if colorMarker == 1:
+    
             movementList = 'luuLUluLU'
-            print(movementList)
+    
         
         for letter in movementList:
             result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
             encodedCube = result['cube']
     
-    print('Algorithm Result')
-    print(result)
+  
     return result
         
         
@@ -801,6 +806,7 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     for letter in movementList:
         result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
         encodedCube = result['cube']
+        result['cubeLocation'] = cubeLocation
 
     return result
 
