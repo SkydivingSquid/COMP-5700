@@ -667,6 +667,16 @@ def _solveBottomFace(encodedCube, solution):
     
     return result
         
+
+    
+def _topToBottomEdgeAlgorithm(cube,solution,cubeLctn):
+    
+    return True
+        
+        
+        
+        
+        
 #
 # def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
 #     solution = {}
