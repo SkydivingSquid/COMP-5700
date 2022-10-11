@@ -583,8 +583,8 @@ def _daisyExists(encodedCube):
 """
 
 
-def _setBottomResult(encodedCube, solution, result, cubeLctn):
-    bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, TOP_LWR_R_EDGE['Value']) # <- UNIQUE VALUE
+def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
+    bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, edge]) # <- UNIQUE VALUE
     result['solution'] = bottomResult.get('solution')
     result['cube'] = bottomResult.get('cube')
     result['cubeLocation'] = bottomResult.get('cubeLocation')
@@ -608,7 +608,7 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
  
     else:
-        encodedCube, solution, cubeLctn, bottomResult = _setBottomResult(encodedCube, solution, result, cubeLctn)
+        encodedCube, solution, cubeLctn, bottomResult = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_LWR_R_EDGE['Value'])
         
         if encodedCube[TOP_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:  # <- UNIQUE VALUE
             colorMarker = 1
