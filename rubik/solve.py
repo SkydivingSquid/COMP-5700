@@ -643,14 +643,11 @@ def _solveBottomFace(encodedCube, solution):
     if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
     
-    else:
-        encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_UPR_R_EDGE['Value'])
+    else:        
+        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
+                                                                            TOP_UPPER_STBD_EDGE, RIGHT_UPPER_STBD_EDGE, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
         
-        colorMarker = _setMarker(encodedCube, TOP_UPPER_STBD_EDGE, RIGHT_UPPER_STBD_EDGE)
-
-        encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
-    
-        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
+        
     
 #THIRD WILL SOLVE BOTTOM LOWER LEFT CORNER (8)    
     if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
