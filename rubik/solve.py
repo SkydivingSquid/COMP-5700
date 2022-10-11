@@ -610,9 +610,9 @@ def _setMarker(encodedCube,edge1,edge2):
         colorMarker = 0
     return colorMarker
 
-def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, markerEdge1, markerEdge2, triEdge1, triEdge2, triEdge3):
+def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, initialEdge, markerEdge1, markerEdge2, triEdge1, triEdge2, triEdge3):
     #This method is a major work horse, refactored for LOC limitation purposes
-    encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_LWR_R_EDGE['Value'])
+    encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, initialEdge)
     
     colorMarker = _setMarker(encodedCube, markerEdge1, markerEdge2)
     
@@ -637,15 +637,15 @@ def _solveBottomFace(encodedCube, solution):
  
     else:
         cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
-                                                                            TOP_LOWER_STBD_EDGE, FRONT_UPPER_STBD_EDGE, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
+                                                                            TOP_LWR_R_EDGE['Value'], TOP_LOWER_STBD_EDGE, FRONT_UPPER_STBD_EDGE, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
 
 #SECOND WILL SOLVE BOTTOM LOWER RIGHT CORNER (7)
     if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
     
-    else:        
+    else:
         cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
-                                                                            TOP_UPPER_STBD_EDGE, RIGHT_UPPER_STBD_EDGE, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
+                                                                            TOP_UPR_R_EDGE['Value'], TOP_UPPER_STBD_EDGE, RIGHT_UPPER_STBD_EDGE, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
         
         
     
