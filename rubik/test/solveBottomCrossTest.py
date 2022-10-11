@@ -38,30 +38,8 @@ class solveBottomCrossTest(unittest.TestCase):
     #
     #    happy paths:
 
-    #        test 020: Input nominal cube with bottom cross already solved
-    #        test 021: Input nominal cube with unaligned bottom cross
-    #        test 022: Input nominal cube with daisy solved
-    #        test 023: Input nominal cube with unaligned daisy
-    #        test 024: Input nominal cube with neither bottom cross nor daisy
-    
-    #        test R20: Input nominal cube list checking for U rotation
-    #        test R21: Input nominal cube list checking for directional rotations
-    #        test R23: Input nominal cube list with simple solution checking for integrated U and directional rotations
-    #        test R22: Input nominal cube list checking for integrated U and directional rotations
-    
     #        test 030: Find desired edge on nominal cube
      
-    #        test 620: Scrambled Cube
-    #        test 621: Scrambled Cube
-    #        test 622: Scrambled Cube
-    #        test 623: Scrambled Cube
-    #        test 624: Scrambled Cube
-    #        test 625: Scrambled Cube
-    #        test 626: Scrambled Cube
-    #        test 627: Scrambled Cube
-    #        test 628: Scrambled Cube
-    #        test 629: Scrambled Cube
-    #       
     #    sad paths:
     #        (Cube class calls)
     #        test 010: Validate Cube class has been imported - checks for valid cube length
@@ -73,179 +51,68 @@ class solveBottomCrossTest(unittest.TestCase):
     
 
     
-    # def test_solve_010_ValidCubeLength(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'rotate'
-    #     inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbr'
-    #     inputDict['dir'] = 'R'
-    #
-    #     expectedResult = {}
-    #     expectedResult['status'] = 'error: Invalid Cube Length'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
-    # def test_rotateController_011_ValidCubeChars(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'rotate'
-    #     inputDict['cube'] = 'wbrbwwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
-    #     inputDict['dir'] = ''
-    #
-    #     expectedResult = {}
-    #     expectedResult['status'] = 'error: Invalid Cube Char'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
-    # def test_rotateController_012_ValidCubeCenterChars(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'rotate'
-    #     inputDict['cube'] = 'wgbowogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
-    #     inputDict['dir'] = ''
-    #
-    #     expectedResult = {}
-    #     expectedResult['status'] = 'error: Duplicate Center Colors'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
-    # def test_rotateController_013_CubeIsMissing(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'rotate'
-    #     inputDict['dir'] = 'F'
-    #
-    #     expectedResult = {}
-    #     expectedResult['status'] = 'error: Missing Cube Argument'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
-    # def test_rotateController_014_rotate_CubeHasTooManyOfAColor(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'rotate'
-    #     inputDict['dir'] = 'F'
-    #     inputDict['cube'] = 'wwwwwwwwwwggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
-    #
-    #     expectedResult = {}
-    #     expectedResult['status'] = 'error: There May Only Be 9 Of Each Color'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
-    #
-    # def test_solve_R20_RefactoredDaisyU(self):
-    #     inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
-    #                  'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
-    #                  'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-    #                  'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-    #                  'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
-    #                  'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
-    #
-    #     solution = ""
-    #
-    #     expectedResult = {}
-    #     expectedResult['list'] = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
-    #                              'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
-    #                              'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-    #                              'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-    #                              'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
-    #                              'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
-    #
-    #     expectedResult['solution'] = 'U'
-    #
-    #
-    #     actualResult = solve._daisyURotations(4, 1, 43, inputList, solution)
-    #
-    #     self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #
-    # def test_solve_R21_RefactoredDaisyRot(self):
-    #     inputList = ['w', 'o', 'b', 'b', 'o', 'r', 'o', 'y', 'y', 
-    #                  'r', 'y', 'g', 'o', 'y', 'o', 'o', 'b', 'g', 
-    #                  'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-    #                  'r', 'r', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-    #                  'b', 'w', 'y', 'w', 'b', 'w', 'r', 'w', 'o', 
-    #                  'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
-    #
-    #     solution = ""
-    #
-    #     expectedResult = {}
-    #     expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
-    #                               'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
-    #                               'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-    #                               'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
-    #                               'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
-    #                               'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
-    #
-    #     expectedResult['solution'] = 'FF'
-    #
-    #
-    #     actualResult = solve._daisy_Rotations(4, 1, inputList, solution)
-    #
-    #     self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #
-    # def test_solve_R22_RefactoredDaisyU_Integrated(self):
-    #
-    #     inputList = ['r', 'r', 'g', 'b', 'o', 'r', 'o', 'y', 'y', 
-    #                  'w', 'o', 'b', 'o', 'y', 'o', 'o', 'b', 'g', 
-    #                  'r', 'y', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-    #                  'b', 'g', 'g', 'r', 'r', 'o', 'y', 'y', 'r', 
-    #                  'y', 'w', 'o', 'w', 'b', 'w', 'b', 'w', 'r', 
-    #                  'w', 'b', 'b', 'g', 'w', 'g', 'w', 'r', 'y']
-    #
-    #     solution = ""
-    #
-    #     expectedResult = {}
-    #     expectedResult['list'] = ['y', 'y', 'o', 'r', 'o', 'b', 'b', 'o', 'w', 
-    #                               'r', 'y', 'g', 'o', 'y', 'o', 'g', 'b', 'g', 
-    #                               'b', 'g', 'g', 'y', 'g', 'b', 'w', 'g', 'o', 
-    #                               'r', 'r', 'o', 'r', 'r', 'o', 'y', 'y', 'r', 
-    #                               'b', 'w', 'y', 'w', 'b', 'w', 'b', 'b', 'w', 
-    #                               'o', 'w', 'r', 'g', 'w', 'g', 'w', 'r', 'y']
-    #
-    #     expectedResult['solution'] = 'UFF'
-    #
-    #
-    #     actualResult = solve._daisyIntegrated(4, 1, 43, inputList, solution)
-    #
-    #     self.assertEqual(expectedResult.get('list'), actualResult.get('daisyCubeList'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #
-    # def test_solve_R23_RefactoredUnAlaignedBottomCubesToDaisyTop_Integrated(self):
-    #
-    #     inputList = ['o', 'r', 'g', 'o', 'b', 'w', 'b', 'w', 'w', 
-    #                  'o', 'y', 'o', 'b', 'r', 'o', 'b', 'b', 'g', 
-    #                  'w', 'o', 'y', 'w', 'y', 'r', 'b', 'r', 'w', 
-    #                  'r', 'o', 'b', 'b', 'o', 'y', 'y', 'y', 'r', 
-    #                  'g', 'b', 'y', 'g', 'w', 'g', 'g', 'g', 'y', 
-    #                  'w', 'y', 'o', 'r', 'g', 'g', 'r', 'w', 'r']
-    #
-    #     solution = "bFFlfLDFFU"
-    #
-    #     expectedResult = {}
-    #     expectedResult['list'] = ['o', 'y', 'b', 'o', 'b', 'w', 'b', 'w', 'r', 
-    #                               'g', 'b', 'b', 'o', 'r', 'b', 'y', 'o', 'w', 
-    #                               'w', 'o', 'b', 'w', 'y', 'r', 'o', 'r', 'w', 
-    #                               'o', 'r', 'g', 'b', 'o', 'y', 'y', 'y', 'r', 
-    #                               'g', 'g', 'o', 'g', 'w', 'g', 'y', 'g', 'r', 
-    #                               'w', 'y', 'g', 'r', 'g', 'b', 'r', 'w', 'y']
-    #
-    #     expectedResult['solution'] = 'bFFlfLDFFUURR'
-    #
-    #
-    #     actualResult = solve._unalignedBottomToDaisy(50, 41, solution, inputList) 
-    #
-    #     self.assertEqual(expectedResult.get('list'), actualResult.get('rotatedCubeList'))
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #
-    #
-    #
-    #
-    #
-    #
-    #
-    #
+    def test_solve_010_ValidCubeLength(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'bbgwyrwybbboggrwwwrbrwwyryygooooborryoywbgwyyoggorgbr'
+        inputDict['dir'] = 'R'
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: Invalid Cube Length'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    def test_rotateController_011_ValidCubeChars(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'wbrbwwoyobryoroyrorobgZrbyrrrgyoyggyybgwbbowwgobwggwgw'
+        inputDict['dir'] = ''
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: Invalid Cube Char'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    def test_rotateController_012_ValidCubeCenterChars(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['cube'] = 'wgbowogwrwbgbbrgrgoywbowrwrygwbygbyboryyggyrooybowwwoy'
+        inputDict['dir'] = ''
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: Duplicate Center Colors'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    def test_rotateController_013_CubeIsMissing(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['dir'] = 'F'
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: Missing Cube Argument'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    def test_rotateController_014_rotate_CubeHasTooManyOfAColor(self):
+        inputDict = {}
+        inputDict['op'] = 'rotate'
+        inputDict['dir'] = 'F'
+        inputDict['cube'] = 'wwwwwwwwwwggggggggrrrrrrrrrooooooooobbbbbbbbbyyyyyyyyy'
+    
+        expectedResult = {}
+        expectedResult['status'] = 'error: There May Only Be 9 Of Each Color'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    
+    
+    
+   
     
     def test_solve_0300_SolvingTheCubeToBottomFace(self):
         inputDict = {}
@@ -261,7 +128,6 @@ class solveBottomCrossTest(unittest.TestCase):
         #self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    
     
     
     def test_solve_0302_SolvingTheCubeToBottomFace_F_L_P_E(self):
@@ -411,8 +277,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
-    
-
+        
     
     def test_solve_031_FindCorrectBottomEdge(self):
         inputDict = {}
@@ -422,15 +287,8 @@ class solveBottomCrossTest(unittest.TestCase):
         actualResult = solve._findBottomEdge(inputDict['cube'], 49, 4, 13)
         self.assertEqual(actualResult, expectedResult)
     
-    def test_solve_032_SolveBottomFace2(self):
-        cube  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-        solution = 'QQQ'
-        expectedResult  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', 'QQQ'
-        actualResult = solve._solveBottomFace(cube, solution)
-        self.assertTrue(actualResult)
     
-    
-    def test_998_rotationDirection(self):
+    def test_032_rotationDirection(self):
         cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
         solution = {}
         solution['solution'] = 'abc'
@@ -441,15 +299,12 @@ class solveBottomCrossTest(unittest.TestCase):
         expectedResult['cube'] = 'bbbbbbbbbwrrwrrwrrgggggggggooyooyooyyyyyyyrrrooowwwwww'
     
         actualResult = {}
-    
         actualResult['solution'], actualResult['cube'] = solve._functionalRotations(cube, solution, letter)
-    
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
     
-    def test_997_orientCorrectTopEdgeIntoCorrectBottomEdge(self):
+    def test_033_orientCorrectTopEdgeIntoCorrectBottomEdge_v1(self):
         cube = 'obbbbbobbrrorrrrrrygyggggggrobooooobgygyyywyyywwwwwwww'
-        #This Cube has Bottom Center Color at index[2]
         solution = ''
         cubeLctn = 4
     
@@ -461,7 +316,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     
-    def test_996_orientCorrectTopEdgeIntoCorrectBottomEdge(self):
+    def test_034_orientCorrectTopEdgeIntoCorrectBottomEdge_v1(self):
         cube = 'bobybbgbbybyrrrrrrrorggggggygwoorooobygyyyoboywwwwwwww'
         #This Cube has Bottom Center Color at index[2]
         solution = ''
@@ -476,7 +331,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     
     
-    def test_995_solvingBottomEdgesMethod(self):
+    def test_035_solvingBottomEdgesMethod(self):
         cube = 'rrgybbbbboogrrrrrryooggggggwbboogooybbryyyyyyowwwwwwww'
         solution = ''
         cubeLctn = 1
@@ -486,7 +341,6 @@ class solveBottomCrossTest(unittest.TestCase):
         expectedResult['cube'] = list('wbbybbbbbrrgrrrrrroogggggggyoooogooyryybyybyyowwwwwwww')
     
         actualResult = solve._solveBottomEdges(cube, solution, cubeLctn, 4)
-    
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         
