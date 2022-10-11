@@ -383,7 +383,7 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
-    def test_solve_0310_SolvingTheCubeToBottomFace_AllEdgesMissing(self): #Tests the other U as well as edge1
+    def test_solve_0310_SolvingTheCubeToBottomFace_AllEdgesMissingSimpleRotationOut(self):
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'obbybobbowrrbrbbrbwggygrygroowyogyoyyogyyggrrowwwwwgwr'
@@ -396,111 +396,103 @@ class solveBottomCrossTest(unittest.TestCase):
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+    def test_solve_0311_SolvingTheCubeToBottomFace_ComplexScramble(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'bbwgobryyoowwwobbggrywrwrgrgwwryywoyobrgbgoygbroygobry'
+    
+        expectedResult = {}
+        expectedResult['cube'] = list('yyooorooowbybwbwwwoowyrorrrrrrbywyyybybwbwbrbggggggggg')
+        expectedResult['solution'] = 'UlUUUBBrbRDBBUFFURRUUBBULLfuFUfuuFUfuFUruRUruuRUruRUUUbuuBUbuBUUUulUL' 
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
     
 
-    #
-    #
-    #
-    #
-    # def test_solve_031_FindCorrectBottomEdge(self):
-    #     inputDict = {}
-    #     inputDict['cube'] = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
-    #
-    #     expectedResult = 3
-    #     actualResult = solve._findBottomEdge(inputDict['cube'], 49, 4, 13)
-    #     self.assertEqual(actualResult, expectedResult)
-    #
-    # def test_solve_032_SolveBottomFace2(self):
-    #     cube  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-    #     solution = 'QQQ'
-    #     expectedResult  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', 'QQQ'
-    #     actualResult = solve._solveBottomFace(cube, solution)
-    #     self.assertTrue(actualResult)
-    #
-    #
-    # def test_998_rotationDirection(self):
-    #     cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
-    #     solution = {}
-    #     solution['solution'] = 'abc'
-    #     letter = 'f'
-    #
-    #     expectedResult = {}
-    #     expectedResult['solution'] = 'abcf'
-    #     expectedResult['cube'] = 'bbbbbbbbbwrrwrrwrrgggggggggooyooyooyyyyyyyrrrooowwwwww'
-    #
-    #     actualResult = {}
-    #
-    #     actualResult['solution'], actualResult['cube'] = solve._functionalRotations(cube, solution, letter)
-    #
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #
-    #
-    # def test_997_orientCorrectTopEdgeIntoCorrectBottomEdge(self):
-    #     cube = 'obbbbbobbrrorrrrrrygyggggggrobooooobgygyyywyyywwwwwwww'
-    #     #This Cube has Bottom Center Color at index[2]
-    #     solution = ''
-    #     cubeLctn = 4
-    #
-    #     expectedResult = {}
-    #     expectedResult['solution'] = 'luuLUluLU'
-    #     expectedResult['cube'] = list('yobybbbbbybrrrrrrrygrgggggggroooooooyybyyygbowwwwwwwww')
-    #
-    #     actualResult = solve._topToBottomEdgeAlgorithm(cube,solution,cubeLctn, 1)
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-    #
-    # def test_996_orientCorrectTopEdgeIntoCorrectBottomEdge(self):
-    #     cube = 'bobybbgbbybyrrrrrrrorggggggygwoorooobygyyyoboywwwwwwww'
-    #     #This Cube has Bottom Center Color at index[2]
-    #     solution = ''
-    #     cubeLctn = 4
-    #
-    #     expectedResult = {}
-    #     expectedResult['solution'] = 'luLU'
-    #     expectedResult['cube'] = list('yobybbbbbybrrrrrrrygrgggggggroooooooyybyyygbowwwwwwwww')
-    #
-    #     actualResult = solve._topToBottomEdgeAlgorithm(cube,solution,cubeLctn, 2)
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
-    #
-    #
-    # def test_995_solvingBottomEdgesMethod(self):
-    #     cube = 'rrgybbbbboogrrrrrryooggggggwbboogooybbryyyyyyowwwwwwww'
-    #     #This Cube has Bottom Center Color at index[2]
-    #     solution = ''
-    #     cubeLctn = 1
-    #
-    #     expectedResult = {}
-    #     expectedResult['solution'] = 'u'
-    #     expectedResult['cube'] = list('wbbybbbbbrrgrrrrrroogggggggyoooogooyryybyybyyowwwwwwww')
-    #
-    #     actualResult = solve._solveBottomEdges(cube, solution, cubeLctn, 4)
-    #
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-    #     self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    
+    def test_solve_031_FindCorrectBottomEdge(self):
+        inputDict = {}
+        inputDict['cube'] = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
+    
+        expectedResult = 3
+        actualResult = solve._findBottomEdge(inputDict['cube'], 49, 4, 13)
+        self.assertEqual(actualResult, expectedResult)
+    
+    def test_solve_032_SolveBottomFace2(self):
+        cube  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        solution = 'QQQ'
+        expectedResult  = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww', 'QQQ'
+        actualResult = solve._solveBottomFace(cube, solution)
+        self.assertTrue(actualResult)
     
     
+    def test_998_rotationDirection(self):
+        cube = 'bbbbbbbbbrrrrrrrrrgggggggggoooooooooyyyyyyyyywwwwwwwww'
+        solution = {}
+        solution['solution'] = 'abc'
+        letter = 'f'
+    
+        expectedResult = {}
+        expectedResult['solution'] = 'abcf'
+        expectedResult['cube'] = 'bbbbbbbbbwrrwrrwrrgggggggggooyooyooyyyyyyyrrrooowwwwww'
+    
+        actualResult = {}
+    
+        actualResult['solution'], actualResult['cube'] = solve._functionalRotations(cube, solution, letter)
+    
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
     
+    def test_997_orientCorrectTopEdgeIntoCorrectBottomEdge(self):
+        cube = 'obbbbbobbrrorrrrrrygyggggggrobooooobgygyyywyyywwwwwwww'
+        #This Cube has Bottom Center Color at index[2]
+        solution = ''
+        cubeLctn = 4
     
-    # def test_600_solvingIteration3UnitTest_1(self):
-    #     inputDict = {}
-    #     inputDict['op'] = 'solve'
-    #     inputDict['cube'] = 'ogggyyobwywwrwogyrgwbrbwwyorwrrobbobwybbrgyoogrybggroy'
-    #
-    #     expectedResult = {}
-    #     expectedResult['cube'] = list('')
-    #     expectedResult['solution'] = '' 
-    #     expectedResult['status'] = 'ok'
-    #
-    #     actualResult = solve._solve(inputDict)
-    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-    #
-    #
-    #
-
+        expectedResult = {}
+        expectedResult['solution'] = 'luuLUluLU'
+        expectedResult['cube'] = list('yobybbbbbybrrrrrrrygrgggggggroooooooyybyyygbowwwwwwwww')
     
+        actualResult = solve._topToBottomEdgeAlgorithm(cube,solution,cubeLctn, 1)
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    
+    def test_996_orientCorrectTopEdgeIntoCorrectBottomEdge(self):
+        cube = 'bobybbgbbybyrrrrrrrorggggggygwoorooobygyyyoboywwwwwwww'
+        #This Cube has Bottom Center Color at index[2]
+        solution = ''
+        cubeLctn = 4
+    
+        expectedResult = {}
+        expectedResult['solution'] = 'luLU'
+        expectedResult['cube'] = list('yobybbbbbybrrrrrrrygrgggggggroooooooyybyyygbowwwwwwwww')
+    
+        actualResult = solve._topToBottomEdgeAlgorithm(cube,solution,cubeLctn, 2)
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+    
+    
+    def test_995_solvingBottomEdgesMethod(self):
+        cube = 'rrgybbbbboogrrrrrryooggggggwbboogooybbryyyyyyowwwwwwww'
+        solution = ''
+        cubeLctn = 1
+    
+        expectedResult = {}
+        expectedResult['solution'] = 'u'
+        expectedResult['cube'] = list('wbbybbbbbrrgrrrrrroogggggggyoooogooyryybyybyyowwwwwwww')
+    
+        actualResult = solve._solveBottomEdges(cube, solution, cubeLctn, 4)
+    
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        
+    
+    
+   
     
     
         
