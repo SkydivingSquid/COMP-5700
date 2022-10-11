@@ -5,7 +5,6 @@ import rubik.cube as rubik
 ############### CUBE CONSTANTS ################
 ###############################################
 """
-
 #CENTERS
 FRONT_CENTER = 4
 RIGHT_CENTER = 13
@@ -101,11 +100,10 @@ def _solve(parms):
     
     #Solve for Bottom Cross and set rotations to the solution.
     if status == 'ok':
-        FinalResult = _solveBottomCross(encodedCube)
+        FinalResult = _solveBottomCross(encodedCube) #Iteration 2
         
-        FinalResult = _solveBottomFace(FinalResult.get('cube'), FinalResult.get('solution'))
+        FinalResult = _solveBottomFace(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 3
         
-    
     result['rotations'] = FinalResult.get('solution')
     result['status'] = status
     return result
@@ -315,7 +313,7 @@ def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution,
 ############## Methods for Solving Daisy ###############
 ########################################################
 """ 
-def _daisyVariableUpdate(encodedCube, result, daisyResult):
+def _daisyVariableUpdate(result, daisyResult):
     """ Sets variables post daisyIntegrated. Forgot to refactor this into it originally. """
     result['solution'] = daisyResult.get('solution')
     encodedCube = daisyResult.get('daisyCubeList')
@@ -332,25 +330,25 @@ def _daisySolution(encodedCube):
     if not (encodedCube[FRONT_CENTER] == encodedCube[FRONT_LOWER_MIDDLE] and encodedCube[BOTTOM_CENTER] == encodedCube[BOTTOM_UPPER_MIDDLE]):
         
         daisyResult = _daisyIntegrated(FRONT_CENTER, FRONT_UPPER_MIDDLE, TOP_LOWER_MIDDLE, encodedCube, result['solution'])
-        encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        encodedCube = _daisyVariableUpdate(result, daisyResult)
         
     #Right Face 
     if not (encodedCube[RIGHT_CENTER] == encodedCube[RIGHT_LOWER_MIDDLE] and encodedCube[BOTTOM_CENTER] == encodedCube[BOTTOM_STBD]):
         
         daisyResult = _daisyIntegrated(RIGHT_CENTER, RIGHT_UPPER_MIDDLE, TOP_STBD, encodedCube, result['solution'])
-        encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        encodedCube = _daisyVariableUpdate(result, daisyResult)
         
     # #Back Face 
     if not (encodedCube[BACK_CENTER] == encodedCube[BACK_LOWER_MIDDLE] and encodedCube[BOTTOM_CENTER] == encodedCube[BOTTOM_LOWER_MIDDLE]):
         
         daisyResult = _daisyIntegrated(BACK_CENTER, BACK_UPPER_MIDDLE, TOP_UPPER_MIDDLE, encodedCube, result['solution'])
-        encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        encodedCube = _daisyVariableUpdate(result, daisyResult)
 
     # #Left Face 
     if not (encodedCube[LEFT_CENTER] == encodedCube[LEFT_LOWER_MIDDLE] and encodedCube[BOTTOM_CENTER] == encodedCube[BOTTOM_PORT]):
         
         daisyResult = _daisyIntegrated(LEFT_CENTER, LEFT_UPPER_MIDDLE, TOP_PORT, encodedCube, result['solution'])
-        encodedCube = _daisyVariableUpdate(encodedCube, result, daisyResult)
+        encodedCube = _daisyVariableUpdate(result, daisyResult)
             
     result['cube'] = encodedCube
     return result
@@ -360,11 +358,10 @@ def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, enco
     daisyResult = {}
     daisyResult['solution'] = solution
     daisyResult['daisyCubeList'] = encodedCube
-    irrelevantVar = None
     
     while (encodedCube[uniqueCenter]!= encodedCube[topMiddle] or encodedCube[adjacentDaisy] != encodedCube[BOTTOM_CENTER]):
         
-        irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyResult, 'U')
+        daisyResult['solution'], encodedCube  = _functionalRotations(encodedCube, daisyResult, 'U')
         
     daisyResult['daisyCubeList'] = encodedCube
     return daisyResult
@@ -374,7 +371,6 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     daisyRotResult = {}
     daisyRotResult['solution'] = solution
     daisyRotResult['daisyCubeList'] = encodedCube
-    irrelevantVar = None
     
     if encodedCube[uniqueCenter] == encodedCube[topMiddle]:
         if uniqueCenter == FRONT_CENTER:
@@ -390,7 +386,7 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
             letters = 'LL'
             
         for char in letters:
-            irrelevantVar, encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
+            daisyRotResult['solution'], encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
             
     daisyRotResult['daisyCubeList'] = encodedCube
 
@@ -581,47 +577,8 @@ def _daisyExists(encodedCube):
 ########### Bottom Edges ###########
 ####################################
 """
-def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
-    bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, edge) # <- UNIQUE VALUE
-    result['solution'] = bottomResult.get('solution')
-    result['cube'] = bottomResult.get('cube')
-    result['cubeLocation'] = bottomResult.get('cubeLocation')
-    solution = result['solution']
-    encodedCube = result['cube']
-    cubeLctn = result['cubeLocation']
-    return encodedCube, solution, cubeLctn
-
-def _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn):
-    topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
-    result['solution'] = topResult.get('solution')
-    result['cube'] = topResult.get('cube')
-    solution = result['solution']
-    encodedCube = result['cube']
-    return encodedCube, solution
-
-def _setMarker(encodedCube,edge1,edge2):
-    if encodedCube[edge1] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
-        colorMarker = 1
-    elif encodedCube[edge2] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
-        colorMarker = 2
-    else:
-        colorMarker = 0
-    return colorMarker
-
-def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, initialEdge, markerEdge1, markerEdge2, triEdge1, triEdge2, triEdge3):
-    #This method is a major work horse, refactored for LOC limitation purposes
-    encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, initialEdge)
-    
-    colorMarker = _setMarker(encodedCube, markerEdge1, markerEdge2)
-    
-    encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
-    
-    if (triEdge1 != None): #This is to avoid setting an irrelevant variable on edge 4. 
-        cubeLctn = _findBottomEdge(encodedCube, triEdge1, triEdge2, triEdge3)
-    
-    return cubeLctn, encodedCube, solution, colorMarker
-
 def _solveBottomFace(encodedCube, solution):
+    '''Main method for solving the bottom edges (post bottom cross)'''
     #This will likely need to have the solution passed as an argument. 
     result = {}
     colorMarker = 0
@@ -631,7 +588,6 @@ def _solveBottomFace(encodedCube, solution):
     
     #IF CUBE IN CORRECT SPOT AND ORIENTED CORRECTLY, GO TO NEXT SPOT
     if (cubeLctn == BTTM_UPR_R_EDGE['Value'] and encodedCube[BOTTOM_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
-        
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
  
     else:
@@ -648,7 +604,6 @@ def _solveBottomFace(encodedCube, solution):
         
 #THIRD WILL SOLVE BOTTOM LOWER LEFT CORNER (8)    
     if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
-    
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
     
     else:
@@ -664,8 +619,54 @@ def _solveBottomFace(encodedCube, solution):
                                                                             TOP_LWR_L_EDGE['Value'], TOP_LOWER_PORT_EDGE, LEFT_UPPER_STBD_EDGE, None, None, None)
     
     return result
+
+def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, initialEdge, markerEdge1, markerEdge2, triEdge1, triEdge2, triEdge3):
+    '''The major 'shot caller' for the main method (_solveBottomFace). This was made from refactoring for LOC limitation purposes'''
+    encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, initialEdge)
+    
+    colorMarker = _setMarker(encodedCube, markerEdge1, markerEdge2)
+    
+    encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
+    
+    if (triEdge1 != None): #This is to avoid setting an irrelevant variable on edge 4. 
+        cubeLctn = _findBottomEdge(encodedCube, triEdge1, triEdge2, triEdge3)
+    
+    return cubeLctn, encodedCube, solution, colorMarker
+
+def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
+    '''variable setter method that calls on _solveBottomEdges'''
+    bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, edge) 
+    result['solution'] = bottomResult.get('solution')
+    result['cube'] = bottomResult.get('cube')
+    result['cubeLocation'] = bottomResult.get('cubeLocation')
+    
+    solution = result['solution']
+    encodedCube = result['cube']
+    cubeLctn = result['cubeLocation']
+    return encodedCube, solution, cubeLctn
+
+def _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn):
+    '''variable setter method that calls on _topToBottomEdgeAlgoritm'''
+    topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
+    result['solution'] = topResult.get('solution')
+    result['cube'] = topResult.get('cube')
+    
+    solution = result['solution']
+    encodedCube = result['cube']
+    return encodedCube, solution
+
+def _setMarker(encodedCube,edge1,edge2):
+    '''variable setter method that sets colorMarkers for if/else in _topToBottomEdgeAlgo'''
+    if encodedCube[edge1] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
+        colorMarker = 1
+    elif encodedCube[edge2] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
+        colorMarker = 2
+    else:
+        colorMarker = 0
+    return colorMarker
         
 def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
+    '''Moves correct top cube to correct bottom cube'''
     result = {}
     result['solution'] = solution
     result['cube'] = encodedCube
@@ -710,6 +711,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     return result
         
 def _moveTopByDifference(difference):
+    '''Calculates difference between where edge is and where it needs to be. Gives rotation moves for later method'''
     if (difference == 0):
         movementList = '' # HAVENT VERIFIED THIS YET
     elif (difference == 1 or difference == -3): #Clockwise rotation
@@ -721,6 +723,9 @@ def _moveTopByDifference(difference):
     return movementList
 
 def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
+    '''Moves unaligned edges (anywhere) to top, rotates to corresponding top, then moves into bottom.
+    This is one of the main working methods in solving the bottom edges.'''
+    
     result = {}
     result['cube'] = encodedCube
     result['solution'] = solution
@@ -749,7 +754,8 @@ def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
     result['cubeLocation'] = correctLocation 
     return result
 
-def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):                   
+def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):     
+    '''Based on cube location, rotate bottom edge to top edge'''              
     result = {}
     result['cube'] = encodedCube
     result['solution'] = solution
@@ -781,9 +787,8 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     return result
 
 def _findBottomEdge(encodedCube, zCube, yCube, xCube):
-
-    rcl = encodedCube
-
+    '''This method finds the correct edge based on x,y,z cube colors and returns 1 of 8 edge locations'''
+    rcl = encodedCube # This is just for ease of typing
     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
 
     #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
@@ -811,10 +816,9 @@ def _findBottomEdge(encodedCube, zCube, yCube, xCube):
 
 """
 ####################################################################################        
-############ Rotation Functions and Updates to Cube and Solution String ############
+############ Rotation Function and Updates to Cube and Solution String ############
 #################################################################################### 
 """
-
 def _functionalRotations(encodedCube, result, letter):
     rotationDirection = None
     
@@ -856,7 +860,6 @@ def _functionalRotations(encodedCube, result, letter):
 """
 def _rotateF(cube):
     result = {}
-    
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
     
@@ -894,7 +897,6 @@ def _rotateF(cube):
     result['cube'] = rotatedCubeList
     result['letter'] = 'F'
     return result
-
 
 #Rotate front face counter-clockwise (f)
 def _rotatef(cube):
@@ -1059,7 +1061,7 @@ def _rotateB(cube):
     rotatedCubeList[TOP_UPPER_PORT_EDGE] = cubeList[RIGHT_UPPER_STBD_EDGE]
     rotatedCubeList[TOP_UPPER_MIDDLE] = cubeList[RIGHT_STBD] 
     rotatedCubeList[TOP_UPPER_STBD_EDGE] = cubeList[RIGHT_LOWER_STBD_EDGE]
-#
+
     result['cube'] = rotatedCubeList
     result['letter'] = 'B'
     return result
@@ -1101,7 +1103,7 @@ def _rotateb(cube):
     rotatedCubeList[RIGHT_UPPER_STBD_EDGE] = cubeList[TOP_UPPER_PORT_EDGE]
     rotatedCubeList[RIGHT_STBD] = cubeList[TOP_UPPER_MIDDLE] 
     rotatedCubeList[RIGHT_LOWER_STBD_EDGE] = cubeList[TOP_UPPER_STBD_EDGE]
-#
+    
     result['cube'] = rotatedCubeList
     result['letter'] = 'b'
     return result
