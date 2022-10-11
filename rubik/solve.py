@@ -757,19 +757,19 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     value = cubeLocation
     
     #These four if statements direct movement of edge from bottom to top 
-    if value == BTTM_LWR_R_EDGE: #7
+    if value == BTTM_LWR_R_EDGE['Value']: #7
         movementList = 'ruRU' 
         cubeLocation = 2
 
-    if value == BTTM_LWR_L_EDGE: #8
+    if value == BTTM_LWR_L_EDGE['Value']: #8
         movementList = 'buBU'
         cubeLocation = 1
 
-    if value == BTTM_UPR_L_EDGE: #5
+    if value == BTTM_UPR_L_EDGE['Value']: #5
         movementList = 'luLU'
         cubeLocation = 4
 
-    if value == BTTM_UPR_R_EDGE: #6
+    if value == BTTM_UPR_R_EDGE['Value']: #6
         movementList = 'fuFU' 
         cubeLocation = 3
     
