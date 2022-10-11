@@ -655,14 +655,6 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
     
     else:
-        encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_UPR_L_EDGE['Value'])
-            
-        colorMarker = _setMarker(encodedCube, TOP_UPPER_PORT_EDGE, BACK_UPPER_STBD_EDGE)
-
-        encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
-    
-        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
-        
         cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
                                                                             TOP_UPR_L_EDGE['Value'], TOP_UPPER_PORT_EDGE, BACK_UPPER_STBD_EDGE, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
 
