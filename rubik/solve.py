@@ -610,12 +610,16 @@ def _setMarker(encodedCube,edge1,edge2):
         colorMarker = 0
     return colorMarker
 
-
-def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn):
+def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, markerEdge1, markerEdge2, triEdge1, triEdge2, triEdge3):
+    #This method is a major work horse, refactored for LOC limitation purposes
     encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_LWR_R_EDGE['Value'])
-    colorMarker = _setMarker(encodedCube, TOP_LOWER_STBD_EDGE, FRONT_UPPER_STBD_EDGE)
+    
+    colorMarker = _setMarker(encodedCube, markerEdge1, markerEdge2)
+    
     encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
-    cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
+    
+    cubeLctn = _findBottomEdge(encodedCube, triEdge1, triEdge2, triEdge3)
+    
     return cubeLctn, encodedCube, solution, colorMarker
 
 def _solveBottomFace(encodedCube, solution):
@@ -632,7 +636,8 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
  
     else:
-        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn)
+        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
+                                                                            TOP_LOWER_STBD_EDGE, FRONT_UPPER_STBD_EDGE, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
 
 #SECOND WILL SOLVE BOTTOM LOWER RIGHT CORNER (7)
     if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
