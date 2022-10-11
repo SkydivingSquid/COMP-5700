@@ -593,15 +593,13 @@ def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
     cubeLctn = result['cubeLocation']
     return encodedCube, solution, cubeLctn
 
-
 def _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn):
     topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
     result['solution'] = topResult.get('solution')
     result['cube'] = topResult.get('cube')
     solution = result['solution']
     encodedCube = result['cube']
-    return encodedCube, solution, topResult
-
+    return encodedCube, solution
 
 def _setMarker(encodedCube,edge1,edge2):
     if encodedCube[edge1] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
@@ -612,9 +610,16 @@ def _setMarker(encodedCube,edge1,edge2):
         colorMarker = 0
     return colorMarker
 
+
+def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn):
+    encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_LWR_R_EDGE['Value'])
+    colorMarker = _setMarker(encodedCube, TOP_LOWER_STBD_EDGE, FRONT_UPPER_STBD_EDGE)
+    encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
+    cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
+    return cubeLctn, encodedCube, solution, colorMarker
+
 def _solveBottomFace(encodedCube, solution):
     #This will likely need to have the solution passed as an argument. 
-    
     result = {}
     colorMarker = 0
 
@@ -627,15 +632,7 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
  
     else:
-        encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_LWR_R_EDGE['Value'])
-
-        colorMarker = _setMarker(encodedCube, TOP_LOWER_STBD_EDGE, FRONT_UPPER_STBD_EDGE)
-
-        encodedCube, solution, topResult = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
-    
-        #Find cube matching next edge colors and move on..
-        cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
-
+        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn)
 
 #SECOND WILL SOLVE BOTTOM LOWER RIGHT CORNER (7)
     if (cubeLctn == BTTM_LWR_R_EDGE['Value'] and encodedCube[BOTTOM_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]):
@@ -646,13 +643,9 @@ def _solveBottomFace(encodedCube, solution):
         
         colorMarker = _setMarker(encodedCube, TOP_UPPER_STBD_EDGE, RIGHT_UPPER_STBD_EDGE)
 
-        encodedCube, solution, topResult = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
+        encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
     
-        #ONTO THE NEXT ONE    
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
-    
-    
-    
     
 #THIRD WILL SOLVE BOTTOM LOWER LEFT CORNER (8)    
     if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
@@ -664,11 +657,9 @@ def _solveBottomFace(encodedCube, solution):
             
         colorMarker = _setMarker(encodedCube, TOP_UPPER_PORT_EDGE, BACK_UPPER_STBD_EDGE)
 
-        encodedCube, solution, topResult = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
+        encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
     
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
-
-
 
 #FINALLY WILL SOLVE BOTTOM UPPER LEFT CORNER (5)
     if (cubeLctn == BTTM_UPR_L_EDGE['Value'] and encodedCube[BOTTOM_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
@@ -679,7 +670,7 @@ def _solveBottomFace(encodedCube, solution):
         
         colorMarker = _setMarker(encodedCube, TOP_LOWER_PORT_EDGE, LEFT_UPPER_STBD_EDGE)
 
-        encodedCube, solution, topResult = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
+        encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
     
     return result
         
