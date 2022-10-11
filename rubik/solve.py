@@ -602,6 +602,16 @@ def _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn):
     encodedCube = result['cube']
     return encodedCube, solution, topResult
 
+
+def _setMarker(encodedCube,edge1,edge2):
+    if encodedCube[edge1] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
+        colorMarker = 1
+    elif encodedCube[edge2] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
+        colorMarker = 2
+    else:
+        colorMarker = 0
+    return colorMarker
+
 def _solveBottomFace(encodedCube, solution):
     #This will likely need to have the solution passed as an argument. 
     
@@ -618,14 +628,8 @@ def _solveBottomFace(encodedCube, solution):
  
     else:
         encodedCube, solution, cubeLctn, bottomResult = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_LWR_R_EDGE['Value'])
-        
-        if encodedCube[TOP_LOWER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:  # <- UNIQUE VALUE
-            colorMarker = 1
-        
-        elif encodedCube[FRONT_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
-            colorMarker = 2
-        else:
-            colorMarker = 0
+
+        colorMarker = _setMarker(encodedCube, TOP_LOWER_STBD_EDGE, FRONT_UPPER_STBD_EDGE)
 
         encodedCube, solution, topResult = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
     
@@ -645,20 +649,9 @@ def _solveBottomFace(encodedCube, solution):
     else:
         encodedCube, solution, cubeLctn, bottomResult = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_UPR_R_EDGE['Value'])
         
-        if encodedCube[TOP_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]:  # <- UNIQUE VALUE
-            colorMarker = 1
-        
-        elif encodedCube[RIGHT_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
-            colorMarker = 2
-        
-        else:
-            colorMarker = 0
+        colorMarker = _setMarker(encodedCube, TOP_UPPER_STBD_EDGE, RIGHT_UPPER_STBD_EDGE)
 
-        topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker) 
-        result['solution'] = topResult.get('solution')
-        result['cube'] = topResult.get('cube')
-        solution = result['solution']
-        encodedCube = result['cube']
+        encodedCube, solution, topResult = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
     
         #ONTO THE NEXT ONE    
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
@@ -673,22 +666,10 @@ def _solveBottomFace(encodedCube, solution):
     
     else:
         encodedCube, solution, cubeLctn, bottomResult = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_UPR_L_EDGE['Value'])
-        
-
-        if encodedCube[TOP_UPPER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:  # <- UNIQUE VALUE
-            colorMarker = 1
-        
-        elif encodedCube[BACK_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
-            colorMarker = 2
             
-        else:
-            colorMarker = 0
+        colorMarker = _setMarker(encodedCube, TOP_UPPER_PORT_EDGE, BACK_UPPER_STBD_EDGE)
 
-        topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker) 
-        result['solution'] = topResult.get('solution')
-        result['cube'] = topResult.get('cube')
-        solution = result['solution']
-        encodedCube = result['cube']
+        encodedCube, solution, topResult = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
     
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
 
@@ -701,18 +682,9 @@ def _solveBottomFace(encodedCube, solution):
     else:
         encodedCube, solution, cubeLctn, bottomResult = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_LWR_L_EDGE['Value'])
         
-        if encodedCube[TOP_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]:  # <- UNIQUE VALUE
-            colorMarker = 1
-        elif encodedCube[LEFT_UPPER_STBD_EDGE] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
-            colorMarker = 2
-        else:
-            colorMarker = 0
+        colorMarker = _setMarker(encodedCube, TOP_LOWER_PORT_EDGE, LEFT_UPPER_STBD_EDGE)
 
-        topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker) 
-        result['solution'] = topResult.get('solution')
-        result['cube'] = topResult.get('cube')
-        solution = result['solution']
-        encodedCube = result['cube']
+        encodedCube, solution, topResult = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
     
     return result
         
