@@ -584,7 +584,7 @@ def _daisyExists(encodedCube):
 
 
 def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
-    bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, edge]) # <- UNIQUE VALUE
+    bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, edge) # <- UNIQUE VALUE
     result['solution'] = bottomResult.get('solution')
     result['cube'] = bottomResult.get('cube')
     result['cubeLocation'] = bottomResult.get('cubeLocation')
