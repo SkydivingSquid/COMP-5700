@@ -581,8 +581,6 @@ def _daisyExists(encodedCube):
 ########### Bottom Edges ###########
 ####################################
 """
-
-
 def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
     bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, edge) # <- UNIQUE VALUE
     result['solution'] = bottomResult.get('solution')
@@ -618,7 +616,8 @@ def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, i
     
     encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
     
-    cubeLctn = _findBottomEdge(encodedCube, triEdge1, triEdge2, triEdge3)
+    if (triEdge1 != None): #This is to avoid setting an irrelevant variable on edge 4. 
+        cubeLctn = _findBottomEdge(encodedCube, triEdge1, triEdge2, triEdge3)
     
     return cubeLctn, encodedCube, solution, colorMarker
 
@@ -647,8 +646,6 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
                                                                             TOP_UPR_R_EDGE['Value'], TOP_UPPER_STBD_EDGE, RIGHT_UPPER_STBD_EDGE, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
         
-        
-    
 #THIRD WILL SOLVE BOTTOM LOWER LEFT CORNER (8)    
     if (cubeLctn == BTTM_LWR_L_EDGE['Value'] and encodedCube[BOTTOM_LOWER_PORT_EDGE] == encodedCube[BOTTOM_CENTER]):
     
@@ -663,11 +660,8 @@ def _solveBottomFace(encodedCube, solution):
         result['cube'], result['solution'] = encodedCube, solution # Runs this because its the final check..                    
      
     else:
-        encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, TOP_LWR_L_EDGE['Value'])
-        
-        colorMarker = _setMarker(encodedCube, TOP_LOWER_PORT_EDGE, LEFT_UPPER_STBD_EDGE)
-
-        encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
+        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
+                                                                            TOP_LWR_L_EDGE['Value'], TOP_LOWER_PORT_EDGE, LEFT_UPPER_STBD_EDGE, None, None, None)
     
     return result
         
@@ -677,7 +671,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     result['cube'] = encodedCube
     movementList = ''
     
-    if cubeLctn == 4:
+    if cubeLctn == TOP_LWR_L_EDGE['Value']: #4
         if colorMarker == 1:
             movementList = 'luuLUluLU' #Valid for test 302
         elif colorMarker == 2:
@@ -685,7 +679,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
         else:
             movementList = 'ulUL' #Valid for test 306
             
-    if cubeLctn == 3:
+    if cubeLctn == TOP_LWR_R_EDGE['Value']: #3
         if colorMarker == 1:
             movementList = 'fuuFUfuFU' #Valid for test 303
         elif colorMarker == 2:
@@ -693,7 +687,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
         else:
             movementList = 'ufUF' #Valid for test 307
     
-    if cubeLctn == 2:
+    if cubeLctn == TOP_UPR_R_EDGE['Value']: #2
         if colorMarker == 1:
             movementList = 'ruuRUruRU' #Valid for test 304
         elif colorMarker == 2:
@@ -701,7 +695,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
         else:
             movementList = 'urUR' #Valid for test 308
         
-    if cubeLctn == 1:
+    if cubeLctn == TOP_UPR_L_EDGE['Value']: #1
         if colorMarker == 1:
             movementList = 'buuBUbuBU' #Valid for test 305
         elif colorMarker == 2:
@@ -763,19 +757,19 @@ def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     value = cubeLocation
     
     #These four if statements direct movement of edge from bottom to top 
-    if value == 7:
+    if value == BTTM_LWR_R_EDGE: #7
         movementList = 'ruRU' 
         cubeLocation = 2
 
-    if value == 8:
+    if value == BTTM_LWR_L_EDGE: #8
         movementList = 'buBU'
         cubeLocation = 1
 
-    if value == 5:
+    if value == BTTM_UPR_L_EDGE: #5
         movementList = 'luLU'
         cubeLocation = 4
 
-    if value == 6:
+    if value == BTTM_UPR_R_EDGE: #6
         movementList = 'fuFU' 
         cubeLocation = 3
     
