@@ -184,10 +184,10 @@ class solveBottomCrossTest(unittest.TestCase):
     def test_035_solvingBottomEdgesMethod(self):
         cube = 'rrgybbbbboogrrrrrryooggggggwbboogooybbryyyyyyowwwwwwww'
         solution = ''
-        cubeLctn = 1
+        cubeLctn = 3
     
         expectedResult = {}
-        expectedResult['solution'] = 'U'
+        expectedResult['solution'] = 'u'
         expectedResult['cube'] = list('wbbybbbbbrrgrrrrrroogggggggyoooogooyryybyybyyowwwwwwww')
     
         actualResult = solve._solveBottomEdges(cube, solution, cubeLctn, 4)
