@@ -134,7 +134,7 @@ class solveBottomCrossTest(unittest.TestCase):
         inputDict = {}
         inputDict['cube'] = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
     
-        expectedResult = 3
+        expectedResult = 1
         actualResult = solve._findBottomEdge(inputDict['cube'], 49, 4, 13)
         self.assertEqual(actualResult, expectedResult)
     
@@ -187,7 +187,7 @@ class solveBottomCrossTest(unittest.TestCase):
         cubeLctn = 1
     
         expectedResult = {}
-        expectedResult['solution'] = 'u'
+        expectedResult['solution'] = 'U'
         expectedResult['cube'] = list('wbbybbbbbrrgrrrrrroogggggggyoooogooyryybyybyyowwwwwwww')
     
         actualResult = solve._solveBottomEdges(cube, solution, cubeLctn, 4)
