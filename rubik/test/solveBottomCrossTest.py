@@ -5,7 +5,6 @@ Created on Sep 25, 2022
 '''
 import unittest
 import rubik.solve as solve
-from unittest.case import expectedFailure
 
 
 class solveBottomCrossTest(unittest.TestCase):

@@ -73,15 +73,15 @@ BOTTOM_LOWER_PORT_EDGE = 51
 BOTTOM_LOWER_STBD_EDGE = 53
 
 #COMBINED EDGES
-TOP_UPR_L_EDGE = {'Value': 1}
+TOP_UPR_L_EDGE = {'Value': 3}
 TOP_UPR_R_EDGE = {'Value': 2}
 TOP_LWR_L_EDGE = {'Value': 4}  
-TOP_LWR_R_EDGE = {'Value': 3}
+TOP_LWR_R_EDGE = {'Value': 1}
 
-BTTM_UPR_L_EDGE = {'Value': 5}
+BTTM_UPR_L_EDGE = {'Value': 7}
 BTTM_UPR_R_EDGE = {'Value': 6}
 BTTM_LWR_L_EDGE = {'Value': 8}  
-BTTM_LWR_R_EDGE = {'Value': 7}
+BTTM_LWR_R_EDGE = {'Value': 5}
 
 
 """
@@ -713,11 +713,11 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
 def _moveTopByDifference(difference):
     '''Calculates difference between where edge is and where it needs to be. Gives rotation moves for later method'''
     if (difference == 0):
-        movementList = '' # HAVENT VERIFIED THIS YET
+        movementList = '' 
     elif (difference == 1 or difference == -3): #Clockwise rotation
-        movementList = 'u'
-    elif (difference == -1 or difference == 3): #Counter Clockwise Rotation
         movementList = 'U'
+    elif (difference == -1 or difference == 3): #Counter Clockwise Rotation
+        movementList = 'u'
     elif (difference == 2 or difference == -2): #Double CLockwise
         movementList = 'UU'
     return movementList
@@ -792,16 +792,16 @@ def _findBottomEdge(encodedCube, zCube, yCube, xCube):
     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
 
     #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
-    TOP_UPR_L_EDGE = {'Value': 1, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
+    TOP_UPR_L_EDGE = {'Value': 3, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
     TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
     TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
-    TOP_LWR_R_EDGE = {'Value': 3, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
+    TOP_LWR_R_EDGE = {'Value': 1, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
 
     #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
-    BTTM_UPR_L_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
+    BTTM_UPR_L_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
     BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
     BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}  
-    BTTM_LWR_R_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
+    BTTM_LWR_R_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
 
     EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
 
