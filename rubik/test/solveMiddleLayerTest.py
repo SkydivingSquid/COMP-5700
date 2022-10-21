@@ -6,7 +6,6 @@ Created on Oct 19, 2022
 import unittest
 import rubik.solve as solve
 
-
 class solveMiddleLayerTest(unittest.TestCase):
         
     def test_solve_040_FindCorrectMiddleEdge(self):
@@ -15,7 +14,6 @@ class solveMiddleLayerTest(unittest.TestCase):
         expectedResult = 8
         actualResult = solve._findMiddleEdge(cube, 22, 31)
         self.assertEqual(actualResult, expectedResult)
-
 
     def test_solve_041_MoveMiddleEdgeToTopSide(self):
         cube = 'rybobbbbbyygrrrrrryboggbgggyybyogooogoroyrygowwwwwwwww'
@@ -84,7 +82,7 @@ class solveMiddleLayerTest(unittest.TestCase):
     def test_solve_046_SolvingTheMiddleLayer_ComplexScramble(self):
         inputDict = {}
         inputDict['op'] = 'solve'
-        inputDict['cube'] = 'ybwrbgoyyowgwrybwroowogggwbrggyobygwbbyryrrygbroowbrow' #Scrambled
+        inputDict['cube'] = 'ybwrbgoyyowgwrybwroowogggwbrggyobygwbbyryrrygbroowbrow'
     
         expectedResult = {}
         expectedResult['cube'] = list('gbybbbbbbgryrrrrrrbyyggggggoyrooooooborgyyyyowwwwwwwww')
