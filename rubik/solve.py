@@ -742,7 +742,33 @@ def _findBottomEdge(encodedCube, zCube, yCube, xCube):
 ########### Middle Edges ###########
 ####################################
 """
+def _findMiddleEdge(encodedCube, yCube, xCube):
+    '''This method finds the correct edge based on x,y,z cube colors and returns 1 of 8 edge locations'''
+    rcl = encodedCube # This is just for ease of typing
+    triangulatedMiddleEdge = {rcl[yCube], rcl[xCube]}
 
+    #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
+    TOP_FRONT_SIDE = {'Value': 1, 'Colors': {rcl[TOP_LOWER_MIDDLE], rcl[FRONT_UPPER_MIDDLE]}}
+    TOP_RIGHT_SIDE = {'Value': 2, 'Colors': {rcl[TOP_STBD], rcl[RIGHT_UPPER_MIDDLE]}}
+    TOP_BACK_SIDE = {'Value': 3, 'Colors': {rcl[TOP_UPPER_MIDDLE], rcl[BACK_UPPER_MIDDLE]}}
+    TOP_LEFT_SIDE = {'Value': 4, 'Colors': {rcl[TOP_PORT], rcl[LEFT_UPPER_MIDDLE]}}
+
+    #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
+    MIDL_FRONT_EDGE = {'Value': 5, 'Colors': {rcl[FRONT_STBD], rcl[RIGHT_PORT]}}
+    MIDL_RIGHT_EDGE = {'Value': 6, 'Colors': {rcl[RIGHT_STBD], rcl[BACK_PORT]}}
+    MIDL_BACK_EDGE = {'Value': 7, 'Colors': {rcl[BACK_STBD], rcl[LEFT_PORT]}}
+    MIDL_LEFT_EDGE = {'Value': 8, 'Colors': {rcl[LEFT_STBD], rcl[FRONT_PORT]}}
+
+    edgeList = (TOP_FRONT_SIDE, TOP_RIGHT_SIDE, TOP_BACK_SIDE, TOP_LEFT_SIDE, MIDL_FRONT_EDGE, MIDL_RIGHT_EDGE, MIDL_BACK_EDGE, MIDL_LEFT_EDGE)
+
+    edgeNumber = 0
+
+    while edgeNumber < 8:
+        if (triangulatedMiddleEdge != edgeList[edgeNumber]['Colors']):
+            edgeNumber += 1
+
+        else:
+            return edgeList[edgeNumber]['Value']
 
 
 """
