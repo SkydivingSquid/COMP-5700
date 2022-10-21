@@ -27,7 +27,6 @@ class solveMiddleLayerTest(unittest.TestCase):
 
         
     def test_solve_040_FindCorrectMiddleEdge(self):
-        inputDict = {}
         cube = 'rybobbbbbyygrrrrrryboggbgggyybyogooogoroyrygowwwwwwwww'
     
         expectedResult = 8
@@ -35,8 +34,7 @@ class solveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(actualResult, expectedResult)
 
 
-    def test_solve_041__MoveMiddleEdgeToTopSide(self):
-        inputDict = {}
+    def test_solve_041_MoveMiddleEdgeToTopSide(self):
         cube = 'rybobbbbbyygrrrrrryboggbgggyybyogooogoroyrygowwwwwwwww'
         solution = ''
         cubeLocation = 8
@@ -50,6 +48,26 @@ class solveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('cubeLocation'), actualResult.get('cubeLocation'))
+        
+    def test_solve_042_topToMiddleEdgeAlgorithm(self):
+        cube = 'gygrbbbbbyybrrrrrrrooggbgggboyyoyoooygybyoogrwwwwwwwww'
+        solution = ''
+        cubeLocation = 3
+        colorMarker = 1
+        
+        expectedResult = {}
+        expectedResult['cube'] = list('gobrbbbbbybyrrrrrrgybggggggrorooyoooygobyyyyowwwwwwwww')
+        expectedResult['solution'] = 'uubUBULul'
+        
+        actualResult= solve._topToMiddleEdgeAlgorithm(cube, solution, cubeLocation, colorMarker)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        
+        
+        
+        
+        
+        
         
         
         

@@ -815,6 +815,7 @@ def _moveMiddleEdgeToTopSide(encodedCube, solution, cubeLocation):
     return result
 
 
+
 """
 ##################################################################        
 ########### Shared Methods for Bottom and Middle Edges ###########
