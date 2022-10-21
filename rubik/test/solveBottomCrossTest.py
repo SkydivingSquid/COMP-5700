@@ -6,6 +6,7 @@ Created on Sep 25, 2022
 import unittest
 import rubik.solve as solve
 
+
 class solveBottomCrossTest(unittest.TestCase):
     
     
@@ -133,7 +134,7 @@ class solveBottomCrossTest(unittest.TestCase):
         inputDict = {}
         inputDict['cube'] = 'wggrgwggwoyygyggygobbrbyrbywworwbrwrrwbrrbbyywoooooboy'
     
-        expectedResult = 3
+        expectedResult = 1
         actualResult = solve._findBottomEdge(inputDict['cube'], 49, 4, 13)
         self.assertEqual(actualResult, expectedResult)
     
@@ -179,19 +180,6 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     
-    
-    def test_035_solvingBottomEdgesMethod(self):
-        cube = 'rrgybbbbboogrrrrrryooggggggwbboogooybbryyyyyyowwwwwwww'
-        solution = ''
-        cubeLctn = 1
-    
-        expectedResult = {}
-        expectedResult['solution'] = 'u'
-        expectedResult['cube'] = list('wbbybbbbbrrgrrrrrroogggggggyoooogooyryybyybyyowwwwwwww')
-    
-        actualResult = solve._solveBottomEdges(cube, solution, cubeLctn, 4)
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         
     def test_solve_130_SolvingTheCubeToBottomFace_CompletedCube(self):
         inputDict = {}
