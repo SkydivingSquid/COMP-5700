@@ -120,7 +120,7 @@ def _solve(parms):
         #At some point, maybe implement a solution optimizer here.
     result['rotations'] = FinalResult.get('solution')
     
-    #result['rotations'] = _stringOptimizer(result['rotations'])
+    result['rotations'] = _stringOptimizer(result['rotations'])
     
     result['status'] = status
     return result
