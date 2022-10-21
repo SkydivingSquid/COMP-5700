@@ -125,7 +125,38 @@ def _solve(parms):
     result['status'] = status
     return result
 
-
+def _stringOptimizer(solution):
+    
+    initialLength = len(solution)
+    flag = True
+    
+    solutionOptimizationDict = {
+        'UUU' : 'u',
+        'uuu' : 'U',
+        
+        'Ff' : '',
+        'fF' : '',
+        'Rr' : '',
+        'rR' : '',
+        'Bb' : '',
+        'bB' : '',
+        'Uu' : '',
+        'uU' : '',
+        'Dd' : '',
+        'dD' : '',
+    }
+    
+    while (flag):
+        for key, value in solutionOptimizationDict.items():
+            solution = solution.replace(key, value)
+        updatedSolutionLength = len(solution)
+      
+        if updatedSolutionLength == initialLength:
+            flag = False
+        else:
+            initialLength = updatedSolutionLength
+            
+    return(solution)
 
 """
 ############################################       
