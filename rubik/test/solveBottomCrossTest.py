@@ -180,19 +180,6 @@ class solveBottomCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
     
-    
-    def test_035_solvingBottomEdgesMethod(self):
-        cube = 'rrgybbbbboogrrrrrryooggggggwbboogooybbryyyyyyowwwwwwww'
-        solution = ''
-        cubeLctn = 3
-    
-        expectedResult = {}
-        expectedResult['solution'] = 'u'
-        expectedResult['cube'] = list('wbbybbbbbrrgrrrrrroogggggggyoooogooyryybyybyyowwwwwwww')
-    
-        actualResult = solve._solveBottomEdges(cube, solution, cubeLctn, 4)
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         
     def test_solve_130_SolvingTheCubeToBottomFace_CompletedCube(self):
         inputDict = {}

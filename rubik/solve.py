@@ -622,7 +622,7 @@ def _solveBottomFace(encodedCube, solution):
 
 def _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, initialEdge, markerEdge1, markerEdge2, triEdge1, triEdge2, triEdge3):
     '''The major 'shot caller' for the main method (_solveBottomFace). This was made from refactoring for LOC limitation purposes'''
-    encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, initialEdge)
+    encodedCube, solution, cubeLctn = _setBottomOrTopResult(encodedCube, solution, result, cubeLctn, initialEdge, _edgeList('Bottom'), _moveBottomEdgeToTopEdge)
     
     colorMarker = _setMarker(encodedCube, markerEdge1, markerEdge2, BOTTOM_CENTER)
     
@@ -633,12 +633,12 @@ def _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, initialEdge, m
     
     return cubeLctn, encodedCube, solution
 
-def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
-    '''variable setter method that calls on _solveBottomEdges'''
-    bottomResult = _solveBottomEdges(encodedCube, solution, cubeLctn, edge) 
-    result['solution'] = bottomResult.get('solution')
-    result['cube'] = bottomResult.get('cube')
-    result['cubeLocation'] = bottomResult.get('cubeLocation')
+def _setBottomOrTopResult(encodedCube, solution, result, cubeLctn, edge, edgeList, moveToTopAlgo):
+    '''variable setter method that calls on _solveEdges'''
+    methodResult = _solveEdges(encodedCube, solution, cubeLctn, edge, edgeList, moveToTopAlgo) 
+    result['solution'] = methodResult.get('solution')
+    result['cube'] = methodResult.get('cube')
+    result['cubeLocation'] = methodResult.get('cubeLocation')
     
     solution = result['solution']
     encodedCube = result['cube']
@@ -722,28 +722,28 @@ def _moveTopByDifference(difference):
         movementList = 'UU'
     return movementList
 
-def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
+def _solveEdges(encodedCube, solution, cubeLocation, correctLocation, edgeList, moveToTopAlgo):
     '''Moves unaligned edges (anywhere) to top, rotates to corresponding top, then moves into bottom.
     This is one of the main working methods in solving the bottom edges.'''
-    
+
     result = {}
     result['cube'] = encodedCube
     result['solution'] = solution
-    result['cubeLocation'] = cubeLocation 
-    bottomSolutionSet = {}
+    result['cubeLocation'] = cubeLocation
+    edgeSolutionSet = {}
 
     #Rotate edge out of bottom into top
-    for value in (BTTM_UPR_L_EDGE['Value'],BTTM_UPR_R_EDGE['Value'], BTTM_LWR_L_EDGE['Value'], BTTM_LWR_R_EDGE['Value']):
+    for value in (edgeList):
         if value == cubeLocation:
-            bottomSolutionSet = _moveBottomEdgeToTopEdge(encodedCube,solution,cubeLocation)
-            result['cube'] = bottomSolutionSet.get('cube')
-            result['solution'] = bottomSolutionSet.get('solution')
-            result['cubeLocation'] = bottomSolutionSet.get('cubeLocation')
-            
+            edgeSolutionSet = moveToTopAlgo(encodedCube,solution,cubeLocation)
+            result['cube'] = edgeSolutionSet.get('cube')
+            result['solution'] = edgeSolutionSet.get('solution')
+            result['cubeLocation'] = edgeSolutionSet.get('cubeLocation')
+
     solution = result['solution']
     encodedCube = result['cube']
     cubeLocation = result['cubeLocation']
-    
+
     #Rotate into correct top spot
     difference = (cubeLocation - correctLocation)
     movementList = _moveTopByDifference(difference)
@@ -751,7 +751,7 @@ def _solveBottomEdges(encodedCube, solution, cubeLocation, correctLocation):
     for letter in movementList:
         result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
         encodedCube = result['cube']
-    result['cubeLocation'] = correctLocation 
+    result['cubeLocation'] = correctLocation
     return result
 
 def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):     
@@ -813,6 +813,12 @@ def _findBottomEdge(encodedCube, zCube, yCube, xCube):
 
         else:
             return EdgeList[EdgeNumber]['Value']
+
+def _edgeList(location):
+
+    if (location == 'Bottom'):
+        return BTTM_UPR_L_EDGE['Value'], BTTM_UPR_R_EDGE['Value'], BTTM_LWR_L_EDGE['Value'], BTTM_LWR_R_EDGE['Value']
+
 
 """
 ####################################################################################        
