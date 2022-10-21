@@ -84,6 +84,7 @@ BTTM_LWR_L_EDGE = {'Value': 8}
 BTTM_LWR_R_EDGE = {'Value': 5}
 
 
+
 """
 #############################################################        
 ############### Main Method For Solving Cube ################
@@ -769,6 +770,7 @@ def _findMiddleEdge(encodedCube, yCube, xCube):
 
         else:
             return edgeList[edgeNumber]['Value']
+
 
 
 """
