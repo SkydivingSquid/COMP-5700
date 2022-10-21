@@ -95,7 +95,7 @@ class solveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
     def test_solve_001_StringOptimizer(self):
-        string = 'rFuuuUfRL'
+        string = 'rFUUUUfRL'
         
         expectedResult = 'L'
         

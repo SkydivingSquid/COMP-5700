@@ -140,6 +140,8 @@ def _stringOptimizer(solution):
         'rR' : '',
         'Bb' : '',
         'bB' : '',
+        'Ll' : '',
+        'lL' : '',
         'Uu' : '',
         'uU' : '',
         'Dd' : '',
