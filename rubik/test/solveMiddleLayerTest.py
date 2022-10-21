@@ -86,8 +86,8 @@ class solveMiddleLayerTest(unittest.TestCase):
     
         expectedResult = {}
         expectedResult['cube'] = list('gbybbbbbbgryrrrrrrbyyggggggoyrooooooborgyyyyowwwwwwwww')
-        expectedResult['solution'] = 'ffrFDRRLLblBDLLUUfFFUURRUUBBUULLbuBUUUufUFruRUruRUubuuBUbuBUluLUluLUURurufUFUUURurufUFUUuurURUBubuFufulULuuubUBULulUFufulUL' 
-        #expectedResult['solution'] = 'ffrFDRRLLblBDLLUUFUURRUUBBUULLbuBuufUFruRUruRbuuBUbuBUluLUluLUURurufUFuRurufUFrURUBubuFufulULUbUBULulUFufulUL'
+        #expectedResult['solution'] = 'ffrFDRRLLblBDLLUUfFFUURRUUBBUULLbuBUUUufUFruRUruRUubuuBUbuBUluLUluLUURurufUFUUURurufUFUUuurURUBubuFufulULuuubUBULulUFufulUL' 
+        expectedResult['solution'] = 'ffrFDRRLLblBDLLUUFUURRUUBBUULLbuBuufUFruRUruRbuuBUbuBUluLUluLUURurufUFuRurufUFrURUBubuFufulULUbUBULulUFufulUL'
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
