@@ -73,15 +73,15 @@ BOTTOM_LOWER_PORT_EDGE = 51
 BOTTOM_LOWER_STBD_EDGE = 53
 
 #3D CUBES
-TOP_UPR_L_EDGE = {'Value': 3}
-TOP_UPR_R_EDGE = {'Value': 2}
-TOP_LWR_L_EDGE = {'Value': 4}
 TOP_LWR_R_EDGE = {'Value': 1}
+TOP_UPR_R_EDGE = {'Value': 2}
+TOP_UPR_L_EDGE = {'Value': 3}
+TOP_LWR_L_EDGE = {'Value': 4}
 
-BTTM_UPR_L_EDGE = {'Value': 7}
-BTTM_UPR_R_EDGE = {'Value': 6}
-BTTM_LWR_L_EDGE = {'Value': 8}
 BTTM_LWR_R_EDGE = {'Value': 5}
+BTTM_UPR_R_EDGE = {'Value': 6}
+BTTM_UPR_L_EDGE = {'Value': 7}
+BTTM_LWR_L_EDGE = {'Value': 8}
 
 #2D CUBES
 TOP_FRONT_SIDE = {'Value': 1}
@@ -137,21 +137,14 @@ def _stringOptimizer(solution):
     flag = True
     
     solutionOptimizationDict = {
-        'UUU' : 'u',
-        'uuu' : 'U',
+        'UUU' : 'u', 'uuu' : 'U',
         
-        'Ff' : '',
-        'fF' : '',
-        'Rr' : '',
-        'rR' : '',
-        'Bb' : '',
-        'bB' : '',
-        'Ll' : '',
-        'lL' : '',
-        'Uu' : '',
-        'uU' : '',
-        'Dd' : '',
-        'dD' : '',
+        'Ff' : '', 'fF' : '',
+        'Rr' : '', 'rR' : '',
+        'Bb' : '', 'bB' : '',
+        'Ll' : '', 'lL' : '',
+        'Uu' : '', 'uU' : '',
+        'Dd' : '', 'dD' : '',
     }
     
     while (flag):
@@ -773,17 +766,17 @@ def _findBottomEdge(encodedCube, zCube, yCube, xCube):
     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
 
     #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
-    TOP_UPR_L_EDGE = {'Value': 3, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
-    TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
-    TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
     TOP_LWR_R_EDGE = {'Value': 1, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
-
+    TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
+    TOP_UPR_L_EDGE = {'Value': 3, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
+    TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
+    
     #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
-    BTTM_UPR_L_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
-    BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
-    BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}
     BTTM_LWR_R_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
-
+    BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
+    BTTM_UPR_L_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
+    BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}
+    
     EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
 
     EdgeNumber = 0
