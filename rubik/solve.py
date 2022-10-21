@@ -814,6 +814,43 @@ def _moveMiddleEdgeToTopSide(encodedCube, solution, cubeLocation):
     result['cubeLocation'] = cubeLocation
     return result
 
+def _topToMiddleEdgeAlgorithm(encodedCube,solution,cubeLctn,colorMarker):
+    '''Moves correct top cube to correct bottom cube'''
+    result = {}
+    result['solution'] = solution
+    result['cube'] = encodedCube
+    movementList = ''
+
+    if cubeLctn == TOP_FRONT_SIDE['Value']:
+        if colorMarker == 1:
+            movementList = 'uufUFURur' #LEFT
+        elif colorMarker == 2:
+            movementList = 'URurufUF'  #RIGHT #Validated
+
+    if cubeLctn == TOP_RIGHT_SIDE['Value']:
+        if colorMarker == 1:
+            movementList = 'uurURUBub' #Validated
+        elif colorMarker == 2:
+            movementList = 'UBuburUR'
+
+    if cubeLctn == TOP_BACK_SIDE['Value']:
+        if colorMarker == 1:
+            movementList = 'uubUBULul'
+        elif colorMarker == 2:
+            movementList = 'ULulubUB'
+
+    if cubeLctn == TOP_LEFT_SIDE['Value']:
+        if colorMarker == 1:
+            movementList = 'uulULUFuf'
+        elif colorMarker == 2:
+            movementList = 'UFufulUL'
+
+    for letter in movementList:
+        result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
+        encodedCube = result['cube']
+
+    return result
+
 
 
 """
