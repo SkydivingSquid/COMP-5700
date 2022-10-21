@@ -591,7 +591,7 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
  
     else:
-        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
+        cubeLctn, encodedCube, solution = _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, 
                                                                             TOP_LWR_R_EDGE['Value'], TOP_LOWER_STBD_EDGE, FRONT_UPPER_STBD_EDGE, BOTTOM_CENTER, RIGHT_CENTER, BACK_CENTER)
 
 #SECOND WILL SOLVE BOTTOM LOWER RIGHT CORNER (7)
@@ -599,7 +599,7 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
     
     else:
-        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
+        cubeLctn, encodedCube, solution = _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, 
                                                                             TOP_UPR_R_EDGE['Value'], TOP_UPPER_STBD_EDGE, RIGHT_UPPER_STBD_EDGE, BOTTOM_CENTER, BACK_CENTER, LEFT_CENTER)
         
 #THIRD WILL SOLVE BOTTOM LOWER LEFT CORNER (8)    
@@ -607,7 +607,7 @@ def _solveBottomFace(encodedCube, solution):
         cubeLctn = _findBottomEdge(encodedCube, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
     
     else:
-        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
+        cubeLctn, encodedCube, solution = _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, 
                                                                             TOP_UPR_L_EDGE['Value'], TOP_UPPER_PORT_EDGE, BACK_UPPER_STBD_EDGE, BOTTOM_CENTER, LEFT_CENTER, FRONT_CENTER)
 
 #FINALLY WILL SOLVE BOTTOM UPPER LEFT CORNER (5)
@@ -615,12 +615,12 @@ def _solveBottomFace(encodedCube, solution):
         result['cube'], result['solution'] = encodedCube, solution # Runs this because its the final check..                    
      
     else:
-        cubeLctn, encodedCube, solution, colorMarker = _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, 
+        cubeLctn, encodedCube, solution = _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, 
                                                                             TOP_LWR_L_EDGE['Value'], TOP_LOWER_PORT_EDGE, LEFT_UPPER_STBD_EDGE, None, None, None)
     
     return result
 
-def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, initialEdge, markerEdge1, markerEdge2, triEdge1, triEdge2, triEdge3):
+def _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, initialEdge, markerEdge1, markerEdge2, triEdge1, triEdge2, triEdge3):
     '''The major 'shot caller' for the main method (_solveBottomFace). This was made from refactoring for LOC limitation purposes'''
     encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, initialEdge)
     
@@ -631,7 +631,7 @@ def _unalighedBottomEdge(encodedCube, solution, result, colorMarker, cubeLctn, i
     if (triEdge1 != None): #This is to avoid setting an irrelevant variable on edge 4. 
         cubeLctn = _findBottomEdge(encodedCube, triEdge1, triEdge2, triEdge3)
     
-    return cubeLctn, encodedCube, solution, colorMarker
+    return cubeLctn, encodedCube, solution
 
 def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
     '''variable setter method that calls on _solveBottomEdges'''
