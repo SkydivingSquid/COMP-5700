@@ -26,13 +26,13 @@ class solveMiddleLayerTest(unittest.TestCase):
     #
 
         
-    # def test_solve_001_FindCorrectMiddleEdge(self):
-    #     inputDict = {}
-    #     inputDict['cube'] = 'rybobbbbbyygrrrrrryboggbgggyybyogooogoroyrygowwwwwwwww'
-    #
-    #     expectedResult = 8
-    #     actualResult = solve._findMiddleEdge(inputDict['cube'], 22, 31)
-    #     self.assertEqual(actualResult, expectedResult)
+    def test_solve_001_FindCorrectMiddleEdge(self):
+        inputDict = {}
+        inputDict['cube'] = 'rybobbbbbyygrrrrrryboggbgggyybyogooogoroyrygowwwwwwwww'
+    
+        expectedResult = 8
+        actualResult = solve._findMiddleEdge(inputDict['cube'], 22, 31)
+        self.assertEqual(actualResult, expectedResult)
     #
     #
     # def test_solve_001_FindCorrectMiddleEdge(self):
