@@ -624,9 +624,9 @@ def _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, initialEdge, m
     '''The major 'shot caller' for the main method (_solveBottomFace). This was made from refactoring for LOC limitation purposes'''
     encodedCube, solution, cubeLctn = _setBottomResult(encodedCube, solution, result, cubeLctn, initialEdge)
     
-    colorMarker = _setMarker(encodedCube, markerEdge1, markerEdge2)
+    colorMarker = _setMarker(encodedCube, markerEdge1, markerEdge2, BOTTOM_CENTER)
     
-    encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn)
+    encodedCube, solution = _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn, _topToBottomEdgeAlgorithm)
     
     if (triEdge1 != None): #This is to avoid setting an irrelevant variable on edge 4. 
         cubeLctn = _findBottomEdge(encodedCube, triEdge1, triEdge2, triEdge3)
@@ -645,9 +645,9 @@ def _setBottomResult(encodedCube, solution, result, cubeLctn, edge):
     cubeLctn = result['cubeLocation']
     return encodedCube, solution, cubeLctn
 
-def _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn):
+def _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn, moveTopDownAlgo):
     '''variable setter method that calls on _topToBottomEdgeAlgoritm'''
-    topResult = _topToBottomEdgeAlgorithm(encodedCube, solution, cubeLctn, colorMarker)
+    topResult = moveTopDownAlgo(encodedCube, solution, cubeLctn, colorMarker)
     result['solution'] = topResult.get('solution')
     result['cube'] = topResult.get('cube')
     
@@ -655,11 +655,11 @@ def _setTopResult(encodedCube, solution, result, colorMarker, cubeLctn):
     encodedCube = result['cube']
     return encodedCube, solution
 
-def _setMarker(encodedCube,edge1,edge2):
+def _setMarker(encodedCube,edge1,edge2,center):
     '''variable setter method that sets colorMarkers for if/else in _topToBottomEdgeAlgo'''
-    if encodedCube[edge1] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
+    if encodedCube[edge1] == encodedCube[center]: 
         colorMarker = 1
-    elif encodedCube[edge2] == encodedCube[BOTTOM_CENTER]: # <- UNIQUE VALUE
+    elif encodedCube[edge2] == encodedCube[center]: 
         colorMarker = 2
     else:
         colorMarker = 0
