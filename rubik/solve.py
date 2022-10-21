@@ -83,6 +83,16 @@ BTTM_UPR_R_EDGE = {'Value': 6}
 BTTM_LWR_L_EDGE = {'Value': 8}  
 BTTM_LWR_R_EDGE = {'Value': 5}
 
+#2D CUBES
+TOP_FRONT_SIDE = {'Value': 1}
+TOP_RIGHT_SIDE = {'Value': 2}
+TOP_BACK_SIDE = {'Value': 3}
+TOP_LEFT_SIDE = {'Value': 4}
+
+MIDL_FRONT_EDGE = {'Value': 5}
+MIDL_RIGHT_EDGE = {'Value': 6}
+MIDL_BACK_EDGE = {'Value': 7}
+MIDL_LEFT_EDGE = {'Value': 8}
 
 
 """
@@ -771,6 +781,38 @@ def _findMiddleEdge(encodedCube, yCube, xCube):
         else:
             return edgeList[edgeNumber]['Value']
 
+def _moveMiddleEdgeToTopSide(encodedCube, solution, cubeLocation):
+    '''Based on cube location, rotate bottom edge to top edge'''
+    result = {}
+    result['cube'] = encodedCube
+    result['solution'] = solution
+    movementList = ""
+    value = cubeLocation
+
+    #These four if statements direct movement of edge from middle to top
+    if value == MIDL_FRONT_EDGE['Value']:
+        movementList = 'URurufUF'
+        cubeLocation = TOP_BACK_SIDE['Value']
+
+    if value == MIDL_RIGHT_EDGE['Value']:
+        movementList = 'UBuburUR'
+        cubeLocation = TOP_LEFT_SIDE['Value']
+
+    if value == MIDL_BACK_EDGE['Value']:
+        movementList = 'ULulubUB'
+        cubeLocation = TOP_FRONT_SIDE['Value']
+
+    if value == MIDL_LEFT_EDGE['Value']:
+
+        movementList = 'uFufulUL'
+        cubeLocation = TOP_RIGHT_SIDE['Value']
+
+    for letter in movementList:
+        result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
+        encodedCube = result['cube']
+
+    result['cubeLocation'] = cubeLocation
+    return result
 
 
 """
