@@ -756,6 +756,46 @@ def _findBottomEdge(encodedCube, zCube, yCube, xCube):
 ####################################
 """
 
+def _solveMiddleLayer(encodedCube, solution):
+    '''Main method for solving the bottom edges (post bottom cross)'''
+    #This will likely need to have the solution passed as an argument.
+    result = {}
+    #FIRST WILL SOLVE BOTTOM UPPER RIGHT CORNER (6). Find cube with desired colors.
+    cubeLctn = _findMiddleEdge(encodedCube, FRONT_CENTER, RIGHT_CENTER) # <- UNIQUE
+
+    #IF CUBE IN CORRECT SPOT AND ORIENTED CORRECTLY, GO TO NEXT SPOT
+    if (cubeLctn == MIDL_FRONT_EDGE['Value'] and encodedCube[FRONT_STBD] == encodedCube[FRONT_CENTER]):
+        cubeLctn = _findMiddleEdge(encodedCube, RIGHT_CENTER, BACK_CENTER)
+
+    else: #TOP SIDE LOCATION, TWO TOP SIDE COLORS, CENTER COLOR, TWO NEXT LOCATION COLORS
+        cubeLctn, encodedCube, solution = _unalighedMiddleEdge(encodedCube, solution, result, cubeLctn,
+                                                               TOP_FRONT_SIDE['Value'], TOP_LOWER_MIDDLE, FRONT_UPPER_MIDDLE, FRONT_CENTER, RIGHT_CENTER, BACK_CENTER)
+
+    #SECOND WILL SOLVE BOTTOM LOWER RIGHT CORNER (7)
+    if (cubeLctn == MIDL_RIGHT_EDGE['Value'] and encodedCube[RIGHT_STBD] == encodedCube[RIGHT_CENTER]):
+        cubeLctn = _findMiddleEdge(encodedCube, BACK_CENTER, LEFT_CENTER)
+
+    else:
+        cubeLctn, encodedCube, solution = _unalighedMiddleEdge(encodedCube, solution, result, cubeLctn,
+                                                               TOP_RIGHT_SIDE['Value'], TOP_STBD, RIGHT_UPPER_MIDDLE, RIGHT_CENTER, BACK_CENTER, LEFT_CENTER)
+
+    #THIRD WILL SOLVE BOTTOM LOWER LEFT CORNER (8)
+    if (cubeLctn == MIDL_BACK_EDGE['Value'] and encodedCube[BACK_STBD] == encodedCube[BACK_CENTER]):
+        cubeLctn = _findMiddleEdge(encodedCube, LEFT_CENTER, FRONT_CENTER)
+
+    else:
+        cubeLctn, encodedCube, solution = _unalighedMiddleEdge(encodedCube, solution, result, cubeLctn,
+                                                               TOP_BACK_SIDE['Value'], TOP_UPPER_MIDDLE, BACK_UPPER_MIDDLE, BACK_CENTER, LEFT_CENTER, FRONT_CENTER)
+
+    #FINALLY WILL SOLVE BOTTOM UPPER LEFT CORNER (5)
+    if (cubeLctn == MIDL_LEFT_EDGE['Value'] and encodedCube[LEFT_STBD] == encodedCube[LEFT_CENTER]):
+        result['cube'], result['solution'] = encodedCube, solution # Runs this because its the final check..
+
+    else:
+        cubeLctn, encodedCube, solution = _unalighedMiddleEdge(encodedCube, solution, result, cubeLctn,
+                                                               TOP_LEFT_SIDE['Value'], TOP_PORT, LEFT_UPPER_MIDDLE, LEFT_CENTER, None, None)
+
+    return result
 
 def _unalighedMiddleEdge(encodedCube, solution, result, cubeLctn, initialEdge, markerEdge1, markerEdge2, center, sideEdge1, sideEdge2):
     '''The major 'shot caller' for the main method (_solveBottomFace). This was made from refactoring for LOC limitation purposes'''
