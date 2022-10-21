@@ -125,6 +125,12 @@ def _solve(parms):
     result['status'] = status
     return result
 
+"""
+######################################################    
+############### Solution Optimization ################
+######################################################
+"""
+
 def _stringOptimizer(solution):
     
     initialLength = len(solution)
