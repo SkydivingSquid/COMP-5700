@@ -68,8 +68,20 @@ class solveMiddleLayerTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
+    def test_solve_046_solveMiddleLayer(self):
+        cube = 'yyooorooowbybwbwwwoowyrorrrrrrbywyyybybwbwbrbggggggggg'
+        solution = ''
+    
+        expectedResult = {}
+        expectedResult['cube'] = list('yoooooooowwrwwwwwwbbrrrrrrrybbyyyyyybrwybbobbggggggggg')
+        expectedResult['solution'] = 'uFufulULUURurufUFuuurURUBubuubUBULulUFufulUL'
+        
+        actualResult= solve._solveMiddleLayer(cube, solution)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    
     #
-    # def test_solve_045_SolvingTheMiddleLayer_ComplexScramble(self):
+    # def test_solve_046_SolvingTheMiddleLayer_ComplexScramble(self):
     #     inputDict = {}
     #     inputDict['op'] = 'solve'
     #     inputDict['cube'] = 'ybwrbgoyyowgwrybwroowogggwbrggyobygwbbyryrrygbroowbrow' #Scrambled

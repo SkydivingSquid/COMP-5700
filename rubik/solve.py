@@ -115,7 +115,7 @@ def _solve(parms):
 
         FinalResult = _solveBottomFace(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 3
 
-        FinalResult = _solveMiddleFace(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 4
+        FinalResult = _solveMiddleLayer(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 4
 
     result['rotations'] = FinalResult.get('solution')
     result['status'] = status
