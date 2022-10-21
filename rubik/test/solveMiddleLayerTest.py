@@ -87,11 +87,19 @@ class solveMiddleLayerTest(unittest.TestCase):
         expectedResult = {}
         expectedResult['cube'] = list('gbybbbbbbgryrrrrrrbyyggggggoyrooooooborgyyyyowwwwwwwww')
         expectedResult['solution'] = 'ffrFDRRLLblBDLLUUfFFUURRUUBBUULLbuBUUUufUFruRUruRUubuuBUbuBUluLUluLUURurufUFUUURurufUFUUuurURUBubuFufulULuuubUBULulUFufulUL' 
+        #expectedResult['solution'] = 'ffrFDRRLLblBDLLUUFUURRUUBBUULLbuBuufUFruRUruRbuuBUbuBUluLUluLUURurufUFuRurufUFrURUBubuFufulULUbUBULulUFufulUL'
         expectedResult['status'] = 'ok'
     
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
     
+    def test_solve_001_StringOptimizer(self):
+        string = 'rFuuuUfRL'
+        
+        expectedResult = 'L'
+        
+        actualResult = solve._stringOptimizer(string)
+        self.assertEqual(actualResult, expectedResult)
         
         
