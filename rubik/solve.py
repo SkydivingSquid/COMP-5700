@@ -118,9 +118,9 @@ def _solve(parms):
         FinalResult = _solveMiddleLayer(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 4
 
         #At some point, maybe implement a solution optimizer here.
-    result['rotations'] = FinalResult.get('solution')
-    
-    result['rotations'] = _stringOptimizer(result['rotations'])
+        result['rotations'] = FinalResult.get('solution')
+        
+        result['rotations'] = _stringOptimizer(result['rotations'])
     
     result['status'] = status
     return result
