@@ -1073,6 +1073,40 @@ def _checkForTopBar(encodedCube, solution):
 
         return result
 
+#Check for arm
+def _checkForTopArm(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+    flag = 0 #Single Cube Case
+
+    #Lower Left Arm
+    if (encodedCube[TOP_PORT] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
+        flag = 1
+
+    #Lower Right Arm
+    elif (encodedCube[TOP_STBD] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
+        flag = 2
+
+    #Upper Right Arm
+    elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
+        flag = 3
+
+    #Upper Left Arm (desired)
+    elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_PORT] == encodedCube[TOP_CENTER]):
+        flag = 4
+
+    # if flag == -1: #This is recursive..  
+    #
+    #     result = _topAlgorithms(encodedCube, solution, flag)
+    #
+    #     result = _checkForTopArm(result['cube'], result['solution'])
+    #     return result
+
+    # result = _topAlgorithms(result['cube'], result['solution'], flag)
+
+    return result
+    
+     
+
 """
 ####################################################################################        
 ############ Rotation Function and Updates to Cube and Solution String ############
