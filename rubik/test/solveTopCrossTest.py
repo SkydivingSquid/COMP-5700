@@ -44,3 +44,19 @@ class solveTopCrossTest(unittest.TestCase):
         actualResult= solve._checkForTopArm(cube, solution)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        
+     def test_solve_054_SolvingTheTopCross_ComplexScramble(self): #Integrated Test
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'obyybbowggoworroybgwgggwyyryyygorwrwrorbygbrobbwwwgbor'
+    
+        expectedResult = {}
+        expectedResult['cube'] = list('ybybbbbbboogrrrrrryryggggggbgoooooooryryyygybwwwwwwwww')
+        
+        #Optimized Version 
+        expectedResult['solution'] = 'LLUlFFlfLDFrFDRRFFURRBBULLruRUUfuuFUfuFUbuBUUruuRUruRUbuBluLFufulULuurURUBububUBULululULUFuRUrufUUFRUruRUruf'
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
