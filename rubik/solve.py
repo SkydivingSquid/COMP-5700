@@ -1,4 +1,5 @@
 import rubik.cube as rubik
+import hashlib
 
 """
 ###############################################     
@@ -73,15 +74,15 @@ BOTTOM_LOWER_PORT_EDGE = 51
 BOTTOM_LOWER_STBD_EDGE = 53
 
 #3D CUBES
-TOP_LWR_R_EDGE = {'Value': 1}
-TOP_UPR_R_EDGE = {'Value': 2}
 TOP_UPR_L_EDGE = {'Value': 3}
+TOP_UPR_R_EDGE = {'Value': 2}
 TOP_LWR_L_EDGE = {'Value': 4}
+TOP_LWR_R_EDGE = {'Value': 1}
 
-BTTM_LWR_R_EDGE = {'Value': 5}
-BTTM_UPR_R_EDGE = {'Value': 6}
 BTTM_UPR_L_EDGE = {'Value': 7}
+BTTM_UPR_R_EDGE = {'Value': 6}
 BTTM_LWR_L_EDGE = {'Value': 8}
+BTTM_LWR_R_EDGE = {'Value': 5}
 
 #2D CUBES
 TOP_FRONT_SIDE = {'Value': 1}
@@ -94,6 +95,14 @@ MIDL_RIGHT_EDGE = {'Value': 6}
 MIDL_BACK_EDGE = {'Value': 7}
 MIDL_LEFT_EDGE = {'Value': 8}
 
+#FLAGS
+SINGLE_CUBE = 0 
+ARM_LOWER_LEFT = 1
+ARM_LOWER_RIGHT = 2 
+ARM_UPPER_RIGHT = 3
+ARM_UPPER_LEFT = 4
+HORITZONAL_BAR = 5
+VERTICAL_BAR = 6
 
 """
 #############################################################        
@@ -103,6 +112,8 @@ MIDL_LEFT_EDGE = {'Value': 8}
 def _solve(parms):
     """ Returns the solutions needed to solve a cube and the status of input. """
     result = {}
+    result['rotations'] = ''
+    result['status'] = ''
     FinalResult = {}
     encodedCube = parms.get('cube', None)
 
@@ -116,14 +127,34 @@ def _solve(parms):
         FinalResult = _solveBottomFace(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 3
 
         FinalResult = _solveMiddleLayer(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 4
+        
+        FinalResult= _solveTopCross(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 5
 
-        #At some point, maybe implement a solution optimizer here.
         result['rotations'] = FinalResult.get('solution')
         
         result['rotations'] = _stringOptimizer(result['rotations'])
+        
+        result['token'] = _hashResult(FinalResult.get('cube'), result['rotations'])
     
     result['status'] = status
+    
     return result
+
+"""
+########################################    
+############### Hashing ################
+########################################
+"""
+def _hashResult(encodedCube, solution):
+
+    itemToTokenize = ''.join(encodedCube) + solution
+
+    sha256Hash = hashlib.sha256()
+    sha256Hash.update(itemToTokenize.encode())
+    fullToken = sha256Hash.hexdigest()
+    subToken = fullToken[-8:] #return last 8 char of hash token
+
+    return subToken
 
 """
 ######################################################    
@@ -137,14 +168,21 @@ def _stringOptimizer(solution):
     flag = True
     
     solutionOptimizationDict = {
-        'UUU' : 'u', 'uuu' : 'U',
+        'UUU' : 'u',
+        'uuu' : 'U',
         
-        'Ff' : '', 'fF' : '',
-        'Rr' : '', 'rR' : '',
-        'Bb' : '', 'bB' : '',
-        'Ll' : '', 'lL' : '',
-        'Uu' : '', 'uU' : '',
-        'Dd' : '', 'dD' : '',
+        'Ff' : '',
+        'fF' : '',
+        'Rr' : '',
+        'rR' : '',
+        'Bb' : '',
+        'bB' : '',
+        'Ll' : '',
+        'lL' : '',
+        'Uu' : '',
+        'uU' : '',
+        'Dd' : '',
+        'dD' : '',
     }
     
     while (flag):
@@ -256,12 +294,10 @@ def _bottomCrossToDaisy(encodedCube, result):
 
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
-    bottomToDaisyResult = {}
-    bottomToDaisyResult['solution'] = solution
-    bottomToDaisyResult['rotatedCubeList'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     while encodedCube[bottomPetalIndex] == encodedCube[topPetalIndex]:
-        bottomToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, bottomToDaisyResult, 'U')
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'U')
 
     if encodedCube[bottomPetalIndex] != encodedCube[topPetalIndex]:
 
@@ -278,86 +314,82 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             letters = 'BB'
 
         for char in letters:
-            bottomToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, bottomToDaisyResult, char)
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, char)
 
-        bottomToDaisyResult['rotatedCubeList'] = encodedCube
-    return bottomToDaisyResult
+        result['rotatedCubeList'] = encodedCube
+    return result
 
 def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves horizontal pieces to top to begin forming a Daisy """
-    horizontalToDaisyResult = {}
-    horizontalToDaisyResult['solution'] = solution
-    horizontalToDaisyResult['rotatedCubeList'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     while encodedCube[horizontalPetalIndex] == encodedCube[topPetalIndex]:
-        horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'U')
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'U')
 
     if encodedCube[horizontalPetalIndex] != encodedCube[topPetalIndex]:
 
         if horizontalPetalIndex == FRONT_PORT:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'l')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'l')
 
         if horizontalPetalIndex == FRONT_STBD:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'R')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'R')
 
         if horizontalPetalIndex == RIGHT_PORT:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'f')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'f')
 
         if horizontalPetalIndex == RIGHT_STBD:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'B')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'B')
 
         if horizontalPetalIndex == BACK_PORT:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'r')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'r')
 
         if horizontalPetalIndex == BACK_STBD:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'L')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'L')
 
         if horizontalPetalIndex == LEFT_PORT:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'b')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'b')
 
         if horizontalPetalIndex == LEFT_STBD:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'F')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'F')
 
-        horizontalToDaisyResult['rotatedCubeList'] = encodedCube
-    return horizontalToDaisyResult
+        result['rotatedCubeList'] = encodedCube
+    return result
 
 def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves vertical pieces to top to begin forming a Daisy """
-    veritcalToDaisyResult = {}
-    veritcalToDaisyResult['solution'] = solution
-    veritcalToDaisyResult['encodedCube'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     while encodedCube[verticalPetalIndex] == encodedCube[topPetalIndex]:
-        veritcalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, veritcalToDaisyResult, 'U')
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'U')
 
     if encodedCube[verticalPetalIndex] != encodedCube[topPetalIndex]:
 
         if verticalPetalIndex == FRONT_UPPER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "lfLDFF")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "lfLDFF")
 
         if verticalPetalIndex == FRONT_LOWER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "FFlfLDFF")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "FFlfLDFF")
 
         if verticalPetalIndex == RIGHT_UPPER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "frFDRR")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "frFDRR")
 
         if verticalPetalIndex == RIGHT_LOWER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "RRfrFDRR")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "RRfrFDRR")
 
         if verticalPetalIndex == BACK_UPPER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "rbRDBB")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "rbRDBB")
 
         if verticalPetalIndex == BACK_LOWER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "BBrbRDBB")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "BBrbRDBB")
 
         if verticalPetalIndex == LEFT_UPPER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "blBDLL")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "blBDLL")
 
         if verticalPetalIndex == LEFT_LOWER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "LLblBDLL")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "LLblBDLL")
 
-        veritcalToDaisyResult['rotatedCubeList'] = encodedCube
-    return veritcalToDaisyResult
+        result['rotatedCubeList'] = encodedCube
+    return result
 
 """  
 ########################################################       
@@ -406,22 +438,18 @@ def _daisySolution(encodedCube):
 
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
-    daisyResult = {}
-    daisyResult['solution'] = solution
-    daisyResult['daisyCubeList'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     while (encodedCube[uniqueCenter]!= encodedCube[topMiddle] or encodedCube[adjacentDaisy] != encodedCube[BOTTOM_CENTER]):
 
-        daisyResult['solution'], encodedCube  = _functionalRotations(encodedCube, daisyResult, 'U')
+        result['solution'], encodedCube  = _functionalRotations(encodedCube, result, 'U')
 
-    daisyResult['daisyCubeList'] = encodedCube
-    return daisyResult
+    result['daisyCubeList'] = encodedCube
+    return result
 
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
-    daisyRotResult = {}
-    daisyRotResult['solution'] = solution
-    daisyRotResult['daisyCubeList'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     if encodedCube[uniqueCenter] == encodedCube[topMiddle]:
         if uniqueCenter == FRONT_CENTER:
@@ -437,11 +465,11 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
             letters = 'LL'
 
         for char in letters:
-            daisyRotResult['solution'], encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, char)
 
-    daisyRotResult['daisyCubeList'] = encodedCube
+    result['daisyCubeList'] = encodedCube
 
-    return daisyRotResult
+    return result
 
 def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     """ Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. """
@@ -685,9 +713,7 @@ def _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, initialEdge, m
 
 def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     '''Moves correct top cube to correct bottom cube'''
-    result = {}
-    result['solution'] = solution
-    result['cube'] = encodedCube
+    result = argsResult(encodedCube, solution)
     movementList = ''
 
     if cubeLctn == TOP_LWR_L_EDGE['Value']: #4
@@ -730,9 +756,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
 
 def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     '''Based on cube location, rotate bottom edge to top edge'''
-    result = {}
-    result['cube'] = encodedCube
-    result['solution'] = solution
+    result = argsResult(encodedCube, solution)
     movementList = ""
     value = cubeLocation
 
@@ -766,17 +790,17 @@ def _findBottomEdge(encodedCube, zCube, yCube, xCube):
     triangulatedBottomEdge = {rcl[zCube], rcl[yCube], rcl[xCube]}
 
     #EDGES WITH TOP THEN SIDE AND THEN FACE (Ordered, for orientation with bottom)
-    TOP_LWR_R_EDGE = {'Value': 1, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
-    TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
     TOP_UPR_L_EDGE = {'Value': 3, 'Colors': {rcl[TOP_UPPER_PORT_EDGE], rcl[LEFT_UPPER_PORT_EDGE], rcl[BACK_UPPER_STBD_EDGE]}}
+    TOP_UPR_R_EDGE = {'Value': 2, 'Colors': {rcl[TOP_UPPER_STBD_EDGE], rcl[BACK_UPPER_PORT_EDGE], rcl[RIGHT_UPPER_STBD_EDGE]}}
     TOP_LWR_L_EDGE = {'Value': 4, 'Colors': {rcl[TOP_LOWER_PORT_EDGE], rcl[FRONT_UPPER_PORT_EDGE], rcl[LEFT_UPPER_STBD_EDGE]}}
-    
+    TOP_LWR_R_EDGE = {'Value': 1, 'Colors': {rcl[TOP_LOWER_STBD_EDGE], rcl[RIGHT_UPPER_PORT_EDGE], rcl[FRONT_UPPER_STBD_EDGE]}}
+
     #EDGES WITH BOTTOM THEN FACE AND THEN SIDE (Ordered)
-    BTTM_LWR_R_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
-    BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
     BTTM_UPR_L_EDGE = {'Value': 7, 'Colors': {rcl[BOTTOM_UPPER_PORT_EDGE], rcl[FRONT_LOWER_PORT_EDGE], rcl[LEFT_LOWER_STBD_EDGE]}}
+    BTTM_UPR_R_EDGE = {'Value': 6, 'Colors': {rcl[BOTTOM_UPPER_STBD_EDGE], rcl[RIGHT_LOWER_PORT_EDGE], rcl[FRONT_LOWER_STBD_EDGE]}}
     BTTM_LWR_L_EDGE = {'Value': 8, 'Colors': {rcl[BOTTOM_LOWER_PORT_EDGE], rcl[LEFT_LOWER_PORT_EDGE], rcl[BACK_LOWER_STBD_EDGE]}}
-    
+    BTTM_LWR_R_EDGE = {'Value': 5, 'Colors': {rcl[BOTTOM_LOWER_STBD_EDGE], rcl[BACK_LOWER_PORT_EDGE], rcl[RIGHT_LOWER_STBD_EDGE]}}
+
     EdgeList = (TOP_UPR_L_EDGE, TOP_UPR_R_EDGE, TOP_LWR_L_EDGE, TOP_LWR_R_EDGE, BTTM_LWR_L_EDGE, BTTM_LWR_R_EDGE, BTTM_UPR_L_EDGE, BTTM_UPR_R_EDGE)
 
     EdgeNumber = 0
@@ -849,9 +873,7 @@ def _unalighedMiddleEdge(encodedCube, solution, result, cubeLctn, initialEdge, m
 
 def _moveMiddleEdgeToTopSide(encodedCube, solution, cubeLocation):
     '''Based on cube location, rotate bottom edge to top edge'''
-    result = {}
-    result['cube'] = encodedCube
-    result['solution'] = solution
+    result = argsResult(encodedCube, solution)
     movementList = ""
     value = cubeLocation
 
@@ -882,9 +904,7 @@ def _moveMiddleEdgeToTopSide(encodedCube, solution, cubeLocation):
 
 def _topToMiddleEdgeAlgorithm(encodedCube,solution,cubeLctn,colorMarker):
     '''Moves correct top cube to correct middle cube'''
-    result = {}
-    result['solution'] = solution
-    result['cube'] = encodedCube
+    result = argsResult(encodedCube, solution)
     movementList = ''
 
     if cubeLctn == TOP_FRONT_SIDE['Value']:
@@ -973,9 +993,7 @@ def _solveEdges(encodedCube, solution, cubeLocation, correctLocation, edgeList, 
     '''Moves unaligned edges (anywhere) to top, rotates to corresponding top, then moves into bottom or middle.
     This is one of the main working methods in solving the bottom and middle edges.'''
 
-    result = {}
-    result['cube'] = encodedCube
-    result['solution'] = solution
+    result = argsResult(encodedCube, solution)
     result['cubeLocation'] = cubeLocation
     edgeSolutionSet = {}
 
@@ -1039,6 +1057,117 @@ def _setMarker(encodedCube,edge1,edge2, center):
         colorMarker = 0
         
     return colorMarker
+
+"""
+#########################################        
+########### Solving Top Cross ###########
+#########################################
+"""
+#Check for (and solve) Top Cross
+def _solveTopCross(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+    
+    if (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_PORT] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
+        return result
+    
+    else:
+        result =  _checkForTopBar(encodedCube, solution)
+      
+    return result
+    
+#Check for bar
+def _checkForTopBar(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+    
+    #Horizontal Bar
+    if (encodedCube[TOP_PORT] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
+        result = _topAlgorithms(encodedCube, solution, 5)
+        
+    #Vertical Bar
+    elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
+        result = _topAlgorithms(encodedCube, solution, 6)
+        
+    else:
+        #Check for Arm or single cube
+        result = _checkForTopArm(encodedCube, solution)
+    
+    return result
+        
+#Check for arm
+def _checkForTopArm(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+    flag = SINGLE_CUBE #Single Cube Case
+    
+    #Lower Left Arm
+    if (encodedCube[TOP_PORT] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
+        flag = ARM_LOWER_LEFT
+    
+    #Lower Right Arm
+    elif (encodedCube[TOP_STBD] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
+        flag = ARM_LOWER_RIGHT
+        
+    #Upper Right Arm
+    elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
+        flag = ARM_UPPER_RIGHT
+        
+    #Upper Left Arm (desired)
+    elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_PORT] == encodedCube[TOP_CENTER]):
+        flag = ARM_UPPER_LEFT
+        
+    if flag == SINGLE_CUBE: #This is recursive.. that is scary.. 
+
+        result = _topAlgorithms(encodedCube, solution, flag)
+        
+        result = _checkForTopArm(result['cube'], result['solution'])
+        return result
+        
+    result = _topAlgorithms(result['cube'], result['solution'], flag)
+    
+    return result
+        
+#Top Cross Algorithms
+def _topAlgorithms(encodedCube, solution, flag):
+    result = argsResult(encodedCube, solution)
+    movementList = ''
+    
+    if flag == ARM_LOWER_LEFT: #Bottom Left Arm
+        movementList = 'U' #Now Left Arm
+        flag = ARM_UPPER_LEFT
+        
+    elif flag == ARM_LOWER_RIGHT: #Bottom Right Arm
+        movementList = 'UU' #Now Left Arm
+        flag = ARM_UPPER_LEFT
+
+    elif flag == ARM_UPPER_RIGHT: #Upper Right Arm
+        movementList = 'u' #Now Left Arm
+        flag = ARM_UPPER_LEFT
+        
+    if flag == ARM_UPPER_LEFT: # Upper Left Arm
+        flag = HORITZONAL_BAR
+        movementList = movementList + 'FRUruf' #Now a Horizontal Bar    
+
+    if flag == HORITZONAL_BAR or flag == SINGLE_CUBE: #Horizontal Bar (or single cube)
+        movementList = movementList + 'FRUruf' #Now a Top Cross (or an arm in the case of single cube)
+        
+    elif flag == VERTICAL_BAR: #Vertical Bar
+        movementList = 'UFRUruf'
+        
+    for letter in movementList:
+        result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
+        encodedCube = result['cube']
+
+    return result
+
+"""
+####################################################################################        
+############ Shared Function for Result{} setting ############
+#################################################################################### 
+"""
+def argsResult(encodedCube, solution):
+    result = {}
+    result['cube'] = encodedCube
+    result['solution'] = solution
+    return result
 
 """
 ####################################################################################        
