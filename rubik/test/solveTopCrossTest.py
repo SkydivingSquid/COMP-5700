@@ -20,3 +20,15 @@ class solveTopCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
+    def test_solve_052_checkForTopBar(self):
+        cube = 'gyybbbbbbogorrrrrryybggggggrbrooooooyogyyyyrbwwwwwwwww'
+        solution = ''
+        
+        expectedResult = {}
+        expectedResult['cube'] = 'gyybbbbbbogorrrrrryybggggggrbrooooooyogyyyyrbwwwwwwwww'
+        expectedResult['solution'] = ''
+        
+        actualResult= solve._checkForTopBar(cube, solution)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        
