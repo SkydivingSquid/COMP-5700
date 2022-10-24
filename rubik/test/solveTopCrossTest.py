@@ -13,7 +13,7 @@ class solveTopCrossTest(unittest.TestCase):
         solution = ''
     
         expectedResult = {}
-        expectedResult['cube'] = list('rrybbbbbbgobrrrrrrybrggggggggbooooooyyoyyyyyowwwwwwwww')
+        expectedResult['cube'] = 'rrybbbbbbgobrrrrrrybrggggggggbooooooyyoyyyyyowwwwwwwww'
         expectedResult['solution'] = ''
     
         actualResult= solve._solveTopCross(cube, solution)
