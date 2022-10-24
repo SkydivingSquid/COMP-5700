@@ -104,7 +104,6 @@ ARM_UPPER_LEFT = 4
 HORITZONAL_BAR = 5
 VERTICAL_BAR = 6
 
-
 """
 #############################################################        
 ############### Main Method For Solving Cube ################
