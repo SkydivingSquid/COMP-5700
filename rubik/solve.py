@@ -116,9 +116,9 @@ def _solve(parms):
         FinalResult = _solveBottomFace(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 3
 
         FinalResult = _solveMiddleLayer(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 4
-
-        FinalResult = _solveTopCross(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 5
         
+        FinalResult= _solveTopCross(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 5
+
         result['rotations'] = FinalResult.get('solution')
         
         result['rotations'] = _stringOptimizer(result['rotations'])
@@ -1028,18 +1028,6 @@ def _setMarker(encodedCube,edge1,edge2, center):
         
     return colorMarker
 
-
-"""
-####################################################################################        
-############ Shared Function for Result{} setting ############
-#################################################################################### 
-"""
-def argsResult(encodedCube, solution):
-    result = {}
-    result['cube'] = encodedCube
-    result['solution'] = solution
-    return result
-
 """
 #########################################        
 ########### Solving Top Cross ###########
@@ -1056,55 +1044,55 @@ def _solveTopCross(encodedCube, solution):
         result =  _checkForTopBar(encodedCube, solution)
       
     return result
-
+    
 #Check for bar
 def _checkForTopBar(encodedCube, solution):
     result = argsResult(encodedCube, solution)
-
+    
     #Horizontal Bar
     if (encodedCube[TOP_PORT] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
         result = _topAlgorithms(encodedCube, solution, 5)
-    
+        
     #Vertical Bar
     elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
         result = _topAlgorithms(encodedCube, solution, 6)
-    
+        
     else:
         #Check for Arm or single cube
         result = _checkForTopArm(encodedCube, solution)
-
+    
     return result
-
+        
 #Check for arm
 def _checkForTopArm(encodedCube, solution):
     result = argsResult(encodedCube, solution)
     flag = 0 #Single Cube Case
-
+    
     #Lower Left Arm
     if (encodedCube[TOP_PORT] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
         flag = 1
-
+    
     #Lower Right Arm
     elif (encodedCube[TOP_STBD] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
         flag = 2
-
+        
     #Upper Right Arm
     elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
         flag = 3
-
+        
     #Upper Left Arm (desired)
     elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_PORT] == encodedCube[TOP_CENTER]):
         flag = 4
+        
+    if flag == 0: #This is recursive.. that is scary.. 
 
-    if flag == -1: #This is recursive..  
-    
         result = _topAlgorithms(encodedCube, solution, flag)
-    
+        
         result = _checkForTopArm(result['cube'], result['solution'])
         return result
-
+        
     result = _topAlgorithms(result['cube'], result['solution'], flag)
-
+    
     return result
         
 #Top Cross Algorithms
@@ -1139,7 +1127,17 @@ def _topAlgorithms(encodedCube, solution, flag):
         encodedCube = result['cube']
 
     return result
-     
+
+"""
+####################################################################################        
+############ Shared Function for Result{} setting ############
+#################################################################################### 
+"""
+def argsResult(encodedCube, solution):
+    result = {}
+    result['cube'] = encodedCube
+    result['solution'] = solution
+    return result
 
 """
 ####################################################################################        
