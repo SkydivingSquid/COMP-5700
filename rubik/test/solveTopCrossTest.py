@@ -34,11 +34,11 @@ class solveTopCrossTest(unittest.TestCase):
     
       
     def test_solve_053_checkForTopArm(self):
-        cube = 'yyobbbbbbbygrrrrrroryggggggbbgooooooryyyyorgywwwwwwwww'
+        cube = 'bygbbbbbboryrrrrrrbbgggggggyyoooooooryrgyyyoywwwwwwwww'
         solution = ''
         
         expectedResult = {}
-        expectedResult['cube'] = 'yyobbbbbbbygrrrrrroryggggggbbgooooooryyyyorgywwwwwwwww'
+        expectedResult['cube'] = 'bygbbbbbboryrrrrrrbbgggggggyyoooooooryrgyyyoywwwwwwwww'
         expectedResult['solution'] = ''
         
         actualResult= solve._checkForTopArm(cube, solution)
