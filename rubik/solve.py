@@ -117,6 +117,8 @@ def _solve(parms):
 
         FinalResult = _solveMiddleLayer(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 4
 
+        FinalResult = _solveTopCross(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 5
+        
         result['rotations'] = FinalResult.get('solution')
         
         result['rotations'] = _stringOptimizer(result['rotations'])
@@ -1049,9 +1051,9 @@ def _solveTopCross(encodedCube, solution):
     
     if (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_PORT] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
         return result
-    #
-    # else:
-    #     result =  _checkForTopBar(encodedCube, solution)
+    
+    else:
+        result =  _checkForTopBar(encodedCube, solution)
       
     return result
 
@@ -1061,17 +1063,17 @@ def _checkForTopBar(encodedCube, solution):
 
     #Horizontal Bar
     if (encodedCube[TOP_PORT] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
-    #     result = _topAlgorithms(encodedCube, solution, 5)
-    #
-    # #Vertical Bar
-    # elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
-    #     result = _topAlgorithms(encodedCube, solution, 6)
-    #
-    # else:
-    #     #Check for Arm or single cube
-    #     result = _checkForTopArm(encodedCube, solution)
+        result = _topAlgorithms(encodedCube, solution, 5)
+    
+    #Vertical Bar
+    elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
+        result = _topAlgorithms(encodedCube, solution, 6)
+    
+    else:
+        #Check for Arm or single cube
+        result = _checkForTopArm(encodedCube, solution)
 
-        return result
+    return result
 
 #Check for arm
 def _checkForTopArm(encodedCube, solution):
@@ -1094,17 +1096,49 @@ def _checkForTopArm(encodedCube, solution):
     elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_PORT] == encodedCube[TOP_CENTER]):
         flag = 4
 
-    # if flag == -1: #This is recursive..  
-    #
-    #     result = _topAlgorithms(encodedCube, solution, flag)
-    #
-    #     result = _checkForTopArm(result['cube'], result['solution'])
-    #     return result
+    if flag == -1: #This is recursive..  
+    
+        result = _topAlgorithms(encodedCube, solution, flag)
+    
+        result = _checkForTopArm(result['cube'], result['solution'])
+        return result
 
-    # result = _topAlgorithms(result['cube'], result['solution'], flag)
+    result = _topAlgorithms(result['cube'], result['solution'], flag)
 
     return result
+        
+#Top Cross Algorithms
+def _topAlgorithms(encodedCube, solution, flag):
+    result = argsResult(encodedCube, solution)
+    movementList = ''
     
+    if flag == 1: #Bottom Left Arm
+        movementList = 'U' #Now Left Arm
+        flag = 4
+        
+    elif flag == 2: #Bottom Right Arm
+        movementList = 'UU' #Now Left Arm
+        flag = 4
+
+    elif flag == 3: #Upper Right Arm
+        movementList = 'u' #Now Left Arm
+        flag = 4
+        
+    if flag == 4: # Upper Left Arm
+        flag = 5
+        movementList = movementList + 'FRUruf' #Now a Horizontal Bar    
+
+    if flag == 5 or flag == 0: #Horizontal Bar (or single cube)
+        movementList = movementList + 'FRUruf' #Now a Top Cross (or an arm in the case of single cube)
+        
+    elif flag == 6: #Vertical Bar
+        movementList = 'UFRUruf'
+        
+    for letter in movementList:
+        result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
+        encodedCube = result['cube']
+
+    return result
      
 
 """
