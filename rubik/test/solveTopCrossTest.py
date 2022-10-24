@@ -31,4 +31,16 @@ class solveTopCrossTest(unittest.TestCase):
         actualResult= solve._checkForTopBar(cube, solution)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+    
+      
+    def test_solve_053_checkForTopArm(self):
+        cube = 'yyobbbbbbbygrrrrrroryggggggbbgooooooryyyyorgywwwwwwwww'
+        solution = ''
         
+        expectedResult = {}
+        expectedResult['cube'] = 'yyobbbbbbbygrrrrrroryggggggbbgooooooryyyyorgywwwwwwwww'
+        expectedResult['solution'] = ''
+        
+        actualResult= solve._checkForTopArm(cube, solution)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
