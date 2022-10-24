@@ -1038,6 +1038,8 @@ def argsResult(encodedCube, solution):
     result['solution'] = solution
     return result
 
+
+
 """
 ####################################################################################        
 ############ Rotation Function and Updates to Cube and Solution String ############
