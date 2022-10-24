@@ -1055,6 +1055,23 @@ def _solveTopCross(encodedCube, solution):
       
     return result
 
+#Check for bar
+def _checkForTopBar(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+
+    #Horizontal Bar
+    if (encodedCube[TOP_PORT] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
+    #     result = _topAlgorithms(encodedCube, solution, 5)
+    #
+    # #Vertical Bar
+    # elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
+    #     result = _topAlgorithms(encodedCube, solution, 6)
+    #
+    # else:
+    #     #Check for Arm or single cube
+    #     result = _checkForTopArm(encodedCube, solution)
+
+        return result
 
 """
 ####################################################################################        
