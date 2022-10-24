@@ -1,4 +1,5 @@
 import rubik.cube as rubik
+import hashlib
 
 """
 ###############################################     
@@ -112,6 +113,8 @@ VERTICAL_BAR = 6
 def _solve(parms):
     """ Returns the solutions needed to solve a cube and the status of input. """
     result = {}
+    result['rotations'] = ''
+    result['status'] = ''
     FinalResult = {}
     encodedCube = parms.get('cube', None)
 
@@ -131,9 +134,28 @@ def _solve(parms):
         result['rotations'] = FinalResult.get('solution')
         
         result['rotations'] = _stringOptimizer(result['rotations'])
+        
+        result['token'] = _hashResult(FinalResult.get('cube'), result['rotations'])
     
     result['status'] = status
+    
     return result
+
+"""
+########################################    
+############### Hashing ################
+########################################
+"""
+def _hashResult(encodedCube, solution):
+
+    itemToTokenize = ''.join(encodedCube) + solution
+
+    sha256Hash = hashlib.sha256()
+    sha256Hash.update(itemToTokenize.encode())
+    fullToken = sha256Hash.hexdigest()
+    subToken = fullToken[-8:] #return last 8 char of hash token
+
+    return subToken
 
 """
 ######################################################    
