@@ -117,7 +117,6 @@ def _solve(parms):
 
         FinalResult = _solveMiddleLayer(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 4
 
-        #At some point, maybe implement a solution optimizer here.
         result['rotations'] = FinalResult.get('solution')
         
         result['rotations'] = _stringOptimizer(result['rotations'])
@@ -263,12 +262,10 @@ def _bottomCrossToDaisy(encodedCube, result):
 
 def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves unaligned bottom pieces to top to begin forming a Daisy """
-    bottomToDaisyResult = {}
-    bottomToDaisyResult['solution'] = solution
-    bottomToDaisyResult['rotatedCubeList'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     while encodedCube[bottomPetalIndex] == encodedCube[topPetalIndex]:
-        bottomToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, bottomToDaisyResult, 'U')
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'U')
 
     if encodedCube[bottomPetalIndex] != encodedCube[topPetalIndex]:
 
@@ -285,86 +282,82 @@ def _unalignedBottomToDaisy(bottomPetalIndex: int, topPetalIndex: int, solution,
             letters = 'BB'
 
         for char in letters:
-            bottomToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, bottomToDaisyResult, char)
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, char)
 
-        bottomToDaisyResult['rotatedCubeList'] = encodedCube
-    return bottomToDaisyResult
+        result['rotatedCubeList'] = encodedCube
+    return result
 
 def _horizontalCubesToDaisy(horizontalPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves horizontal pieces to top to begin forming a Daisy """
-    horizontalToDaisyResult = {}
-    horizontalToDaisyResult['solution'] = solution
-    horizontalToDaisyResult['rotatedCubeList'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     while encodedCube[horizontalPetalIndex] == encodedCube[topPetalIndex]:
-        horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'U')
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'U')
 
     if encodedCube[horizontalPetalIndex] != encodedCube[topPetalIndex]:
 
         if horizontalPetalIndex == FRONT_PORT:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'l')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'l')
 
         if horizontalPetalIndex == FRONT_STBD:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'R')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'R')
 
         if horizontalPetalIndex == RIGHT_PORT:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'f')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'f')
 
         if horizontalPetalIndex == RIGHT_STBD:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'B')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'B')
 
         if horizontalPetalIndex == BACK_PORT:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'r')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'r')
 
         if horizontalPetalIndex == BACK_STBD:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'L')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'L')
 
         if horizontalPetalIndex == LEFT_PORT:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'b')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'b')
 
         if horizontalPetalIndex == LEFT_STBD:
-            horizontalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, horizontalToDaisyResult, 'F')
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'F')
 
-        horizontalToDaisyResult['rotatedCubeList'] = encodedCube
-    return horizontalToDaisyResult
+        result['rotatedCubeList'] = encodedCube
+    return result
 
 def _verticalCubesToDaisy(verticalPetalIndex: int, topPetalIndex: int, solution, encodedCube):
     """ Moves vertical pieces to top to begin forming a Daisy """
-    veritcalToDaisyResult = {}
-    veritcalToDaisyResult['solution'] = solution
-    veritcalToDaisyResult['encodedCube'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     while encodedCube[verticalPetalIndex] == encodedCube[topPetalIndex]:
-        veritcalToDaisyResult['solution'], encodedCube = _functionalRotations(encodedCube, veritcalToDaisyResult, 'U')
+        result['solution'], encodedCube = _functionalRotations(encodedCube, result, 'U')
 
     if encodedCube[verticalPetalIndex] != encodedCube[topPetalIndex]:
 
         if verticalPetalIndex == FRONT_UPPER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "lfLDFF")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "lfLDFF")
 
         if verticalPetalIndex == FRONT_LOWER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "FFlfLDFF")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "FFlfLDFF")
 
         if verticalPetalIndex == RIGHT_UPPER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "frFDRR")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "frFDRR")
 
         if verticalPetalIndex == RIGHT_LOWER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "RRfrFDRR")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "RRfrFDRR")
 
         if verticalPetalIndex == BACK_UPPER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "rbRDBB")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "rbRDBB")
 
         if verticalPetalIndex == BACK_LOWER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "BBrbRDBB")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "BBrbRDBB")
 
         if verticalPetalIndex == LEFT_UPPER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "blBDLL")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "blBDLL")
 
         if verticalPetalIndex == LEFT_LOWER_MIDDLE:
-            encodedCube, veritcalToDaisyResult['solution'] = _verticalCubeIntoDaisy(encodedCube, veritcalToDaisyResult, "LLblBDLL")
+            encodedCube, result['solution'] = _verticalCubeIntoDaisy(encodedCube, result, "LLblBDLL")
 
-        veritcalToDaisyResult['rotatedCubeList'] = encodedCube
-    return veritcalToDaisyResult
+        result['rotatedCubeList'] = encodedCube
+    return result
 
 """  
 ########################################################       
@@ -413,22 +406,18 @@ def _daisySolution(encodedCube):
 
 def _daisyURotations(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates U until alignment found. """
-    daisyResult = {}
-    daisyResult['solution'] = solution
-    daisyResult['daisyCubeList'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     while (encodedCube[uniqueCenter]!= encodedCube[topMiddle] or encodedCube[adjacentDaisy] != encodedCube[BOTTOM_CENTER]):
 
-        daisyResult['solution'], encodedCube  = _functionalRotations(encodedCube, daisyResult, 'U')
+        result['solution'], encodedCube  = _functionalRotations(encodedCube, result, 'U')
 
-    daisyResult['daisyCubeList'] = encodedCube
-    return daisyResult
+    result['daisyCubeList'] = encodedCube
+    return result
 
 def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
     """ Sub-method for Integrated Daisy Method. Rotates the block a specific direction depending on its uniqueCenter. """
-    daisyRotResult = {}
-    daisyRotResult['solution'] = solution
-    daisyRotResult['daisyCubeList'] = encodedCube
+    result = argsResult(encodedCube, solution)
 
     if encodedCube[uniqueCenter] == encodedCube[topMiddle]:
         if uniqueCenter == FRONT_CENTER:
@@ -444,11 +433,11 @@ def _daisy_Rotations(uniqueCenter: int, topMiddle: int, encodedCube, solution):
             letters = 'LL'
 
         for char in letters:
-            daisyRotResult['solution'], encodedCube = _functionalRotations(encodedCube, daisyRotResult, char)
+            result['solution'], encodedCube = _functionalRotations(encodedCube, result, char)
 
-    daisyRotResult['daisyCubeList'] = encodedCube
+    result['daisyCubeList'] = encodedCube
 
-    return daisyRotResult
+    return result
 
 def _daisyIntegrated(uniqueCenter: int, topMiddle: int, adjacentDaisy: int, encodedCube, solution):
     """ Rotation method for _DaisySolution. This rotates U when not aligned and the top to bottom when aligned. """
@@ -692,9 +681,7 @@ def _unalighedBottomEdge(encodedCube, solution, result, cubeLctn, initialEdge, m
 
 def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
     '''Moves correct top cube to correct bottom cube'''
-    result = {}
-    result['solution'] = solution
-    result['cube'] = encodedCube
+    result = argsResult(encodedCube, solution)
     movementList = ''
 
     if cubeLctn == TOP_LWR_L_EDGE['Value']: #4
@@ -737,9 +724,7 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
 
 def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
     '''Based on cube location, rotate bottom edge to top edge'''
-    result = {}
-    result['cube'] = encodedCube
-    result['solution'] = solution
+    result = argsResult(encodedCube, solution)
     movementList = ""
     value = cubeLocation
 
@@ -856,9 +841,7 @@ def _unalighedMiddleEdge(encodedCube, solution, result, cubeLctn, initialEdge, m
 
 def _moveMiddleEdgeToTopSide(encodedCube, solution, cubeLocation):
     '''Based on cube location, rotate bottom edge to top edge'''
-    result = {}
-    result['cube'] = encodedCube
-    result['solution'] = solution
+    result = argsResult(encodedCube, solution)
     movementList = ""
     value = cubeLocation
 
@@ -889,9 +872,7 @@ def _moveMiddleEdgeToTopSide(encodedCube, solution, cubeLocation):
 
 def _topToMiddleEdgeAlgorithm(encodedCube,solution,cubeLctn,colorMarker):
     '''Moves correct top cube to correct middle cube'''
-    result = {}
-    result['solution'] = solution
-    result['cube'] = encodedCube
+    result = argsResult(encodedCube, solution)
     movementList = ''
 
     if cubeLctn == TOP_FRONT_SIDE['Value']:
@@ -980,9 +961,7 @@ def _solveEdges(encodedCube, solution, cubeLocation, correctLocation, edgeList, 
     '''Moves unaligned edges (anywhere) to top, rotates to corresponding top, then moves into bottom or middle.
     This is one of the main working methods in solving the bottom and middle edges.'''
 
-    result = {}
-    result['cube'] = encodedCube
-    result['solution'] = solution
+    result = argsResult(encodedCube, solution)
     result['cubeLocation'] = cubeLocation
     edgeSolutionSet = {}
 
@@ -1046,6 +1025,18 @@ def _setMarker(encodedCube,edge1,edge2, center):
         colorMarker = 0
         
     return colorMarker
+
+
+"""
+####################################################################################        
+############ Shared Function for Result{} setting ############
+#################################################################################### 
+"""
+def argsResult(encodedCube, solution):
+    result = {}
+    result['cube'] = encodedCube
+    result['solution'] = solution
+    return result
 
 """
 ####################################################################################        
