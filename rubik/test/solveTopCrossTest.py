@@ -45,7 +45,7 @@ class solveTopCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         
-     def test_solve_054_SolvingTheTopCross_ComplexScramble(self): #Integrated Test
+    def test_solve_054_SolvingTheTopCross_ComplexScramble(self): #Integrated Test
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'obyybbowggoworroybgwgggwyyryyygorwrwrorbygbrobbwwwgbor'
