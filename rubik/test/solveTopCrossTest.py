@@ -20,7 +20,6 @@ class solveTopCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
 
-
     def test_solve_052_checkForTopBar(self):
         cube = 'gyybbbbbbogorrrrrryybggggggrbrooooooyogyyyyrbwwwwwwwww'
         solution = ''
@@ -60,3 +59,5 @@ class solveTopCrossTest(unittest.TestCase):
         actualResult = solve._solve(inputDict)
         self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
         self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+        
+        

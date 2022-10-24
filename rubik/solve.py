@@ -94,6 +94,15 @@ MIDL_RIGHT_EDGE = {'Value': 6}
 MIDL_BACK_EDGE = {'Value': 7}
 MIDL_LEFT_EDGE = {'Value': 8}
 
+#FLAGS
+SINGLE_CUBE = 0 
+ARM_LOWER_LEFT = 1
+ARM_LOWER_RIGHT = 2 
+ARM_UPPER_RIGHT = 3
+ARM_UPPER_LEFT = 4
+HORITZONAL_BAR = 5
+VERTICAL_BAR = 6
+
 
 """
 #############################################################        
@@ -1066,25 +1075,25 @@ def _checkForTopBar(encodedCube, solution):
 #Check for arm
 def _checkForTopArm(encodedCube, solution):
     result = argsResult(encodedCube, solution)
-    flag = 0 #Single Cube Case
+    flag = SINGLE_CUBE #Single Cube Case
     
     #Lower Left Arm
     if (encodedCube[TOP_PORT] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
-        flag = 1
+        flag = ARM_LOWER_LEFT
     
     #Lower Right Arm
     elif (encodedCube[TOP_STBD] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_CENTER]):
-        flag = 2
+        flag = ARM_LOWER_RIGHT
         
     #Upper Right Arm
     elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
-        flag = 3
+        flag = ARM_UPPER_RIGHT
         
     #Upper Left Arm (desired)
     elif (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_PORT] == encodedCube[TOP_CENTER]):
-        flag = 4
+        flag = ARM_UPPER_LEFT
         
-    if flag == 0: #This is recursive.. that is scary.. 
+    if flag == SINGLE_CUBE: #This is recursive.. that is scary.. 
 
         result = _topAlgorithms(encodedCube, solution, flag)
         
@@ -1100,26 +1109,26 @@ def _topAlgorithms(encodedCube, solution, flag):
     result = argsResult(encodedCube, solution)
     movementList = ''
     
-    if flag == 1: #Bottom Left Arm
+    if flag == ARM_LOWER_LEFT: #Bottom Left Arm
         movementList = 'U' #Now Left Arm
-        flag = 4
+        flag = ARM_UPPER_LEFT
         
-    elif flag == 2: #Bottom Right Arm
+    elif flag == ARM_LOWER_RIGHT: #Bottom Right Arm
         movementList = 'UU' #Now Left Arm
-        flag = 4
+        flag = ARM_UPPER_LEFT
 
-    elif flag == 3: #Upper Right Arm
+    elif flag == ARM_UPPER_RIGHT: #Upper Right Arm
         movementList = 'u' #Now Left Arm
-        flag = 4
+        flag = ARM_UPPER_LEFT
         
-    if flag == 4: # Upper Left Arm
-        flag = 5
+    if flag == ARM_UPPER_LEFT: # Upper Left Arm
+        flag = HORITZONAL_BAR
         movementList = movementList + 'FRUruf' #Now a Horizontal Bar    
 
-    if flag == 5 or flag == 0: #Horizontal Bar (or single cube)
+    if flag == HORITZONAL_BAR or flag == SINGLE_CUBE: #Horizontal Bar (or single cube)
         movementList = movementList + 'FRUruf' #Now a Top Cross (or an arm in the case of single cube)
         
-    elif flag == 6: #Vertical Bar
+    elif flag == VERTICAL_BAR: #Vertical Bar
         movementList = 'UFRUruf'
         
     for letter in movementList:
