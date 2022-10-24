@@ -1038,6 +1038,22 @@ def argsResult(encodedCube, solution):
     result['solution'] = solution
     return result
 
+"""
+#########################################        
+########### Solving Top Cross ###########
+#########################################
+"""
+#Check for (and solve) Top Cross
+def _solveTopCross(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+    
+    if (encodedCube[TOP_UPPER_MIDDLE] == encodedCube[TOP_PORT] == encodedCube[TOP_LOWER_MIDDLE] == encodedCube[TOP_STBD] == encodedCube[TOP_CENTER]):
+        return result
+    #
+    # else:
+    #     result =  _checkForTopBar(encodedCube, solution)
+      
+    return result
 
 
 """
