@@ -1,5 +1,6 @@
 import rubik.cube as rubik
 import hashlib
+import random
 
 """
 ###############################################     
@@ -152,8 +153,11 @@ def _hashResult(encodedCube, solution):
     sha256Hash = hashlib.sha256()
     sha256Hash.update(itemToTokenize.encode())
     fullToken = sha256Hash.hexdigest()
-    subToken = fullToken[-8:] #return last 8 char of hash token
-
+    # Selects a random starting point in fullToken
+    randToken = random.randint(1, len(fullToken)-8) 
+    #selects a random 8 char substring of fullToken 
+    subToken = fullToken[randToken:randToken+8] 
+    #return a 8 char of hash token
     return subToken
 
 """
