@@ -19,10 +19,20 @@ class solveTopSurfaceTest(unittest.TestCase):
         actualResult= solve._solveTopFace(cube, solution)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
-
+        
+    def test_solve_051a_checkForFlag(self):
+        cube = 'robbbbbbbyryrrrrrrggrggggggybyoooooobyoyyygyowwwwwwwww'
     
+        expectedResult = {}
+        expectedResult['corner'] = 0
+        expectedResult['flag'] = 'fish'
     
-    def test_solve_051a_SolvingTheFace_ComplexScramble(self): #Integrated Test
+        actualResult = {} 
+        actualResult['corner'], actualResult['flag'] = solve._countCorners(cube)
+        self.assertEqual(expectedResult.get('corner'), actualResult.get('corner'))
+        self.assertEqual(expectedResult.get('flag'), actualResult.get('flag'))
+        
+    def test_solve_052a_SolvingTheFace_ComplexScramble(self): #Integrated Test
         inputDict = {}
         inputDict['op'] = 'solve'
         inputDict['cube'] = 'wgbgbrooboyobrgowygygogbrbrybroowwyyrowwyrgrwgwygwrbyb'
