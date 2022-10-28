@@ -130,7 +130,7 @@ def _solve(parms):
         FinalResult = _solveMiddleLayer(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 4
         
         FinalResult= _solveTopCross(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 5
-
+        
         result['rotations'] = FinalResult.get('solution')
         
         result['rotations'] = _stringOptimizer(result['rotations'])
@@ -1147,6 +1147,14 @@ def _topAlgorithms(encodedCube, solution, flag):
         encodedCube = result['cube']
 
     return result
+
+"""
+########################################        
+########### Solving Top Face ###########
+########################################
+"""
+
+        
 
 """
 ####################################################################################        

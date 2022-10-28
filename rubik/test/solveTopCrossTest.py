@@ -6,7 +6,7 @@ Created on Oct 24, 2022
 import unittest
 import rubik.solve as solve
 
-class solveTopCrossTest(unittest.TestCase):
+class solveTopEdgesTest(unittest.TestCase):
     
     def test_solve_051_checkForTopCross(self):
         cube = 'rrybbbbbbgobrrrrrrybrggggggggbooooooyyoyyyyyowwwwwwwww'
@@ -44,20 +44,21 @@ class solveTopCrossTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
     
-    def test_solve_054_SolvingTheTopCross_ComplexScramble(self): #Integrated Test
-        inputDict = {}
-        inputDict['op'] = 'solve'
-        inputDict['cube'] = 'obyybbowggoworroybgwgggwyyryyygorwrwrorbygbrobbwwwgbor'
-    
-        expectedResult = {}
-        expectedResult['cube'] = list('ybybbbbbboogrrrrrryryggggggbgoooooooryryyygybwwwwwwwww')
-        
-        #Optimized Version 
-        expectedResult['solution'] = 'LLUlFFlfLDFrFDRRFFURRBBULLruRUUfuuFUfuFUbuBUUruuRUruRUbuBluLFufulULuurURUBububUBULululULUFuRUrufUUFRUruRUruf'
-        expectedResult['status'] = 'ok'
-    
-        actualResult = solve._solve(inputDict)
-        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
-        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
-        
+    # def test_solve_054_SolvingTheTopCross_ComplexScramble(self): #Integrated Test
+    #     inputDict = {}
+    #     inputDict['op'] = 'solve'
+    #     inputDict['cube'] = 'obyybbowggoworroybgwgggwyyryyygorwrwrorbygbrobbwwwgbor'
+    #
+    #     expectedResult = {}
+    #     expectedResult['cube'] = list('ybybbbbbboogrrrrrryryggggggbgoooooooryryyygybwwwwwwwww')
+    #
+    #     #Optimized Version 
+    #     expectedResult['solution'] = 'LLUlFFlfLDFrFDRRFFURRBBULLruRUUfuuFUfuFUbuBUUruuRUruRUbuBluLFufulULuurURUBububUBULululULUFuRUrufUUFRUruRUruf'
+    #     expectedResult['status'] = 'ok'
+    #
+    #     actualResult = solve._solve(inputDict)
+    #     self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+    #     self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
+    #
+
         
