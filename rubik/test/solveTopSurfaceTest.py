@@ -13,7 +13,7 @@ class solveTopSurfaceTest(unittest.TestCase):
         solution = ''
     
         expectedResult = {}
-        expectedResult['cube'] = 'robbbbbbbyryrrrrrrggrggggggybyoooooobyoyyygyowwwwwwwww'
+        expectedResult['cube'] = list('robbbbbbbyryrrrrrrggrggggggybyoooooobyoyyygyowwwwwwwww')
         expectedResult['solution'] = 'URUrURUUrUURUrURurURUUrUURUrURUUr'
     
         actualResult= solve._solveTopFace(cube, solution)
