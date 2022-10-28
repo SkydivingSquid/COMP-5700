@@ -9,12 +9,12 @@ import rubik.solve as solve
 class solveTopSurfaceTest(unittest.TestCase):
     
     def test_solve_050a_checkForTopFace(self):
-        cube = 'rrybbbbbbgobrrrrrrybrggggggggbooooooyyoyyyyyowwwwwwwww'
+        cube = 'robbbbbbbyryrrrrrrggrggggggybyoooooobyoyyygyowwwwwwwww'
         solution = ''
     
         expectedResult = {}
-        expectedResult['cube'] = list('robbbbbbbyryrrrrrrggrggggggybyoooooobyoyyygyowwwwwwwww')
-        expectedResult['solution'] = 'URUrURUUrUURUrURurURUUrUURUrURUUr'
+        expectedResult['cube'] = list('bogbbbbbborbrrrrrrrbrggggggggoooooooyyyyyyyyywwwwwwwww')
+        expectedResult['solution'] = 'URUrURUUrUURUrURUUrRUrURUUrUURUrURUUr'
     
         actualResult= solve._solveTopFace(cube, solution)
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
