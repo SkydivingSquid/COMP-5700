@@ -1228,7 +1228,6 @@ def _countCorners(encodedCube):
         flag = 'fish'
         
     return corners, flag
-        
 
 """
 ####################################################################################        
