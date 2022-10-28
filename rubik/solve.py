@@ -131,6 +131,8 @@ def _solve(parms):
         
         FinalResult= _solveTopCross(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 5
         
+        FinalResult= _solveTopFace(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 5a
+
         result['rotations'] = FinalResult.get('solution')
         
         result['rotations'] = _stringOptimizer(result['rotations'])
@@ -1154,6 +1156,78 @@ def _topAlgorithms(encodedCube, solution, flag):
 ########################################
 """
 
+def _solveTopFace(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+    movementList = ''
+    corners, flag = _countCorners(result['cube'])
+    while corners <=3: 
+        
+        #None case
+        if flag == 'noCorners':
+            movementList = _topFaceMovementCases(encodedCube, LEFT_UPPER_PORT_EDGE,FRONT_UPPER_PORT_EDGE,RIGHT_UPPER_PORT_EDGE,BACK_UPPER_PORT_EDGE)
+                
+        #One case
+        elif flag == 'doubleCorners':
+            movementList = _topFaceMovementCases(encodedCube, TOP_LOWER_PORT_EDGE,TOP_LOWER_STBD_EDGE,TOP_UPPER_STBD_EDGE,TOP_UPPER_PORT_EDGE)
+        
+        #Two Case
+        elif flag == 'fish':         
+            movementList = _topFaceMovementCases(encodedCube, FRONT_UPPER_PORT_EDGE,RIGHT_UPPER_PORT_EDGE, BACK_UPPER_PORT_EDGE,LEFT_UPPER_PORT_EDGE)
+        
+        movementList = movementList + 'RUrURUUr'
+        
+        for letter in movementList:
+            result['solution'], result['cube'] =  _functionalRotations(result['cube'], result, letter)
+            encodedCube = result['cube']
+        
+        #SETS FOR NEXT ITERATION
+        movementList = '' #reset
+        flag = '' #reset
+        corners, flag = _countCorners(encodedCube) #recount and find orientation
+        
+    return result
+
+def _topFaceMovementCases(encodedCube, base, pos, neg, dbl):
+    if encodedCube[base] == encodedCube[TOP_CENTER]:
+        movementList = ''
+    elif encodedCube[pos] == encodedCube[TOP_CENTER]:
+        movementList = 'U'
+    elif encodedCube[neg] == encodedCube[TOP_CENTER]:
+        movementList = 'UU'
+    elif encodedCube[dbl] == encodedCube[TOP_CENTER]:
+        movementList = 'u'
+    return movementList
+
+def _countCorners(encodedCube):
+    corners = 0
+    flag = 1 #no corners case
+    
+    if encodedCube[TOP_LOWER_PORT_EDGE] == encodedCube[TOP_CENTER]:
+        corners += corners + 1
+        flag += flag * 2 #2
+        
+    if encodedCube[TOP_LOWER_STBD_EDGE] == encodedCube[TOP_CENTER]:
+        corners += corners + 1
+        flag += flag * 3 #3 or 6
+        
+    if encodedCube[TOP_UPPER_STBD_EDGE] == encodedCube[TOP_CENTER]:
+        corners += corners + 1
+        flag += flag * 4 #4 or 8 or 12
+        
+    if encodedCube[TOP_UPPER_PORT_EDGE] == encodedCube[TOP_CENTER]:
+        corners += corners + 1
+        flag += flag * 5 #5 or 10 or 15 or 20
+        
+    if flag == 1:
+        flag = 'noCorners'
+        
+    if (flag == 2 or flag == 3 or flag == 4 or flag == 5):
+        flag = 'doubleCorners'
+        
+    else: 
+        flag = 'fish'
+        
+    return corners, flag
         
 
 """
