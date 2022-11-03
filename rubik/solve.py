@@ -137,7 +137,7 @@ def _solve(parms):
         
         result['rotations'] = _stringOptimizer(result['rotations'])
         
-        result['token'] = _hashResult(FinalResult.get('cube'), result['rotations'])
+        result['token'] = _hashResult(encodedCube, result['rotations'])
     
     result['status'] = status
     
@@ -151,6 +151,7 @@ def _solve(parms):
 def _hashResult(encodedCube, solution):
 
     itemToTokenize = ''.join(encodedCube) + solution
+    print(itemToTokenize)
 
     sha256Hash = hashlib.sha256()
     sha256Hash.update(itemToTokenize.encode())
@@ -160,7 +161,7 @@ def _hashResult(encodedCube, solution):
     #selects a random 8 char substring of fullToken 
     subToken = fullToken[randToken:randToken+8] 
     #return a 8 char of hash token
-
+    
     return subToken
 
 """
