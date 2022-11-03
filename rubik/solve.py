@@ -151,7 +151,6 @@ def _solve(parms):
 def _hashResult(encodedCube, solution):
 
     itemToTokenize = ''.join(encodedCube) + solution
-    print(itemToTokenize)
 
     sha256Hash = hashlib.sha256()
     sha256Hash.update(itemToTokenize.encode())
