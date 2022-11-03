@@ -160,6 +160,7 @@ def _hashResult(encodedCube, solution):
     #selects a random 8 char substring of fullToken 
     subToken = fullToken[randToken:randToken+8] 
     #return a 8 char of hash token
+
     return subToken
 
 """
@@ -1167,11 +1168,11 @@ def _solveTopFace(encodedCube, solution):
             movementList = _topFaceMovementCases(encodedCube, LEFT_UPPER_PORT_EDGE,FRONT_UPPER_PORT_EDGE,RIGHT_UPPER_PORT_EDGE,BACK_UPPER_PORT_EDGE)
                 
         #One case
-        elif flag == 'doubleCorners':
+        elif flag == 'fish':
             movementList = _topFaceMovementCases(encodedCube, TOP_LOWER_PORT_EDGE,TOP_LOWER_STBD_EDGE,TOP_UPPER_STBD_EDGE,TOP_UPPER_PORT_EDGE)
         
         #Two Case
-        elif flag == 'fish':         
+        elif flag == 'doubleCorners':         
             movementList = _topFaceMovementCases(encodedCube, FRONT_UPPER_PORT_EDGE,RIGHT_UPPER_PORT_EDGE, BACK_UPPER_PORT_EDGE,LEFT_UPPER_PORT_EDGE)
         
         movementList = movementList + 'RUrURUUr'
@@ -1204,28 +1205,28 @@ def _countCorners(encodedCube):
     
     if encodedCube[TOP_LOWER_PORT_EDGE] == encodedCube[TOP_CENTER]:
         corners += corners + 1
-        flag += flag * 2 #2
+        flag = flag * 2 #2
         
     if encodedCube[TOP_LOWER_STBD_EDGE] == encodedCube[TOP_CENTER]:
         corners += corners + 1
-        flag += flag * 3 #3 or 6
+        flag = flag * 3 #3 or 6
         
     if encodedCube[TOP_UPPER_STBD_EDGE] == encodedCube[TOP_CENTER]:
         corners += corners + 1
-        flag += flag * 4 #4 or 8 or 12
+        flag = flag * 4 #4 or 8 or 12
         
     if encodedCube[TOP_UPPER_PORT_EDGE] == encodedCube[TOP_CENTER]:
         corners += corners + 1
-        flag += flag * 5 #5 or 10 or 15 or 20
+        flag = flag * 5 #5 or 10 or 15 or 20
         
     if flag == 1:
         flag = 'noCorners'
         
-    if (flag == 2 or flag == 3 or flag == 4 or flag == 5):
-        flag = 'doubleCorners'
+    elif (flag == 2 or flag == 3 or flag == 4 or flag == 5):
+        flag = 'fish'
         
     else: 
-        flag = 'fish'
+        flag = 'doubleCorners'
         
     return corners, flag
 
