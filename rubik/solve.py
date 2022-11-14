@@ -1323,6 +1323,8 @@ def _moveHornsToFinal(encodedCube, hornColor, hornLocation):
     
     return movementList   
 
+
+
 """
 ##############################################################       
 ############ Shared Function for Result{} setting ############

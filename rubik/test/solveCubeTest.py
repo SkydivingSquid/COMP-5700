@@ -58,5 +58,17 @@ class solveCubeTest(unittest.TestCase):
         movementList = solve._moveHornsToFinal(cube, hornColor, hornLocation)
         self.assertEqual(expectedResult.get('movementList'), movementList)
        
+    def test_solve_063_solveTopCorners(self): 
+        cube = 'roowwwwwwwrrrrrrrryyyyyyyyyowwoooooobbbbbbbbbggggggggg'
+        solution = ''
+        
+        expectedResult = {}
+        expectedResult['cube'] = list('wwwwwwwwwrorrrrrrryryyyyyyyoyooooooobbbbbbbbbggggggggg')
+        expectedResult['solution'] = 'rFrBBRfrBBRRu'
+        
+        actualResult= solve._solveTopCorners(cube, solution)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
+        
         
         
