@@ -100,6 +100,17 @@ class solveCubeTest(unittest.TestCase):
         movementList = solve._solveFinalOrientation(cube)
         self.assertEqual(expectedResult.get('movementList'), movementList)    
     
+    def test_solve_066_SolveThisBaby(self):
+        cube = 'wwwwwwwwwrorrrrrrryryyyyyyyoyooooooobbbbbbbbbggggggggg'
+        solution = ''
+        
+        expectedResult = {}
+        expectedResult['cube'] = list('wwwwwwwwwrrrrrrrrryyyyyyyyyooooooooobbbbbbbbbggggggggg')
+        expectedResult['solution'] = 'UUFFUrLFFlRUFFUU'
+        
+        actualResult= solve._solveTopEdges(cube, solution)
+        self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         
         
         
