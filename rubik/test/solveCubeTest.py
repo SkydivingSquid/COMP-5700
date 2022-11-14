@@ -91,5 +91,18 @@ class solveCubeTest(unittest.TestCase):
         movementList = solve._rotateTopRowToBack(location)
         self.assertEqual(expectedResult.get('movementList'), movementList)
         
+    def test_solve_065a_rotateTopToSolveCube(self): 
+        cube = 'yyywwwwwwooorrrrrrwwwyyyyyyrrroooooobbbbbbbbbggggggggg'
+        
+        expectedResult = {}
+        expectedResult['movementList'] = 'UU'
+        
+        movementList = solve._solveFinalOrientation(cube)
+        self.assertEqual(expectedResult.get('movementList'), movementList)    
+    
+        
+        
+        
+        
         
         
