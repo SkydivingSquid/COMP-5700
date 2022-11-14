@@ -1264,6 +1264,34 @@ def _countHorns(encodedCube):
             
     return flag, hornColor, hornLocation
 
+    
+def _moveHornsToBack(encodedCube, hornColor, hornLocation): 
+    # if 0 on back, if -2 UU, if 1 U, if -1 u
+    movementList = ''
+    
+    if hornColor == encodedCube[FRONT_CENTER]:
+        difference = hornLocation - BACK
+        
+    if hornColor == encodedCube[RIGHT_CENTER]:
+        difference = hornLocation - BACK
+    
+    if hornColor == encodedCube[BACK_CENTER]:
+        difference = hornLocation - BACK
+        
+    if hornColor == encodedCube[LEFT_CENTER]:
+        difference = hornLocation - BACK
+    
+    if difference == 1:
+        movementList = 'U'
+        
+    elif difference == -1:
+        movementList = 'u'
+        
+    elif difference == -2:
+        movementList = 'UU'
+        
+    return movementList
+
 
 """
 ##############################################################       
