@@ -1425,7 +1425,7 @@ def _rotateTopRowToBack(location):
 
 """
 ##############################################################       
-############ Shared Function for Result{} setting ############
+############ Final Rotations For Solving The Cube ############
 ############################################################## 
 """
 
