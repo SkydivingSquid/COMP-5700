@@ -1348,6 +1348,35 @@ def _moveHornsToFinal(encodedCube, hornColor, hornLocation):
     
     return movementList   
 
+"""
+###########################################        
+############ Solving Top Edges ############
+###########################################
+"""
+
+def _faceCheck(encodedCube):
+    foundFaces = 0
+    location = None
+    
+    #Technically after the 'and' is redundant from 6a, but this eliminates inherent risk. Can remove if desired. 
+    if (encodedCube[FRONT_UPPER_MIDDLE] == encodedCube[FRONT_UPPER_PORT_EDGE] and encodedCube[FRONT_UPPER_PORT_EDGE] == encodedCube[FRONT_UPPER_STBD_EDGE]):
+        foundFaces = foundFaces + 1
+        location = FRONT
+        
+    if (encodedCube[RIGHT_UPPER_MIDDLE] == encodedCube[RIGHT_UPPER_PORT_EDGE] and encodedCube[RIGHT_UPPER_PORT_EDGE] == encodedCube[RIGHT_UPPER_STBD_EDGE]):
+
+        foundFaces = foundFaces + 1
+        location =  RIGHT
+        
+    if (encodedCube[BACK_UPPER_MIDDLE] == encodedCube[BACK_UPPER_PORT_EDGE] and encodedCube[BACK_UPPER_PORT_EDGE] == encodedCube[BACK_UPPER_STBD_EDGE]):
+        foundFaces = foundFaces + 1
+        location = BACK
+        
+    if (encodedCube[LEFT_UPPER_MIDDLE] == encodedCube[LEFT_UPPER_PORT_EDGE] and encodedCube[LEFT_UPPER_PORT_EDGE] == encodedCube[LEFT_UPPER_STBD_EDGE]):
+        foundFaces = foundFaces + 1
+        location = LEFT
+
+    return foundFaces, location
 
 
 """
