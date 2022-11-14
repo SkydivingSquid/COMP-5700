@@ -1227,6 +1227,44 @@ def _countCorners(encodedCube):
 ###########################################
 """
 
+
+def _countHorns(encodedCube):
+    horns = 0
+    hornColor = None
+    hornLocation = None
+    
+    if encodedCube[FRONT_UPPER_PORT_EDGE] == encodedCube[FRONT_UPPER_STBD_EDGE]:
+        horns = horns + 1
+        hornColor = encodedCube[FRONT_UPPER_STBD_EDGE]
+        hornLocation = FRONT
+        
+    if encodedCube[RIGHT_UPPER_PORT_EDGE] == encodedCube[RIGHT_UPPER_STBD_EDGE]:
+        horns = horns + 1
+        hornColor = encodedCube[RIGHT_UPPER_STBD_EDGE]
+        hornLocation = RIGHT
+        
+    if encodedCube[BACK_UPPER_PORT_EDGE] == encodedCube[BACK_UPPER_STBD_EDGE]:
+        horns = horns + 1
+        hornColor = encodedCube[BACK_UPPER_STBD_EDGE]
+        hornLocation = BACK
+        
+    if encodedCube[LEFT_UPPER_PORT_EDGE] == encodedCube[LEFT_UPPER_STBD_EDGE]:
+        horns = horns + 1
+        hornColor = encodedCube[LEFT_UPPER_STBD_EDGE]
+        hornLocation = LEFT
+    
+    if horns == 0:
+            flag = 'none'
+            
+    elif horns == 1:
+            flag = 'single'
+            
+    elif horns == 4:
+            flag = 'quad'
+            
+    return flag, hornColor, hornLocation
+
+
 """
 ##############################################################       
 ############ Shared Function for Result{} setting ############
