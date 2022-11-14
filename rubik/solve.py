@@ -1292,6 +1292,36 @@ def _moveHornsToBack(encodedCube, hornColor, hornLocation):
         
     return movementList
 
+def _moveHornsToFinal(encodedCube, hornColor, hornLocation): 
+    #This finds where a matching edge is and returns the difference. 0 is correct, -1/3 needs a u, -3/1 needs a U
+    movementList = ''
+    
+    if hornColor == encodedCube[FRONT_CENTER]:
+        location = FRONT
+        difference = location - hornLocation
+        
+    if hornColor == encodedCube[RIGHT_CENTER]:
+        location = RIGHT
+        difference = location - hornLocation
+    
+    if hornColor == encodedCube[BACK_CENTER]:
+        location = BACK
+        difference = location - hornLocation
+        
+    if hornColor == encodedCube[LEFT_CENTER]:
+        location = LEFT
+        difference = location - hornLocation
+        
+    if (difference == 1 or difference == -3):
+        movementList = 'u'
+        
+    elif (difference == -1 or difference == 3):
+        movementList = 'U'
+        
+    elif difference == -2:
+        movementList = 'UU'
+    
+    return movementList   
 
 """
 ##############################################################       
