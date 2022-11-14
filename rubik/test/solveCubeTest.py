@@ -70,5 +70,15 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         
+    def test_solve_064a_checkNumberOfCompletedTopRows(self): 
+        cube = 'wwwwwwwwwrorrrrrrryryyyyyyyoyooooooobbbbbbbbbggggggggg'
+
+        expectedResult = {}
+        expectedResult['foundFaces'] = 1
+        expectedResult['location'] = 0
+        
+        foundFaces, location = solve._faceCheck(cube)
+        self.assertEqual(expectedResult.get('foundFaces'), foundFaces)
+        self.assertEqual(expectedResult.get('location'), location)
         
         
