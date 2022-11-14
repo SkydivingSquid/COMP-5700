@@ -81,7 +81,7 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('foundFaces'), foundFaces)
         self.assertEqual(expectedResult.get('location'), location)
         
-    def test_solve_064a_checkNumberOfCompletedTopRows(self): 
+    def test_solve_064a_checkTopRowMovedToBack(self): 
         cube = 'wwwwwwwwwrorrrrrrryryyyyyyyoyooooooobbbbbbbbbggggggggg'
         location = 0
         
