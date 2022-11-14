@@ -36,3 +36,18 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('hornColor'), hornColor)
         self.assertEqual(expectedResult.get('hornLocation'), hornLocation)
         
+    def test_solve_061a_moveHornsToBackFace(self): #Integrated Test
+        cube = 'wwrwwwwwwyryrrrrrroywyyyyyyroooooooobbbbbbbbbggggggggg'
+        hornColor = 'y'
+        hornLocation = 1
+        
+        expectedResult = {}
+        expectedResult['movementList'] = 'u'
+        
+        movementList = solve._moveHornsToBack(cube, hornColor, hornLocation)
+        self.assertEqual(expectedResult.get('movementList'), movementList)
+        
+        
+        
+        
+        
