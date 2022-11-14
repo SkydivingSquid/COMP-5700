@@ -82,7 +82,6 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('location'), location)
         
     def test_solve_064a_checkTopRowMovedToBack(self): 
-        cube = 'wwwwwwwwwrorrrrrrryryyyyyyyoyooooooobbbbbbbbbggggggggg'
         location = 0
         
         expectedResult = {}
