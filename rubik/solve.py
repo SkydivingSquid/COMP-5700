@@ -139,9 +139,9 @@ def _solve(parms):
         
         FinalResult = _solveTopFace(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 5a
         
-        #FinalResult = _solveTopCorners(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 6a
+        FinalResult = _solveTopCorners(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 6a
         
-        #FinalResult = _solveTopEdges(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 6b
+        FinalResult = _solveTopEdges(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 6b
 
         result['rotations'] = FinalResult.get('solution')
         
