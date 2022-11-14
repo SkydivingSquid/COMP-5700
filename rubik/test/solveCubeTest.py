@@ -81,4 +81,15 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('foundFaces'), foundFaces)
         self.assertEqual(expectedResult.get('location'), location)
         
+    def test_solve_064a_checkNumberOfCompletedTopRows(self): 
+        cube = 'wwwwwwwwwrorrrrrrryryyyyyyyoyooooooobbbbbbbbbggggggggg'
+        location = 0
+        
+        expectedResult = {}
+        expectedResult['movementList'] = 'UU'
+        
+        movementList = solve._rotateTopRowToBack(location)
+        self.assertEqual(expectedResult.get('movementList'), movementList)
+        
+        
         
