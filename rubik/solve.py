@@ -1396,6 +1396,27 @@ def _rotateTopRowToBack(location):
             
     return movementList
 
+"""
+##############################################################       
+############ Shared Function for Result{} setting ############
+############################################################## 
+"""
+
+def _solveFinalOrientation(encodedCube):
+    
+    if encodedCube[FRONT_CENTER] == encodedCube[BACK_UPPER_MIDDLE]:
+        movementList = 'UU'
+        
+    elif encodedCube[FRONT_CENTER] == encodedCube[RIGHT_UPPER_MIDDLE]:
+        movementList = 'U'
+        
+    elif encodedCube[FRONT_CENTER] == encodedCube[LEFT_UPPER_MIDDLE]:
+        movementList = 'u'
+        
+    else: #Assumed to be in right spot.
+        movementList = ''
+        
+    return movementList
 
 """
 ##############################################################       
