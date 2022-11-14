@@ -127,7 +127,7 @@ def _solve(parms):
     #Verify If Input Is Valid and Return Status
     status = _verifyInput(encodedCube)
 
-    #Solve for Bottom Cross and set rotations to the solution.
+    #Driving Logic Flow
     if status == 'ok':
         FinalResult = _solveBottomCross(encodedCube) #Iteration 2
 
@@ -179,15 +179,14 @@ def _hashResult(encodedCube, solution):
 """
 
 def _stringOptimizer(solution):
+    '''Optimizes the solution string by removing counterproductive rotations'''
     
     initialLength = len(solution)
     flag = True
     
     solutionOptimizationDict = {
         'FFFF' : '',
-        
         'UUU' : 'u', 'uuu' : 'U',
-        
         'Ff' : '', 'fF' : '',
         'Rr' : '', 'rR' : '',
         'Bb' : '', 'bB' : '',
@@ -195,7 +194,6 @@ def _stringOptimizer(solution):
         'Uu' : '', 'uU' : '',
         'Dd' : '', 'dD' : '',
     }
-    
     while (flag):
         for key, value in solutionOptimizationDict.items():
             solution = solution.replace(key, value)
@@ -214,7 +212,7 @@ def _stringOptimizer(solution):
 ############################################
 """
 def _verifyInput(encodedCube):
-    """ Verifies Cube Input as Valid (does not current check if 'possible', just valid). """
+    """ Verifies Cube Input as Valid (does not currently check if 'possible', just valid). """
     result = {}
     result['status'] = 'ok'
     status = result['status']
@@ -744,7 +742,6 @@ def _topToBottomEdgeAlgorithm(encodedCube,solution,cubeLctn, colorMarker):
             movementList = 'ubUB' #Valid for test 309
 
     _movementListMethod(encodedCube, result, movementList)
-
     return result
 
 def _moveBottomEdgeToTopEdge(encodedCube, solution, cubeLocation):
@@ -920,7 +917,6 @@ def _topToMiddleEdgeAlgorithm(encodedCube,solution,cubeLctn,colorMarker):
             movementList = 'UFufulUL'
 
     _movementListMethod(encodedCube, result, movementList)
-
     return result
 
 def _findMiddleEdge(encodedCube, yCube, xCube):
@@ -1391,7 +1387,6 @@ def _faceCheck(encodedCube):
         location = FRONT
         
     if (encodedCube[RIGHT_UPPER_MIDDLE] == encodedCube[RIGHT_UPPER_PORT_EDGE] and encodedCube[RIGHT_UPPER_PORT_EDGE] == encodedCube[RIGHT_UPPER_STBD_EDGE]):
-
         foundFaces = foundFaces + 1
         location =  RIGHT
         
@@ -1412,7 +1407,6 @@ def _rotateTopRowToBack(location):
         movementList = 'UU'
         
     elif location == RIGHT:
-
         movementList = 'u'
         
     elif location == BACK:
@@ -1442,7 +1436,7 @@ def _solveFinalOrientation(encodedCube):
         
     else: #Assumed to be in right spot.
         movementList = ''
-        
+          
     return movementList
 
 """
@@ -1466,7 +1460,6 @@ def _movementListMethod(encodedCube, result, movementList):
     for letter in movementList:
         result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
         encodedCube = result['cube']
-    
     return encodedCube
         
 """
@@ -1556,7 +1549,6 @@ def _rotateF(cube):
 #Rotate front face counter-clockwise (f)
 def _rotatef(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1598,7 +1590,6 @@ def _rotatef(cube):
 #Rotate right face clockwise (R)
 def _rotateR(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1640,7 +1631,6 @@ def _rotateR(cube):
 #Rotate right face counter-clockwise (r)
 def _rotater(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1682,7 +1672,6 @@ def _rotater(cube):
 #Rotate Back face clockwise (B)
 def _rotateB(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1724,7 +1713,6 @@ def _rotateB(cube):
 #Rotate Back face counter-clockwise (b)
 def _rotateb(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1766,7 +1754,6 @@ def _rotateb(cube):
 #Rotate Left face clockwise (L)
 def _rotateL(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1808,7 +1795,6 @@ def _rotateL(cube):
 #Rotate Left face clockwise (l)
 def _rotatel(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1850,7 +1836,6 @@ def _rotatel(cube):
 #Rotate top (Upper) face clockwise (U)
 def _rotateU(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1892,7 +1877,6 @@ def _rotateU(cube):
 #Rotate top (Upper) face counter-clockwise (u)
 def _rotateu(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
@@ -1934,7 +1918,6 @@ def _rotateu(cube):
 #Rotate bottom (Downward) face clockwise (D)
 def _rotateD(cube):
     result = {}
-
     cubeList = list(cube)
     rotatedCubeList = cubeList[:]
 
