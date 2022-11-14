@@ -1378,6 +1378,24 @@ def _faceCheck(encodedCube):
 
     return foundFaces, location
 
+def _rotateTopRowToBack(location):
+    movementList = ''
+
+    if location == FRONT:
+        movementList = 'UU'
+        
+    elif location == RIGHT:
+
+        movementList = 'u'
+        
+    elif location == BACK:
+        movementList = ''
+        
+    elif location == LEFT:
+        movementList = 'U'
+            
+    return movementList
+
 
 """
 ##############################################################       
