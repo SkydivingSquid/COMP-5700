@@ -10,7 +10,7 @@ import rubik.solve as solve
 class solveCubeTest(unittest.TestCase):
 
 
-    def test_solve_060a_countingHornsforTopCorners(self): #Integrated Test
+    def test_solve_060a_countingHornsforTopCorners_0(self): #Integrated Test
         cube = 'rwowwwwwwwoyrrrrrrorryyyyyyyywoooooobbbbbbbbbggggggggg'
                         
         expectedResult = {}
@@ -23,4 +23,16 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('hornColor'), hornColor)
         self.assertEqual(expectedResult.get('hornLocation'), hornLocation)
         
+    def test_solve_060b_countingHornsforTopCorners_1(self): #Integrated Test
+        cube = 'roowwwwwwwwrrrrrrryryyyyyyyoywoooooobbbbbbbbbggggggggg'
+                        
+        expectedResult = {}
+        expectedResult['flag'] = 'single'
+        expectedResult['hornColor'] = 'y'
+        expectedResult['hornLocation'] = 2
+        
+        flag, hornColor, hornLocation, = solve._countHorns(cube)
+        self.assertEqual(expectedResult.get('flag'), flag)
+        self.assertEqual(expectedResult.get('hornColor'), hornColor)
+        self.assertEqual(expectedResult.get('hornLocation'), hornLocation)
         
