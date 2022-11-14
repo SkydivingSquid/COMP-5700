@@ -111,7 +111,22 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('cube'), actualResult.get('cube'))
         self.assertEqual(expectedResult.get('solution'), actualResult.get('solution'))
         
-        
+    def test_solve_67_IntegrationTest_CompletedSolve_ComplexCube(self):
+        inputDict = {}
+        inputDict['op'] = 'solve'
+        inputDict['cube'] = 'oybgwowgrrbywrygbwryyoyyogoowwgorgbrbrgrbwgbybwwogryob'
+    
+        expectedResult = {}
+        expectedResult['cube'] = list('wwwwwwwwwrrrrrrrrryyyyyyyyyooooooooobbbbbbbbbggggggggg')
+    
+        #Optimized Version 
+        expectedResult['solution'] = ('lFFlfLDFFUULLblBDLLUUBBFFUURRUUBBUULLfuFUbuBUrURUUbuBlULUrURUB' +
+        'ubULulubUBUFufulULUFRUrufUURUrURUUrUURUrURUUrrFrBBRfrBBRRUrFrBBRfrBBRRFFUrLFFlRUFFUU')
+        expectedResult['status'] = 'ok'
+    
+        actualResult = solve._solve(inputDict)
+        self.assertEqual(expectedResult.get('solution'), actualResult.get('rotations'))
+        self.assertEqual(expectedResult.get('status'), actualResult.get('status'))
         
         
         
