@@ -10,7 +10,7 @@ import rubik.solve as solve
 class solveCubeTest(unittest.TestCase):
 
 
-    def test_solve_060a_countingHornsforTopCorners_0(self): #Integrated Test
+    def test_solve_060a_countingHornsforTopCorners_0(self): 
         cube = 'rwowwwwwwwoyrrrrrrorryyyyyyyywoooooobbbbbbbbbggggggggg'
                         
         expectedResult = {}
@@ -23,7 +23,7 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('hornColor'), hornColor)
         self.assertEqual(expectedResult.get('hornLocation'), hornLocation)
         
-    def test_solve_060b_countingHornsforTopCorners_1(self): #Integrated Test
+    def test_solve_060b_countingHornsforTopCorners_1(self):
         cube = 'roowwwwwwwwrrrrrrryryyyyyyyoywoooooobbbbbbbbbggggggggg'
                         
         expectedResult = {}
@@ -36,7 +36,7 @@ class solveCubeTest(unittest.TestCase):
         self.assertEqual(expectedResult.get('hornColor'), hornColor)
         self.assertEqual(expectedResult.get('hornLocation'), hornLocation)
         
-    def test_solve_061a_moveHornsToBackFace(self): #Integrated Test
+    def test_solve_061a_moveHornsToBackFace(self): 
         cube = 'wwrwwwwwwyryrrrrrroywyyyyyyroooooooobbbbbbbbbggggggggg'
         hornColor = 'y'
         hornLocation = 1
@@ -47,7 +47,16 @@ class solveCubeTest(unittest.TestCase):
         movementList = solve._moveHornsToBack(cube, hornColor, hornLocation)
         self.assertEqual(expectedResult.get('movementList'), movementList)
         
+    def test_solve_062a_moveHornsToCorrectLocation(self): 
+        cube = 'ywywwwwwwororrrrrrwywyyyyyyroroooooobbbbbbbbbggggggggg'
+        hornColor = 'r'
+        hornLocation = 3
         
+        expectedResult = {}
+        expectedResult['movementList'] = 'UU'
         
+        movementList = solve._moveHornsToFinal(cube, hornColor, hornLocation)
+        self.assertEqual(expectedResult.get('movementList'), movementList)
+       
         
         
