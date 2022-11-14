@@ -1354,6 +1354,33 @@ def _moveHornsToFinal(encodedCube, hornColor, hornLocation):
 ###########################################
 """
 
+def _solveTopEdges(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+    foundFaces = 0
+    
+    while foundFaces < 3:
+
+        foundFaces, location = _faceCheck(encodedCube)
+
+        if foundFaces == 0:
+            movementList = 'FFUrLFFlRUFF'
+            
+        elif foundFaces == 1:
+
+            movementList = _rotateTopRowToBack(location)
+            movementList = movementList + 'FFUrLFFlRUFF'
+    
+        elif foundFaces == 4:
+
+            movementList = _solveFinalOrientation(encodedCube)
+        
+        #This is a unique movementList (NOT THE SHARED METHOD!)
+        for letter in movementList:
+            result['solution'], result['cube'] = _functionalRotations(encodedCube, result, letter)
+            encodedCube = result['cube']
+        
+    return result
+
 def _faceCheck(encodedCube):
     foundFaces = 0
     location = None
