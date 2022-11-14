@@ -1227,6 +1227,31 @@ def _countCorners(encodedCube):
 ###########################################
 """
 
+def _solveTopCorners(encodedCube, solution):
+    result = argsResult(encodedCube, solution)
+    movementList = ''
+    flag = ''
+    
+    while flag != "quad":
+        flag, hornColor, hornLocation = _countHorns(result['cube'])
+        
+        if flag == 'none':
+            movementList = 'rFrBBRfrBBRRUrFrBBRfrBBRR'
+        
+        elif flag == 'single':
+
+            movementList = _moveHornsToBack(encodedCube, hornColor, hornLocation)
+            movementList = movementList + 'rFrBBRfrBBRRu'
+            
+        encodedCube = movementListMethod(encodedCube, result, movementList)
+                
+        flag, hornColor, hornLocation = _countHorns(result['cube'])
+
+    movementList = _moveHornsToFinal(encodedCube, hornColor, hornLocation)
+    
+    encodedCube = movementListMethod(encodedCube, result, movementList)
+            
+    return result
 
 def _countHorns(encodedCube):
     horns = 0
