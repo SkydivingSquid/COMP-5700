@@ -119,16 +119,17 @@ LEFT = 3
 def _solve(parms):
     """ Returns the solutions needed to solve a cube and the status of input. """
     result = {}
-    result['rotations'] = ''
-    result['status'] = ''
     FinalResult = {}
     encodedCube = parms.get('cube', None)
 
     #Verify If Input Is Valid and Return Status
     status = _verifyInput(encodedCube)
-
+    
     #Driving Logic Flow
     if status == 'ok':
+        result['rotations'] = ''
+        result['status'] = ''
+        
         FinalResult = _solveBottomCross(encodedCube) #Iteration 2
 
         FinalResult = _solveBottomFace(FinalResult.get('cube'), FinalResult.get('solution')) #Iteration 3
