@@ -8,7 +8,7 @@ import random
 ###############################################
 """
 #CENTERS
-FRONT_CENTER = 4
+FRONT_CENTER = 4 
 RIGHT_CENTER = 13
 BACK_CENTER = 22
 LEFT_CENTER = 31
