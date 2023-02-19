@@ -7,7 +7,7 @@ import random
 ############### CUBE CONSTANTS ################
 ###############################################
 """
-#CENTERS
+#CENTER FACES
 FRONT_CENTER = 4 
 RIGHT_CENTER = 13
 BACK_CENTER = 22
